@@ -5,6 +5,14 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0](https://github.com/littlebearapps/repo-docs-plugin/compare/v1.2.0...v1.3.0) (2026-02-25)
+
+
+### Added
+
+* add npm and PyPI package registry documentation guidance ([38540d4](https://github.com/littlebearapps/repo-docs-plugin/commit/38540d4ff1aad7136628d9689535d85730668751))
+* add release-please automated versioning ([562b0c1](https://github.com/littlebearapps/repo-docs-plugin/commit/562b0c186d305e1734e263077e279a756ebadf33))
+
 ## [1.2.0] - 2026-02-25
 
 ### Added
