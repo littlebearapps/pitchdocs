@@ -4,13 +4,27 @@
 
 **Generate repository documentation that sells as well as it informs.**
 
+A [Claude Code](https://code.claude.com/) plugin — install it, run a command, get docs that pass the 4-question test.
+
 [![License](https://img.shields.io/github/license/littlebearapps/repo-docs-plugin)](LICENSE)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-blue)](https://code.claude.com/docs/en/plugins)
-[![GitHub stars](https://img.shields.io/github/stars/littlebearapps/repo-docs-plugin)](https://github.com/littlebearapps/repo-docs-plugin/stargazers)
 
-[Installation](#installation) · [Commands](#commands) · [Skills](#skills) · [Contributing](CONTRIBUTING.md)
+[Get Started](#get-started) · [Commands](#commands) · [Skills](#skills) · [Contributing](CONTRIBUTING.md)
 
 </div>
+
+## Get Started
+
+```bash
+# 1. Add the LBA plugin marketplace (once)
+/plugin marketplace add littlebearapps/lba-plugins
+
+# 2. Install repo-docs
+/plugin install repo-docs@lba-plugins
+
+# 3. Generate a README for any project
+/readme
+```
 
 ---
 
@@ -54,16 +68,6 @@ repo-docs generates documentation with a **marketing edge** — docs that answer
 | Can I use it? | Quick start that works in under 5 minutes |
 | Who made it? | Badges, contributor counts, credibility signals |
 | Where do I learn more? | Cross-linked guides, hub pages, community links |
-
-## Installation
-
-```bash
-# Add the LBA marketplace (once)
-/plugin marketplace add littlebearapps/lba-plugins
-
-# Install the plugin
-/plugin install repo-docs@lba-plugins
-```
 
 ## Commands
 
@@ -112,7 +116,7 @@ The **docs-writer** agent handles long-form documentation generation. It analyse
 | Dimension | Writing by Hand | Using repo-docs |
 |-----------|----------------|-----------------|
 | Marketing framework | Ad hoc — varies per author | Daytona/Banesullivan 4-question test on every doc |
-| Language consistency | Drifts over time | Australian English, benefit-driven tone, enforced by rules |
+| Language consistency | Drifts over time | Benefit-driven tone, consistent spelling, enforced by rules |
 | Progressive disclosure | Often front-loads technical detail | Non-technical first, technical deeper — every time |
 | Cross-linking | Usually forgotten | Automatic links between README, CONTRIBUTING, CHANGELOG |
 | Completeness | Easy to miss files | 14-file audit catches gaps before you ship |
@@ -122,7 +126,6 @@ The **docs-writer** agent handles long-form documentation generation. It analyse
 - **Benefit-driven**: Describe what users gain, not just what the software does
 - **Progressive disclosure**: Non-technical first paragraph, technical details deeper
 - **4-question framework**: Every doc answers — Does this solve my problem? Can I use it? Who made it? Where to learn more?
-- **Australian English**: realise, colour, behaviour, organisation (per LBA standards)
 - **Cross-linked**: Every doc links to related docs — no orphaned pages
 
 ## Upstream Specifications

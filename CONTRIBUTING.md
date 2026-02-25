@@ -53,7 +53,7 @@ The most impactful contributions improve the quality of generated docs. Look at 
 When improving a template:
 1. Show a before/after example of the generated output
 2. Explain why the new version is better for the reader
-3. Ensure Australian English spelling (realise, colour, behaviour)
+3. Check spelling is consistent with the project's language conventions
 
 ### Adding New Skills or Commands
 
@@ -92,7 +92,7 @@ Since this plugin is pure markdown, there's no test suite to run. Instead, verif
 1. Install your local copy: `/plugin install /path/to/repo-docs-plugin`
 2. Run the relevant command against a test repository (e.g. `/readme`, `/changelog`)
 3. Review the generated output — does it pass the [4-question test](https://github.com/banesullivan/readme)?
-4. Check for Australian English spelling (realise, colour, behaviour, organisation)
+4. Check spelling is consistent throughout
 5. Ensure any new cross-links between docs resolve correctly
 
 ## Code of Conduct

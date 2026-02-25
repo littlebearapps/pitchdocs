@@ -36,7 +36,7 @@ This roadmap reflects our current plans and priorities. It's a living document â
 | :white_check_mark: | Marketing-friendly README generation | #42 | Shipped in v1.2 |
 | :white_check_mark: | Changelog from conventional commits | #38 | Shipped in v1.2 |
 | :construction: | GitHub Projects integration | #45 | PR open |
-| :construction: | Australian English support | #44 | In review |
+| :construction: | User-benefit language in changelogs | #44 | In review |
 | :dart: | Comparison table generator | #50 | Starting next sprint |
 | :dart: | CONTRIBUTING.md generator | #48 | Blocked on #45 |
 

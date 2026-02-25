@@ -54,7 +54,7 @@ For README.md:
 - [ ] Has a quickstart section that works
 - [ ] Has a features section with benefits
 - [ ] Has contributing/community links
-- [ ] Uses Australian English
+- [ ] Consistent spelling and language
 - [ ] Links to user guides (if docs/guides/ exists)
 
 For CONTRIBUTING.md:

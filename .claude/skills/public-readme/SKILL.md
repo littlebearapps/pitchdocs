@@ -134,7 +134,7 @@ Only include if there are genuine alternatives. Be honest and fair.
 | Feature | Project Name | Alternative A | Alternative B |
 |---------|-------------|---------------|---------------|
 | Marketing-friendly output | :white_check_mark: | :x: | Partial |
-| Australian English support | :white_check_mark: | :x: | :x: |
+| 4-question framework | :white_check_mark: | :x: | :x: |
 | GitHub MCP integration | :white_check_mark: | :x: | :white_check_mark: |
 ```
 

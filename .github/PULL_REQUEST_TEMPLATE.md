@@ -21,7 +21,7 @@ Closes #
 
 - [ ] Ran the affected command on a test repository
 - [ ] Verified generated output quality
-- [ ] Checked Australian English spelling
+- [ ] Consistent spelling throughout
 - [ ] Cross-references between components are valid
 
 ## Checklist

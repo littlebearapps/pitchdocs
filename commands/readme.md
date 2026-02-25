@@ -51,4 +51,4 @@ After generation, verify:
 - All badge URLs are correct for this repo
 - Quick start code examples actually work
 - Links to existing docs/guides are included
-- Australian English spelling throughout
+- Consistent spelling throughout

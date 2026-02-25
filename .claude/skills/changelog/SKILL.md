@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 - New `/roadmap` command pulls data from GitHub Projects (#30)
-- Australian English support across all generated documents (#28)
+- User-benefit language across all generated documents (#28)
 
 ### Changed
 - Quickstart section now shows TypeScript examples by default (#27)

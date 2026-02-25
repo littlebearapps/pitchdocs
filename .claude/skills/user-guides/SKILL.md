@@ -252,7 +252,7 @@ npx package-name
 - **Error recovery**: Mention common mistakes and how to fix them
 - **Cross-links**: Every guide links to related guides and back to the hub
 - **Active voice**: "Run the command" not "The command should be run"
-- **Australian English**: realise, colour, behaviour, organisation
+- **Consistent spelling**: follow the project's existing language conventions
 
 ## Anti-Patterns
 

@@ -20,7 +20,7 @@ Every document must answer these questions for the reader:
 
 ## Tone & Language
 
-- Australian English (realise, colour, behaviour, organisation)
+- Consistent language — follow the project's existing locale and spelling conventions
 - Professional-yet-approachable — confident, not corporate
 - Benefit-driven: describe what users GAIN, not just what the software DOES
 - "You can now..." not "We implemented..." — reader-centric framing

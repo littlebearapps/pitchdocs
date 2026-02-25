@@ -89,7 +89,7 @@ Before finalising any document, check:
 - [ ] Quick start works in under 5 minutes
 - [ ] All links are valid
 - [ ] Badges use correct URLs
-- [ ] Australian English spelling
+- [ ] Consistent spelling (matches project's language conventions)
 - [ ] No placeholder text left behind
 - [ ] Every section answers at least one of the 4 questions
 - [ ] Document ends with a clear call to action
