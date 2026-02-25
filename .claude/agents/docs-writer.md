@@ -73,7 +73,7 @@ Read the repo's GitHub-level metadata to identify discoverability gaps:
 gh repo view --json topics,homepageUrl,description
 ```
 
-- **Topics**: If fewer than 5, suggest relevant topics based on the project type, language, framework, and ecosystem discovered in Step 1. Use the topic suggestion framework from the `repo-docs-suite` skill.
+- **Topics**: If fewer than 5, suggest relevant topics based on the project type, language, framework, and ecosystem discovered in Step 1. Use the topic suggestion framework from the `pitchdocs-suite` skill.
 - **Description**: If empty or generic, derive a concise description from the README one-liner or the hero features extracted in Step 2.
 - **Website URL**: If empty, suggest the project's docs site, homepage, or package registry page.
 

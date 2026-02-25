@@ -19,7 +19,7 @@ Check what public-facing documentation is missing or needs improvement.
 
 ## Behaviour
 
-1. Load the `repo-docs-suite` skill for the complete inventory
+1. Load the `pitchdocs-suite` skill for the complete inventory
 2. Load the `doc-standards` rule for quality criteria
 3. Scan the repository for all expected documentation files
 4. Quality-check existing documents against the 4-question framework

@@ -1,5 +1,5 @@
 ---
-name: repo-docs-suite
+name: pitchdocs-suite
 description: One-command generation and audit of the full public repository documentation set — README, CHANGELOG, ROADMAP, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, issue templates, PR template, and discussion templates. Use when setting up a new repo or auditing an existing one.
 ---
 

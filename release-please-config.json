@@ -4,7 +4,7 @@
   "packages": {
     ".": {
       "release-type": "simple",
-      "component": "repo-docs",
+      "component": "pitchdocs",
       "changelog-path": "CHANGELOG.md",
       "extra-files": [
         {

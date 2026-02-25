@@ -1,19 +1,19 @@
-# Contributing to repo-docs
+# Contributing to PitchDocs
 
 Thank you for your interest in contributing! This plugin helps generate better repository documentation, and we'd love your help making it even better.
 
 ## Quick Links
 
-- [Good First Issues](https://github.com/littlebearapps/repo-docs-plugin/labels/good%20first%20issue) — Great starting points
-- [Open Issues](https://github.com/littlebearapps/repo-docs-plugin/issues) — Find something to work on
-- [Feature Requests](https://github.com/littlebearapps/repo-docs-plugin/issues/new?template=feature_request.yml) — Suggest improvements
+- [Good First Issues](https://github.com/littlebearapps/pitchdocs/labels/good%20first%20issue) — Great starting points
+- [Open Issues](https://github.com/littlebearapps/pitchdocs/issues) — Find something to work on
+- [Feature Requests](https://github.com/littlebearapps/pitchdocs/issues/new?template=feature_request.yml) — Suggest improvements
 
 ## How the Plugin Works
 
 This is a Claude Code plugin — a collection of markdown files that extend Claude's capabilities. There is no compiled code, no build step, and no runtime dependencies.
 
 ```
-repo-docs-plugin/
+pitchdocs/
 ├── .claude-plugin/plugin.json     # Plugin manifest
 ├── .claude/
 │   ├── agents/docs-writer.md      # Long-form doc generation agent
@@ -22,7 +22,7 @@ repo-docs-plugin/
 │       ├── public-readme/SKILL.md
 │       ├── changelog/SKILL.md
 │       ├── roadmap/SKILL.md
-│       ├── repo-docs-suite/SKILL.md
+│       ├── pitchdocs-suite/SKILL.md
 │       └── user-guides/SKILL.md
 ├── commands/                      # Slash commands (/readme, /changelog, etc.)
 └── upstream-versions.json         # Pinned upstream spec versions
@@ -32,8 +32,8 @@ repo-docs-plugin/
 
 ```bash
 # Clone the repo
-git clone https://github.com/littlebearapps/repo-docs-plugin.git
-cd repo-docs-plugin
+git clone https://github.com/littlebearapps/pitchdocs.git
+cd pitchdocs
 
 # That's it — no dependencies to install
 ```
@@ -41,7 +41,7 @@ cd repo-docs-plugin
 To test changes locally, install the plugin from your local path:
 ```bash
 # In Claude Code, point to your local clone
-/plugin install /path/to/repo-docs-plugin
+/plugin install /path/to/pitchdocs
 ```
 
 ## How to Contribute
@@ -59,7 +59,7 @@ When improving a template:
 
 1. Create the skill in `.claude/skills/<name>/SKILL.md` with proper frontmatter
 2. Create the command in `commands/<name>.md` with proper frontmatter
-3. Update the `repo-docs-suite` skill if the new doc type should appear in audits
+3. Update the `pitchdocs-suite` skill if the new doc type should appear in audits
 4. Update `README.md` with the new skill/command
 
 ### Updating Upstream Specifications
@@ -89,7 +89,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/):
 
 Since this plugin is pure markdown, there's no test suite to run. Instead, verify your changes by:
 
-1. Install your local copy: `/plugin install /path/to/repo-docs-plugin`
+1. Install your local copy: `/plugin install /path/to/pitchdocs`
 2. Run the relevant command against a test repository (e.g. `/readme`, `/changelog`)
 3. Review the generated output — does it pass the [4-question test](https://github.com/banesullivan/readme)?
 4. Check spelling is consistent throughout
@@ -101,6 +101,6 @@ This project follows the [Contributor Covenant v3.0 Code of Conduct](CODE_OF_CON
 
 ## Questions?
 
-[Open an issue](https://github.com/littlebearapps/repo-docs-plugin/issues/new) — we're happy to help.
+[Open an issue](https://github.com/littlebearapps/pitchdocs/issues/new) — we're happy to help.
 
-Thank you for making repo-docs better!
+Thank you for making PitchDocs better!

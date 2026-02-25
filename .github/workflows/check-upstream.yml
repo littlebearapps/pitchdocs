@@ -100,7 +100,7 @@ jobs:
           ### Reference
 
           - `upstream-versions.json` — pinned versions and check URLs
-          - `.claude/skills/repo-docs-suite/SKILL.md` — CODE_OF_CONDUCT template
+          - `.claude/skills/pitchdocs-suite/SKILL.md` — CODE_OF_CONDUCT template
           - `.claude/skills/changelog/SKILL.md` — Keep a Changelog format
 
           *This issue was created automatically by the `check-upstream` workflow.*
