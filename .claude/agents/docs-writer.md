@@ -115,6 +115,10 @@ Before finalising any document, check:
 - [ ] No placeholder text left behind
 - [ ] Every section answers at least one of the 4 questions
 - [ ] Document ends with a clear call to action
+- [ ] README includes at least one visual element (image, GIF, or diagram) or documents why not
+- [ ] LICENSE file matches the license field in the project manifest
+- [ ] Social preview image reminder flagged if not set
+- [ ] llms.txt is present and up to date (or flagged as missing)
 
 ## Gold Standard Examples
 

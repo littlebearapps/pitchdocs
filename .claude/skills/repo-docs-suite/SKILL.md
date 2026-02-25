@@ -14,7 +14,7 @@ A well-documented public repository should have these files:
 | File | Purpose | Generator |
 |------|---------|-----------|
 | `README.md` | First impression, value proposition, quickstart | `public-readme` skill |
-| `LICENSE` | Legal terms for usage | Auto-detect from package.json |
+| `LICENSE` | Legal terms for usage — see LICENSE Selection Framework below | Auto-detect from package.json |
 | `CONTRIBUTING.md` | How to contribute code, report bugs, suggest features | This skill |
 | `.github/ISSUE_TEMPLATE/bug_report.yml` | Structured bug reports | This skill |
 | `.github/ISSUE_TEMPLATE/feature_request.yml` | Feature proposals | This skill |
@@ -25,6 +25,9 @@ A well-documented public repository should have these files:
 | File | Purpose | Generator |
 |------|---------|-----------|
 | `CHANGELOG.md` | User-facing change history | `changelog` skill |
+| `SUPPORT.md` | Where to get help — issues, discussions, external channels | This skill |
+| `.github/release.yml` | Auto-generated release note categories | This skill |
+| `llms.txt` | LLM-friendly content index for AI tools (Cursor, Windsurf, Claude Code) | `llms-txt` skill |
 | `CODE_OF_CONDUCT.md` | Community behaviour standards | This skill |
 | `SECURITY.md` | Vulnerability reporting process | This skill |
 | `.github/ISSUE_TEMPLATE/config.yml` | Issue template chooser config | This skill |
@@ -42,6 +45,7 @@ A well-documented public repository should have these files:
 | `docs/guides/troubleshooting.md` | Common issues and solutions | `user-guides` skill |
 | `.github/DISCUSSION_TEMPLATE/` | Structured discussion categories | This skill |
 | `.github/CODEOWNERS` | Automatic review assignment | Manual |
+| `CITATION.cff` | Machine-readable citation for academic/research repos (GitHub shows "Cite this repository" button) | This skill |
 
 ### Repository Metadata (GitHub Settings)
 
@@ -107,13 +111,55 @@ Set to the most useful entry point for new users, in priority order:
 3. Package registry page (e.g., `npmjs.com/package/name`)
 4. GitHub Pages docs (e.g., `org.github.io/repo`)
 
+#### Social Preview Image
+
+The social preview appears when sharing repo links on Twitter/X, Slack, Discord, and LinkedIn. Without a custom image, GitHub auto-generates a bland preview from the repo name.
+
+- **Recommended size**: 1280x640px (minimum 640x320)
+- **File size**: under 1MB, ideally <300KB
+- **Set via**: Settings > Social preview (manual upload — no CLI or API)
+- **Design tip**: keep key text centred to survive cropping on different platforms
+- **Cannot be audited programmatically** — the audit should remind users to check
+
+### Visual Assets Guidance
+
+Guidance on storing and referencing visual elements (screenshots, demo GIFs, diagrams) in repository documentation.
+
+#### Storage Locations
+
+| Location | Best For | Pros | Cons |
+|----------|----------|------|------|
+| In-repo (`docs/images/` or `assets/`) | Small files (<5MB) | Version-controlled, always accessible | Increases repo size |
+| GitHub user-content | Any size | Keeps repo small | Not version-controlled, URLs can break |
+| GitHub Release assets | Large files (>5MB) | Doesn't bloat repo or git history | Tied to a specific release |
+| External CDN (Cloudinary, S3) | Very large assets | Full control | External dependency |
+
+**GitHub user-content hosting**: drag-and-drop an image into any GitHub issue, PR, or comment to get a permanent `user-images.githubusercontent.com` URL. Use this URL in your README.
+
+#### Recommended Formats
+
+| Format | Best For | Notes |
+|--------|----------|-------|
+| SVG | Diagrams, architecture charts | Scales perfectly, small file size |
+| PNG | Screenshots, UI captures | Lossless, good for text-heavy images |
+| GIF | Demo recordings, short workflows | GitHub caps at 10MB, aim for ~10fps |
+| WebP | Photos, complex images | Smaller than PNG, good browser support |
+
+#### Quality Rules
+
+- **Width**: under 800px for GitHub's Markdown renderer
+- **Alt text**: required for accessibility — describe what the image shows, not just "screenshot"
+- **File size**: optimise to <300KB where possible (use tools like `optipng`, `gifsicle`)
+- **Naming**: kebab-case, descriptive (`demo-quick-start.gif`, `architecture-overview.svg`)
+- **Folder convention**: use `docs/images/` or `assets/` consistently within a project
+
 ## Audit Workflow
 
 ### Step 1: Scan Existing Docs
 
 ```bash
 # Check for all expected files
-for f in README.md LICENSE CONTRIBUTING.md CHANGELOG.md ROADMAP.md CODE_OF_CONDUCT.md SECURITY.md; do
+for f in README.md LICENSE CONTRIBUTING.md CHANGELOG.md ROADMAP.md CODE_OF_CONDUCT.md SECURITY.md SUPPORT.md llms.txt; do
   [ -f "$f" ] && echo "✓ $f" || echo "✗ $f (missing)"
 done
 
@@ -440,3 +486,109 @@ github: [username]
 # open_collective: project-name
 # custom: ["https://example.com/donate"]
 ```
+
+### SUPPORT.md
+
+```markdown
+# Support
+
+## How to Get Help
+
+- **Bug reports**: [File an issue](link) using the bug report template
+- **Feature requests**: [Open a feature request](link)
+- **Questions**: [Start a discussion](link) or check existing Q&A
+- **Security issues**: See [SECURITY.md](SECURITY.md) for responsible disclosure
+
+## Documentation
+
+- [Getting Started](docs/guides/getting-started.md)
+- [Configuration](docs/guides/configuration.md)
+- [Troubleshooting](docs/guides/troubleshooting.md)
+
+## Community
+
+- [Discussions](link) — Ask questions, share ideas
+- [Contributing](CONTRIBUTING.md) — Help improve the project
+```
+
+### .github/release.yml
+
+Configures [automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes) on GitHub. When you create a release, GitHub categorises merged PRs by label into structured sections.
+
+```yaml
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+    authors:
+      - dependabot
+  categories:
+    - title: Breaking Changes
+      labels:
+        - breaking-change
+    - title: New Features
+      labels:
+        - enhancement
+        - feature
+    - title: Bug Fixes
+      labels:
+        - bug
+        - fix
+    - title: Documentation
+      labels:
+        - documentation
+    - title: Other Changes
+      labels:
+        - "*"
+```
+
+### CITATION.cff (Conditional)
+
+Include when the project is academic, research-adjacent, data science, ML, or likely to be cited in papers. GitHub natively shows a "Cite this repository" button when this file is present.
+
+**When to include:**
+- Academic or research software
+- Data science libraries, ML models, scientific tools
+- Any project published to Zenodo for DOI assignment
+- Projects likely referenced in papers, reports, or presentations
+
+**When to skip:**
+- Internal tools, configuration plugins, small utilities
+
+```yaml
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "[Project Name]"
+version: "[version]"
+date-released: "[YYYY-MM-DD]"
+authors:
+  - family-names: "[Last]"
+    given-names: "[First]"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/org/repo"
+license: "[SPDX-identifier]"
+keywords:
+  - "[keyword1]"
+  - "[keyword2]"
+```
+
+### LICENSE Selection Framework
+
+The plugin checks for LICENSE presence but does not generate the file content — use GitHub's built-in license picker or [choosealicense.com](https://choosealicense.com/).
+
+| License | Best For | Key Feature |
+|---------|----------|-------------|
+| MIT | Libraries, tools, general OSS | Maximum freedom, minimal restrictions |
+| Apache-2.0 | Libraries with patent concerns | Explicit patent grant |
+| GPL-3.0 | Projects that must stay open | Copyleft — derivatives must be GPL too |
+| AGPL-3.0 | SaaS/server-side projects | Network copyleft — even hosted use triggers sharing |
+| ISC | Minimal alternative to MIT | Functionally identical, shorter text |
+| Unlicense | Public domain dedication | No restrictions at all |
+
+**Decision guidance:**
+- Default to MIT for most open-source projects
+- Use Apache-2.0 if contributors may hold patents
+- Use GPL/AGPL only with clear intent — it limits adoption by commercial users
+- Check `license` field in `package.json`/`pyproject.toml` matches the LICENSE file content
+- Proprietary projects may omit LICENSE or include custom terms

@@ -41,10 +41,14 @@ Check what public-facing documentation is missing or needs improvement.
 | Medium | CODE_OF_CONDUCT.md | ? |
 | Medium | SECURITY.md | ? |
 | Medium | .github/ISSUE_TEMPLATE/config.yml | ? |
+| Medium | SUPPORT.md | ? |
+| Medium | .github/release.yml | ? |
+| Medium | llms.txt | ? |
 | Low | ROADMAP.md | ? |
 | Low | .github/FUNDING.yml | ? |
 | Low | docs/README.md | ? |
 | Low | docs/guides/ | ? |
+| Low | CITATION.cff | ? |
 
 ### Quality Check (Is the content good?)
 
@@ -94,6 +98,21 @@ Missing from README:
 
 Over-documented:
   - [Claimed feature] — no evidence found
+```
+
+### Visual Assets Check
+
+- [ ] README references at least one image or GIF (demo, screenshot, architecture diagram)
+- [ ] Referenced image files exist (check relative paths resolve)
+- [ ] Images have descriptive alt text for accessibility
+- [ ] Social preview image set (remind user: Settings > Social preview, 1280x640)
+
+Report format:
+```
+Visual Assets:
+  ✓ README references 2 images (demo.gif, architecture.svg)
+  ⚠ docs/images/demo.gif missing alt text
+  · Social preview image — check Settings > Social preview (1280×640)
 ```
 
 ### Repository Metadata Check
@@ -156,8 +175,10 @@ Recommended actions (in priority order):
   2. Add badges to README.md
   3. Rewrite README first paragraph for non-technical audience
   4. Set GitHub topics, description, and website URL
-  5. Create CHANGELOG.md — run /changelog full
-  6. Create user guides in docs/guides/ — run /user-guide
+  5. Add visual assets to README (demo GIF, screenshot, or diagram)
+  6. Generate llms.txt — run /llms-txt
+  7. Create CHANGELOG.md — run /changelog full
+  8. Create user guides in docs/guides/ — run /user-guide
 ```
 
 ## Arguments

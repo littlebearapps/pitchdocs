@@ -85,9 +85,11 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 |---------|---------|
 | Evidence-based feature extraction — scans 10 signal categories | Scan any codebase and surface its selling points automatically |
 | Daytona/Banesullivan 4-question framework on every doc | Know your docs answer real reader questions, not just list API methods |
-| Documentation audit — 14 file types plus GitHub topics, description, and website URL | Never ship a repo with missing docs or invisible metadata again |
-| 6 slash commands covering README to user guides | Generate any doc type from your terminal in under a minute |
-| Templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, issues, PRs | One plugin replaces writing 8+ boilerplate files by hand |
+| Documentation audit — 17+ file types, GitHub metadata, and visual assets | Never ship a repo with missing docs, invisible metadata, or broken image links |
+| 7 slash commands covering README to llms.txt | Generate any doc type from your terminal in under a minute |
+| Templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, issues, PRs, release config | One plugin replaces writing 10+ boilerplate files by hand |
+| llms.txt generation following the llmstxt.org specification | Make your docs discoverable by AI coding assistants and search engines |
+| LICENSE selection framework and visual assets guidance | Choose the right licence and present your project with compelling visuals |
 | Progressive disclosure and automatic cross-linking | Readers find what they need without scrolling past jargon |
 | Upstream spec drift detection via GitHub Actions | Stay current with Keep a Changelog, Contributor Covenant, and Semantic Versioning |
 
@@ -99,7 +101,8 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 | `/features` | Extract features from code and translate to benefits | Never miss a feature worth documenting |
 | `/changelog` | Generate CHANGELOG.md from git history with user-benefit language | Users see what changed for *them*, not your commit log |
 | `/roadmap` | Generate ROADMAP.md from GitHub milestones and issues | Show contributors where the project is heading |
-| `/docs-audit` | Audit docs completeness, quality, and GitHub repo metadata | Catch gaps in files, topics, description, and website URL before you ship |
+| `/docs-audit` | Audit docs completeness, quality, GitHub metadata, and visual assets | Catch gaps in files, topics, description, website URL, and images before you ship |
+| `/llms-txt` | Generate llms.txt and llms-full.txt for AI discoverability | AI coding assistants and search engines find and understand your docs |
 | `/user-guide` | Generate task-oriented user guides in `docs/guides/` | Readers find answers without reading your source code |
 
 The **docs-writer** agent powers these commands — it scans your codebase, extracts features with evidence, and writes docs that pass the 4-question test.
@@ -122,6 +125,12 @@ The **docs-writer** agent powers these commands — it scans your codebase, extr
 # Audit what docs are missing and auto-generate them
 /docs-audit fix
 
+# Generate llms.txt for AI tool discoverability
+/llms-txt
+
+# Generate both llms.txt and llms-full.txt
+/llms-txt full
+
 # Generate a getting-started user guide
 /user-guide getting-started
 ```
@@ -136,7 +145,8 @@ Skills are loaded on-demand to provide deep reference knowledge:
 | `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation |
 | `changelog` | Keep a Changelog format with language rules that rewrite commits into user-facing benefit language |
 | `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators and community involvement section |
-| `repo-docs-suite` | 14-file inventory plus GitHub repo metadata (topics, description, website URL) with ready-to-use templates |
+| `repo-docs-suite` | 17+ file inventory, GitHub metadata, visual assets guidance, licence selection framework, and ready-to-use templates |
+| `llms-txt` | llmstxt.org specification reference with generation patterns for repos and docs sites |
 | `user-guides` | Task-oriented how-to documentation with numbered steps, verification, and cross-linked hub pages |
 
 ## Upstream Specifications

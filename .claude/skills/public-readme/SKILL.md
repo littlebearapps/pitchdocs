@@ -45,9 +45,20 @@ description: Generates READMEs with the Daytona/Banesullivan marketing framework
 
 ```markdown
 <div align="center">
-  <img src="docs/demo.gif" alt="Demo" width="700" />
+  <img src="docs/images/demo.gif" alt="Quick start demo showing project setup in 30 seconds" width="700" />
 </div>
 ```
+
+**Where to store visual assets:**
+- **In-repo** (`docs/images/` or `assets/`): version-controlled, always accessible. Best for files under 5MB.
+- **GitHub user-content**: drag-drop an image into any GitHub issue or PR to get a permanent `user-images.githubusercontent.com` URL. Keeps repo size small.
+- **GitHub Release assets**: for larger files (>5MB) without bloating git history.
+
+**Format guidance:**
+- SVG for diagrams and architecture charts (scales perfectly)
+- PNG for screenshots and UI captures (lossless)
+- GIF for demo recordings (<10MB GitHub limit, aim for ~10fps)
+- Always include descriptive alt text for accessibility
 
 ### 3. Why [Project Name]?
 

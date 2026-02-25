@@ -9,9 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `llms-txt` skill — llmstxt.org specification reference with generation patterns for repos and docs sites
+- `/llms-txt` command — generate llms.txt and llms-full.txt for LLM-friendly content curation
+- LICENSE selection framework with decision guidance in `repo-docs-suite` skill
+- Visual assets guidance — storage locations, formats, naming conventions, alt text requirements
+- Social preview image audit check (1280×640, Settings reminder)
+- SUPPORT.md template in `repo-docs-suite` Tier 2
+- `.github/release.yml` template for auto-generated GitHub Release notes
+- CITATION.cff template (conditional, Tier 3) for academic/research projects
+- llms.txt, SUPPORT.md, release.yml, and CITATION.cff presence checks in `/docs-audit`
+- Visual assets presence check in `/docs-audit`
 - GitHub repository metadata checks in `/docs-audit` — topics, website URL, and description
 - Topic suggestion framework in `repo-docs-suite` skill based on project type, language, and ecosystem
 - Repository metadata step in `docs-writer` agent workflow
+- Validation checklist additions in `docs-writer` agent — visual elements, LICENSE match, social preview, llms.txt
 
 ## [1.1.0] - 2026-02-25
 
