@@ -5,6 +5,17 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0](https://github.com/littlebearapps/repo-docs-plugin/compare/v1.3.0...v2.0.0) (2026-02-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Plugin name changed from repo-docs to pitchdocs. Install with: /plugin install pitchdocs@lba-plugins
+
+### Added
+
+* rename plugin from repo-docs to PitchDocs ([2f66d4a](https://github.com/littlebearapps/repo-docs-plugin/commit/2f66d4a21ee0c47fe4731f941d856e96d5f56dc6))
+
 ## [1.3.0](https://github.com/littlebearapps/pitchdocs/compare/v1.2.0...v1.3.0) (2026-02-25)
 
 
