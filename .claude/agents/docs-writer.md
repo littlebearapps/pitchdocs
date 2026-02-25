@@ -65,6 +65,20 @@ git tag --sort=-v:refname | head -10 2>/dev/null
 ls src/ 2>/dev/null || ls lib/ 2>/dev/null || ls app/ 2>/dev/null
 ```
 
+### Step 1.5: Check Repository Metadata
+
+Read the repo's GitHub-level metadata to identify discoverability gaps:
+
+```bash
+gh repo view --json topics,homepageUrl,description
+```
+
+- **Topics**: If fewer than 5, suggest relevant topics based on the project type, language, framework, and ecosystem discovered in Step 1. Use the topic suggestion framework from the `repo-docs-suite` skill.
+- **Description**: If empty or generic, derive a concise description from the README one-liner or the hero features extracted in Step 2.
+- **Website URL**: If empty, suggest the project's docs site, homepage, or package registry page.
+
+Flag any gaps in the audit output. When generating docs in `fix` mode, offer to apply metadata via `gh repo edit`.
+
 ### Step 2: Extract Features and Value Propositions
 
 Load the `feature-benefits` skill and run the **5-step Feature Extraction Workflow**:

@@ -43,6 +43,70 @@ A well-documented public repository should have these files:
 | `.github/DISCUSSION_TEMPLATE/` | Structured discussion categories | This skill |
 | `.github/CODEOWNERS` | Automatic review assignment | Manual |
 
+### Repository Metadata (GitHub Settings)
+
+Beyond files, a well-configured repo also needs correct GitHub-level metadata for discoverability:
+
+| Setting | Purpose | Limit |
+|---------|---------|-------|
+| **Topics** | Drive GitHub search and discovery — appear in repo header and topic browse pages | Up to 20 |
+| **Description** | Short text under repo name in GitHub search results and repo header | ~350 characters |
+| **Website URL** | Linked from repo header — directs users to docs site, homepage, or package registry | Single URL |
+
+#### Reading Current Metadata
+
+```bash
+gh repo view --json topics,homepageUrl,description
+```
+
+#### Setting Metadata
+
+```bash
+# Topics — add individually
+gh repo edit --add-topic typescript --add-topic documentation --add-topic cli
+
+# Description
+gh repo edit --description "Generate repository documentation that sells as well as it informs."
+
+# Website URL
+gh repo edit --homepage "https://docs.example.com"
+```
+
+#### Topic Suggestion Framework
+
+Suggest topics by scanning the project and picking from these categories. Aim for 5-10 topics total.
+
+| Category | Source | Examples |
+|----------|--------|----------|
+| Language/runtime | Manifest file (`package.json`, `pyproject.toml`, `go.mod`) | `typescript`, `python`, `go`, `rust`, `javascript` |
+| Framework | Dependencies and config files | `react`, `nextjs`, `fastapi`, `django`, `cloudflare-workers` |
+| Category | What the project IS | `documentation`, `cli`, `api`, `devtools`, `plugin`, `library` |
+| Ecosystem | Platform or tool ecosystem it belongs to | `claude-code`, `openai`, `llm`, `github-actions`, `terraform` |
+| Purpose | What problem it solves | `testing`, `monitoring`, `deployment`, `developer-tools`, `code-generation` |
+
+**Rules:**
+- Use lowercase, hyphenated (GitHub enforces this)
+- Be specific: `claude-code-plugin` over `plugin`
+- Include the primary language even if obvious
+- Don't pad with generic topics like `awesome` or `open-source`
+- Match topics that real users would search for
+
+#### Description Guidance
+
+The GitHub repo description should match or condense the README one-liner:
+- Maximum ~350 characters (GitHub truncates beyond this)
+- Benefit-focused, not feature-focused
+- No markdown — plain text only
+- Should make sense standalone in search results
+
+#### Website URL Guidance
+
+Set to the most useful entry point for new users, in priority order:
+1. Dedicated docs site (e.g., `docs.project.com`)
+2. Project homepage (e.g., `project.com`)
+3. Package registry page (e.g., `npmjs.com/package/name`)
+4. GitHub Pages docs (e.g., `org.github.io/repo`)
+
 ## Audit Workflow
 
 ### Step 1: Scan Existing Docs

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- GitHub repository metadata checks in `/docs-audit` — topics, website URL, and description
+- Topic suggestion framework in `repo-docs-suite` skill based on project type, language, and ecosystem
+- Repository metadata step in `docs-writer` agent workflow
+
 ## [1.1.0] - 2026-02-25
 
 ### Added

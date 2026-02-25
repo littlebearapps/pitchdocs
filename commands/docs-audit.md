@@ -96,6 +96,35 @@ Over-documented:
   - [Claimed feature] — no evidence found
 ```
 
+### Repository Metadata Check
+
+Check GitHub repo-level settings that affect discoverability. Read current values:
+
+```bash
+gh repo view --json topics,homepageUrl,description
+```
+
+- [ ] GitHub topics set (at least 5 relevant topics from the topic suggestion framework)
+- [ ] Repository description set (matches README value proposition, under ~350 chars)
+- [ ] Website/homepage URL set (docs site, homepage, or package registry)
+
+Report format:
+```
+Repository Metadata:
+  ✓ Topics: typescript, documentation, cli, claude-code, readme-generator (5)
+  ✗ Description — not set (suggest: match README one-liner)
+  ⚠ Website URL — not set (suggest: docs site or homepage)
+```
+
+When `fix` argument is used: suggest specific topics based on the codebase scan from the feature-benefits extraction, and offer to apply them:
+
+```bash
+# Suggest and apply
+gh repo edit --add-topic <topic1> --add-topic <topic2> ...
+gh repo edit --description "<README one-liner>"
+gh repo edit --homepage "<docs URL or homepage>"
+```
+
 ## Output Format
 
 ```
@@ -117,12 +146,18 @@ Quality Issues:
     ✓ Quickstart section present
     ✗ No features table
 
+Repository Metadata:
+  ✗ Topics — none set
+  ✗ Description — not set
+  ✗ Website URL — not set
+
 Recommended actions (in priority order):
   1. Add CONTRIBUTING.md — run /readme to generate
   2. Add badges to README.md
   3. Rewrite README first paragraph for non-technical audience
-  4. Create CHANGELOG.md — run /changelog full
-  5. Create user guides in docs/guides/ — run /user-guide
+  4. Set GitHub topics, description, and website URL
+  5. Create CHANGELOG.md — run /changelog full
+  6. Create user guides in docs/guides/ — run /user-guide
 ```
 
 ## Arguments

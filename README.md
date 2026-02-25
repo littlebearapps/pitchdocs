@@ -85,7 +85,7 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 |---------|---------|
 | Evidence-based feature extraction — scans 10 signal categories | Scan any codebase and surface its selling points automatically |
 | Daytona/Banesullivan 4-question framework on every doc | Know your docs answer real reader questions, not just list API methods |
-| 14-file documentation audit with quality checks | Never ship a repo with missing or stale docs again |
+| Documentation audit — 14 file types plus GitHub topics, description, and website URL | Never ship a repo with missing docs or invisible metadata again |
 | 6 slash commands covering README to user guides | Generate any doc type from your terminal in under a minute |
 | Templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, issues, PRs | One plugin replaces writing 8+ boilerplate files by hand |
 | Progressive disclosure and automatic cross-linking | Readers find what they need without scrolling past jargon |
@@ -99,7 +99,7 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 | `/features` | Extract features from code and translate to benefits | Never miss a feature worth documenting |
 | `/changelog` | Generate CHANGELOG.md from git history with user-benefit language | Users see what changed for *them*, not your commit log |
 | `/roadmap` | Generate ROADMAP.md from GitHub milestones and issues | Show contributors where the project is heading |
-| `/docs-audit` | Audit documentation completeness and quality | Catch gaps across 14 file types before you ship |
+| `/docs-audit` | Audit docs completeness, quality, and GitHub repo metadata | Catch gaps in files, topics, description, and website URL before you ship |
 | `/user-guide` | Generate task-oriented user guides in `docs/guides/` | Readers find answers without reading your source code |
 
 The **docs-writer** agent powers these commands — it scans your codebase, extracts features with evidence, and writes docs that pass the 4-question test.
@@ -136,7 +136,7 @@ Skills are loaded on-demand to provide deep reference knowledge:
 | `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation |
 | `changelog` | Keep a Changelog format with language rules that rewrite commits into user-facing benefit language |
 | `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators and community involvement section |
-| `repo-docs-suite` | 14-file inventory with ready-to-use templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, issue/PR templates |
+| `repo-docs-suite` | 14-file inventory plus GitHub repo metadata (topics, description, website URL) with ready-to-use templates |
 | `user-guides` | Task-oriented how-to documentation with numbered steps, verification, and cross-linked hub pages |
 
 ## Upstream Specifications
