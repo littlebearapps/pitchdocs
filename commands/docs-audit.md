@@ -75,6 +75,27 @@ For docs/guides/:
 - [ ] Guides are linked from README.md
 - [ ] Each guide has verification steps
 
+### Feature Coverage Check
+
+Load the `feature-benefits` skill and scan the codebase for feature signals. Compare against README features section:
+
+- [ ] Features table has a benefits column (not just feature names)
+- [ ] All listed features have evidence (traceable to code)
+- [ ] No major codebase features missing from README
+- [ ] At least 3 different benefit categories used
+- [ ] No over-documented claims (features listed but no code evidence)
+
+Report format:
+```
+Feature Coverage: N documented / M detected (X%)
+
+Missing from README:
+  - [Feature] — found in [file]
+
+Over-documented:
+  - [Claimed feature] — no evidence found
+```
+
 ## Output Format
 
 ```

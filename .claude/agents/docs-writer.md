@@ -65,13 +65,21 @@ git tag --sort=-v:refname | head -10 2>/dev/null
 ls src/ 2>/dev/null || ls lib/ 2>/dev/null || ls app/ 2>/dev/null
 ```
 
-### Step 2: Extract Value Propositions
+### Step 2: Extract Features and Value Propositions
 
-From the codebase, identify:
-- **Primary problem solved** — what pain point does this address?
-- **Key differentiators** — what makes this better than alternatives?
-- **Target audience** — who specifically benefits?
-- **Proof points** — benchmarks, test coverage, production usage, stars
+Load the `feature-benefits` skill and run the **5-step Feature Extraction Workflow**:
+
+1. **Detect project type** from manifest files (package.json, pyproject.toml, etc.)
+2. **Scan all 10 signal categories** — CLI commands, Public API, Configuration, Integrations, Performance, Security, TypeScript/DX, Testing, Middleware/Plugins, Documentation
+3. **Extract concrete features with evidence** — every feature must trace to a file, function, or config
+4. **Classify by impact tier** — Hero (1–3 differentiators), Core (4–8 expected features), Supporting (9+ nice-to-haves)
+5. **Translate features into benefits** using the 5 benefit categories (Time saved, Confidence gained, Pain avoided, Capability unlocked, Cost reduced)
+
+From the classified features, derive:
+- **Primary problem solved** — synthesise from Hero features: what pain point do they collectively address?
+- **Key differentiators** — the Hero tier features ARE the differentiators
+- **Target audience** — who benefits from these specific features?
+- **Proof points** — benchmarks, test coverage %, production usage, stars (from the scan evidence)
 
 ### Step 3: Write with Marketing Framework
 

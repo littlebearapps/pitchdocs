@@ -26,6 +26,34 @@ Every document must answer these questions for the reader:
 - "You can now..." not "We implemented..." — reader-centric framing
 - Active voice. Short sentences. No jargon without explanation.
 
+## Feature-to-Benefit Writing
+
+Every feature mentioned in documentation must be translated into a user benefit.
+
+**The pattern:**
+```
+[Technical feature] so you can [user outcome] — [evidence]
+```
+
+**Examples:**
+- "Automatic changelog from git history **so you can** ship release notes in seconds — not hours"
+- "TypeScript-first with strict mode **so you can** catch errors before they reach production"
+- "14-file documentation audit **so you can** never ship a repo with missing docs again"
+
+**5 benefit categories** — use at least 3 different categories across any features table:
+
+| Category | User Feels | Pattern |
+|----------|-----------|---------|
+| Time saved | "That was fast" | "Do X in Y instead of Z" |
+| Confidence gained | "I trust this" | "Know that X because Y" |
+| Pain avoided | "I don't have to worry" | "Never worry about X again" |
+| Capability unlocked | "Now I can do something new" | "Now you can X" |
+| Cost reduced | "This saves me money/effort" | "One tool replaces N" |
+
+**Evidence requirement:** Every benefit claim must trace to actual code — a file path, function name, config option, or test result. No speculative benefits.
+
+**Anti-patterns:** Avoid "simple", "easy", "powerful" without evidence. Show simplicity through short examples, not adjectives.
+
 ## Marketing Principles for Technical Docs
 
 - **Hero section**: Logo + compelling one-liner + badges = first impression

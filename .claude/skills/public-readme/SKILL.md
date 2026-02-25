@@ -124,6 +124,16 @@ Use a table with a **Benefits** column:
 | GitHub integration | Pull issues, PRs, and releases automatically | :construction: Beta |
 ```
 
+#### How to Populate This Table
+
+1. Load the `feature-benefits` skill and run the 5-step Feature Extraction Workflow
+2. Take all **Hero** and **Core** tier features from the classified inventory
+3. Apply the feature-to-benefit translation for each — use at least 3 different benefit categories
+4. Set status from evidence: `:white_check_mark: Stable` if tested and documented, `:construction: Beta` if experimental
+5. No features without file/function evidence — if you can't point to code, don't list it
+
+**One-liner generation**: Synthesise from Hero features. Pattern: "Ship [outcome] with [how]" or "[Action verb] [what users gain] — [key differentiator]."
+
 ### 6. Comparison (If Applicable)
 
 Only include if there are genuine alternatives. Be honest and fair.

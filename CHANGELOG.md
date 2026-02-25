@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `feature-benefits` skill — systematic codebase scanning for features with evidence-based benefit translation
+- `/features` command — standalone feature extraction with inventory, table, and audit modes
+- Feature coverage check in `/docs-audit` — detects undocumented and over-documented features
+- Feature-to-Benefit writing principles in `doc-standards` rule
+
+### Changed
+
+- `docs-writer` agent Step 2 now uses the 5-step Feature Extraction Workflow instead of vague bullet points
+- `/readme` command loads `feature-benefits` skill and verifies evidence-based features
+- `public-readme` skill includes guidance on populating features tables from codebase scans
+
 ## [1.0.0] - 2026-02-25
 
 ### Added

@@ -76,6 +76,7 @@ repo-docs generates documentation with a **marketing edge** — docs that answer
 | Command | What It Does | Why It Matters |
 |---------|-------------|----------------|
 | `/readme` | Generate or update a marketing-friendly README.md | First impressions that convert browsers to users |
+| `/features` | Extract features from code and translate to benefits | Never miss a feature worth documenting |
 | `/changelog` | Generate CHANGELOG.md from git history with user-benefit language | Users see what changed for *them*, not your commit log |
 | `/roadmap` | Generate ROADMAP.md from GitHub milestones and issues | Show contributors where the project is heading |
 | `/docs-audit` | Audit documentation completeness and quality | Never ship a repo missing critical docs again |
@@ -86,6 +87,9 @@ repo-docs generates documentation with a **marketing edge** — docs that answer
 ```bash
 # Generate a README for the current project
 /readme
+
+# Extract features from code and output a benefits table
+/features table
 
 # Generate the full changelog from all tags
 /changelog full
@@ -104,6 +108,7 @@ Skills are loaded on-demand to provide deep reference knowledge:
 | Skill | Purpose |
 |-------|---------|
 | `public-readme` | README structure with the Daytona/Banesullivan marketing framework |
+| `feature-benefits` | Codebase scanning for features and evidence-based benefit translation |
 | `changelog` | Keep a Changelog format with user-benefit language rules |
 | `roadmap` | Roadmap structure from GitHub Projects data |
 | `repo-docs-suite` | Complete inventory of all repo docs — templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, issue templates, PR template |
@@ -111,7 +116,7 @@ Skills are loaded on-demand to provide deep reference knowledge:
 
 ## Agent
 
-The **docs-writer** agent handles long-form documentation generation. It analyses your codebase, extracts value propositions, and writes docs that pass the 4-question test. It is invoked automatically by the commands above when complex generation is needed.
+The **docs-writer** agent handles long-form documentation generation. It scans your codebase systematically for features, translates them into benefit-driven language, and writes docs that pass the 4-question test. It is invoked automatically by the commands above when complex generation is needed.
 
 ## What You Get vs Writing Docs Manually
 

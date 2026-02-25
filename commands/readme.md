@@ -22,9 +22,9 @@ Generate or update a README.md that sells as well as it informs.
 
 1. Run the `docs-writer` agent
 2. Load the `public-readme` skill for structure and marketing framework
-3. Load the `doc-standards` rule for tone, language, and badge standards
-4. Analyse the codebase deeply — package.json, source structure, tests, git history
-5. Extract value propositions, differentiators, and target audience
+3. Load the `feature-benefits` skill for systematic feature extraction
+4. Load the `doc-standards` rule for tone, language, and badge standards
+5. Scan the codebase using the 5-step Feature Extraction Workflow — extract features with evidence, classify by tier, translate to benefits
 6. Generate README.md with the full marketing framework:
    - Hero section with one-liner and badges
    - "Why [Project]?" with benefit-driven feature descriptions
@@ -52,3 +52,5 @@ After generation, verify:
 - Quick start code examples actually work
 - Links to existing docs/guides are included
 - Consistent spelling throughout
+- Features table has a benefits column with evidence-based claims
+- At least 3 different benefit categories used across the features table
