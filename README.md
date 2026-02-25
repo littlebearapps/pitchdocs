@@ -174,4 +174,4 @@ See our [Contributing Guide](CONTRIBUTING.md) to get started, or jump straight i
 
 ## License
 
-[MIT](LICENSE) — Made by [Little Bear Apps](https://littlebearapps.com)
+[MIT](LICENSE) — Made by [Little Bear Apps](https://littlebearapps.com) 🐶
