@@ -22,7 +22,7 @@ body:
         - public-readme skill
         - changelog skill
         - roadmap skill
-        - repo-docs-suite skill
+        - pitchdocs-suite skill
         - user-guides skill
         - doc-standards rule
         - Upstream drift detection

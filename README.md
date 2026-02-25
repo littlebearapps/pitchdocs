@@ -1,13 +1,13 @@
 <div align="center">
 
-# repo-docs
+# PitchDocs
 
-**Generate repository documentation that sells as well as it informs.**
+**Pitch-perfect documentation for every repository.**
 
 A [Claude Code](https://code.claude.com/) plugin — install it, run a command, get docs that pass the 4-question test.
 
 [![Version](https://img.shields.io/badge/version-1.3.0)](CHANGELOG.md) <!-- x-release-please-version -->
-[![License](https://img.shields.io/github/license/littlebearapps/repo-docs-plugin)](LICENSE)
+[![License](https://img.shields.io/github/license/littlebearapps/pitchdocs)](LICENSE)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white)](https://code.claude.com/docs/en/plugins)
 
 [Get Started](#get-started) · [Features](#features) · [Commands](#commands) · [Skills](#skills) · [Contributing](CONTRIBUTING.md)
@@ -51,13 +51,13 @@ Ship production-ready APIs in minutes — type-safe, observable, cost-aware.
 
 ---
 
-## Why repo-docs?
+## Why PitchDocs?
 
 Most documentation generators produce technically-accurate but dry output. Nobody reads it, nobody gets excited, nobody stars the repo.
 
-repo-docs generates documentation with a **marketing edge** — docs that answer the reader's real questions:
+PitchDocs generates documentation with a **marketing edge** — docs that answer the reader's real questions:
 
-| Question | How repo-docs Answers It |
+| Question | How PitchDocs Answers It |
 |----------|-------------------------|
 | Does this solve my problem? | Benefit-driven feature descriptions, not just specs |
 | Can I use it? | Quick start that works in under 5 minutes |
@@ -72,8 +72,8 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 # 1. Add the LBA plugin marketplace (once)
 /plugin marketplace add littlebearapps/lba-plugins
 
-# 2. Install repo-docs
-/plugin install repo-docs@lba-plugins
+# 2. Install PitchDocs
+/plugin install pitchdocs@lba-plugins
 
 # 3. Generate a README for any project
 /readme
@@ -146,7 +146,7 @@ Skills are loaded on-demand to provide deep reference knowledge:
 | `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation |
 | `changelog` | Keep a Changelog format with language rules that rewrite commits into user-facing benefit language |
 | `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators and community involvement section |
-| `repo-docs-suite` | 17+ file inventory, GitHub metadata, visual assets guidance, licence selection framework, and ready-to-use templates |
+| `pitchdocs-suite` | 17+ file inventory, GitHub metadata, visual assets guidance, licence selection framework, and ready-to-use templates |
 | `llms-txt` | llmstxt.org specification reference with generation patterns for repos and docs sites |
 | `package-registry` | npm and PyPI metadata field inventories, README cross-renderer compatibility, trusted publishing guidance, and registry badges |
 | `user-guides` | Task-oriented how-to documentation with numbered steps, verification, and cross-linked hub pages |
@@ -168,9 +168,9 @@ Found a way to make generated docs even better? We'd love your help — whether 
 
 See our [Contributing Guide](CONTRIBUTING.md) to get started, or jump straight in:
 
-- [Good First Issues](https://github.com/littlebearapps/repo-docs-plugin/labels/good%20first%20issue) — Great starting points
-- [Feature Requests](https://github.com/littlebearapps/repo-docs-plugin/issues/new?template=feature_request.yml) — Suggest improvements
-- [Open Issues](https://github.com/littlebearapps/repo-docs-plugin/issues) — See what needs doing
+- [Good First Issues](https://github.com/littlebearapps/pitchdocs/labels/good%20first%20issue) — Great starting points
+- [Feature Requests](https://github.com/littlebearapps/pitchdocs/issues/new?template=feature_request.yml) — Suggest improvements
+- [Open Issues](https://github.com/littlebearapps/pitchdocs/issues) — See what needs doing
 
 ## License
 

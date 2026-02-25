@@ -14,7 +14,7 @@ This is a Claude Code plugin consisting entirely of markdown files. It contains 
 
 If you find that a generated template contains insecure patterns (e.g., a code example with a vulnerability, or a template that encourages unsafe practices):
 
-- [Open an issue](https://github.com/littlebearapps/repo-docs-plugin/issues/new?template=bug_report.yml)
+- [Open an issue](https://github.com/littlebearapps/pitchdocs/issues/new?template=bug_report.yml)
 - Or email: hello@littlebearapps.com
 
 We aim to acknowledge reports within 48 hours and provide a resolution or update within 7 days.

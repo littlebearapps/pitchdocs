@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Plugin Documentation
-    url: https://github.com/littlebearapps/repo-docs-plugin#readme
+    url: https://github.com/littlebearapps/pitchdocs#readme
     about: Read the plugin documentation before opening an issue
