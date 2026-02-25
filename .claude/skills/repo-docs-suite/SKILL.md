@@ -111,6 +111,17 @@ Set to the most useful entry point for new users, in priority order:
 3. Package registry page (e.g., `npmjs.com/package/name`)
 4. GitHub Pages docs (e.g., `org.github.io/repo`)
 
+#### Package Registry Configuration
+
+For projects published to npm or PyPI, the package registry page is often the second most-visited page after the GitHub repo. Registry metadata affects search ranking, trust signals, and first impressions.
+
+Load the `package-registry` skill for:
+- Complete field inventories (what metadata affects the npm/PyPI page)
+- README cross-renderer compatibility (what Markdown features break on npm/PyPI)
+- Registry-specific badge templates (version, downloads, types, Python versions)
+- Trusted publishing and provenance guidance (npm OIDC, PyPI Trusted Publisher)
+- Audit checklists for registry metadata completeness
+
 #### Social Preview Image
 
 The social preview appears when sharing repo links on Twitter/X, Slack, Discord, and LinkedIn. Without a custom image, GitHub auto-generates a bland preview from the repo name.

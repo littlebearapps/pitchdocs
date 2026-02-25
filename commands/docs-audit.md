@@ -144,6 +144,35 @@ gh repo edit --description "<README one-liner>"
 gh repo edit --homepage "<docs URL or homepage>"
 ```
 
+### Package Registry Metadata Check (Conditional)
+
+Load the `package-registry` skill for field inventories and audit checks. This section only applies when the project is published to a package registry.
+
+**Detection:**
+```bash
+[ -f "package.json" ] && echo "npm project detected"
+[ -f "pyproject.toml" ] && echo "PyPI project detected"
+```
+
+**npm audit (if package.json exists):**
+- [ ] `description` present and matches README value proposition
+- [ ] `keywords` present with at least 3 relevant entries
+- [ ] `repository` present with correct URL format and case
+- [ ] `homepage` set (docs site, project page, or registry page)
+- [ ] `license` matches LICENSE file content (SPDX identifier)
+- [ ] `types`/`typings` present if TypeScript project (check for tsconfig.json)
+- [ ] `files` whitelist present (preferred over .npmignore)
+- [ ] README avoids npm-incompatible Markdown features (relative images, Mermaid, footnotes)
+
+**PyPI audit (if pyproject.toml exists):**
+- [ ] `[project].description` present and non-empty
+- [ ] `[project].readme` configured to point at README.md
+- [ ] `[project].keywords` present with at least 3 entries
+- [ ] `[project].license` present (SPDX expression preferred per PEP 639)
+- [ ] `[project.urls]` uses well-known labels (Homepage, Repository, Documentation, Changelog, Issues)
+- [ ] `[project].requires-python` present
+- [ ] README avoids PyPI-incompatible Markdown (heading anchors, relative images, GitHub callouts, details/summary)
+
 ## Output Format
 
 ```
@@ -170,15 +199,25 @@ Repository Metadata:
   ✗ Description — not set
   ✗ Website URL — not set
 
+Package Registry Metadata:
+  Registry: npm (package.json detected)
+  ✓ description: "Ship production-ready APIs in minutes"
+  ✓ keywords: typescript, api, framework (5 keywords)
+  ✗ repository — missing (add repository.url for npm page sidebar)
+  ⚠ types — not set (TypeScript project detected from tsconfig.json)
+  ⚠ README uses relative image paths — broken on npmjs.com
+
 Recommended actions (in priority order):
   1. Add CONTRIBUTING.md — run /readme to generate
   2. Add badges to README.md
   3. Rewrite README first paragraph for non-technical audience
   4. Set GitHub topics, description, and website URL
   5. Add visual assets to README (demo GIF, screenshot, or diagram)
-  6. Generate llms.txt — run /llms-txt
-  7. Create CHANGELOG.md — run /changelog full
-  8. Create user guides in docs/guides/ — run /user-guide
+  6. Add registry metadata fields (repository, types) to package.json
+  7. Fix README cross-renderer issues (relative images, callouts)
+  8. Generate llms.txt — run /llms-txt
+  9. Create CHANGELOG.md — run /changelog full
+  10. Create user guides in docs/guides/ — run /user-guide
 ```
 
 ## Arguments

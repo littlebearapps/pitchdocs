@@ -54,3 +54,6 @@ After generation, verify:
 - Consistent spelling throughout
 - Features table has a benefits column with evidence-based claims
 - At least 3 different benefit categories used across the features table
+- Cross-renderer compatibility verified if published to npm or PyPI (load `package-registry` skill)
+- Registry-specific badges included with correct package names and links
+- Image URLs use absolute paths (not relative) if published to npm or PyPI

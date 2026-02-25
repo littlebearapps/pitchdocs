@@ -79,6 +79,32 @@ gh repo view --json topics,homepageUrl,description
 
 Flag any gaps in the audit output. When generating docs in `fix` mode, offer to apply metadata via `gh repo edit`.
 
+### Step 1.6: Check Package Registry Configuration
+
+If the project is published to a package registry, load the `package-registry` skill and check for documentation-affecting metadata:
+
+**npm (if package.json exists):**
+```bash
+node -e "const p=require('./package.json'); console.log(JSON.stringify({description:p.description,keywords:p.keywords,repository:p.repository,homepage:p.homepage,types:p.types||p.typings,license:p.license,files:p.files,funding:p.funding},null,2))"
+```
+
+**PyPI (if pyproject.toml exists):**
+```bash
+python3 -c "
+import tomllib
+with open('pyproject.toml','rb') as f: d=tomllib.load(f)
+p=d.get('project',{})
+print('description:', p.get('description'))
+print('readme:', p.get('readme'))
+print('keywords:', p.get('keywords'))
+print('license:', p.get('license'))
+print('urls:', p.get('urls',{}))
+print('requires-python:', p.get('requires-python'))
+" 2>/dev/null
+```
+
+Flag any missing fields that affect the registry page. When generating README badges, use the registry-specific badge templates from the `package-registry` skill.
+
 ### Step 2: Extract Features and Value Propositions
 
 Load the `feature-benefits` skill and run the **5-step Feature Extraction Workflow**:
@@ -119,6 +145,8 @@ Before finalising any document, check:
 - [ ] LICENSE file matches the license field in the project manifest
 - [ ] Social preview image reminder flagged if not set
 - [ ] llms.txt is present and up to date (or flagged as missing)
+- [ ] README avoids Markdown features incompatible with target registries (load `package-registry` skill)
+- [ ] Package registry badges use correct package name and link to registry page
 
 ## Gold Standard Examples
 

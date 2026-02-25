@@ -27,6 +27,24 @@ description: Generates READMEs with the Daytona/Banesullivan marketing framework
 </div>
 ```
 
+**Registry-specific badge guidance:**
+
+For npm-published packages, include after CI/coverage badges:
+```markdown
+[![npm](https://img.shields.io/npm/v/PACKAGE-NAME)](https://www.npmjs.com/package/PACKAGE-NAME)
+[![npm downloads](https://img.shields.io/npm/dm/PACKAGE-NAME)](https://www.npmjs.com/package/PACKAGE-NAME)
+[![types](https://img.shields.io/npm/types/PACKAGE-NAME)](https://www.npmjs.com/package/PACKAGE-NAME)
+```
+
+For PyPI-published packages:
+```markdown
+[![PyPI](https://img.shields.io/pypi/v/PACKAGE-NAME)](https://pypi.org/project/PACKAGE-NAME/)
+[![Python versions](https://img.shields.io/pypi/pyversions/PACKAGE-NAME)](https://pypi.org/project/PACKAGE-NAME/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/PACKAGE-NAME)](https://pypi.org/project/PACKAGE-NAME/)
+```
+
+Load the `package-registry` skill for the full badge inventory and cross-renderer compatibility guidance.
+
 **Rules for the one-liner:**
 - Maximum 15 words
 - Starts with an action verb or benefit
@@ -212,3 +230,14 @@ We welcome contributions! See our [Contributing Guide](CONTRIBUTING.md) for deta
 
 **Bad:** "Features: Markdown support, CLI interface, configuration files."
 **Good:** "Write once, publish everywhere — Markdown docs that render perfectly on GitHub, npm, and your docs site."
+
+## Cross-Renderer Compatibility
+
+If the project is published to a package registry, the README renders on multiple platforms with different Markdown support. Load the `package-registry` skill for the full compatibility matrix.
+
+**Key rules for multi-renderer READMEs:**
+- **Always use absolute URLs for images** — relative paths break on npm and PyPI (`https://raw.githubusercontent.com/org/repo/main/docs/images/demo.gif`)
+- **Avoid GitHub-specific callouts** (`[!NOTE]`, `[!WARNING]`) — render as plain text on npm and PyPI
+- **Avoid heading anchor links** (`#section-name`) — broken on PyPI
+- **Avoid `<details>`/`<summary>`** for critical content — unreliable on PyPI
+- **Test before PyPI upload**: `twine check dist/*` validates README rendering

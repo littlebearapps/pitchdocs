@@ -40,6 +40,22 @@
       "check_url": null,
       "last_verified": "2026-02-25",
       "stability": "evolving — still in public preview"
+    },
+    "npm-trusted-publishing": {
+      "version": "2025-07",
+      "url": "https://docs.npmjs.com/generating-provenance-statements",
+      "repo": null,
+      "check_url": null,
+      "last_verified": "2026-02-25",
+      "stability": "evolving — GA July 2025"
+    },
+    "pypi-trusted-publishers": {
+      "version": "2023-04",
+      "url": "https://docs.pypi.org/trusted-publishers/",
+      "repo": null,
+      "check_url": null,
+      "last_verified": "2026-02-25",
+      "stability": "evolving — feature additions expected"
     }
   }
 }

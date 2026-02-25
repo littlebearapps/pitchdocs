@@ -90,6 +90,7 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 | Templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, issues, PRs, release config | One plugin replaces writing 10+ boilerplate files by hand |
 | llms.txt generation following the llmstxt.org specification | Make your docs discoverable by AI coding assistants and search engines |
 | LICENSE selection framework and visual assets guidance | Choose the right licence and present your project with compelling visuals |
+| npm and PyPI package registry metadata auditing and cross-renderer README compatibility | Know your README renders correctly on GitHub, npm, and PyPI — and your package page has complete metadata |
 | Progressive disclosure and automatic cross-linking | Readers find what they need without scrolling past jargon |
 | Upstream spec drift detection via GitHub Actions | Stay current with Keep a Changelog, Contributor Covenant, and Semantic Versioning |
 
@@ -101,7 +102,7 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 | `/features` | Extract features from code and translate to benefits | Never miss a feature worth documenting |
 | `/changelog` | Generate CHANGELOG.md from git history with user-benefit language | Users see what changed for *them*, not your commit log |
 | `/roadmap` | Generate ROADMAP.md from GitHub milestones and issues | Show contributors where the project is heading |
-| `/docs-audit` | Audit docs completeness, quality, GitHub metadata, and visual assets | Catch gaps in files, topics, description, website URL, and images before you ship |
+| `/docs-audit` | Audit docs completeness, quality, GitHub metadata, visual assets, and npm/PyPI registry config | Catch gaps in files, metadata, images, and package registry fields before you ship |
 | `/llms-txt` | Generate llms.txt and llms-full.txt for AI discoverability | AI coding assistants and search engines find and understand your docs |
 | `/user-guide` | Generate task-oriented user guides in `docs/guides/` | Readers find answers without reading your source code |
 
@@ -147,6 +148,7 @@ Skills are loaded on-demand to provide deep reference knowledge:
 | `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators and community involvement section |
 | `repo-docs-suite` | 17+ file inventory, GitHub metadata, visual assets guidance, licence selection framework, and ready-to-use templates |
 | `llms-txt` | llmstxt.org specification reference with generation patterns for repos and docs sites |
+| `package-registry` | npm and PyPI metadata field inventories, README cross-renderer compatibility, trusted publishing guidance, and registry badges |
 | `user-guides` | Task-oriented how-to documentation with numbered steps, verification, and cross-linked hub pages |
 
 ## Upstream Specifications
