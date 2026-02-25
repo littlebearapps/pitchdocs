@@ -1,5 +1,11 @@
 # Security Policy
 
+## Supported Versions
+
+| Version | Supported |
+|---------|-----------|
+| 1.0.x   | :white_check_mark: |
+
 ## Scope
 
 This is a Claude Code plugin consisting entirely of markdown files. It contains no executable code, no dependencies, and processes no user data. The security surface is limited to the content of the documentation templates it generates.
@@ -10,6 +16,8 @@ If you find that a generated template contains insecure patterns (e.g., a code e
 
 - [Open an issue](https://github.com/littlebearapps/repo-docs-plugin/issues/new?template=bug_report.yml)
 - Or email: hello@littlebearapps.com
+
+We aim to acknowledge reports within 48 hours and provide a resolution or update within 7 days.
 
 ## Upstream Specifications
 

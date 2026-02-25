@@ -4,6 +4,7 @@ Thank you for your interest in contributing! This plugin helps generate better r
 
 ## Quick Links
 
+- [Good First Issues](https://github.com/littlebearapps/repo-docs-plugin/labels/good%20first%20issue) — Great starting points
 - [Open Issues](https://github.com/littlebearapps/repo-docs-plugin/issues) — Find something to work on
 - [Feature Requests](https://github.com/littlebearapps/repo-docs-plugin/issues/new?template=feature_request.yml) — Suggest improvements
 
@@ -83,6 +84,16 @@ We use [Conventional Commits](https://www.conventionalcommits.org/):
 2. Make your changes
 3. Commit using conventional commits
 4. Push and open a pull request using the [PR template](.github/PULL_REQUEST_TEMPLATE.md)
+
+## Testing Your Changes
+
+Since this plugin is pure markdown, there's no test suite to run. Instead, verify your changes by:
+
+1. Install your local copy: `/plugin install /path/to/repo-docs-plugin`
+2. Run the relevant command against a test repository (e.g. `/readme`, `/changelog`)
+3. Review the generated output — does it pass the [4-question test](https://github.com/banesullivan/readme)?
+4. Check for Australian English spelling (realise, colour, behaviour, organisation)
+5. Ensure any new cross-links between docs resolve correctly
 
 ## Code of Conduct
 
