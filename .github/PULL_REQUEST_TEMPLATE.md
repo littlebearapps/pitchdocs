@@ -27,5 +27,5 @@ Closes #
 ## Checklist
 
 - [ ] Commit uses [conventional commits](https://conventionalcommits.org/) format
-- [ ] CHANGELOG.md updated (if user-facing change)
+- [ ] CHANGELOG.md updated (automated by release-please for version bumps)
 - [ ] README.md updated (if new command/skill added)
