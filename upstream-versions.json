@@ -1,0 +1,45 @@
+{
+  "description": "Pinned upstream specification versions. The check-upstream GitHub Action compares these against live sources monthly.",
+  "sources": {
+    "keep-a-changelog": {
+      "version": "1.1.1",
+      "url": "https://keepachangelog.com/en/1.1.0/",
+      "repo": "olivierlacan/keep-a-changelog",
+      "check_url": "https://raw.githubusercontent.com/olivierlacan/keep-a-changelog/main/CHANGELOG.md",
+      "last_verified": "2026-02-25",
+      "stability": "frozen"
+    },
+    "contributor-covenant": {
+      "version": "3.0",
+      "url": "https://www.contributor-covenant.org/version/3/0/code_of_conduct/",
+      "repo": "EthicalSource/contributor_covenant",
+      "check_url": "https://api.github.com/repos/EthicalSource/contributor_covenant/releases/latest",
+      "last_verified": "2026-02-25",
+      "stability": "slow — every 3-4 years"
+    },
+    "conventional-commits": {
+      "version": "1.0.0",
+      "url": "https://www.conventionalcommits.org/en/v1.0.0/",
+      "repo": "conventional-commits/conventionalcommits.org",
+      "check_url": "https://api.github.com/repos/conventional-commits/conventionalcommits.org/releases/latest",
+      "last_verified": "2026-02-25",
+      "stability": "frozen"
+    },
+    "semantic-versioning": {
+      "version": "2.0.0",
+      "url": "https://semver.org/",
+      "repo": "semver/semver",
+      "check_url": "https://api.github.com/repos/semver/semver/releases/latest",
+      "last_verified": "2026-02-25",
+      "stability": "frozen"
+    },
+    "github-issue-forms": {
+      "version": "preview",
+      "url": "https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema",
+      "repo": null,
+      "check_url": null,
+      "last_verified": "2026-02-25",
+      "stability": "evolving — still in public preview"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+name: Bug Report
+description: Report an issue with the plugin or generated documentation
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please fill out the sections below.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which part of the plugin is affected?
+      options:
+        - /readme command
+        - /changelog command
+        - /roadmap command
+        - /docs-audit command
+        - /user-guide command
+        - docs-writer agent
+        - public-readme skill
+        - changelog skill
+        - roadmap skill
+        - repo-docs-suite skill
+        - user-guides skill
+        - doc-standards rule
+        - Upstream drift detection
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the issue clearly.
+      placeholder: "When I ran /readme, the generated output..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      description: What should have happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Project type, language, any relevant details about the repo being documented.

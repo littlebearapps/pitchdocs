@@ -171,10 +171,12 @@ Thank you for making [Project Name] better!
 
 ### CODE_OF_CONDUCT.md
 
-Use the [Contributor Covenant v2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/). Replace placeholders with:
+Use the [Contributor Covenant v3.0](https://www.contributor-covenant.org/version/3/0/code_of_conduct/). Replace placeholders with:
 - Project name
 - Contact email for reporting
 - Enforcement guidelines
+
+Key v3.0 changes from v2.1: clearer language, less US-centric phrasing, "Addressing and Repairing Harm" section aligned with restorative justice principles. Always use v3.0 for new projects.
 
 ### SECURITY.md
 

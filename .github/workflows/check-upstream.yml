@@ -1,0 +1,125 @@
+name: Check Upstream Spec Versions
+
+on:
+  schedule:
+    - cron: '0 9 1 * *' # 1st of each month at 9am UTC
+  workflow_dispatch: # Manual trigger
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  check-upstream:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check upstream versions
+        id: check
+        run: |
+          DRIFT_FOUND=false
+          DRIFT_REPORT=""
+
+          # Read pinned versions
+          VERSIONS_FILE="upstream-versions.json"
+
+          # Check Contributor Covenant
+          CC_PINNED=$(jq -r '.sources["contributor-covenant"].version' "$VERSIONS_FILE")
+          CC_LATEST=$(curl -sf https://api.github.com/repos/EthicalSource/contributor_covenant/releases/latest | jq -r '.tag_name // empty' | sed 's/^v//')
+          if [ -n "$CC_LATEST" ] && [ "$CC_LATEST" != "$CC_PINNED" ]; then
+            DRIFT_FOUND=true
+            DRIFT_REPORT="${DRIFT_REPORT}\n- **Contributor Covenant**: pinned \`${CC_PINNED}\`, latest \`${CC_LATEST}\`"
+          fi
+
+          # Check Conventional Commits
+          CONV_PINNED=$(jq -r '.sources["conventional-commits"].version' "$VERSIONS_FILE")
+          CONV_LATEST=$(curl -sf https://api.github.com/repos/conventional-commits/conventionalcommits.org/releases/latest | jq -r '.tag_name // empty' | sed 's/^v//')
+          if [ -n "$CONV_LATEST" ] && [ "$CONV_LATEST" != "$CONV_PINNED" ]; then
+            DRIFT_FOUND=true
+            DRIFT_REPORT="${DRIFT_REPORT}\n- **Conventional Commits**: pinned \`${CONV_PINNED}\`, latest \`${CONV_LATEST}\`"
+          fi
+
+          # Check Semantic Versioning
+          SEM_PINNED=$(jq -r '.sources["semantic-versioning"].version' "$VERSIONS_FILE")
+          SEM_LATEST=$(curl -sf https://api.github.com/repos/semver/semver/releases/latest | jq -r '.tag_name // empty' | sed 's/^v//')
+          if [ -n "$SEM_LATEST" ] && [ "$SEM_LATEST" != "$SEM_PINNED" ]; then
+            DRIFT_FOUND=true
+            DRIFT_REPORT="${DRIFT_REPORT}\n- **Semantic Versioning**: pinned \`${SEM_PINNED}\`, latest \`${SEM_LATEST}\`"
+          fi
+
+          # Check Keep a Changelog (uses git tags, not releases)
+          KAC_PINNED=$(jq -r '.sources["keep-a-changelog"].version' "$VERSIONS_FILE")
+          KAC_LATEST=$(curl -sf https://api.github.com/repos/olivierlacan/keep-a-changelog/tags | jq -r '.[0].name // empty' | sed 's/^v//')
+          if [ -n "$KAC_LATEST" ] && [ "$KAC_LATEST" != "$KAC_PINNED" ]; then
+            DRIFT_FOUND=true
+            DRIFT_REPORT="${DRIFT_REPORT}\n- **Keep a Changelog**: pinned \`${KAC_PINNED}\`, latest \`${KAC_LATEST}\`"
+          fi
+
+          echo "drift_found=$DRIFT_FOUND" >> "$GITHUB_OUTPUT"
+          # Write multiline report
+          {
+            echo "drift_report<<EOF"
+            echo -e "$DRIFT_REPORT"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Check for existing drift issue
+        if: steps.check.outputs.drift_found == 'true'
+        id: existing
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          EXISTING=$(gh issue list --label "upstream-drift" --state open --json number --jq '.[0].number // empty')
+          echo "issue_number=$EXISTING" >> "$GITHUB_OUTPUT"
+
+      - name: Create drift issue
+        if: steps.check.outputs.drift_found == 'true' && steps.existing.outputs.issue_number == ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "Upstream spec version drift detected" \
+            --label "upstream-drift,maintenance" \
+            --body "$(cat <<'ISSUE_EOF'
+          ## Upstream Specification Drift
+
+          The monthly upstream check has detected version changes in one or more specifications that this plugin references.
+
+          ### Changes Detected
+
+          ${{ steps.check.outputs.drift_report }}
+
+          ### Action Required
+
+          1. Review the upstream changelog for each drifted spec
+          2. Update the relevant skill files in `.claude/skills/`
+          3. Update `upstream-versions.json` with the new pinned versions
+          4. Test that generated docs still follow the updated specs
+
+          ### Reference
+
+          - `upstream-versions.json` — pinned versions and check URLs
+          - `.claude/skills/repo-docs-suite/SKILL.md` — CODE_OF_CONDUCT template
+          - `.claude/skills/changelog/SKILL.md` — Keep a Changelog format
+
+          *This issue was created automatically by the `check-upstream` workflow.*
+          ISSUE_EOF
+          )"
+
+      - name: Update existing drift issue
+        if: steps.check.outputs.drift_found == 'true' && steps.existing.outputs.issue_number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment "${{ steps.existing.outputs.issue_number }}" \
+            --body "$(cat <<'COMMENT_EOF'
+          **Monthly re-check** — drift still present:
+
+          ${{ steps.check.outputs.drift_report }}
+          COMMENT_EOF
+          )"
+
+      - name: No drift found
+        if: steps.check.outputs.drift_found == 'false'
+        run: echo "All upstream specs are up to date with pinned versions."

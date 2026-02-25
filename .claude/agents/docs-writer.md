@@ -103,6 +103,15 @@ When unsure about quality, reference these repositories for inspiration:
 - **scalar/scalar** — Animated, responsive, light/dark mode
 - **dbt-labs/dbt-core** — Technical tool made accessible to non-technical users
 
+## Upstream Reference Verification
+
+When generating docs that depend on third-party specifications, verify you are using the latest version:
+
+- **CODE_OF_CONDUCT.md**: Check https://www.contributor-covenant.org/ for the latest Contributor Covenant version (currently v3.0). Use WebFetch if unsure.
+- **CHANGELOG.md**: Format follows [Keep a Changelog v1.1.1](https://keepachangelog.com/en/1.1.0/) — stable, rarely changes.
+- **Commit conventions**: [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) — frozen spec.
+- **Badges**: Shields.io URL patterns evolve; if badge URLs fail, check https://shields.io/ for current syntax.
+
 ## Output Format
 
 Always write directly to files using Write/Edit tools. Never just output markdown to the chat — write it to the actual files in the repository.
