@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-02-25
+
 ### Added
 
 - `feature-benefits` skill — systematic codebase scanning for features with evidence-based benefit translation
@@ -39,5 +41,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Monthly upstream spec drift detection via GitHub Actions
 - Upstream version tracking for Keep a Changelog, Contributor Covenant, Conventional Commits, and Semantic Versioning
 
-[Unreleased]: https://github.com/littlebearapps/repo-docs-plugin/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/littlebearapps/repo-docs-plugin/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/littlebearapps/repo-docs-plugin/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/littlebearapps/repo-docs-plugin/releases/tag/v1.0.0
