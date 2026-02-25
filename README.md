@@ -6,31 +6,19 @@
 
 A [Claude Code](https://code.claude.com/) plugin — install it, run a command, get docs that pass the 4-question test.
 
+[![Version](https://img.shields.io/badge/version-1.1.0-blue)](CHANGELOG.md)
 [![License](https://img.shields.io/github/license/littlebearapps/repo-docs-plugin)](LICENSE)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white)](https://code.claude.com/docs/en/plugins)
 
-[Get Started](#get-started) · [Commands](#commands) · [Skills](#skills) · [Contributing](CONTRIBUTING.md)
+[Get Started](#get-started) · [Features](#features) · [Commands](#commands) · [Skills](#skills) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
-## Get Started
-
-```bash
-# 1. Add the LBA plugin marketplace (once)
-/plugin marketplace add littlebearapps/lba-plugins
-
-# 2. Install repo-docs
-/plugin install repo-docs@lba-plugins
-
-# 3. Generate a README for any project
-/readme
-```
-
 ---
 
-> Run `/docs-audit fix` on any repo. Here's what changes:
+> Run `/readme` on any repo. Here's what changes:
 
-### Your README today
+### Before
 
 ```markdown
 # my-project
@@ -39,7 +27,7 @@ Usage: import thing from 'my-project'
 License: MIT
 ```
 
-### Your README after `/readme`
+### After
 
 ```markdown
 # my-project
@@ -51,10 +39,15 @@ Ship production-ready APIs in minutes — type-safe, observable, cost-aware.
 | Problem | Solution |
 | Manual config is error-prone | Zero-config defaults with full override support |
 
-## Quick Start (under 5 minutes)
-## Features (with benefits column)
-## Contributing (warm CTA + good-first-issues link)
+## Features
+| Feature | Benefit |
+| Automatic retry with backoff | Recover from transient failures without writing retry logic |
+| OpenTelemetry tracing built in | Know exactly where requests slow down — traces attached to every handler |
+
+## Quick Start · Contributing · License
 ```
+
+> Run `/features table` to extract those features directly from your codebase — every benefit traces to actual code.
 
 ---
 
@@ -71,6 +64,33 @@ repo-docs generates documentation with a **marketing edge** — docs that answer
 | Who made it? | Badges, contributor counts, credibility signals |
 | Where do I learn more? | Cross-linked guides, hub pages, community links |
 
+Every doc follows **progressive disclosure** — non-technical first paragraph, technical details deeper — and every doc **cross-links** to related docs so readers never hit a dead end.
+
+## Get Started
+
+```bash
+# 1. Add the LBA plugin marketplace (once)
+/plugin marketplace add littlebearapps/lba-plugins
+
+# 2. Install repo-docs
+/plugin install repo-docs@lba-plugins
+
+# 3. Generate a README for any project
+/readme
+```
+
+## Features
+
+| Feature | Benefit |
+|---------|---------|
+| Evidence-based feature extraction — scans 10 signal categories | Scan any codebase and surface its selling points automatically |
+| Daytona/Banesullivan 4-question framework on every doc | Know your docs answer real reader questions, not just list API methods |
+| 14-file documentation audit with quality checks | Never ship a repo with missing or stale docs again |
+| 6 slash commands covering README to user guides | Generate any doc type from your terminal in under a minute |
+| Templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, issues, PRs | One plugin replaces writing 8+ boilerplate files by hand |
+| Progressive disclosure and automatic cross-linking | Readers find what they need without scrolling past jargon |
+| Upstream spec drift detection via GitHub Actions | Stay current with Keep a Changelog, Contributor Covenant, and Semantic Versioning |
+
 ## Commands
 
 | Command | What It Does | Why It Matters |
@@ -79,8 +99,10 @@ repo-docs generates documentation with a **marketing edge** — docs that answer
 | `/features` | Extract features from code and translate to benefits | Never miss a feature worth documenting |
 | `/changelog` | Generate CHANGELOG.md from git history with user-benefit language | Users see what changed for *them*, not your commit log |
 | `/roadmap` | Generate ROADMAP.md from GitHub milestones and issues | Show contributors where the project is heading |
-| `/docs-audit` | Audit documentation completeness and quality | Never ship a repo missing critical docs again |
+| `/docs-audit` | Audit documentation completeness and quality | Catch gaps across 14 file types before you ship |
 | `/user-guide` | Generate task-oriented user guides in `docs/guides/` | Readers find answers without reading your source code |
+
+The **docs-writer** agent powers these commands — it scans your codebase, extracts features with evidence, and writes docs that pass the 4-question test.
 
 ### Quick Examples
 
@@ -90,6 +112,9 @@ repo-docs generates documentation with a **marketing edge** — docs that answer
 
 # Extract features from code and output a benefits table
 /features table
+
+# Audit features: what's documented vs what's in the code
+/features audit
 
 # Generate the full changelog from all tags
 /changelog full
@@ -105,35 +130,14 @@ repo-docs generates documentation with a **marketing edge** — docs that answer
 
 Skills are loaded on-demand to provide deep reference knowledge:
 
-| Skill | Purpose |
-|-------|---------|
-| `public-readme` | README structure with the Daytona/Banesullivan marketing framework |
-| `feature-benefits` | Codebase scanning for features and evidence-based benefit translation |
-| `changelog` | Keep a Changelog format with user-benefit language rules |
-| `roadmap` | Roadmap structure from GitHub Projects data |
-| `repo-docs-suite` | Complete inventory of all repo docs — templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, issue templates, PR template |
-| `user-guides` | Task-oriented how-to documentation in `docs/guides/` |
-
-## Agent
-
-The **docs-writer** agent handles long-form documentation generation. It scans your codebase systematically for features, translates them into benefit-driven language, and writes docs that pass the 4-question test. It is invoked automatically by the commands above when complex generation is needed.
-
-## What You Get vs Writing Docs Manually
-
-| Dimension | Writing by Hand | Using repo-docs |
-|-----------|----------------|-----------------|
-| Marketing framework | Ad hoc — varies per author | Daytona/Banesullivan 4-question test on every doc |
-| Language consistency | Drifts over time | Benefit-driven tone, consistent spelling, enforced by rules |
-| Progressive disclosure | Often front-loads technical detail | Non-technical first, technical deeper — every time |
-| Cross-linking | Usually forgotten | Automatic links between README, CONTRIBUTING, CHANGELOG |
-| Completeness | Easy to miss files | 14-file audit catches gaps before you ship |
-
-## Design Principles
-
-- **Benefit-driven**: Describe what users gain, not just what the software does
-- **Progressive disclosure**: Non-technical first paragraph, technical details deeper
-- **4-question framework**: Every doc answers — Does this solve my problem? Can I use it? Who made it? Where to learn more?
-- **Cross-linked**: Every doc links to related docs — no orphaned pages
+| Skill | What You Get |
+|-------|-------------|
+| `public-readme` | README structure with the Daytona/Banesullivan marketing framework — hero, why, quickstart, features with benefits |
+| `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation |
+| `changelog` | Keep a Changelog format with language rules that rewrite commits into user-facing benefit language |
+| `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators and community involvement section |
+| `repo-docs-suite` | 14-file inventory with ready-to-use templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, issue/PR templates |
+| `user-guides` | Task-oriented how-to documentation with numbered steps, verification, and cross-linked hub pages |
 
 ## Upstream Specifications
 
