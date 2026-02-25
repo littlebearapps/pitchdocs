@@ -6,7 +6,7 @@
 
 A [Claude Code](https://code.claude.com/) plugin — install it, run a command, get docs that pass the 4-question test.
 
-[![Version](https://img.shields.io/badge/version-1.1.0-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.2.0-blue)](CHANGELOG.md) <!-- x-release-please-version -->
 [![License](https://img.shields.io/github/license/littlebearapps/repo-docs-plugin)](LICENSE)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white)](https://code.claude.com/docs/en/plugins)
 
