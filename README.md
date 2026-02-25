@@ -7,7 +7,7 @@
 A [Claude Code](https://code.claude.com/) plugin — install it, run a command, get docs that pass the 4-question test.
 
 [![License](https://img.shields.io/github/license/littlebearapps/repo-docs-plugin)](LICENSE)
-[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-blue)](https://code.claude.com/docs/en/plugins)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white)](https://code.claude.com/docs/en/plugins)
 
 [Get Started](#get-started) · [Commands](#commands) · [Skills](#skills) · [Contributing](CONTRIBUTING.md)
 
@@ -28,18 +28,20 @@ A [Claude Code](https://code.claude.com/) plugin — install it, run a command, 
 
 ---
 
-### Before repo-docs
+> Run `/docs-audit fix` on any repo. Here's what changes:
 
-```
+### Your README today
+
+```markdown
 # my-project
 Install: npm install my-project
 Usage: import thing from 'my-project'
 License: MIT
 ```
 
-### After repo-docs
+### Your README after `/readme`
 
-```
+```markdown
 # my-project
 Ship production-ready APIs in minutes — type-safe, observable, cost-aware.
 
