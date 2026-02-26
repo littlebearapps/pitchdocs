@@ -4,11 +4,12 @@
 
 **Pitch-perfect documentation for every repository.**
 
-A [Claude Code](https://code.claude.com/) plugin — install it, run a command, get docs that pass the 4-question test.
+A plugin for [Claude Code](https://code.claude.com/) and [OpenCode](https://opencode.ai/) — also works with [Codex CLI](https://codex.openai.com/), [Cursor](https://cursor.com/), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and more.
 
 [![Version](https://img.shields.io/static/v1?label=version&message=1.4.0&color=blue)](CHANGELOG.md) <!-- x-release-please-version -->
 [![License](https://img.shields.io/github/license/littlebearapps/pitchdocs)](LICENSE)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white)](https://code.claude.com/docs/en/plugins)
+[![OpenCode Compatible](https://img.shields.io/badge/OpenCode-Compatible-22c55e)](https://opencode.ai/)
 
 [Get Started](#-get-started) · [Features](#-features) · [Commands](#-commands) · [Skills](#-skills) · [Other AI Tools](#-use-with-other-ai-tools) · [Contributing](CONTRIBUTING.md)
 
@@ -16,38 +17,49 @@ A [Claude Code](https://code.claude.com/) plugin — install it, run a command, 
 
 ---
 
-> Run `/readme` on any repo. Here's what changes:
+## ⚡ Get Started
 
-### Before
+### Claude Code / OpenCode
 
-```markdown
-# my-project
-Install: npm install my-project
-Usage: import thing from 'my-project'
-License: MIT
+```bash
+# 1. Add the LBA plugin marketplace (once)
+/plugin marketplace add littlebearapps/lba-plugins
+
+# 2. Install PitchDocs
+/plugin install pitchdocs@lba-plugins
+
+# 3. Generate a README for any project
+/readme
 ```
 
-### After
+OpenCode reads `.claude/skills/` natively — the same install steps work in both tools.
 
-```markdown
-# my-project
-Ship production-ready APIs in minutes — type-safe, observable, cost-aware.
+**Using Codex CLI, Cursor, Gemini CLI, Aider, or Goose?** See [Use with Other AI Tools](#-use-with-other-ai-tools) for setup instructions.
 
-[Badges] [Quick links]
+---
 
-## Why my-project?
-| Problem | Solution |
-| Manual config is error-prone | Zero-config defaults with full override support |
+## 🚀 What PitchDocs Does
 
-## Features
-| Feature | Benefit |
-| Automatic retry with backoff | Recover from transient failures without writing retry logic |
-| OpenTelemetry tracing built in | Know exactly where requests slow down — traces attached to every handler |
+### Ship a professional README
 
-## Quick Start · Contributing · License
-```
+You've finished your MVP. The repo is about to go public. You need a README that does more than list install commands — it needs to **sell** the project to potential users, contributors, and sponsors.
 
-> Run `/features table` to extract those features directly from your codebase — every benefit traces to actual code.
+PitchDocs scans your codebase, extracts features with file-level evidence, translates them into benefit-driven language, and generates a marketing-friendly README with a hero section, a "why" narrative, a features-and-benefits table, a working quick start, and proper badges. Run `/readme` and get a README that passes the [4-question test](#-why-pitchdocs).
+
+### Generate the full docs suite
+
+Beyond the README, a professional open-source repo needs **CHANGELOG**, **CONTRIBUTING**, **ROADMAP**, **CODE_OF_CONDUCT**, **SECURITY**, issue templates, PR templates, release config, and more. Writing all of these by hand is tedious and error-prone.
+
+Run `/docs-audit fix` to scan your repo against a 17+ file checklist and auto-generate everything that's missing — or use individual commands (`/changelog`, `/roadmap`, `/user-guide`) for just the docs you need.
+
+### Make your project discoverable
+
+Great docs are useless if nobody can find them. PitchDocs handles the discovery layer:
+
+- **`llms.txt`** — generate AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec, so AI coding assistants and search engines surface your docs (SEO and GEO)
+- **npm / PyPI metadata** — audit your `package.json` and `pyproject.toml` for missing fields that affect your registry page (description, keywords, repository, homepage, types)
+- **Cross-renderer compatibility** — ensure your README renders correctly on GitHub, npm, and PyPI, not just one platform
+- **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
 
 ---
 
@@ -65,21 +77,6 @@ PitchDocs generates documentation with a **marketing edge** — docs that answer
 | Where do I learn more? | Cross-linked guides, hub pages, community links |
 
 Every doc follows **progressive disclosure** — non-technical first paragraph, technical details deeper — and every doc **cross-links** to related docs so readers never hit a dead end.
-
----
-
-## ⚡ Get Started
-
-```bash
-# 1. Add the LBA plugin marketplace (once)
-/plugin marketplace add littlebearapps/lba-plugins
-
-# 2. Install PitchDocs
-/plugin install pitchdocs@lba-plugins
-
-# 3. Generate a README for any project
-/readme
-```
 
 ---
 
