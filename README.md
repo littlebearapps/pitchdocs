@@ -2,9 +2,9 @@
 
 # PitchDocs
 
-**Documentation skills for AI coding assistants.**
+**GitHub repository documentation skills and templates for AI coding assistants.**
 
-Give your AI the knowledge to explore any codebase, then create, enhance, and maintain professional public-facing docs — from README and CHANGELOG through to npm and PyPI registry compatibility.
+Give your AI the knowledge to map out any codebase, extract a features-and-benefits summary, then create, enhance, and maintain professional public-facing GitHub repository docs — SEO and GEO ready with llms.txt (including external documentation sites), and npm/PyPI registry compatible.
 
 A plugin for [Claude Code](https://code.claude.com/) and [OpenCode](https://opencode.ai/) — also works with [Codex CLI](https://codex.openai.com/), [Cursor](https://cursor.com/), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and more.
 
@@ -12,6 +12,7 @@ A plugin for [Claude Code](https://code.claude.com/) and [OpenCode](https://open
 [![License](https://img.shields.io/github/license/littlebearapps/pitchdocs)](LICENSE)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white)](https://code.claude.com/docs/en/plugins)
 [![OpenCode Compatible](https://img.shields.io/badge/OpenCode-Compatible-22c55e)](https://opencode.ai/)
+[![npm & PyPI Ready](https://img.shields.io/badge/npm_%26_PyPI-Ready-cb3837)](https://www.npmjs.com/)
 
 [Get Started](#-get-started) · [Features](#-features) · [Commands](#-commands) · [Skills](#-skills) · [Other AI Tools](#-use-with-other-ai-tools) · [Contributing](CONTRIBUTING.md)
 
