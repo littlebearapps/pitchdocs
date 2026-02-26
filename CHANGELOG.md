@@ -5,6 +5,31 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0](https://github.com/littlebearapps/pitchdocs/compare/v1.4.1...v1.5.0) (2026-02-26)
+
+### Added
+
+- **GEO (Generative Engine Optimisation)** — new section in `doc-standards` rule with crisp definitions, atomic sections, concrete statistics, comparison tables, TL;DR blocks, and cross-referencing patterns structured for LLM citation
+- **GEO patterns in `public-readme` skill** — first-paragraph-as-definition guidance, comparison table optimisation for "X vs Y" queries, and semantic heading hierarchy enforcement
+- **Diataxis framework** in `user-guides` skill — classify docs into tutorials, how-to guides, reference, and explanation quadrants with updated directory layout
+- **`ai-context` skill and `/ai-context` command** — generate AGENTS.md, CLAUDE.md, .cursorrules, and .github/copilot-instructions.md from codebase analysis with staleness audit mode
+- **`docs-verify` skill and `/docs-verify` command** — validate broken links, stale content (90-day threshold via git blame), llms.txt sync, heading hierarchy, image alt text, badge URLs, and feature coverage with CI-friendly output
+- **`launch-artifacts` skill and `/launch` command** — transform README/CHANGELOG into Dev.to articles, Hacker News "Show HN" posts, Reddit posts, Twitter/X threads, awesome list submission PRs, and social preview image guidance
+- **`api-reference` skill** — configuration templates and comment conventions for TypeDoc, Sphinx/mkdocstrings, godoc, and rustdoc with language auto-detection
+- **AI context files in `pitchdocs-suite` inventory** — AGENTS.md and copilot-instructions.md at Tier 2, CLAUDE.md and .cursorrules at Tier 3
+- **Diataxis coverage check in `/docs-audit`** — flags missing documentation quadrants
+- **AI context staleness check in `/docs-audit`** — verifies context files match current codebase
+- **Documentation verification check in `/docs-audit`** — recommends `/docs-verify` for comprehensive validation
+- **Enhanced user guide patterns** — copy-paste-ready code examples, error recovery with collapsible troubleshooting, video/screencast placement guidance, and Diataxis cross-links
+- **GitHub Actions docs CI template** — markdownlint + lychee link checking workflow in `docs-verify` skill
+
+### Changed
+
+- `pitchdocs-suite` audit scan now checks for AGENTS.md, CLAUDE.md, .cursorrules, and copilot-instructions.md
+- `docs-writer` agent now references 4 additional skills (ai-context, docs-verify, launch-artifacts, api-reference)
+- Docs inventory expanded from 17+ to 20+ files across all tiers
+- Plugin version bumped to 1.5.0 with new keywords (seo, geo, ai-context, agents-md, diataxis)
+
 ## [1.4.1](https://github.com/littlebearapps/pitchdocs/compare/v1.4.0...v1.4.1) (2026-02-26)
 
 

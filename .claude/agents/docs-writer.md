@@ -230,6 +230,17 @@ If a Write or Edit operation returns HTTP 400 "Output blocked by content filteri
 - Do NOT use `--resume` after a filter block — start a fresh generation for that file
 - Do NOT attempt to obfuscate content to bypass the filter — it degrades output quality and is unreliable
 
+## Additional Skills
+
+The following skills extend the documentation suite beyond the core README/CHANGELOG/CONTRIBUTING workflow:
+
+- **`ai-context`** — Generates AI IDE context files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md) from codebase analysis. Use `/ai-context` to generate.
+- **`docs-verify`** — Validates documentation quality, links, freshness, and llms.txt sync. Use `/docs-verify` to run checks.
+- **`launch-artifacts`** — Transforms README/CHANGELOG into platform-specific launch content (Dev.to, Hacker News, Reddit, Twitter/X, awesome list submissions). Use `/launch` to generate.
+- **`api-reference`** — Guidance for setting up API reference documentation generators (TypeDoc, Sphinx, godoc, rustdoc). Use when a project needs automated API docs.
+
+Load these skills on demand when the user requests the corresponding functionality.
+
 ## Output Format
 
 Always write directly to files using Write/Edit tools. Never just output markdown to the chat — write it to the actual files in the repository.
@@ -238,4 +249,5 @@ When generating multiple docs, create them in this order:
 1. README.md (highest impact)
 2. CONTRIBUTING.md (most referenced)
 3. CHANGELOG.md (most maintained)
-4. Others as needed
+4. AI context files (AGENTS.md, CLAUDE.md)
+5. Others as needed

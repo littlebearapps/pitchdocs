@@ -28,6 +28,8 @@ A well-documented public repository should have these files:
 | `SUPPORT.md` | Where to get help — issues, discussions, external channels | This skill |
 | `.github/release.yml` | Auto-generated release note categories | This skill |
 | `llms.txt` | LLM-friendly content index for AI tools (Cursor, Windsurf, Claude Code) | `llms-txt` skill |
+| `AGENTS.md` | Cross-tool AI agent context — conventions, architecture, key commands | `ai-context` skill |
+| `.github/copilot-instructions.md` | GitHub Copilot repository-level instructions | `ai-context` skill |
 | `CODE_OF_CONDUCT.md` | Community behaviour standards | This skill |
 | `SECURITY.md` | Vulnerability reporting process | This skill |
 | `.github/ISSUE_TEMPLATE/config.yml` | Issue template chooser config | This skill |
@@ -40,6 +42,8 @@ A well-documented public repository should have these files:
 | File | Purpose | Generator |
 |------|---------|-----------|
 | `ROADMAP.md` | Public development roadmap | `roadmap` skill |
+| `CLAUDE.md` | Project-specific Claude Code context — coding standards, architecture, key paths | `ai-context` skill |
+| `.cursorrules` | Cursor-specific rules derived from codebase conventions | `ai-context` skill |
 | `docs/guides/configuration.md` | All config options explained | `user-guides` skill |
 | `docs/guides/deployment.md` | Production deployment guide | `user-guides` skill |
 | `docs/guides/troubleshooting.md` | Common issues and solutions | `user-guides` skill |
@@ -170,12 +174,12 @@ Guidance on storing and referencing visual elements (screenshots, demo GIFs, dia
 
 ```bash
 # Check for all expected files
-for f in README.md LICENSE CONTRIBUTING.md CHANGELOG.md ROADMAP.md CODE_OF_CONDUCT.md SECURITY.md SUPPORT.md llms.txt; do
+for f in README.md LICENSE CONTRIBUTING.md CHANGELOG.md ROADMAP.md CODE_OF_CONDUCT.md SECURITY.md SUPPORT.md llms.txt AGENTS.md CLAUDE.md .cursorrules; do
   [ -f "$f" ] && echo "✓ $f" || echo "✗ $f (missing)"
 done
 
-# Check .github templates
-for f in .github/ISSUE_TEMPLATE/bug_report.yml .github/ISSUE_TEMPLATE/feature_request.yml .github/PULL_REQUEST_TEMPLATE.md .github/ISSUE_TEMPLATE/config.yml; do
+# Check .github templates and AI context files
+for f in .github/ISSUE_TEMPLATE/bug_report.yml .github/ISSUE_TEMPLATE/feature_request.yml .github/PULL_REQUEST_TEMPLATE.md .github/ISSUE_TEMPLATE/config.yml .github/copilot-instructions.md; do
   [ -f "$f" ] && echo "✓ $f" || echo "✗ $f (missing)"
 done
 
