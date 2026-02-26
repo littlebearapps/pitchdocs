@@ -197,3 +197,104 @@ Format: `[![Badge](https://img.shields.io/...)](link)`
 - `SECURITY.md` — Always uppercase
 - `.github/ISSUE_TEMPLATE/` — GitHub convention
 - `.github/PULL_REQUEST_TEMPLATE.md` — GitHub convention
+
+## GEO: Writing for AI Citation
+
+Generative Engine Optimisation (GEO) ensures documentation surfaces correctly in AI-generated answers — ChatGPT, Perplexity, Google AI Overviews, and Claude. These principles apply to all public-facing docs, not just READMEs.
+
+### Crisp Definitions First
+
+Put a one-sentence definition of the project at the very top of the README, before badges or navigation. LLMs preferentially quote top-of-page definitions when answering "what is X?" queries.
+
+**Pattern:**
+```markdown
+# Project Name
+
+**[One sentence that defines what this project is and who it's for.]**
+```
+
+The definition must be standalone — it should make sense if extracted from the page with no surrounding context.
+
+### Atomic Sections
+
+Each H2 section should have **one clear intent**, answerable as a standalone snippet. AI retrieval systems (RAG) chunk documents by heading, so a section that mixes installation with architecture reduces citation accuracy.
+
+**Rules:**
+- One topic per H2 — don't combine "Features" and "Configuration"
+- Strict heading hierarchy: H1 > H2 > H3 without skipping levels (no H1 > H3)
+- Descriptive headings that contain the topic keyword — "## TypeScript Configuration" not "## Config"
+- Each section should be comprehensible without reading prior sections
+
+### Concrete Statistics
+
+Content with concrete statistics can boost visibility in AI responses by up to 28% (Aggarwal et al., "GEO: Generative Engine Optimization", 2023). Include benchmarks, performance numbers, percentages, and measurable outcomes wherever evidence exists.
+
+**Pattern:**
+```markdown
+- Reduces bundle size by 40% compared to webpack (benchmark: `npm run bench`)
+- Processes 10,000 records/second on a single worker (see `benchmarks/throughput.ts`)
+- 95% test coverage across 200+ test cases (`npm test -- --coverage`)
+```
+
+**Rules:**
+- Every statistic must trace to actual code, a benchmark file, or a verifiable measurement
+- No speculative numbers — "blazingly fast" without evidence is worse than no claim at all
+- Prefer relative comparisons ("40% faster than X") over absolute numbers when the alternative is well-known
+
+### Comparison Tables
+
+LLMs frequently surface comparison tables when answering "X vs Y" or "best X for Y" queries. Structure comparison sections to be extractable:
+
+**Pattern:**
+```markdown
+## How It Compares
+
+| Feature | This Project | Alternative A | Alternative B |
+|---------|-------------|---------------|---------------|
+| Specific feature | :white_check_mark: (with detail) | :x: | Partial |
+```
+
+**Rules:**
+- Use a descriptive H2 heading: "How It Compares" or "How [Project] Compares to [Category]"
+- Be factually accurate about competitors — false claims erode trust with both humans and AI
+- Include at least one quantitative row (speed, bundle size, API count) alongside qualitative ones
+- Link to sources for competitor claims where possible
+
+### TL;DR and Key Concepts Blocks
+
+For long guides (200+ lines), add a **TL;DR** or **Key Concepts** block immediately after the title. RAG systems often extract the first paragraph under a heading — make it count.
+
+**Pattern:**
+```markdown
+# Migration Guide
+
+> **TL;DR:** Upgrade from v1 to v2 by running `npx migrate` — the CLI handles config changes, dependency updates, and breaking API renames automatically. Manual steps are only needed for custom plugins.
+
+## Prerequisites
+...
+```
+
+### Prerequisite Blocks
+
+Explicit, structured prerequisite blocks improve LLM understanding of dependencies and requirements. Always use a consistent format.
+
+**Pattern:**
+```markdown
+## Prerequisites
+
+- Node.js 20+ ([install guide](https://nodejs.org/))
+- npm 10+ (included with Node.js)
+- A GitHub account with repo access
+```
+
+Never bury prerequisites in prose paragraphs — AI extractors miss them.
+
+### Cross-Referencing for Semantic Scaffolding
+
+AI systems build understanding by following links between related documents. Explicit cross-references create a "semantic web" that improves citation accuracy across your documentation set.
+
+**Rules:**
+- Every guide links to at least one related guide and back to the hub page
+- Use descriptive link text — `[Configuration Guide](docs/guides/configuration.md)` not `[click here](link)`
+- README links to docs hub, docs hub links to individual guides, guides link back to README
+- Changelog links to relevant documentation for breaking changes

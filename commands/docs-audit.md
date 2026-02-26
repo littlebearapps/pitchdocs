@@ -49,6 +49,57 @@ Check what public-facing documentation is missing or needs improvement.
 | Low | docs/README.md | ? |
 | Low | docs/guides/ | ? |
 | Low | CITATION.cff | ? |
+| Medium | AGENTS.md | ? |
+| Medium | .github/copilot-instructions.md | ? |
+| Low | CLAUDE.md | ? |
+| Low | .cursorrules | ? |
+
+### AI Context Files Check
+
+If the project has AI context files, verify they reflect the current codebase:
+
+- [ ] AGENTS.md references correct language/framework version
+- [ ] AGENTS.md key commands are runnable (`test`, `build`, `lint`)
+- [ ] CLAUDE.md file paths exist on disk
+- [ ] .cursorrules conventions match current linter config
+- [ ] .github/copilot-instructions.md patterns are consistent with codebase
+
+Report format:
+```
+AI Context Files:
+  ✓ AGENTS.md — present, references TypeScript + Vitest (matches codebase)
+  ⚠ CLAUDE.md — references src/index.ts but file is now src/main.ts
+  · .cursorrules — not present (recommend: run /ai-context cursor)
+  · .github/copilot-instructions.md — not present (recommend: run /ai-context copilot)
+```
+
+### Diataxis Coverage Check
+
+Classify existing docs into Diataxis quadrants and flag gaps:
+
+- [ ] At least one How-to Guide exists (docs/guides/)
+- [ ] Tutorial exists for onboarding (docs/tutorials/) — optional for small projects
+- [ ] Reference docs exist for public API (docs/reference/ or docs/api/) — if applicable
+- [ ] Explanation docs exist for architecture decisions — optional for small projects
+
+Report format:
+```
+Diataxis Coverage:
+  ✓ How-to Guides: 4 docs (getting-started, configuration, deployment, troubleshooting)
+  · Tutorials: 0 docs (consider adding for complex onboarding)
+  ✓ Reference: 1 doc (api.md)
+  · Explanation: 0 docs (consider adding architecture decisions doc)
+```
+
+### Documentation Verification Check
+
+If the `docs-verify` skill is loaded, also run:
+- [ ] All internal links resolve
+- [ ] llms.txt references match files on disk
+- [ ] No stale docs (>90 days without update, relative to last commit)
+- [ ] Badge URLs return valid responses
+
+Recommend: run `/docs-verify` for the full verification report.
 
 ### Quality Check (Is the content good?)
 

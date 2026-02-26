@@ -8,7 +8,7 @@ Give your AI the knowledge to map out any codebase, extract a features-and-benef
 
 A plugin for [Claude Code](https://code.claude.com/) and [OpenCode](https://opencode.ai/) — also works with [Codex CLI](https://codex.openai.com/), [Cursor](https://cursor.com/), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and more.
 
-[![Version](https://img.shields.io/static/v1?label=version&message=1.4.1&color=blue)](CHANGELOG.md) <!-- x-release-please-version -->
+[![Version](https://img.shields.io/static/v1?label=version&message=1.5.0&color=blue)](CHANGELOG.md) <!-- x-release-please-version -->
 [![License](https://img.shields.io/github/license/littlebearapps/pitchdocs)](LICENSE)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white)](https://code.claude.com/docs/en/plugins)
 [![OpenCode Compatible](https://img.shields.io/badge/OpenCode-Compatible-22c55e)](https://opencode.ai/)
@@ -53,15 +53,18 @@ PitchDocs scans your codebase, extracts features with file-level evidence, trans
 
 Beyond the README, a professional open-source repo needs **CHANGELOG**, **CONTRIBUTING**, **ROADMAP**, **CODE_OF_CONDUCT**, **SECURITY**, issue templates, PR templates, release config, and more. Writing all of these by hand is tedious and error-prone.
 
-Run `/docs-audit fix` to scan your repo against a 17+ file checklist and auto-generate everything that's missing — or use individual commands (`/changelog`, `/roadmap`, `/user-guide`) for just the docs you need.
+Run `/docs-audit fix` to scan your repo against a 20+ file checklist and auto-generate everything that's missing — or use individual commands (`/changelog`, `/roadmap`, `/user-guide`) for just the docs you need.
 
 ### Make your project discoverable
 
 Great docs are useless if nobody can find them. PitchDocs handles the discovery layer:
 
 - **`llms.txt`** — generate AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec, so AI coding assistants and search engines surface your docs (SEO and GEO)
+- **AI context files** — generate AGENTS.md, CLAUDE.md, .cursorrules, and copilot-instructions.md so AI coding assistants understand your project's conventions and architecture
+- **GEO-optimised structure** — crisp definitions, atomic sections, comparison tables, and concrete statistics structured for LLM extraction and citation
 - **npm / PyPI metadata** — audit your `package.json` and `pyproject.toml` for missing fields that affect your registry page (description, keywords, repository, homepage, types)
 - **Cross-renderer compatibility** — ensure your README renders correctly on GitHub, npm, and PyPI, not just one platform
+- **Launch artifacts** — transform your README and CHANGELOG into Dev.to articles, Hacker News posts, Reddit posts, and awesome list submissions
 - **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
 
 ---
@@ -81,17 +84,24 @@ PitchDocs generates documentation with a **marketing edge** — docs that answer
 
 Every doc follows **progressive disclosure** — non-technical first paragraph, technical details deeper — and every doc **cross-links** to related docs so readers never hit a dead end.
 
+Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs are structured with crisp definitions, atomic sections, comparison tables, and concrete statistics so that ChatGPT, Perplexity, Google AI Overviews, and other generative engines can extract and cite your project accurately. AI context files (AGENTS.md, CLAUDE.md, .cursorrules) ensure coding assistants understand your conventions from day one — and launch artifacts help you reach the third-party platforms (Dev.to, Hacker News, Reddit, awesome lists) that AI systems treat as trust signals.
+
 ---
 
 ## 🎯 Features
 
 - **Evidence-based feature extraction** — scans 10 signal categories in your codebase and surfaces selling points automatically, with every feature traced to actual code
 - **4-question framework on every doc** — validates that your docs answer "Does this solve my problem?", "Can I use it?", "Who made it?", and "Where do I learn more?"
-- **17+ file documentation audit** — never ship a repo with missing docs, broken metadata, or invisible image links
-- **7 slash commands** — generate any doc type from your terminal in under a minute, from README to llms.txt
+- **GEO-optimised content structure** — crisp definitions, atomic sections, comparison tables, and concrete statistics structured for LLM extraction and AI citation (based on the Princeton GEO study)
+- **AI context file generation** — generate AGENTS.md, CLAUDE.md, .cursorrules, and copilot-instructions.md from a single codebase scan so AI coding assistants understand your conventions
+- **Diataxis documentation framework** — classify docs into tutorials, how-to guides, reference, and explanation quadrants for clear information architecture
+- **Documentation verification** — check for broken links, stale content, llms.txt sync, heading hierarchy issues, and badge URL validity — locally or in CI
+- **Launch artifacts** — transform your README and CHANGELOG into Dev.to articles, Hacker News "Show HN" posts, Reddit posts, Twitter/X threads, and awesome list submission PRs
+- **20+ file documentation audit** — never ship a repo with missing docs, broken metadata, AI context drift, or invisible image links
+- **10 slash commands** — generate any doc type from your terminal in under a minute, from README to launch artifacts
 - **Ready-to-use templates** — CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, issue templates, PR templates, and release config — one plugin replaces writing 10+ files by hand
 - **llms.txt generation** — create AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec so coding assistants and search engines surface your docs
-- **Licence selection and visual assets** — choose the right licence and present your project with compelling visuals
+- **API reference guidance** — configuration templates for TypeDoc, Sphinx, godoc, and rustdoc with comment conventions for each language
 - **npm and PyPI compatibility** — audit registry metadata and ensure your README renders correctly on GitHub, npm, and PyPI
 - **Progressive disclosure** — docs open with non-technical language and reveal technical depth as readers scroll, with automatic cross-linking between sections
 - **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
@@ -106,9 +116,12 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 | `/features` | Extract features from code and translate to benefits — output as inventory, table, or bold+em-dash bullets | Never miss a feature worth documenting |
 | `/changelog` | Generate CHANGELOG.md from git history with user-benefit language | Users see what changed for *them*, not your commit log |
 | `/roadmap` | Generate ROADMAP.md from GitHub milestones and issues | Show contributors where the project is heading |
-| `/docs-audit` | Audit docs completeness, quality, GitHub metadata, visual assets, and npm/PyPI registry config | Catch gaps in files, metadata, images, and package registry fields before you ship |
+| `/docs-audit` | Audit docs completeness, quality, GitHub metadata, visual assets, AI context files, Diataxis coverage, and npm/PyPI registry config | Catch gaps in files, metadata, images, and package registry fields before you ship |
 | `/llms-txt` | Generate llms.txt and llms-full.txt for AI discoverability | AI coding assistants and search engines find and understand your docs |
-| `/user-guide` | Generate task-oriented user guides in `docs/guides/` | Readers find answers without reading your source code |
+| `/user-guide` | Generate task-oriented user guides in `docs/guides/` with Diataxis classification | Readers find answers without reading your source code |
+| `/ai-context` | Generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md from codebase analysis | AI coding assistants understand your project's conventions from day one |
+| `/docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs | Catch documentation decay before it reaches users |
+| `/launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions | Transform docs into platform-specific launch content |
 
 The **docs-writer** agent powers these commands — it scans your codebase, extracts features with evidence, and writes docs that pass the 4-question test.
 
@@ -141,6 +154,21 @@ The **docs-writer** agent powers these commands — it scans your codebase, extr
 
 # Generate a getting-started user guide
 /user-guide getting-started
+
+# Generate AI context files for all supported tools
+/ai-context
+
+# Generate CLAUDE.md only
+/ai-context claude
+
+# Verify all docs for broken links and stale content
+/docs-verify
+
+# Generate launch artifacts for all platforms
+/launch
+
+# Generate a Dev.to article from your README
+/launch devto
 ```
 
 ---
@@ -151,14 +179,18 @@ Skills are loaded on-demand to provide deep reference knowledge:
 
 | Skill | What You Get |
 |-------|-------------|
-| `public-readme` | README structure with three-part hero, use-case framing, bold+em-dash features, and the Daytona/Banesullivan marketing framework |
+| `public-readme` | README structure with three-part hero, use-case framing, bold+em-dash features, GEO patterns, and the Daytona/Banesullivan marketing framework |
 | `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation — outputs as inventory, table, or bold+em-dash bullets |
 | `changelog` | Keep a Changelog format with language rules that rewrite commits into user-facing benefit language |
 | `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators and community involvement section |
-| `pitchdocs-suite` | 17+ file inventory, GitHub metadata, visual assets guidance, licence selection framework, and ready-to-use templates |
+| `pitchdocs-suite` | 20+ file inventory, GitHub metadata, AI context files, visual assets guidance, licence selection framework, and ready-to-use templates |
 | `llms-txt` | llmstxt.org specification reference with generation patterns for repos and docs sites |
 | `package-registry` | npm and PyPI metadata field inventories, README cross-renderer compatibility, trusted publishing guidance, and registry badges |
-| `user-guides` | Task-oriented how-to documentation with numbered steps, verification, and cross-linked hub pages |
+| `user-guides` | Task-oriented how-to documentation with Diataxis framework, numbered steps, copy-paste-ready code, error recovery, and cross-linked hub pages |
+| `ai-context` | AI IDE context file generation — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md from codebase analysis |
+| `docs-verify` | Documentation validation — broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, and CI-friendly output |
+| `launch-artifacts` | Platform-specific launch content — Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
+| `api-reference` | API reference generator guidance — TypeDoc, Sphinx, godoc, rustdoc configuration templates and comment conventions |
 
 ---
 
@@ -170,16 +202,16 @@ The source of truth lives in `.claude/`. Here's what's inside and what each piec
 
 | Directory | Contents | Purpose |
 |-----------|----------|---------|
-| `.claude/skills/*/SKILL.md` | 8 skill files | Reference knowledge for README generation, feature extraction, changelogs, roadmaps, user guides, llms.txt, package registry auditing, and full docs suite inventory |
+| `.claude/skills/*/SKILL.md` | 12 skill files | Reference knowledge for README generation, feature extraction, changelogs, roadmaps, user guides, llms.txt, package registry auditing, AI context files, docs verification, launch artifacts, API reference, and full docs suite inventory |
 | `.claude/agents/docs-writer.md` | 1 agent file | Orchestration workflow: codebase scanning → feature extraction → doc writing → validation |
-| `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, progressive disclosure, benefit-driven language, feature list formatting (bold+em-dash and table), three-part hero structure, visual formatting with emoji anchors |
-| `commands/*.md` | 7 command files | Slash command definitions for `/readme`, `/changelog`, `/roadmap`, `/docs-audit`, `/features`, `/llms-txt`, `/user-guide` |
+| `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language, feature list formatting (bold+em-dash and table), three-part hero structure, visual formatting with emoji anchors |
+| `commands/*.md` | 10 command files | Slash command definitions for `/readme`, `/changelog`, `/roadmap`, `/docs-audit`, `/features`, `/llms-txt`, `/user-guide`, `/ai-context`, `/docs-verify`, `/launch` |
 
 ### OpenCode
 
 [OpenCode](https://opencode.ai/) reads `.claude/skills/` natively — PitchDocs works out of the box with no extra setup.
 
-**Install** the same way as Claude Code (clone or add as a plugin), then invoke skills by name in your OpenCode session. The 8 SKILL.md files, the docs-writer agent, and the doc-standards rule are all picked up automatically.
+**Install** the same way as Claude Code (clone or add as a plugin), then invoke skills by name in your OpenCode session. The 12 SKILL.md files, the docs-writer agent, and the doc-standards rule are all picked up automatically.
 
 OpenCode also supports MCP servers, so if you have the GitHub MCP server configured, the docs-writer agent can access repository metadata, issues, and releases just as it does in Claude Code.
 
@@ -193,7 +225,7 @@ OpenCode also supports MCP servers, so if you have the GitHub MCP server configu
 # From your project root (not the PitchDocs repo)
 PITCHDOCS="/path/to/pitchdocs"
 
-# Copy all 8 skills
+# Copy all 12 skills
 cp -r "$PITCHDOCS/.claude/skills/"* .agents/skills/
 
 # Copy the quality standards as AGENTS.md (Codex reads this automatically)

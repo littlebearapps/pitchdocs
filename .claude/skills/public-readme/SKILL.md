@@ -40,6 +40,16 @@ npm install project-name
 | Feature A | Saves 30 min per release | :white_check_mark: Stable |
 ```
 
+### GEO: Optimising for AI Citation
+
+Follow the GEO section in the `doc-standards` rule. These README-specific additions ensure the README surfaces correctly in AI-generated answers:
+
+1. **First paragraph as standalone definition** — The bold one-liner in the hero must work as a standalone definition if extracted with no surrounding context. LLMs quote top-of-page definitions when answering "what is X?" queries.
+2. **Comparison section** — Include a "How It Compares" section (section 6 below) with a feature comparison table. LLMs surface these when answering "X vs Y" and "best X for Y" queries.
+3. **Statistics and benchmarks** — Where evidence exists, include a benchmarks section or embed concrete numbers in feature descriptions. Content with statistics gets up to 28% more AI visibility.
+4. **Semantic heading hierarchy** — Strict H1 > H2 > H3 without skipping levels. Descriptive headings containing topic keywords improve RAG chunking accuracy.
+5. **Atomic feature descriptions** — Each feature bullet or table row should be comprehensible without reading the surrounding context. AI extractors often pull individual items, not entire sections.
+
 ### 1. Hero Section
 
 ```markdown

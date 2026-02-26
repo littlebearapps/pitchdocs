@@ -22,15 +22,19 @@ pitchdocs/
 │   ├── agents/docs-writer.md      # Long-form doc generation agent
 │   ├── rules/doc-standards.md     # Tone, language, and quality standards
 │   └── skills/                    # Reference knowledge (loaded on-demand)
+│       ├── ai-context/SKILL.md
+│       ├── api-reference/SKILL.md
 │       ├── changelog/SKILL.md
+│       ├── docs-verify/SKILL.md
 │       ├── feature-benefits/SKILL.md
+│       ├── launch-artifacts/SKILL.md
 │       ├── llms-txt/SKILL.md
 │       ├── package-registry/SKILL.md
 │       ├── pitchdocs-suite/SKILL.md
 │       ├── public-readme/SKILL.md
 │       ├── roadmap/SKILL.md
 │       └── user-guides/SKILL.md
-├── commands/                      # Slash commands (/readme, /changelog, etc.)
+├── commands/                      # Slash commands (/readme, /changelog, /ai-context, etc.)
 └── upstream-versions.json         # Pinned upstream spec versions
 ```
 
