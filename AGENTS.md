@@ -63,3 +63,13 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 | `ai-context` | Generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md from codebase analysis |
 | `docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs |
 | `launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
+
+## AI Context Files
+
+This repository includes context files for multiple AI coding tools:
+
+- `AGENTS.md` — Codex CLI (this file)
+- `CLAUDE.md` — Claude Code project context
+- `.cursorrules` — Cursor IDE project context
+- `.github/copilot-instructions.md` — GitHub Copilot project context
+- `llms.txt` — LLM-friendly content index (llmstxt.org spec)

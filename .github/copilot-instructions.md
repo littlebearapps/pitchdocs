@@ -1,0 +1,23 @@
+# PitchDocs — Copilot Instructions
+
+PitchDocs is a Claude Code plugin that generates marketing-quality repository documentation. Pure Markdown, no runtime dependencies.
+
+## Project Structure
+
+- `.claude/skills/*/SKILL.md` — 12 reference knowledge modules (README, features, changelog, roadmap, docs suite, llms.txt, package registry, user guides, AI context, docs verify, launch artifacts, API reference)
+- `.claude/agents/docs-writer.md` — orchestration agent (scan → extract → write → validate)
+- `.claude/rules/doc-standards.md` — quality standards rule (auto-loaded)
+- `commands/*.md` — 10 slash command definitions
+- `.claude-plugin/plugin.json` — plugin manifest
+
+## Conventions
+
+- Australian English spelling (realise, colour, behaviour, licence)
+- Conventional Commits for git messages (feat:, fix:, docs:, chore:)
+- Benefit-driven documentation: every feature claim traces to code evidence
+- 4-question framework: Does this solve my problem? Can I use it? Who made it? Where do I learn more?
+- GEO-optimised structure for AI citation (crisp definitions, atomic sections, comparison tables)
+
+## Sync Points
+
+When modifying skills or commands, keep these files in sync: README.md, AGENTS.md, llms.txt, and the bug report template component dropdown.

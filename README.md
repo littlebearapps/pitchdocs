@@ -14,7 +14,7 @@ A plugin for [Claude Code](https://code.claude.com/) and [OpenCode](https://open
 [![OpenCode Compatible](https://img.shields.io/badge/OpenCode-Compatible-22c55e)](https://opencode.ai/)
 [![npm & PyPI Ready](https://img.shields.io/badge/npm_%26_PyPI-Ready-cb3837)](https://www.npmjs.com/)
 
-[Get Started](#-get-started) · [Features](#-features) · [Commands](#-commands) · [Skills](#-skills) · [Other AI Tools](#-use-with-other-ai-tools) · [Contributing](CONTRIBUTING.md)
+[Get Started](#-get-started) · [Features](#-features) · [How It Compares](#%EF%B8%8F-how-pitchdocs-compares) · [Commands](#-commands) · [Skills](#-skills) · [Other AI Tools](#-use-with-other-ai-tools) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -67,6 +67,22 @@ Great docs are useless if nobody can find them. PitchDocs handles the discovery 
 - **Launch artifacts** — transform your README and CHANGELOG into Dev.to articles, Hacker News posts, Reddit posts, and awesome list submissions
 - **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
 
+### How it works
+
+```mermaid
+flowchart LR
+    A["🔍 Scan\nCodebase"] --> B["📋 Extract\nFeatures"]
+    B --> C["✍️ Write\nDocs"]
+    C --> D["✅ Validate\n4-Question Test"]
+
+    style A fill:#1e3a5f,stroke:#4a9eff,color:#fff
+    style B fill:#1e3a5f,stroke:#4a9eff,color:#fff
+    style C fill:#1e3a5f,stroke:#4a9eff,color:#fff
+    style D fill:#1e3a5f,stroke:#4a9eff,color:#fff
+```
+
+**Scan** reads your manifest, project structure, git history, and GitHub metadata. **Extract** runs a 5-step workflow across 10 signal categories to surface features with file-level evidence. **Write** applies the Daytona/Banesullivan marketing framework with progressive disclosure. **Validate** checks every doc against the 4-question test, verifies links and badges, and ensures cross-renderer compatibility.
+
 ---
 
 ## 💡 Why PitchDocs?
@@ -105,6 +121,37 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 - **npm and PyPI compatibility** — audit registry metadata and ensure your README renders correctly on GitHub, npm, and PyPI
 - **Progressive disclosure** — docs open with non-technical language and reveal technical depth as readers scroll, with automatic cross-linking between sections
 - **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
+- **Cross-tool portability** — works with 7 AI coding tools (Claude Code, OpenCode, Codex CLI, Cursor, Gemini CLI, Aider, Goose) with documented setup for each
+
+### By the Numbers
+
+| Metric | Count | Evidence |
+|--------|-------|----------|
+| Slash commands | 10 | `commands/*.md` — README, features, changelog, roadmap, docs audit, llms.txt, user guide, AI context, docs verify, launch |
+| Reference skills | 12 | `.claude/skills/*/SKILL.md` — loaded on-demand for deep knowledge in each doc type |
+| Signal categories scanned | 10 | Feature extraction covers CLI, API, config, integrations, data models, and 5 more ([detail](commands/features.md)) |
+| Docs audit checklist | 20+ files | README through CITATION.cff across 3 priority tiers ([detail](commands/docs-audit.md)) |
+| AI tools supported | 7 | Claude Code, OpenCode, Codex CLI, Cursor, Gemini CLI, Aider, Goose |
+| Benefit categories | 5 | Time saved, confidence gained, pain avoided, capability unlocked, cost reduced |
+| Upstream specs tracked | 7 | Frozen and evolving specs checked monthly by GitHub Action |
+| Launch platforms | 5 | Dev.to, Hacker News, Reddit, Twitter/X, awesome lists |
+
+---
+
+## ⚖️ How PitchDocs Compares
+
+| Capability | PitchDocs | Manual Writing | [readme.so](https://readme.so/) | [readmeai](https://github.com/eli64s/readme-ai) | Generic AI Prompt |
+|-----------|-----------|----------------|--------------------------------|--------------------------------------------------|-------------------|
+| Scans codebase for features | 10 signal categories with file-level evidence | You decide what to include | No | Basic directory scan | Depends on prompt quality |
+| Benefit-driven language | Built-in framework (5 categories, evidence required) | If you know how | No | AI-generated, unstructured | Hit or miss |
+| Full docs suite (20+ files) | One command: `/docs-audit fix` | Hours of manual work | README only | README only | One file at a time |
+| GEO / AI citation optimised | Atomic sections, comparison tables, concrete stats, llms.txt | If you know GEO | No | No | No |
+| AI context files | AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md | Manual | No | No | No |
+| Launch artifacts | Dev.to, HN, Reddit, Twitter, awesome lists | Manual per platform | No | No | No |
+| Documentation verification | Links, freshness, llms.txt sync, heading hierarchy, badges | Manual review | No | No | No |
+| Cross-tool compatibility | 7 AI coding tools with documented setup | N/A | N/A | CLI only | Tool-specific |
+| Upstream spec tracking | Monthly GitHub Action drift checks | Manual | No | No | No |
+| Reusable across projects | Install once, use everywhere | Start from scratch | Start from scratch | Run per project | Re-prompt each time |
 
 ---
 
@@ -372,6 +419,16 @@ This plugin references several third-party specifications. Pinned versions are t
 | [Contributor Covenant](https://www.contributor-covenant.org/) | 3.0 | Slow (every 3-4 years) |
 | [Conventional Commits](https://www.conventionalcommits.org/) | 1.0.0 | Frozen |
 | [Semantic Versioning](https://semver.org/) | 2.0.0 | Frozen |
+| [GitHub Issue Forms](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema) | preview | Evolving |
+| [npm Trusted Publishing](https://docs.npmjs.com/generating-provenance-statements) | 2025-07 | Evolving |
+| [PyPI Trusted Publishers](https://docs.pypi.org/trusted-publishers/) | 2023-04 | Evolving |
+
+---
+
+## 📚 Documentation
+
+- [Getting Started Guide](docs/guides/getting-started.md) — Installation, first README generation, and full command walkthrough
+- [Documentation Hub](docs/README.md) — All guides, command reference, and skills reference
 
 ---
 

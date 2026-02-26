@@ -1,0 +1,34 @@
+# PitchDocs — Cursor Rules
+
+You are working on PitchDocs, a Claude Code plugin that generates marketing-quality repository documentation. This is a pure Markdown project with no code runtime.
+
+## Architecture
+
+- **Skills** (12): `.claude/skills/*/SKILL.md` — reference knowledge loaded on-demand
+- **Agent** (1): `.claude/agents/docs-writer.md` — orchestration workflow
+- **Rule** (1): `.claude/rules/doc-standards.md` — quality standards (source of truth)
+- **Commands** (10): `commands/*.md` — slash command definitions
+
+## Writing Standards
+
+- Australian English (realise, colour, behaviour, licence/license)
+- Benefit-driven language: `[Feature] so you can [outcome] — [evidence]`
+- 4-question test on every doc: problem solved? usable? credible? linked?
+- Progressive disclosure: non-technical first, technical deeper
+- Every feature claim must trace to actual code (file path, function, config)
+
+## File Sync Requirements
+
+When adding skills or commands, update all of:
+- `README.md` (skills table, commands table, features section)
+- `AGENTS.md` (skills table, commands table)
+- `llms.txt` (file reference with benefit description)
+- `.github/ISSUE_TEMPLATE/bug_report.yml` (component dropdown)
+
+## Upstream Specs
+
+Pinned in `upstream-versions.json`, checked monthly by `.github/workflows/check-upstream.yml`. Do not bump spec versions without verifying the upstream source.
+
+## GEO Optimisation
+
+Structure docs for AI extraction: crisp top-of-page definitions, one topic per H2, descriptive headings with keywords, comparison tables for "X vs Y" queries, concrete statistics with evidence.

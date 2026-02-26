@@ -14,16 +14,28 @@ body:
       description: Which part of the plugin is affected?
       options:
         - /readme command
+        - /features command
         - /changelog command
         - /roadmap command
         - /docs-audit command
+        - /llms-txt command
         - /user-guide command
+        - /ai-context command
+        - /docs-verify command
+        - /launch command
         - docs-writer agent
         - public-readme skill
+        - feature-benefits skill
         - changelog skill
         - roadmap skill
         - pitchdocs-suite skill
+        - llms-txt skill
+        - package-registry skill
         - user-guides skill
+        - ai-context skill
+        - docs-verify skill
+        - launch-artifacts skill
+        - api-reference skill
         - doc-standards rule
         - Upstream drift detection
         - Other
