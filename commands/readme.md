@@ -26,10 +26,11 @@ Generate or update a README.md that sells as well as it informs.
 4. Load the `doc-standards` rule for tone, language, and badge standards
 5. Scan the codebase using the 5-step Feature Extraction Workflow — extract features with evidence, classify by tier, translate to benefits
 6. Generate README.md with the full marketing framework:
-   - Hero section with one-liner and badges
+   - Hero section with three-part structure: bold one-liner + explanatory sentence + badges
+   - "What [Project] Does" with reader-centric use-case scenarios (for multi-capability projects)
    - "Why [Project]?" with benefit-driven feature descriptions
    - Quick start (under 5 minutes)
-   - Features table with benefits column
+   - Features section with benefits (bold+em-dash bullets for 5+ features, or table for shorter lists)
    - Documentation links (including user guides if `docs/guides/` exists)
    - Contributing CTA
    - License
@@ -47,13 +48,15 @@ Writes directly to `README.md` in the target directory. If a README already exis
 ## Quality Check
 
 After generation, verify:
+- Hero has three parts: bold one-liner + explanatory sentence + badges/compatibility line
 - First paragraph is understandable by a non-developer
 - All badge URLs are correct for this repo
 - Quick start code examples actually work
 - Links to existing docs/guides are included
 - Consistent spelling throughout
-- Features table has a benefits column with evidence-based claims
-- At least 3 different benefit categories used across the features table
+- Features use bold+em-dash bullets or table with benefits column (evidence-based claims)
+- At least 3 different benefit categories used across the features section
+- Use-case scenarios framed with reader context (if "What X Does" section is present)
 - Cross-renderer compatibility verified if published to npm or PyPI (load `package-registry` skill)
 - Registry-specific badges included with correct package names and links
 - Image URLs use absolute paths (not relative) if published to npm or PyPI

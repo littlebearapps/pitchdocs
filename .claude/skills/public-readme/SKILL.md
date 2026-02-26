@@ -82,14 +82,19 @@ For PyPI-published packages:
 
 Load the `package-registry` skill for the full badge inventory and cross-renderer compatibility guidance.
 
-**Rules for the one-liner:**
-- Maximum 15 words
-- Starts with an action verb or benefit
-- No technical jargon
-- Examples:
-  - "Ship Cloudflare Workers with confidence — cost safety, circuit breakers, and observability built in."
-  - "Turn your git history into beautiful, user-facing changelogs."
-  - "The fastest way to build type-safe APIs on the edge."
+**Three-part hero structure:**
+
+1. **Bold one-liner** (maximum 15 words) — explains what the project provides, not just what it is. Starts with an action verb or benefit. No jargon.
+   - "Ship Cloudflare Workers with confidence — cost safety, circuit breakers, and observability built in."
+   - "GitHub repository documentation skills and templates for AI coding assistants."
+   - "The fastest way to build type-safe APIs on the edge."
+
+2. **Explanatory sentence** — one sentence covering scope, capabilities, and key selling points. Mention what the tool does end-to-end and any compatibility/ecosystem signals (SEO/GEO, npm/PyPI, cross-platform, etc.).
+   - "Give your AI the knowledge to map out any codebase, extract a features-and-benefits summary, then create, enhance, and maintain professional public-facing GitHub repository docs — SEO and GEO ready with llms.txt, and npm/PyPI registry compatible."
+   - "Automatically generates changelogs from conventional commits, roadmaps from GitHub milestones, and READMEs with marketing-friendly features tables."
+
+3. **Badges and compatibility line** — standard shields.io badges (version, licence, CI), plus any platform/ecosystem badges that signal where the project fits.
+   - `[![Claude Code Plugin](badge-url)](link) [![OpenCode Compatible](badge-url)](link) [![npm & PyPI Ready](badge-url)](link)`
 
 ### 2. Visual Element (Optional but High-Impact)
 
@@ -139,6 +144,40 @@ Alternative format for fewer features:
 - **Third benefit** — Concrete outcome the user can expect
 ```
 
+### 3.5 Use-Case Framing (Optional — High Impact)
+
+For projects with multiple capabilities, add a "What [Project] Does" section between the hero and the detailed features. Frame each capability as a **reader-centric scenario** — start with the user's situation, then explain how the project helps.
+
+```markdown
+## 🚀 What ProjectName Does
+
+### [Use case A — short title]
+
+You've finished your MVP. The repo is about to go public. You need [thing the user needs]...
+
+ProjectName [does X], [does Y], and [does Z]. Run `command` and get [outcome].
+
+### [Use case B — short title]
+
+Beyond [thing A], a professional project needs [thing B, C, D]...
+
+Run `command` to [do everything], or use `individual-command` for just what you need.
+
+### [Use case C — short title]
+
+Great [thing] is useless if nobody finds it. ProjectName handles [discovery]:
+
+- **Feature A** — benefit
+- **Feature B** — benefit
+```
+
+**Rules:**
+- 2–4 use cases maximum — enough to show breadth, not so many it overwhelms
+- Each scenario opens with reader context ("You've finished...", "Beyond X, you need...", "Great X is useless if...")
+- Each scenario ends with a concrete action the user can take (a command, a link, a next step)
+- Use H3 subheadings within the section for each scenario
+- Skip this section for single-purpose tools — the "Why" section is sufficient
+
 ### 4. Quick Start
 
 Must work in **under 5 minutes** for a developer who's never seen the project.
@@ -178,7 +217,21 @@ console.log(result) // Expected output
 
 ### 5. Features
 
-Use a table with a **Benefits** column:
+Two formats are available. Choose based on content:
+
+**Bold+em-dash bullets** (recommended for 5+ features — more scannable):
+
+```markdown
+## Features
+
+- **Feature name** — benefit description with evidence
+- **Another feature** — benefit description with evidence
+- **Third feature** — benefit description with evidence
+```
+
+The bold text creates visual anchors, the em-dash cleanly separates "what" from "why", and each item gets breathing room. Use when feature descriptions vary in length or don't need structured comparison.
+
+**Table with benefits column** (use for structured comparisons or when status tracking is needed):
 
 ```markdown
 ## Features
@@ -190,13 +243,20 @@ Use a table with a **Benefits** column:
 | GitHub integration | Pull issues, PRs, and releases automatically | :construction: Beta |
 ```
 
-#### How to Populate This Table
+Use when features need status indicators, direct side-by-side comparison, or when the list is short (under 5 items).
+
+#### How to Populate Features
 
 1. Load the `feature-benefits` skill and run the 5-step Feature Extraction Workflow
 2. Take all **Hero** and **Core** tier features from the classified inventory
 3. Apply the feature-to-benefit translation for each — use at least 3 different benefit categories
-4. Set status from evidence: `:white_check_mark: Stable` if tested and documented, `:construction: Beta` if experimental
+4. For tables: set status from evidence (`:white_check_mark: Stable` if tested, `:construction: Beta` if experimental)
 5. No features without file/function evidence — if you can't point to code, don't list it
+
+**Rules for both formats:**
+- Every feature must have evidence (file path, function, config option)
+- Use at least 3 different benefit categories across the list
+- Feature names should be concise (2–5 words) — put detail in the benefit text
 
 **One-liner generation**: Synthesise from Hero features. Pattern: "Ship [outcome] with [how]" or "[Action verb] [what users gain] — [key differentiator]."
 

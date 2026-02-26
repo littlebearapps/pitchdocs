@@ -54,9 +54,37 @@ Every feature mentioned in documentation must be translated into a user benefit.
 
 **Anti-patterns:** Avoid "simple", "easy", "powerful" without evidence. Show simplicity through short examples, not adjectives.
 
+### Feature List Formatting
+
+For features sections in READMEs, two formats are available. Choose based on content:
+
+**Bold+em-dash bullets** (recommended for 5+ features — more scannable):
+
+```markdown
+- **Feature name** — benefit description with evidence
+- **Another feature** — another benefit with evidence
+```
+
+The bold text creates visual anchors, the em-dash cleanly separates "what" from "why", and each item gets breathing room. Use when feature descriptions vary in length or don't need structured comparison.
+
+**Table with benefits column** (use for structured comparisons or when status tracking is needed):
+
+```markdown
+| Feature | Benefit | Status |
+|---------|---------|--------|
+| Feature A | Benefit description | :white_check_mark: Stable |
+```
+
+Use when features need status indicators, direct side-by-side comparison, or when the list is short (under 5 items).
+
+**Rules for both formats:**
+- Every feature must have evidence (file path, function, config option)
+- Use at least 3 different benefit categories across the list
+- Feature names should be concise (2-5 words) — put detail in the benefit text
+
 ## Marketing Principles for Technical Docs
 
-- **Hero section**: Logo + compelling one-liner + badges = first impression
+- **Hero section**: Three-part structure — (1) bold one-liner explaining what it provides, (2) explanatory sentence covering scope and capabilities, (3) badges and platform compatibility line
 - **Why section**: Frame features as solutions to real problems
 - **Social proof**: Stars, downloads, contributors, "used by" logos where applicable
 - **Competitive edge**: Subtle positioning vs alternatives (benchmark charts, comparison tables)
@@ -90,6 +118,8 @@ Use a single emoji before each H2 heading to create visual anchors when scrollin
 | Integrations / Plugins | 🔌 | `## 🔌 Integrations` |
 | How it compares | ⚖️ | `## ⚖️ How it compares` |
 | Roadmap | 🗺️ | `## 🗺️ Roadmap` |
+| What it does / Use cases | 🚀 | `## 🚀 What ProjectName Does` |
+| Cross-platform / Other tools | 🔀 | `## 🔀 Use with Other Tools` |
 
 **Rules:**
 - One emoji per heading — never two
