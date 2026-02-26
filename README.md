@@ -2,52 +2,67 @@
 
 # PitchDocs
 
-**Pitch-perfect documentation for every repository.**
+**GitHub repository documentation skills and templates for AI coding assistants.**
 
-A [Claude Code](https://code.claude.com/) plugin — install it, run a command, get docs that pass the 4-question test.
+Give your AI the knowledge to map out any codebase, extract a features-and-benefits summary, then create, enhance, and maintain professional public-facing GitHub repository docs — SEO and GEO ready with llms.txt (including external documentation sites), and npm/PyPI registry compatible.
+
+A plugin for [Claude Code](https://code.claude.com/) and [OpenCode](https://opencode.ai/) — also works with [Codex CLI](https://codex.openai.com/), [Cursor](https://cursor.com/), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and more.
 
 [![Version](https://img.shields.io/static/v1?label=version&message=1.4.1&color=blue)](CHANGELOG.md) <!-- x-release-please-version -->
 [![License](https://img.shields.io/github/license/littlebearapps/pitchdocs)](LICENSE)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white)](https://code.claude.com/docs/en/plugins)
+[![OpenCode Compatible](https://img.shields.io/badge/OpenCode-Compatible-22c55e)](https://opencode.ai/)
+[![npm & PyPI Ready](https://img.shields.io/badge/npm_%26_PyPI-Ready-cb3837)](https://www.npmjs.com/)
 
-[Get Started](#-get-started) · [Features](#-features) · [Commands](#-commands) · [Skills](#-skills) · [Contributing](CONTRIBUTING.md)
+[Get Started](#-get-started) · [Features](#-features) · [Commands](#-commands) · [Skills](#-skills) · [Other AI Tools](#-use-with-other-ai-tools) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
 ---
 
-> Run `/readme` on any repo. Here's what changes:
+## ⚡ Get Started
 
-### Before
+### Claude Code / OpenCode
 
-```markdown
-# my-project
-Install: npm install my-project
-Usage: import thing from 'my-project'
-License: MIT
+```bash
+# 1. Add the LBA plugin marketplace (once)
+/plugin marketplace add littlebearapps/lba-plugins
+
+# 2. Install PitchDocs
+/plugin install pitchdocs@lba-plugins
+
+# 3. Generate a README for any project
+/readme
 ```
 
-### After
+OpenCode reads `.claude/skills/` natively — the same install steps work in both tools.
 
-```markdown
-# my-project
-Ship production-ready APIs in minutes — type-safe, observable, cost-aware.
+**Using Codex CLI, Cursor, Gemini CLI, Aider, or Goose?** See [Use with Other AI Tools](#-use-with-other-ai-tools) for setup instructions.
 
-[Badges] [Quick links]
+---
 
-## Why my-project?
-| Problem | Solution |
-| Manual config is error-prone | Zero-config defaults with full override support |
+## 🚀 What PitchDocs Does
 
-## Features
-| Feature | Benefit |
-| Automatic retry with backoff | Recover from transient failures without writing retry logic |
-| OpenTelemetry tracing built in | Know exactly where requests slow down — traces attached to every handler |
+### Ship a professional README
 
-## Quick Start · Contributing · License
-```
+You've finished your MVP. The repo is about to go public. You need a README that does more than list install commands — it needs to **sell** the project to potential users, contributors, and sponsors.
 
-> Run `/features table` to extract those features directly from your codebase — every benefit traces to actual code.
+PitchDocs scans your codebase, extracts features with file-level evidence, translates them into benefit-driven language, and generates a marketing-friendly README with a hero section, a "why" narrative, a features-and-benefits table, a working quick start, and proper badges. Run `/readme` and get a README that passes the [4-question test](#-why-pitchdocs).
+
+### Generate the full docs suite
+
+Beyond the README, a professional open-source repo needs **CHANGELOG**, **CONTRIBUTING**, **ROADMAP**, **CODE_OF_CONDUCT**, **SECURITY**, issue templates, PR templates, release config, and more. Writing all of these by hand is tedious and error-prone.
+
+Run `/docs-audit fix` to scan your repo against a 17+ file checklist and auto-generate everything that's missing — or use individual commands (`/changelog`, `/roadmap`, `/user-guide`) for just the docs you need.
+
+### Make your project discoverable
+
+Great docs are useless if nobody can find them. PitchDocs handles the discovery layer:
+
+- **`llms.txt`** — generate AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec, so AI coding assistants and search engines surface your docs (SEO and GEO)
+- **npm / PyPI metadata** — audit your `package.json` and `pyproject.toml` for missing fields that affect your registry page (description, keywords, repository, homepage, types)
+- **Cross-renderer compatibility** — ensure your README renders correctly on GitHub, npm, and PyPI, not just one platform
+- **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
 
 ---
 
@@ -68,35 +83,18 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 
 ---
 
-## ⚡ Get Started
-
-```bash
-# 1. Add the LBA plugin marketplace (once)
-/plugin marketplace add littlebearapps/lba-plugins
-
-# 2. Install PitchDocs
-/plugin install pitchdocs@lba-plugins
-
-# 3. Generate a README for any project
-/readme
-```
-
----
-
 ## 🎯 Features
 
-| Feature | Benefit |
-|---------|---------|
-| Evidence-based feature extraction — scans 10 signal categories | Scan any codebase and surface its selling points automatically |
-| Daytona/Banesullivan 4-question framework on every doc | Know your docs answer real reader questions, not just list API methods |
-| Documentation audit — 17+ file types, GitHub metadata, and visual assets | Never ship a repo with missing docs, invisible metadata, or broken image links |
-| 7 slash commands covering README to llms.txt | Generate any doc type from your terminal in under a minute |
-| Templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, issues, PRs, release config | One plugin replaces writing 10+ boilerplate files by hand |
-| llms.txt generation following the llmstxt.org specification | Make your docs discoverable by AI coding assistants and search engines |
-| LICENSE selection framework and visual assets guidance | Choose the right licence and present your project with compelling visuals |
-| npm and PyPI package registry metadata auditing and cross-renderer README compatibility | Know your README renders correctly on GitHub, npm, and PyPI — and your package page has complete metadata |
-| Progressive disclosure and automatic cross-linking | Readers find what they need without scrolling past jargon |
-| Upstream spec drift detection via GitHub Actions | Stay current with Keep a Changelog, Contributor Covenant, and Semantic Versioning |
+- **Evidence-based feature extraction** — scans 10 signal categories in your codebase and surfaces selling points automatically, with every feature traced to actual code
+- **4-question framework on every doc** — validates that your docs answer "Does this solve my problem?", "Can I use it?", "Who made it?", and "Where do I learn more?"
+- **17+ file documentation audit** — never ship a repo with missing docs, broken metadata, or invisible image links
+- **7 slash commands** — generate any doc type from your terminal in under a minute, from README to llms.txt
+- **Ready-to-use templates** — CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, issue templates, PR templates, and release config — one plugin replaces writing 10+ files by hand
+- **llms.txt generation** — create AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec so coding assistants and search engines surface your docs
+- **Licence selection and visual assets** — choose the right licence and present your project with compelling visuals
+- **npm and PyPI compatibility** — audit registry metadata and ensure your README renders correctly on GitHub, npm, and PyPI
+- **Progressive disclosure** — docs open with non-technical language and reveal technical depth as readers scroll, with automatic cross-linking between sections
+- **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
 
 ---
 
@@ -105,7 +103,7 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 | Command | What It Does | Why It Matters |
 |---------|-------------|----------------|
 | `/readme` | Generate or update a marketing-friendly README.md | First impressions that convert browsers to users |
-| `/features` | Extract features from code and translate to benefits | Never miss a feature worth documenting |
+| `/features` | Extract features from code and translate to benefits — output as inventory, table, or bold+em-dash bullets | Never miss a feature worth documenting |
 | `/changelog` | Generate CHANGELOG.md from git history with user-benefit language | Users see what changed for *them*, not your commit log |
 | `/roadmap` | Generate ROADMAP.md from GitHub milestones and issues | Show contributors where the project is heading |
 | `/docs-audit` | Audit docs completeness, quality, GitHub metadata, visual assets, and npm/PyPI registry config | Catch gaps in files, metadata, images, and package registry fields before you ship |
@@ -122,6 +120,9 @@ The **docs-writer** agent powers these commands — it scans your codebase, extr
 
 # Extract features from code and output a benefits table
 /features table
+
+# Extract features as bold+em-dash bullets for a README
+/features bullets
 
 # Audit features: what's documented vs what's in the code
 /features audit
@@ -150,14 +151,182 @@ Skills are loaded on-demand to provide deep reference knowledge:
 
 | Skill | What You Get |
 |-------|-------------|
-| `public-readme` | README structure with the Daytona/Banesullivan marketing framework — hero, why, quickstart, features with benefits |
-| `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation |
+| `public-readme` | README structure with three-part hero, use-case framing, bold+em-dash features, and the Daytona/Banesullivan marketing framework |
+| `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation — outputs as inventory, table, or bold+em-dash bullets |
 | `changelog` | Keep a Changelog format with language rules that rewrite commits into user-facing benefit language |
 | `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators and community involvement section |
 | `pitchdocs-suite` | 17+ file inventory, GitHub metadata, visual assets guidance, licence selection framework, and ready-to-use templates |
 | `llms-txt` | llmstxt.org specification reference with generation patterns for repos and docs sites |
 | `package-registry` | npm and PyPI metadata field inventories, README cross-renderer compatibility, trusted publishing guidance, and registry badges |
 | `user-guides` | Task-oriented how-to documentation with numbered steps, verification, and cross-linked hub pages |
+
+---
+
+## 🔀 Use with Other AI Tools
+
+PitchDocs is built as a Claude Code plugin, but the documentation knowledge it contains — skills, agent workflows, quality standards — is stored as plain Markdown files with YAML frontmatter. That makes it portable to other AI coding tools with minimal effort.
+
+The source of truth lives in `.claude/`. Here's what's inside and what each piece does:
+
+| Directory | Contents | Purpose |
+|-----------|----------|---------|
+| `.claude/skills/*/SKILL.md` | 8 skill files | Reference knowledge for README generation, feature extraction, changelogs, roadmaps, user guides, llms.txt, package registry auditing, and full docs suite inventory |
+| `.claude/agents/docs-writer.md` | 1 agent file | Orchestration workflow: codebase scanning → feature extraction → doc writing → validation |
+| `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, progressive disclosure, benefit-driven language, feature list formatting (bold+em-dash and table), three-part hero structure, visual formatting with emoji anchors |
+| `commands/*.md` | 7 command files | Slash command definitions for `/readme`, `/changelog`, `/roadmap`, `/docs-audit`, `/features`, `/llms-txt`, `/user-guide` |
+
+### OpenCode
+
+[OpenCode](https://opencode.ai/) reads `.claude/skills/` natively — PitchDocs works out of the box with no extra setup.
+
+**Install** the same way as Claude Code (clone or add as a plugin), then invoke skills by name in your OpenCode session. The 8 SKILL.md files, the docs-writer agent, and the doc-standards rule are all picked up automatically.
+
+OpenCode also supports MCP servers, so if you have the GitHub MCP server configured, the docs-writer agent can access repository metadata, issues, and releases just as it does in Claude Code.
+
+### Codex CLI
+
+[Codex CLI](https://codex.openai.com/) (OpenAI) uses the same SKILL.md format as Claude Code but looks for skills at a different path: `.agents/skills/` instead of `.claude/skills/`.
+
+**Step 1 — Copy skills into your project:**
+
+```bash
+# From your project root (not the PitchDocs repo)
+PITCHDOCS="/path/to/pitchdocs"
+
+# Copy all 8 skills
+cp -r "$PITCHDOCS/.claude/skills/"* .agents/skills/
+
+# Copy the quality standards as AGENTS.md (Codex reads this automatically)
+cp "$PITCHDOCS/AGENTS.md" ./AGENTS.md
+```
+
+**Step 2 — Use the skills:**
+
+Codex CLI loads SKILL.md files automatically when they're in `.agents/skills/`. Ask it to generate documentation and it will have access to the PitchDocs frameworks:
+
+```
+> Generate a marketing-friendly README for this project using the public-readme skill
+> Extract features and benefits from this codebase using the feature-benefits skill
+```
+
+**Step 3 (optional) — Add slash commands:**
+
+Copy PitchDocs command files into your Codex prompts directory to get `/prompts:readme`, `/prompts:changelog`, etc.:
+
+```bash
+cp "$PITCHDOCS/commands/"*.md ~/.codex/prompts/pitchdocs/
+```
+
+### Cursor
+
+[Cursor](https://cursor.com/) uses `.cursor/rules/*.mdc` files for contextual rules and `.cursor/agents/*.md` for subagents. It doesn't read SKILL.md files, but you can adapt PitchDocs content to Cursor's format.
+
+**Step 1 — Add the documentation standards as a Cursor rule:**
+
+Create `.cursor/rules/doc-standards.mdc` in your project:
+
+```
+---
+description: PitchDocs documentation quality standards — 4-question framework, benefit-driven language, progressive disclosure, marketing-friendly structure
+---
+
+(Paste the contents of .claude/rules/doc-standards.md here, without its YAML frontmatter)
+```
+
+Because this rule has a `description` but no `globs` or `alwaysApply`, Cursor treats it as an **agent-selected rule** — it gets included automatically when the AI determines it's relevant to your request.
+
+**Step 2 — Add the docs-writer agent:**
+
+Create `.cursor/agents/docs-writer.md` in your project:
+
+```
+---
+name: docs-writer
+description: Generates high-quality public-facing repository documentation with marketing appeal
+---
+
+(Paste the contents of .claude/agents/docs-writer.md here, without its YAML frontmatter)
+```
+
+**Step 3 — Reference skills on demand:**
+
+Cursor doesn't have a skills directory, but you can reference PitchDocs skill files directly. Clone the PitchDocs repo somewhere accessible, then ask Cursor:
+
+```
+> Read the file at /path/to/pitchdocs/.claude/skills/public-readme/SKILL.md and use it to generate a README for this project
+```
+
+Or paste specific skill content into additional `.cursor/rules/*.mdc` files for the skills you use most often.
+
+### Gemini CLI
+
+[Gemini CLI](https://github.com/google-gemini/gemini-cli) uses `GEMINI.md` for project context and `.gemini/commands/*.toml` for custom commands. It doesn't read SKILL.md files directly, but the knowledge transfers easily.
+
+**Option A — Quick setup (context file):**
+
+Copy the documentation standards into your project's Gemini context:
+
+```bash
+# Create .gemini/ directory
+mkdir -p .gemini
+
+# Use the doc-standards rule as your base context
+cp /path/to/pitchdocs/.claude/rules/doc-standards.md .gemini/GEMINI.md
+```
+
+Then ask Gemini to read specific skill files when needed:
+
+```
+> Read /path/to/pitchdocs/.claude/skills/public-readme/SKILL.md and use it to generate a README
+```
+
+**Option B — Custom commands (TOML):**
+
+For frequently used workflows, create TOML command files. For example, `.gemini/commands/readme.toml`:
+
+```toml
+description = "Generate a marketing-friendly README using PitchDocs standards"
+prompt = """
+Read the PitchDocs public-readme skill at /path/to/pitchdocs/.claude/skills/public-readme/SKILL.md
+and the feature-benefits skill at /path/to/pitchdocs/.claude/skills/feature-benefits/SKILL.md.
+
+Then analyse this codebase and generate a README.md following the skill instructions.
+Use the 4-question framework, progressive disclosure, and benefit-driven language.
+"""
+```
+
+This gives you a `/readme` command in Gemini CLI.
+
+### Aider
+
+[Aider](https://aider.chat/) doesn't have a plugin or skill system, but it can load reference files into its context via the `read` config option.
+
+**Add to `.aider.conf.yml` in your project:**
+
+```yaml
+read:
+  - /path/to/pitchdocs/.claude/rules/doc-standards.md
+```
+
+This loads the documentation quality standards into every Aider session. For specific tasks, load skill files directly in chat:
+
+```
+/read /path/to/pitchdocs/.claude/skills/public-readme/SKILL.md
+Generate a README for this project following the skill instructions.
+```
+
+### Goose
+
+[Goose](https://github.com/block/goose) (by Block) uses `.goosehints` for project context and MCP servers for tool access.
+
+**Add PitchDocs context to `.goosehints`:**
+
+```bash
+# Append the doc-standards rule to your project hints
+cat /path/to/pitchdocs/.claude/rules/doc-standards.md >> .goosehints
+```
+
+For specific documentation tasks, reference skill files in your Goose session. If you have the GitHub MCP server configured, Goose can access repository metadata just as Claude Code does.
 
 ---
 

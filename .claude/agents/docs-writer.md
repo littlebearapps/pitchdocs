@@ -125,14 +125,17 @@ From the classified features, derive:
 
 For each document, apply the **Daytona "4000 Stars" approach**:
 
-1. **Impactful header** — Logo + one-liner that captures the essence + visual element
-2. **Engaging narrative** — The "why" from the READER'S perspective, not the author's
-3. **Technical substance** — Installation, usage, API, configuration
-4. **Project hygiene** — Contributing, license, code of conduct
+1. **Three-part hero** — (1) Bold one-liner explaining what the project provides (max 15 words, action verb or benefit, no jargon), (2) explanatory sentence covering scope, capabilities, and key selling points (SEO/GEO, registry compatibility, ecosystem signals), (3) badges and platform compatibility line
+2. **Use-case framing** — For projects with multiple capabilities, add a "What [Project] Does" section with 2–4 reader-centric scenarios. Open each with the reader's situation ("You've finished your MVP...", "Beyond X, you need..."), then show how the project helps. Skip for single-purpose tools.
+3. **Engaging narrative** — The "why" from the READER'S perspective, not the author's
+4. **Features with benefits** — Use bold+em-dash bullets (`- **Feature** — benefit`) for 5+ features, or a table with benefits column for shorter lists or when status tracking is needed. Every feature must trace to code evidence.
+5. **Technical substance** — Installation, usage, API, configuration
+6. **Project hygiene** — Contributing, license, code of conduct
 
 ### Step 4: Validate
 
 Before finalising any document, check:
+- [ ] Hero has three parts: bold one-liner + explanatory sentence + badges/compatibility line
 - [ ] First paragraph is understandable by a non-developer
 - [ ] Quick start works in under 5 minutes
 - [ ] All links are valid
@@ -140,6 +143,8 @@ Before finalising any document, check:
 - [ ] Consistent spelling (matches project's language conventions)
 - [ ] No placeholder text left behind
 - [ ] Every section answers at least one of the 4 questions
+- [ ] Features use bold+em-dash bullets or table with benefits column (evidence-based)
+- [ ] Use-case scenarios framed with reader context (if "What X Does" section is present)
 - [ ] Document ends with a clear call to action
 - [ ] README includes at least one visual element (image, GIF, or diagram) or documents why not
 - [ ] LICENSE file matches the license field in the project manifest

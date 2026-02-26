@@ -30,6 +30,7 @@ Scan a codebase, extract its features with evidence, and translate them into ben
 
 - **No arguments**: Full extraction — outputs a structured feature inventory to chat with Hero, Core, and Supporting tiers
 - **`table`**: Outputs a ready-to-paste `| Feature | Benefit | Status |` markdown table suitable for a README
+- **`bullets`**: Outputs bold+em-dash bullets (`- **Feature** — benefit`) — more scannable for 5+ features
 - **`audit`**: Compares extracted features against the existing README features section, reports undocumented and over-documented features
 
 ## Output Formats
@@ -61,6 +62,14 @@ Supporting Features
 | [Hero feature] | [Benefit sentence] | :white_check_mark: Stable |
 | [Core feature] | [Benefit sentence] | :white_check_mark: Stable |
 | [Core feature] | [Benefit sentence] | :construction: Beta |
+```
+
+### Bullets Mode
+
+```markdown
+- **[Hero feature]** — [Benefit sentence with evidence]
+- **[Core feature]** — [Benefit sentence with evidence]
+- **[Core feature]** — [Benefit sentence with evidence]
 ```
 
 ### Audit Mode

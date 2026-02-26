@@ -56,7 +56,9 @@ For README.md:
 - [ ] Has badges (build, coverage, version, license)
 - [ ] First paragraph is non-technical and benefit-focused
 - [ ] Has a quickstart section that works
-- [ ] Has a features section with benefits
+- [ ] Has a features section with benefits (bold+em-dash bullets or table)
+- [ ] Hero has bold one-liner + explanatory sentence (not just a one-liner)
+- [ ] Use-case framing with reader context (if "What X Does" section is present)
 - [ ] Has contributing/community links
 - [ ] Consistent spelling and language
 - [ ] Links to user guides (if docs/guides/ exists)

@@ -134,6 +134,17 @@ Category: [Signal category from Step 2]
 | ... | `src/...` | Pain avoided |
 ```
 
+### Alternative Output: Bold+Em-Dash Bullets
+
+For direct use in a README features section (especially with 5+ features), output as bold+em-dash bullets instead of a table. This format is more scannable when feature descriptions vary in length:
+
+```markdown
+- **Feature name** — benefit description with evidence
+- **Another feature** — benefit description with evidence
+```
+
+Use this format when the `/features bullets` command is invoked, or when the feature list has 5+ items and doesn't need status tracking or side-by-side comparison.
+
 ---
 
 ## Feature-to-Benefit Translation Framework
