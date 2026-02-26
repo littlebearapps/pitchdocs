@@ -8,6 +8,9 @@ Thank you for your interest in contributing! This plugin helps generate better r
 - [Open Issues](https://github.com/littlebearapps/pitchdocs/issues) — Find something to work on
 - [Feature Requests](https://github.com/littlebearapps/pitchdocs/issues/new?template=feature_request.yml) — Suggest improvements
 
+> [!NOTE]
+> **Content filter awareness:** Claude Code's API may return HTTP 400 ("Output blocked by content filtering policy") when generating `CODE_OF_CONDUCT.md`, `SECURITY.md`, or `LICENSE` files. This is a known Claude Code limitation ([#2111](https://github.com/anthropics/claude-code/issues/2111), [#21880](https://github.com/anthropics/claude-code/issues/21880)), not a PitchDocs bug. The plugin includes built-in workarounds that fetch these files from canonical URLs instead of generating them inline. If you hit this error while developing, see the `docs-writer` agent's Content Filter Mitigation section in `.claude/agents/docs-writer.md`.
+
 ## How the Plugin Works
 
 This is a Claude Code plugin — a collection of markdown files that extend Claude's capabilities. There is no compiled code, no build step, and no runtime dependencies.

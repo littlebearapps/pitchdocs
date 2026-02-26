@@ -7,6 +7,39 @@ description: Generates READMEs with the Daytona/Banesullivan marketing framework
 
 ## README Structure (Recommended Order)
 
+**Output formatting conventions** (see `doc-standards` rule for the full reference):
+- Prefix each H2 section heading with an emoji from the standard table
+- Separate major sections with `---` horizontal rules
+- The numbered sections below (1–9) indicate recommended ORDER — the actual output uses H2 headings with emoji prefixes, not numbered H3s
+
+Example of how sections appear in the final README output:
+
+```markdown
+---
+
+## 💡 Why ProjectName?
+
+| Problem | Solution |
+|---------|----------|
+| Manual changelog writing is tedious | Generates changelogs from conventional commits |
+
+---
+
+## ⚡ Quick start
+
+\`\`\`bash
+npm install project-name
+\`\`\`
+
+---
+
+## 🎯 Features
+
+| Feature | Benefit | Status |
+|---------|---------|--------|
+| Feature A | Saves 30 min per release | :white_check_mark: Stable |
+```
+
 ### 1. Hero Section
 
 ```markdown
@@ -25,7 +58,11 @@ description: Generates READMEs with the Daytona/Banesullivan marketing framework
 [Documentation](link) · [Examples](link) · [Discord](link) · [Blog](link)
 
 </div>
+
+---
 ```
+
+The `---` after the hero creates a visual break before the content body. For READMEs with 7+ sections, add a table of contents between the hero `---` and the first content section (see `doc-standards` rule for emoji anchor format).
 
 **Registry-specific badge guidance:**
 
@@ -218,7 +255,8 @@ We welcome contributions! See our [Contributing Guide](CONTRIBUTING.md) for deta
 - **Don't include build instructions** — that's for CONTRIBUTING.md
 - **Don't use "we" excessively** — use "you" to address the reader
 - **Don't show error handling in quickstart** — keep it minimal
-- **Don't include TOC for READMEs under 200 lines** — unnecessary noise
+- **Don't include TOC for READMEs under 7 sections** — the hero quick-links row is sufficient for shorter docs
+- **Don't use emoji heading prefixes for READMEs under 5 sections** — the visual overhead outweighs the navigation benefit
 
 ## Tone Examples
 

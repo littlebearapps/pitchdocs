@@ -10,7 +10,7 @@ A [Claude Code](https://code.claude.com/) plugin — install it, run a command, 
 [![License](https://img.shields.io/github/license/littlebearapps/pitchdocs)](LICENSE)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white)](https://code.claude.com/docs/en/plugins)
 
-[Get Started](#get-started) · [Features](#features) · [Commands](#commands) · [Skills](#skills) · [Contributing](CONTRIBUTING.md)
+[Get Started](#-get-started) · [Features](#-features) · [Commands](#-commands) · [Skills](#-skills) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -51,7 +51,7 @@ Ship production-ready APIs in minutes — type-safe, observable, cost-aware.
 
 ---
 
-## Why PitchDocs?
+## 💡 Why PitchDocs?
 
 Most documentation generators produce technically-accurate but dry output. Nobody reads it, nobody gets excited, nobody stars the repo.
 
@@ -66,7 +66,9 @@ PitchDocs generates documentation with a **marketing edge** — docs that answer
 
 Every doc follows **progressive disclosure** — non-technical first paragraph, technical details deeper — and every doc **cross-links** to related docs so readers never hit a dead end.
 
-## Get Started
+---
+
+## ⚡ Get Started
 
 ```bash
 # 1. Add the LBA plugin marketplace (once)
@@ -79,7 +81,9 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 /readme
 ```
 
-## Features
+---
+
+## 🎯 Features
 
 | Feature | Benefit |
 |---------|---------|
@@ -94,7 +98,9 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 | Progressive disclosure and automatic cross-linking | Readers find what they need without scrolling past jargon |
 | Upstream spec drift detection via GitHub Actions | Stay current with Keep a Changelog, Contributor Covenant, and Semantic Versioning |
 
-## Commands
+---
+
+## 🤖 Commands
 
 | Command | What It Does | Why It Matters |
 |---------|-------------|----------------|
@@ -136,7 +142,9 @@ The **docs-writer** agent powers these commands — it scans your codebase, extr
 /user-guide getting-started
 ```
 
-## Skills
+---
+
+## 📚 Skills
 
 Skills are loaded on-demand to provide deep reference knowledge:
 
@@ -151,7 +159,9 @@ Skills are loaded on-demand to provide deep reference knowledge:
 | `package-registry` | npm and PyPI metadata field inventories, README cross-renderer compatibility, trusted publishing guidance, and registry badges |
 | `user-guides` | Task-oriented how-to documentation with numbered steps, verification, and cross-linked hub pages |
 
-## Upstream Specifications
+---
+
+## 🔌 Upstream Specifications
 
 This plugin references several third-party specifications. Pinned versions are tracked in [`upstream-versions.json`](upstream-versions.json) and checked monthly via [GitHub Actions](.github/workflows/check-upstream.yml):
 
@@ -162,7 +172,9 @@ This plugin references several third-party specifications. Pinned versions are t
 | [Conventional Commits](https://www.conventionalcommits.org/) | 1.0.0 | Frozen |
 | [Semantic Versioning](https://semver.org/) | 2.0.0 | Frozen |
 
-## Contributing
+---
+
+## 🤝 Contributing
 
 Found a way to make generated docs even better? We'd love your help — whether it's improving a template, fixing a language rule, or suggesting a new doc type entirely.
 
@@ -172,6 +184,11 @@ See our [Contributing Guide](CONTRIBUTING.md) to get started, or jump straight i
 - [Feature Requests](https://github.com/littlebearapps/pitchdocs/issues/new?template=feature_request.yml) — Suggest improvements
 - [Open Issues](https://github.com/littlebearapps/pitchdocs/issues) — See what needs doing
 
-## License
+> [!NOTE]
+> **Claude Code content filter:** When generating `CODE_OF_CONDUCT.md`, `SECURITY.md`, or `LICENSE` files, Claude Code's API may return HTTP 400 due to its server-side content filtering policy. This is a [known upstream issue](https://github.com/anthropics/claude-code/issues/2111) that Anthropic considers [expected behaviour](https://github.com/anthropics/claude-code/issues/6195). PitchDocs includes built-in workarounds — the plugin fetches these files from canonical URLs rather than generating them inline. See the `docs-writer` agent's Content Filter Mitigation section for details.
+
+---
+
+## 📄 Licence
 
 [MIT](LICENSE) — Made by [Little Bear Apps](https://littlebearapps.com) 🐶

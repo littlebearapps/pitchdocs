@@ -62,6 +62,89 @@ Every feature mentioned in documentation must be translated into a user benefit.
 - **Competitive edge**: Subtle positioning vs alternatives (benchmark charts, comparison tables)
 - **Call to action**: Every doc should end with a clear next step
 
+## Visual Structure & Readability
+
+Formatting choices affect scannability. These patterns are recommended for READMEs with 5+ sections or any document over 150 lines. Shorter documents can omit them.
+
+### Emoji Heading Prefixes
+
+Use a single emoji before each H2 heading to create visual anchors when scrolling. This helps readers scan a long document and locate sections quickly.
+
+**Pattern:** `## {emoji} Section Title`
+
+**Recommended emoji by section type:**
+
+| Section Type | Emoji | Example |
+|-------------|-------|---------|
+| Quick start / Getting started | ⚡ | `## ⚡ Quick start` |
+| Why / Value proposition | 💡 | `## 💡 Why ProjectName?` |
+| Features | 🎯 | `## 🎯 Features` |
+| Commands / API / Usage | 🤖 | `## 🤖 Commands` |
+| Configuration | ⚙️ | `## ⚙️ Configuration` |
+| Requirements / Prerequisites | 📦 | `## 📦 Requirements` |
+| Documentation links | 📚 | `## 📚 Documentation` |
+| Contributing | 🤝 | `## 🤝 Contributing` |
+| Licence / License | 📄 | `## 📄 Licence` |
+| Acknowledgements | 🙏 | `## 🙏 Acknowledgements` |
+| Security | 🔒 | `## 🔒 Security` |
+| Integrations / Plugins | 🔌 | `## 🔌 Integrations` |
+| How it compares | ⚖️ | `## ⚖️ How it compares` |
+| Roadmap | 🗺️ | `## 🗺️ Roadmap` |
+
+**Rules:**
+- One emoji per heading — never two
+- Use the same emoji consistently for the same section type across projects
+- H3 sub-features within a Features section may also use emoji prefixes for visual grouping (`### 📡 Progress streaming`)
+- Inline bullet emoji (`- 🎙️ **Voice notes**`) works for compact feature lists within a section
+- Choose emoji that relate to the section content — decorative randomness hurts more than it helps
+- Skip emoji prefixes for READMEs under 5 sections — the visual overhead outweighs the navigation benefit
+
+### Horizontal Rules as Section Separators
+
+Use `---` between major H2 sections to create visual breathing room. This is especially effective in long READMEs (200+ lines).
+
+**When to use:**
+- After the hero/badge section (before the first content section)
+- After the table of contents
+- Between each top-level H2 section
+- Before the licence/footer
+
+**When to skip:**
+- Between H3 subsections within a single H2 section
+- In short documents (under 150 lines) where they add more noise than clarity
+- In files other than README.md (CONTRIBUTING, SECURITY, etc. are typically shorter)
+
+### Table of Contents with Emoji Anchors
+
+When a README uses emoji heading prefixes and has a table of contents, the anchor links must account for the emoji. GitHub strips the emoji character but retains the leading hyphen.
+
+**Pattern:**
+```markdown
+## Table of contents
+
+- [Quick start](#-quick-start)
+- [Why ProjectName?](#-why-projectname)
+- [Features](#-features)
+- [Configuration](#%EF%B8%8F-configuration)
+```
+
+Include a TOC for READMEs with 7+ sections. Below 7 sections, the hero quick-links row (`[Docs](link) · [Examples](link) · [Discord](link)`) is sufficient.
+
+### Bold Inline Callouts
+
+For brief warnings, tips, and notes within a section, use bold inline callouts rather than GitHub-specific `[!NOTE]` syntax (which breaks on npm and PyPI).
+
+**Pattern:**
+```markdown
+**Note:** This only applies when running in production mode.
+
+**Tip:** Pass `--verbose` to see detailed output.
+
+**Warning:** Never commit this file — it contains credentials.
+```
+
+Reserve GitHub callout syntax (`> [!NOTE]`, `> [!WARNING]`) for GitHub-only documents (issue templates, PR templates) where cross-renderer compatibility is not a concern.
+
 ## Shields.io Badges
 
 Use these badge categories (in order):

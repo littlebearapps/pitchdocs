@@ -203,7 +203,17 @@ Use the appropriate skill/template for each missing file. Generate in priority o
 
 ## Templates
 
+> **Content filter awareness:** Claude Code's API has a content filtering system that can block output (HTTP 400) when generating standard OSS files containing governance language, security terminology, or verbatim legal text. For each template below, follow the noted generation strategy. See the `docs-writer` agent for the full mitigation playbook.
+
 ### CONTRIBUTING.md
+
+**Content filter note:** This template is lengthy. If the content filter blocks generation, write it in chunks:
+1. Write the header and "Quick Links" section first
+2. Add "Development Setup" section
+3. Add "How to Contribute" section (reporting bugs, suggesting features, submitting code)
+4. Add "Commit Messages" and "Code Review" sections last
+
+The template below is a reference — adapt it to the project's actual workflow rather than reproducing it verbatim.
 
 ```markdown
 # Contributing to [Project Name]
@@ -292,54 +302,56 @@ Thank you for making [Project Name] better!
 
 ### CODE_OF_CONDUCT.md
 
-Use the [Contributor Covenant v3.0](https://www.contributor-covenant.org/version/3/0/code_of_conduct/). Replace placeholders with:
-- Project name
-- Contact email for reporting
-- Enforcement guidelines
+**Content filter note:** This file contains governance language that triggers Claude Code's content filter when generated inline. Always fetch from the canonical URL rather than writing from scratch.
 
-Key v3.0 changes from v2.1: clearer language, less US-centric phrasing, "Addressing and Repairing Harm" section aligned with restorative justice principles. Always use v3.0 for new projects.
+**Generation method — fetch and customise:**
+
+```bash
+# Download Contributor Covenant v3.0
+curl -sL "https://www.contributor-covenant.org/version/3/0/code_of_conduct/code_of_conduct.md" -o CODE_OF_CONDUCT.md
+```
+
+After fetching, use Edit tool to replace these placeholders:
+- `[INSERT CONTACT METHOD]` — project contact email or reporting URL
+- Verify the "Enforcement" section matches the project's governance structure
+
+**Why v3.0:** Clearer language, less US-centric phrasing, "Addressing and Repairing Harm" section aligned with restorative justice principles. Always use v3.0 for new projects.
+
+**Fallback:** If the URL is unreachable, direct the user to https://www.contributor-covenant.org/version/3/0/code_of_conduct/ and ask them to download manually.
 
 ### SECURITY.md
 
-```markdown
+**Content filter note:** Security policy files contain vulnerability/exploit keywords that can trigger Claude Code's content filter. Fetch a template and customise rather than generating from scratch.
+
+**Generation method — fetch and customise:**
+
+```bash
+# Option 1: GitHub's default security policy template
+curl -sL "https://raw.githubusercontent.com/github/.github/main/SECURITY.md" -o SECURITY.md
+
+# Option 2: If Option 1 fails, create a minimal starter file
+cat > SECURITY.md << 'SECEOF'
 # Security Policy
-
-## Supported Versions
-
-| Version | Supported |
-|---------|-----------|
-| 1.x.x | :white_check_mark: |
-| < 1.0 | :x: |
 
 ## Reporting a Vulnerability
 
-**Please do not report security vulnerabilities through public GitHub issues.**
-
-Instead, please report them via:
-- Email: security@[domain].com
-- [GitHub Security Advisories](https://github.com/org/repo/security/advisories/new)
-
-### What to Include
-
-- Description of the vulnerability
-- Steps to reproduce
-- Potential impact
-- Suggested fix (if any)
-
-### Response Timeline
-
-- **Acknowledgement**: Within 48 hours
-- **Initial assessment**: Within 1 week
-- **Fix timeline**: Depends on severity, typically 1-4 weeks
-
-### Disclosure Policy
-
-We follow [coordinated disclosure](https://en.wikipedia.org/wiki/Coordinated_vulnerability_disclosure). We'll work with you to understand and address the issue before any public disclosure.
-
-## Security Updates
-
-Security patches are released as soon as possible and noted in [CHANGELOG.md](CHANGELOG.md) under the **Security** category.
+Please report security issues via [GitHub Security Advisories](link/security/advisories/new).
+SECEOF
 ```
+
+After fetching or creating the starter file, use Edit tool to customise in small chunks:
+
+1. **Supported versions table** — add the project's version support matrix
+2. **Reporting method** — replace with project-specific email or GitHub Security Advisories URL (`https://github.com/org/repo/security/advisories/new`)
+3. **Response timeline** — set acknowledgement (48h), assessment (1 week), and fix timelines
+4. **Disclosure policy** — add coordinated disclosure statement
+
+**Required sections** (ensure all are present after customisation):
+- Supported Versions (table with version and support status)
+- Reporting a Vulnerability (contact method, what to include)
+- Response Timeline (acknowledgement, assessment, fix timelines)
+- Disclosure Policy (coordinated disclosure)
+- Security Updates (reference to CHANGELOG.md)
 
 ### .github/ISSUE_TEMPLATE/bug_report.yml
 
