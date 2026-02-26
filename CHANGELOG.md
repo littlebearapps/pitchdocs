@@ -5,6 +5,15 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1](https://github.com/littlebearapps/pitchdocs/compare/v1.4.0...v1.4.1) (2026-02-26)
+
+
+### Fixed
+
+* add content filter mitigations and visual formatting guidance ([0e89233](https://github.com/littlebearapps/pitchdocs/commit/0e892334fd1ef42d63d2327a95bbe833236ab003))
+* add missing colour to version badge in README ([92a679c](https://github.com/littlebearapps/pitchdocs/commit/92a679c2001a92c70d6096fdc49bab1a740ca741))
+* use query-param badge URL so release-please preserves colour ([f39c1f0](https://github.com/littlebearapps/pitchdocs/commit/f39c1f02a543c709444f1e38dafc2f5209bd53a2))
+
 ## [1.4.0](https://github.com/littlebearapps/pitchdocs/compare/v1.3.0...v1.4.0) (2026-02-25)
 
 
