@@ -1,0 +1,44 @@
+# PitchDocs
+
+> GitHub repository documentation skills and templates for AI coding assistants. A Claude Code plugin that scans codebases, extracts features with file-level evidence, and generates marketing-quality docs — README, CHANGELOG, ROADMAP, user guides, llms.txt, and 17+ files total. Pure Markdown, zero runtime dependencies. Also works with OpenCode, Codex CLI, Cursor, Gemini CLI, Aider, and Goose.
+
+## Docs
+
+- [README](./README.md): Project overview, value proposition, quick start, commands table, skills table, and setup instructions for 7 AI coding tools
+- [Contributing](./CONTRIBUTING.md): Development setup, how to improve templates, add skills/commands, and submit PRs using conventional commits
+- [Changelog](./CHANGELOG.md): Version history from v1.0.0 to v1.4.1 with user-facing change descriptions
+- [Agents.md](./AGENTS.md): Codex CLI compatibility file with condensed skills reference and docs-writer agent overview
+
+## Skills
+
+- [Public README](./.claude/skills/public-readme/SKILL.md): Three-part hero structure, use-case framing, bold+em-dash features, and the Daytona/Banesullivan marketing framework for README generation
+- [Feature Benefits](./.claude/skills/feature-benefits/SKILL.md): 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation
+- [Changelog](./.claude/skills/changelog/SKILL.md): Keep a Changelog format with language rules that rewrite commits into user-facing benefit language
+- [Roadmap](./.claude/skills/roadmap/SKILL.md): ROADMAP.md structure from GitHub milestones with emoji status indicators and community involvement section
+- [PitchDocs Suite](./.claude/skills/pitchdocs-suite/SKILL.md): 17+ file inventory, GitHub metadata, visual assets, licence selection, and ready-to-use templates for the full docs suite
+- [llms.txt](./.claude/skills/llms-txt/SKILL.md): llmstxt.org specification reference with generation patterns for repositories and documentation sites
+- [Package Registry](./.claude/skills/package-registry/SKILL.md): npm and PyPI metadata auditing, README cross-renderer compatibility, trusted publishing, and registry badges
+- [User Guides](./.claude/skills/user-guides/SKILL.md): Task-oriented how-to documentation with numbered steps, verification, and cross-linked hub pages
+
+## Agent
+
+- [Docs Writer](./.claude/agents/docs-writer.md): Orchestration agent that powers all commands — codebase scanning, feature extraction, doc writing with marketing framework, and 15-point validation checklist
+
+## Commands
+
+- [/readme](./commands/readme.md): Generate or update a marketing-friendly README.md
+- [/features](./commands/features.md): Extract features from code and translate to benefits
+- [/changelog](./commands/changelog.md): Generate CHANGELOG.md from git history
+- [/roadmap](./commands/roadmap.md): Generate ROADMAP.md from GitHub milestones
+- [/docs-audit](./commands/docs-audit.md): Audit docs completeness against 17+ file checklist
+- [/llms-txt](./commands/llms-txt.md): Generate llms.txt and llms-full.txt
+- [/user-guide](./commands/user-guide.md): Generate task-oriented user guides
+
+## Optional
+
+- [Security](./SECURITY.md): Vulnerability reporting process and response timeline
+- [Code of Conduct](./CODE_OF_CONDUCT.md): Community behaviour standards (Contributor Covenant v3.0)
+- [License](./LICENSE): MIT licence terms
+- [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, and author info
+- [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, progressive disclosure, benefit-driven language, visual formatting
+- [Upstream Versions](./upstream-versions.json): Pinned versions of referenced specifications (Keep a Changelog, Contributor Covenant, Conventional Commits, Semantic Versioning)
