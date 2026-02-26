@@ -103,7 +103,7 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 | Command | What It Does | Why It Matters |
 |---------|-------------|----------------|
 | `/readme` | Generate or update a marketing-friendly README.md | First impressions that convert browsers to users |
-| `/features` | Extract features from code and translate to benefits | Never miss a feature worth documenting |
+| `/features` | Extract features from code and translate to benefits — output as inventory, table, or bold+em-dash bullets | Never miss a feature worth documenting |
 | `/changelog` | Generate CHANGELOG.md from git history with user-benefit language | Users see what changed for *them*, not your commit log |
 | `/roadmap` | Generate ROADMAP.md from GitHub milestones and issues | Show contributors where the project is heading |
 | `/docs-audit` | Audit docs completeness, quality, GitHub metadata, visual assets, and npm/PyPI registry config | Catch gaps in files, metadata, images, and package registry fields before you ship |
@@ -120,6 +120,9 @@ The **docs-writer** agent powers these commands — it scans your codebase, extr
 
 # Extract features from code and output a benefits table
 /features table
+
+# Extract features as bold+em-dash bullets for a README
+/features bullets
 
 # Audit features: what's documented vs what's in the code
 /features audit
@@ -148,8 +151,8 @@ Skills are loaded on-demand to provide deep reference knowledge:
 
 | Skill | What You Get |
 |-------|-------------|
-| `public-readme` | README structure with the Daytona/Banesullivan marketing framework — hero, why, quickstart, features with benefits |
-| `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation |
+| `public-readme` | README structure with three-part hero, use-case framing, bold+em-dash features, and the Daytona/Banesullivan marketing framework |
+| `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation — outputs as inventory, table, or bold+em-dash bullets |
 | `changelog` | Keep a Changelog format with language rules that rewrite commits into user-facing benefit language |
 | `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators and community involvement section |
 | `pitchdocs-suite` | 17+ file inventory, GitHub metadata, visual assets guidance, licence selection framework, and ready-to-use templates |
@@ -169,7 +172,7 @@ The source of truth lives in `.claude/`. Here's what's inside and what each piec
 |-----------|----------|---------|
 | `.claude/skills/*/SKILL.md` | 8 skill files | Reference knowledge for README generation, feature extraction, changelogs, roadmaps, user guides, llms.txt, package registry auditing, and full docs suite inventory |
 | `.claude/agents/docs-writer.md` | 1 agent file | Orchestration workflow: codebase scanning → feature extraction → doc writing → validation |
-| `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, progressive disclosure, benefit-driven language, visual formatting |
+| `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, progressive disclosure, benefit-driven language, feature list formatting (bold+em-dash and table), three-part hero structure, visual formatting with emoji anchors |
 | `commands/*.md` | 7 command files | Slash command definitions for `/readme`, `/changelog`, `/roadmap`, `/docs-audit`, `/features`, `/llms-txt`, `/user-guide` |
 
 ### OpenCode
