@@ -2,7 +2,9 @@
 
 # PitchDocs
 
-**Pitch-perfect documentation for every repository.**
+**Documentation skills for AI coding assistants.**
+
+Give your AI the knowledge to explore any codebase, then create, enhance, and maintain professional public-facing docs — from README and CHANGELOG through to npm and PyPI registry compatibility.
 
 A plugin for [Claude Code](https://code.claude.com/) and [OpenCode](https://opencode.ai/) — also works with [Codex CLI](https://codex.openai.com/), [Cursor](https://cursor.com/), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and more.
 
@@ -82,18 +84,16 @@ Every doc follows **progressive disclosure** — non-technical first paragraph, 
 
 ## 🎯 Features
 
-| Feature | Benefit |
-|---------|---------|
-| Evidence-based feature extraction — scans 10 signal categories | Scan any codebase and surface its selling points automatically |
-| Daytona/Banesullivan 4-question framework on every doc | Know your docs answer real reader questions, not just list API methods |
-| Documentation audit — 17+ file types, GitHub metadata, and visual assets | Never ship a repo with missing docs, invisible metadata, or broken image links |
-| 7 slash commands covering README to llms.txt | Generate any doc type from your terminal in under a minute |
-| Templates for CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, issues, PRs, release config | One plugin replaces writing 10+ boilerplate files by hand |
-| llms.txt generation following the llmstxt.org specification | Make your docs discoverable by AI coding assistants and search engines |
-| LICENSE selection framework and visual assets guidance | Choose the right licence and present your project with compelling visuals |
-| npm and PyPI package registry metadata auditing and cross-renderer README compatibility | Know your README renders correctly on GitHub, npm, and PyPI — and your package page has complete metadata |
-| Progressive disclosure and automatic cross-linking | Readers find what they need without scrolling past jargon |
-| Upstream spec drift detection via GitHub Actions | Stay current with Keep a Changelog, Contributor Covenant, and Semantic Versioning |
+- **Evidence-based feature extraction** — scans 10 signal categories in your codebase and surfaces selling points automatically, with every feature traced to actual code
+- **4-question framework on every doc** — validates that your docs answer "Does this solve my problem?", "Can I use it?", "Who made it?", and "Where do I learn more?"
+- **17+ file documentation audit** — never ship a repo with missing docs, broken metadata, or invisible image links
+- **7 slash commands** — generate any doc type from your terminal in under a minute, from README to llms.txt
+- **Ready-to-use templates** — CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, issue templates, PR templates, and release config — one plugin replaces writing 10+ files by hand
+- **llms.txt generation** — create AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec so coding assistants and search engines surface your docs
+- **Licence selection and visual assets** — choose the right licence and present your project with compelling visuals
+- **npm and PyPI compatibility** — audit registry metadata and ensure your README renders correctly on GitHub, npm, and PyPI
+- **Progressive disclosure** — docs open with non-technical language and reveal technical depth as readers scroll, with automatic cross-linking between sections
+- **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
 
 ---
 
