@@ -1,7 +1,7 @@
 ---
 name: docs-verify
 description: Validates documentation quality and freshness — checks for broken links, stale content, llms.txt sync, image issues, heading hierarchy, and badge URLs. Runs locally or in CI. Use to catch documentation decay before it reaches users.
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Documentation Verifier
@@ -194,6 +194,36 @@ Badge Validation:
   ✓ npm version — 200 OK (1.4.1)
   ✗ coverage — 200 OK but shows "unknown" (codecov may not be configured)
   ⚠ downloads — 301 redirect (badge URL format may be outdated)
+```
+
+### 8. Token Audit
+
+Estimate token cost for all skill files in `.claude/skills/`. Flag skills that may be degrading context efficiency.
+
+```bash
+# Estimate token cost for all skills
+for skill_dir in .claude/skills/*/; do
+  skill_file="$skill_dir/SKILL.md"
+  if [ -f "$skill_file" ]; then
+    words=$(wc -w < "$skill_file")
+    tokens=$(echo "$words * 13 / 10" | bc)
+    name=$(basename "$skill_dir")
+    echo "${tokens} tokens — ${name}"
+  fi
+done | sort -rn
+```
+
+Thresholds (from `doc-standards` rule):
+- Under 3,000 tokens: healthy
+- 3,000–5,000 tokens: acceptable, monitor
+- Over 5,000 tokens: flag for refactor — split into SKILL.md + SKILL-extended.md
+
+Report format:
+```
+Token Audit:
+  ✓ feature-benefits — 2,847 tokens (healthy)
+  ⚠ pitchdocs-suite — 4,312 tokens (acceptable — monitor)
+  ✗ docs-verify — 5,890 tokens (exceeds 5k — consider splitting)
 ```
 
 ## CI-Friendly Output
