@@ -23,7 +23,7 @@
 - [llms.txt](./.claude/skills/llms-txt/SKILL.md): llmstxt.org specification reference with generation patterns for repositories and documentation sites
 - [Package Registry](./.claude/skills/package-registry/SKILL.md): npm and PyPI metadata auditing, README cross-renderer compatibility, trusted publishing, and registry badges
 - [User Guides](./.claude/skills/user-guides/SKILL.md): Task-oriented how-to documentation with Diataxis framework, numbered steps, copy-paste-ready code, error recovery, and cross-linked hub pages
-- [AI Context](./.claude/skills/ai-context/SKILL.md): AI IDE context file generation — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md from codebase analysis with staleness audit
+- [AI Context](./.claude/skills/ai-context/SKILL.md): AI IDE context file generation — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md from codebase analysis with staleness audit
 - [Docs Verify](./.claude/skills/docs-verify/SKILL.md): Documentation validation — broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, and CI-friendly output with GitHub Actions template
 - [Launch Artifacts](./.claude/skills/launch-artifacts/SKILL.md): Platform-specific launch content — Dev.to articles, Hacker News posts, Reddit posts, Twitter/X threads, awesome list submissions, and social preview guidance
 - [API Reference](./.claude/skills/api-reference/SKILL.md): API reference generator guidance — TypeDoc, Sphinx, godoc, rustdoc configuration templates and docstring conventions
@@ -41,7 +41,7 @@
 - [/docs-audit](./commands/docs-audit.md): Audit docs completeness against 20+ file checklist with AI context and Diataxis coverage
 - [/llms-txt](./commands/llms-txt.md): Generate llms.txt and llms-full.txt
 - [/user-guide](./commands/user-guide.md): Generate task-oriented user guides with Diataxis classification
-- [/ai-context](./commands/ai-context.md): Generate AI IDE context files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md)
+- [/ai-context](./commands/ai-context.md): Generate AI IDE context files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md)
 - [/docs-verify](./commands/docs-verify.md): Verify documentation links, freshness, llms.txt sync, and badge URLs
 - [/launch](./commands/launch.md): Generate platform-specific launch artifacts (Dev.to, HN, Reddit, Twitter, awesome lists)
 

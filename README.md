@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  A plugin for <a href="https://code.claude.com/">Claude Code</a> and <a href="https://opencode.ai/">OpenCode</a> — also works with <a href="https://codex.openai.com/">Codex CLI</a>, <a href="https://cursor.com/">Cursor</a>, <a href="https://github.com/google-gemini/gemini-cli">Gemini CLI</a>, and more.
+  A plugin for <a href="https://code.claude.com/">Claude Code</a> and <a href="https://opencode.ai/">OpenCode</a> — also works with <a href="https://codex.openai.com/">Codex CLI</a>, <a href="https://cursor.com/">Cursor</a>, <a href="https://codeium.com/windsurf">Windsurf</a>, <a href="https://github.com/cline/cline">Cline</a>, <a href="https://github.com/google-gemini/gemini-cli">Gemini CLI</a>, and more.
 </p>
 
 <p align="center">
@@ -45,7 +45,7 @@
 
 OpenCode reads `.claude/skills/` natively — the same install steps work in both tools.
 
-**Using Codex CLI, Cursor, Gemini CLI, Aider, or Goose?** See [Use with Other AI Tools](#-use-with-other-ai-tools) for setup instructions.
+**Using Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, or Goose?** See [Use with Other AI Tools](#-use-with-other-ai-tools) for setup instructions.
 
 ---
 
@@ -68,7 +68,7 @@ Run `/docs-audit fix` to scan your repo against a 20+ file checklist and auto-ge
 Great docs are useless if nobody can find them. PitchDocs handles the discovery layer:
 
 - **`llms.txt`** — generate AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec, so AI coding assistants and search engines surface your docs (SEO and GEO)
-- **AI context files** — generate AGENTS.md, CLAUDE.md, .cursorrules, and copilot-instructions.md so AI coding assistants understand your project's conventions and architecture
+- **AI context files** — generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, and GEMINI.md so AI coding assistants understand your project's conventions and architecture
 - **GEO-optimised structure** — crisp definitions, atomic sections, comparison tables, and concrete statistics structured for LLM extraction and citation
 - **npm / PyPI metadata** — audit your `package.json` and `pyproject.toml` for missing fields that affect your registry page (description, keywords, repository, homepage, types)
 - **Cross-renderer compatibility** — ensure your README renders correctly on GitHub, npm, and PyPI, not just one platform
@@ -90,6 +90,14 @@ flowchart LR
 ```
 
 **Scan** reads your manifest, project structure, git history, and GitHub metadata. **Extract** runs a 5-step workflow across 10 signal categories to surface features with file-level evidence. **Write** applies the Daytona/Banesullivan marketing framework with progressive disclosure. **Validate** checks every doc against the 4-question test, verifies links and badges, and ensures cross-renderer compatibility.
+
+<p align="center">
+  <em>Untether's README — before and after PitchDocs</em>
+</p>
+
+<p align="center">
+  <img src="docs/assets/devhunt/untether-before-after-readme.png" alt="Before and after comparison — Untether's README transformed by PitchDocs from a basic text README to a marketing-friendly README with logo, badges, benefit-driven features, and structured sections" width="700" />
+</p>
 
 ---
 
@@ -117,7 +125,7 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 - **Evidence-based feature extraction** — scans 10 signal categories in your codebase and surfaces selling points automatically, with every feature traced to actual code
 - **4-question framework on every doc** — validates that your docs answer "Does this solve my problem?", "Can I use it?", "Who made it?", and "Where do I learn more?"
 - **GEO-optimised content structure** — crisp definitions, atomic sections, comparison tables, and concrete statistics structured for LLM extraction and AI citation (based on the Princeton GEO study)
-- **AI context file generation** — generate AGENTS.md, CLAUDE.md, .cursorrules, and copilot-instructions.md from a single codebase scan so AI coding assistants understand your conventions
+- **AI context file generation** — generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, and GEMINI.md from a single codebase scan so AI coding assistants understand your conventions
 - **Diataxis documentation framework** — classify docs into tutorials, how-to guides, reference, and explanation quadrants for clear information architecture
 - **Documentation verification** — check for broken links, stale content, llms.txt sync, heading hierarchy issues, and badge URL validity — locally or in CI
 - **Launch artifacts** — transform your README and CHANGELOG into Dev.to articles, Hacker News "Show HN" posts, Reddit posts, Twitter/X threads, and awesome list submission PRs
@@ -129,7 +137,7 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 - **npm and PyPI compatibility** — audit registry metadata and ensure your README renders correctly on GitHub, npm, and PyPI
 - **Progressive disclosure** — docs open with non-technical language and reveal technical depth as readers scroll, with automatic cross-linking between sections
 - **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
-- **Cross-tool portability** — works with 7 AI coding tools (Claude Code, OpenCode, Codex CLI, Cursor, Gemini CLI, Aider, Goose) with documented setup for each
+- **Cross-tool portability** — works with 9 AI coding tools (Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose) with documented setup for each
 
 ### By the Numbers
 
@@ -139,7 +147,7 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 | Reference skills | 12 | `.claude/skills/*/SKILL.md` — loaded on-demand for deep knowledge in each doc type |
 | Signal categories scanned | 10 | Feature extraction covers CLI, API, config, integrations, data models, and 5 more ([detail](commands/features.md)) |
 | Docs audit checklist | 20+ files | README through CITATION.cff across 3 priority tiers ([detail](commands/docs-audit.md)) |
-| AI tools supported | 7 | Claude Code, OpenCode, Codex CLI, Cursor, Gemini CLI, Aider, Goose |
+| AI tools supported | 9 | Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose |
 | Benefit categories | 5 | Time saved, confidence gained, pain avoided, capability unlocked, cost reduced |
 | Upstream specs tracked | 7 | Frozen and evolving specs checked monthly by GitHub Action |
 | Launch platforms | 5 | Dev.to, Hacker News, Reddit, Twitter/X, awesome lists |
@@ -154,10 +162,10 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 | Benefit-driven language | Built-in framework (5 categories, evidence required) | If you know how | No | AI-generated, unstructured | Hit or miss |
 | Full docs suite (20+ files) | One command: `/docs-audit fix` | Hours of manual work | README only | README only | One file at a time |
 | GEO / AI citation optimised | Atomic sections, comparison tables, concrete stats, llms.txt | If you know GEO | No | No | No |
-| AI context files | AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md | Manual | No | No | No |
+| AI context files | AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md | Manual | No | No | No |
 | Launch artifacts | Dev.to, HN, Reddit, Twitter, awesome lists | Manual per platform | No | No | No |
 | Documentation verification | Links, freshness, llms.txt sync, heading hierarchy, badges | Manual review | No | No | No |
-| Cross-tool compatibility | 7 AI coding tools with documented setup | N/A | N/A | CLI only | Tool-specific |
+| Cross-tool compatibility | 9 AI coding tools with documented setup | N/A | N/A | CLI only | Tool-specific |
 | Upstream spec tracking | Monthly GitHub Action drift checks | Manual | No | No | No |
 | Reusable across projects | Install once, use everywhere | Start from scratch | Start from scratch | Run per project | Re-prompt each time |
 
@@ -174,7 +182,7 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 | `/docs-audit` | Audit docs completeness, quality, GitHub metadata, visual assets, AI context files, Diataxis coverage, and npm/PyPI registry config | Catch gaps in files, metadata, images, and package registry fields before you ship |
 | `/llms-txt` | Generate llms.txt and llms-full.txt for AI discoverability | AI coding assistants and search engines find and understand your docs |
 | `/user-guide` | Generate task-oriented user guides in `docs/guides/` with Diataxis classification | Readers find answers without reading your source code |
-| `/ai-context` | Generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md from codebase analysis | AI coding assistants understand your project's conventions from day one |
+| `/ai-context` | Generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md from codebase analysis | AI coding assistants understand your project's conventions from day one |
 | `/docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs | Catch documentation decay before it reaches users |
 | `/launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions | Transform docs into platform-specific launch content |
 
@@ -242,7 +250,7 @@ Skills are loaded on-demand to provide deep reference knowledge:
 | `llms-txt` | llmstxt.org specification reference with generation patterns for repos and docs sites |
 | `package-registry` | npm and PyPI metadata field inventories, README cross-renderer compatibility, trusted publishing guidance, and registry badges |
 | `user-guides` | Task-oriented how-to documentation with Diataxis framework, numbered steps, copy-paste-ready code, error recovery, and cross-linked hub pages |
-| `ai-context` | AI IDE context file generation — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md from codebase analysis |
+| `ai-context` | AI IDE context file generation — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md from codebase analysis with staleness audit |
 | `docs-verify` | Documentation validation — broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, and CI-friendly output |
 | `launch-artifacts` | Platform-specific launch content — Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
 | `api-reference` | API reference generator guidance — TypeDoc, Sphinx, godoc, rustdoc configuration templates and comment conventions |
@@ -344,6 +352,52 @@ Cursor doesn't have a skills directory, but you can reference PitchDocs skill fi
 ```
 
 Or paste specific skill content into additional `.cursor/rules/*.mdc` files for the skills you use most often.
+
+### Windsurf
+
+[Windsurf](https://codeium.com/windsurf) (by Codeium) uses `.windsurfrules` for project-level context. Its Cascade AI reads this file from the project root automatically.
+
+**Step 1 — Add the documentation standards:**
+
+Create `.windsurfrules` in your project root:
+
+```bash
+# Copy the doc-standards rule as Windsurf context
+cp /path/to/pitchdocs/.claude/rules/doc-standards.md .windsurfrules
+```
+
+Or use `/ai-context windsurf` in Claude Code to generate a tailored `.windsurfrules` from your codebase analysis.
+
+**Step 2 — Reference skills on demand:**
+
+Windsurf can read files from your workspace. Ask Cascade to load specific skill files:
+
+```
+> Read /path/to/pitchdocs/.claude/skills/public-readme/SKILL.md and use it to generate a README for this project
+```
+
+### Cline
+
+[Cline](https://github.com/cline/cline) (VS Code extension) uses `.clinerules` for project-level context. It supports richer Markdown with task checklists.
+
+**Step 1 — Add the documentation standards:**
+
+Create `.clinerules` in your project root:
+
+```bash
+# Copy the doc-standards rule as Cline context
+cp /path/to/pitchdocs/.claude/rules/doc-standards.md .clinerules
+```
+
+Or use `/ai-context cline` in Claude Code to generate a tailored `.clinerules` from your codebase analysis.
+
+**Step 2 — Reference skills on demand:**
+
+Cline can read files from your workspace. Reference PitchDocs skill files directly in your Cline session:
+
+```
+Read /path/to/pitchdocs/.claude/skills/public-readme/SKILL.md and use it to generate a README for this project
+```
 
 ### Gemini CLI
 

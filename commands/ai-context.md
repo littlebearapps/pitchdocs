@@ -1,6 +1,6 @@
 ---
-description: "Generate AI IDE context files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md): $ARGUMENTS"
-argument-hint: "[claude|agents|cursor|copilot|audit] or no args for all"
+description: "Generate AI IDE context files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md): $ARGUMENTS"
+argument-hint: "[claude|agents|cursor|copilot|windsurf|cline|gemini|all|audit] or no args for all"
 allowed-tools:
   - Read
   - Glob
@@ -23,11 +23,15 @@ Generate context files that help AI coding assistants understand your project's 
 
 ## Arguments
 
-- **No arguments**: Generate all applicable context files (AGENTS.md, CLAUDE.md, .cursorrules, .github/copilot-instructions.md)
+- **No arguments**: Generate all applicable context files (AGENTS.md, CLAUDE.md, .cursorrules, .github/copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md)
 - `claude`: Generate CLAUDE.md only
 - `agents`: Generate AGENTS.md only
 - `cursor`: Generate .cursorrules only
 - `copilot`: Generate .github/copilot-instructions.md only
+- `windsurf`: Generate .windsurfrules only
+- `cline`: Generate .clinerules only
+- `gemini`: Generate GEMINI.md only
+- `all`: Generate all 7 context files
 - `audit`: Check existing context files for staleness and drift against the current codebase
 
 ## Output
@@ -40,6 +44,9 @@ AI Context Files:
   ✓ CLAUDE.md — generated (38 lines)
   ✓ .cursorrules — generated (22 lines)
   ✓ .github/copilot-instructions.md — generated (30 lines)
+  ✓ .windsurfrules — generated (25 lines)
+  ✓ .clinerules — generated (28 lines)
+  ✓ GEMINI.md — generated (35 lines)
 ```
 
 Audit mode:
@@ -49,4 +56,7 @@ AI Context Audit:
   ⚠ CLAUDE.md — references jest but vitest.config.ts detected
   ✗ .cursorrules — references src/index.ts but file moved to src/main.ts
   · .github/copilot-instructions.md — not present (recommend generating)
+  · .windsurfrules — not present (recommend generating)
+  · .clinerules — not present (recommend generating)
+  · GEMINI.md — not present (recommend generating)
 ```
