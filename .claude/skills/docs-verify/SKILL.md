@@ -333,6 +333,35 @@ Token Audit:
   ✗ docs-verify — 5,890 tokens (exceeds 5k — consider splitting)
 ```
 
+### 9. Security Scan
+
+Scan generated documentation for content that should never appear in public repos. AI-generated docs can accidentally surface internal paths, credentials, or proprietary configuration.
+
+```bash
+# Scan all docs for common credential patterns
+grep -rn -E "(api[_-]?key|secret[_-]?key|password|token|bearer|private[_-]?key)" \
+  README.md CONTRIBUTING.md CHANGELOG.md docs/ AGENTS.md CLAUDE.md \
+  --include="*.md" -i 2>/dev/null
+```
+
+For each match, classify as:
+- **Placeholder** (e.g., `YOUR_API_KEY`, `<your-token>`) — acceptable
+- **Env var reference** (e.g., `$API_KEY`, `process.env.SECRET`) — acceptable
+- **Real credential value** — block immediately, do not write to file, inform user
+
+Additional checks:
+- **Internal paths** — absolute paths like `/Users/`, `/home/`, `C:\Users\` suggest a dev machine path leaked in
+- **Internal hostnames** — IP addresses like `192.168.`, `10.0.`, `172.16.`, `localhost:PORT` outside a code example context
+- **Package names that don't exist** — if the README references a package name, verify it exists on the relevant registry to avoid dependency confusion vectors
+
+Report format:
+```
+Security Scan:
+  ✓ No credential patterns detected
+  ⚠ README.md:45 — internal path: /Users/developer/projects/... (likely leaked from codebase scan)
+  ✗ CLAUDE.md:12 — credential pattern: "token: ghp_abc123..." — review immediately
+```
+
 ## CI-Friendly Output
 
 When run with the `ci` argument, output results in a format suitable for CI/CD pipelines:

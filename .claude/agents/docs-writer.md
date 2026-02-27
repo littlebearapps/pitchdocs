@@ -153,6 +153,8 @@ Before finalising any document, check:
 - [ ] llms.txt is present and up to date (or flagged as missing)
 - [ ] README avoids Markdown features incompatible with target registries (load `package-registry` skill)
 - [ ] Package registry badges use correct package name and link to registry page
+- [ ] Security scan: no credential patterns, internal paths, or real tokens in generated docs (load `docs-verify` skill check #9 if suspicious content detected)
+- [ ] Package names referenced in docs exist on the relevant registry (spot-check 1–2 if new packages introduced)
 
 ## Gold Standard Examples
 
