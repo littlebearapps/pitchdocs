@@ -1,6 +1,7 @@
 ---
 name: ai-context
 description: Generates AI IDE context files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md) from codebase analysis. Creates project-specific instructions for AI coding assistants so they understand conventions, architecture, and workflows. Use when setting up AI tool context for a repository.
+version: "1.0.0"
 ---
 
 # AI Context File Generator

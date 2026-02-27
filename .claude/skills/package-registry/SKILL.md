@@ -1,6 +1,7 @@
 ---
 name: package-registry
 description: Documentation guidance for projects published to npm and PyPI package registries. Covers metadata fields that affect registry pages, README cross-renderer compatibility, trusted publishing, provenance badges, and audit checks. Use when a project has package.json or pyproject.toml and is published publicly.
+version: "1.0.0"
 ---
 
 # Package Registry Documentation Guidance

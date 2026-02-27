@@ -1,6 +1,7 @@
 ---
 name: public-readme
 description: Generates READMEs with the Daytona/Banesullivan marketing framework — hero section, benefit-driven features, quickstart, comparison tables, and compelling CTAs. Produces docs that sell as well as they inform. Use when creating or overhauling a project README.
+version: "1.0.0"
 ---
 
 # Public README Generator

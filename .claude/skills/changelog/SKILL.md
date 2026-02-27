@@ -1,6 +1,8 @@
 ---
 name: changelog
 description: Generates user-friendly changelogs from git history using conventional commits. Writes entries in benefit language ("You can now..." not "Refactored internal..."). Follows Keep a Changelog format. Use when creating or updating CHANGELOG.md.
+version: "1.0.0"
+upstream: "keep-a-changelog@1.1.1"
 ---
 
 # Changelog Generator

@@ -1,6 +1,7 @@
 ---
 name: launch-artifacts
 description: Transforms README and CHANGELOG into platform-specific launch content — Dev.to articles, Hacker News posts, Reddit posts, Twitter/X threads, and awesome list submission PRs. Keeps promotion tethered to code artifacts, not generic marketing. Use when launching or announcing a project release.
+version: "1.0.0"
 ---
 
 # Launch Artifacts Generator

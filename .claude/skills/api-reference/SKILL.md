@@ -1,6 +1,7 @@
 ---
 name: api-reference
 description: Guidance for setting up API reference documentation generators — TypeDoc, Sphinx, godoc, and rustdoc. Detects project language, recommends the right tool, and provides configuration templates. Use when a project needs automated API documentation from source code comments.
+version: "1.0.0"
 ---
 
 # API Reference Generator Guidance

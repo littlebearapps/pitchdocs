@@ -1,6 +1,7 @@
 ---
 name: user-guides
 description: Generates task-oriented user guides and how-to documentation for a repository. Creates docs/guides/ with step-by-step instructions for common workflows, integrations, and advanced usage. Links guides into README.md and CONTRIBUTING.md. Use when a project needs user-facing how-to documentation beyond the README quickstart.
+version: "1.0.0"
 ---
 
 # User Guide Generator

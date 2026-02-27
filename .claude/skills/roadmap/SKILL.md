@@ -1,6 +1,7 @@
 ---
 name: roadmap
 description: Generates ROADMAP.md from GitHub Projects, milestones, and issues. Structures content with mission statement, current milestone progress, upcoming milestones, and community involvement section. Use when creating or updating a project roadmap.
+version: "1.0.0"
 ---
 
 # Roadmap Generator

@@ -1,6 +1,7 @@
 ---
 name: llms-txt
 description: Generates llms.txt and llms-full.txt files following the llmstxt.org specification. Provides LLM-friendly content curation for AI coding assistants (Cursor, Windsurf, Claude Code) and AI search engines. Use when generating or updating llms.txt for a repository.
+version: "1.0.0"
 ---
 
 # llms.txt Generator
