@@ -1,6 +1,6 @@
 ---
 description: "Verify documentation quality, links, freshness, and consistency: $ARGUMENTS"
-argument-hint: "[links|freshness|ci] or no args for all checks"
+argument-hint: "[links|freshness|ci|score] or --min-score N"
 allowed-tools:
   - Read
   - Glob
@@ -25,6 +25,8 @@ Validate that documentation remains accurate, linked, and fresh over time. Catch
 - `links`: Link validation only (internal + external)
 - `freshness`: Staleness check only (git blame-based)
 - `ci`: All checks, output in CI-friendly format (exit code 1 on errors, file:line format)
+- `score`: Run all checks and output the quality score only
+- `--min-score N`: Fail if the quality score falls below N (useful for CI gates)
 
 ## Checks Performed
 
@@ -37,6 +39,8 @@ Validate that documentation remains accurate, linked, and fresh over time. Catch
 | Freshness | Docs not updated in 90+ days (configurable via git blame) |
 | Feature coverage | README features vs actual code — undocumented and over-documented |
 | Badge URLs | Shields.io badges returning errors or outdated formats |
+| Token audit | Skill files exceeding recommended token budgets |
+| Quality score | Numeric 0–100 score across 5 dimensions with grade band and actionable fix suggestions |
 
 ## Output Format
 
@@ -57,4 +61,7 @@ Errors (must fix):
 Warnings (should fix):
   ⚠ docs/guides/deployment.md — stale: last updated 95 days ago
   ⚠ README.md:15 — relative image path, will break on npm
+
+📊 Quality Score: 74/100 (C — Needs work)
+   Top fix: README.md:89 broken link → fixes +5 points
 ```

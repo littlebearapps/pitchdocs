@@ -1,7 +1,7 @@
 ---
 name: docs-verify
 description: Validates documentation quality and freshness — checks for broken links, stale content, llms.txt sync, image issues, heading hierarchy, and badge URLs. Runs locally or in CI. Use to catch documentation decay before it reaches users.
-version: "1.1.0"
+version: "1.2.0"
 ---
 
 # Documentation Verifier
@@ -194,6 +194,74 @@ Badge Validation:
   ✓ npm version — 200 OK (1.4.1)
   ✗ coverage — 200 OK but shows "unknown" (codecov may not be configured)
   ⚠ downloads — 301 redirect (badge URL format may be outdated)
+```
+
+## Quality Score
+
+After running all verification checks, calculate a numeric quality score. The score gives users a single number to track and improve — modelled on the grading approach used in documentation quality tooling across the ecosystem.
+
+### Scoring Dimensions
+
+| Dimension | Max | Deductions |
+|-----------|-----|-----------|
+| Completeness | 30 | -5 per missing Tier 1 file (README, LICENSE, CONTRIBUTING, issue templates, PR template), -3 per missing Tier 2 file (CHANGELOG, SECURITY, CODE_OF_CONDUCT, llms.txt, AGENTS.md), -1 per missing Tier 3 file (ROADMAP, CITATION.cff, .cursorrules) |
+| Structure | 20 | -5 if heading hierarchy skipped anywhere, -5 if hero missing required parts (one-liner + explanatory sentence + badges), -5 if no 4-question framework evident, -5 if single H1 rule violated |
+| Freshness | 15 | -5 per stale file (>180 days since last update), -3 per warning file (>90 days) |
+| Link Health | 20 | -5 per broken internal link (file not found), -3 per broken external link (404/5xx), -2 per broken anchor |
+| Evidence | 15 | -5 if feature coverage below 70%, -5 per over-documented feature (claims without code evidence), -3 per missing benefit translation in features section |
+
+### Score Calculation
+
+```
+score = 100
+for each check result:
+  apply deductions from the table above
+score = max(0, score)
+grade = lookup(score)
+```
+
+### Grade Bands
+
+| Score | Grade | Label |
+|-------|-------|-------|
+| 90–100 | A | Ship-ready |
+| 80–89 | B | Minor fixes needed |
+| 70–79 | C | Needs work |
+| 60–69 | D | Significant gaps |
+| <60 | F | Not ready |
+
+### Report Format
+
+Append the score to the standard verification report:
+
+```
+📊 Documentation Quality Score: 74/100 (C — Needs work)
+
+Breakdown:
+  Completeness:   22/30  (-5 SECURITY.md missing, -3 ROADMAP.md missing)
+  Structure:      20/20  ✓
+  Freshness:      12/15  (-3 docs/guides/deployment.md stale)
+  Link Health:    15/20  (-5 README.md:89 broken internal link)
+  Evidence:        5/15  (-5 feature coverage 62%, -5 "AI-powered" claim without code evidence)
+
+To reach grade B (80+): Fix the broken link (+5) and add SECURITY.md (+5).
+```
+
+Always include the actionable "To reach next grade" suggestion showing the 1–2 highest-impact fixes.
+
+### CI Integration
+
+When run with `ci` argument, export the score for pipeline use:
+
+```bash
+echo "PITCHDOCS_SCORE=74" >> "$GITHUB_OUTPUT"
+echo "PITCHDOCS_GRADE=C" >> "$GITHUB_OUTPUT"
+```
+
+Accept `--min-score N` to fail the CI job if the score falls below a threshold:
+
+```
+/docs-verify ci --min-score 70
 ```
 
 ### 8. Token Audit
