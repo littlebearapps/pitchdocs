@@ -1,7 +1,7 @@
 ---
 name: docs-verify
 description: Validates documentation quality and freshness — checks for broken links, stale content, llms.txt sync, image issues, heading hierarchy, and badge URLs. Runs locally or in CI. Use to catch documentation decay before it reaches users.
-version: "1.2.0"
+version: "1.3.0"
 ---
 
 # Documentation Verifier
@@ -68,6 +68,45 @@ Link Validation:
   ✗ README.md:89 — docs/guides/migration.md (file not found)
   ✗ CONTRIBUTING.md:34 — #setup-instructions (anchor not found, did you mean #development-setup?)
   ⚠ README.md:12 — https://example.com/old-docs (301 redirect → https://example.com/docs)
+```
+
+#### Enhanced Detection Patterns
+
+Four patterns that cause silent breakage not caught by basic link checking:
+
+**1. Case-sensitivity (Linux hidden bugs)**
+
+On Linux, verify the file path matches case exactly. macOS silently accepts wrong-case paths — Linux does not:
+
+```bash
+# If find returns a result that differs in case from the link, flag it
+find . -iname "$(basename "$link_path")" | grep -v "^$link_path$" 2>/dev/null
+```
+
+**2. Fragment-only anchors (same-file jumps)**
+
+For links like `[see setup](#setup-section)`:
+- Extract the heading text and convert to GitHub anchor format: lowercase, spaces to hyphens, strip punctuation
+- Search the target file for the matching heading
+- Flag "did you mean #X?" when no match but a close heading exists (Levenshtein distance ≤ 2)
+
+**3. Redirect chains**
+
+Flag external URLs that redirect through more than 1 hop:
+
+```bash
+curl -Ls -o /dev/null -w "%{url_effective} (via %{num_redirects} redirects)\n" "$url"
+# Flag if num_redirects > 1
+```
+
+**4. Relative links in nested documents**
+
+For links found in `docs/guides/*.md`, resolve relative paths from the document's directory, not the repo root:
+
+```bash
+doc_dir=$(dirname "$doc_file")
+resolved="$doc_dir/$relative_link"
+[ -f "$resolved" ] || echo "✗ $doc_file — $relative_link (resolved to $resolved, not found)"
 ```
 
 ### 3. llms.txt Sync Check
