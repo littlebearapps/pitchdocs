@@ -200,6 +200,28 @@ For each existing file, check:
 - **CHANGELOG.md**: Is it up to date with the latest release?
 - **SECURITY.md**: Does it include a responsible disclosure process?
 
+#### License Validation
+
+Three checks to catch common license issues:
+
+1. **LICENSE file exists** — flag if the file uses `.md` extension (`LICENSE.md`). GitHub's licence detection prefers extensionless `LICENSE` or `LICENSE.txt`.
+
+2. **Manifest matches LICENSE** — cross-reference the `license` field in `package.json` or `pyproject.toml` against the LICENSE file header:
+   ```bash
+   # npm
+   node -e "console.log(require('./package.json').license)" 2>/dev/null
+   # PyPI
+   python3 -c "import tomllib; f=open('pyproject.toml','rb'); print(tomllib.load(f).get('project',{}).get('license'))" 2>/dev/null
+   ```
+   Flag mismatches (e.g., manifest says `MIT` but LICENSE file contains Apache-2.0 text).
+
+3. **No verbatim license text in context files** — AI-generated context files sometimes accidentally embed full license text. Scan for license preamble patterns:
+   ```bash
+   grep -rl "Permission is hereby granted, free of charge" .claude/ .cursorrules AGENTS.md .clinerules .windsurfrules GEMINI.md 2>/dev/null
+   grep -rl "Licensed under the Apache License" .claude/ .cursorrules AGENTS.md .clinerules .windsurfrules GEMINI.md 2>/dev/null
+   ```
+   Flag any matches — license text belongs in LICENSE, not in skill/rule/context files.
+
 ### Step 3: Generate Missing Files
 
 Use the appropriate skill/template for each missing file. Generate in priority order:
