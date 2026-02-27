@@ -61,14 +61,14 @@ If the project has a logo, place it as the first element inside the centred cont
 
 <img src="docs/assets/logo.svg" height="200" alt="Project Name" />
 
-<br><br>
+<br>
 ```
 
 **Logo guidelines:**
 - **Format**: SVG preferred (scales crisply on retina displays). PNG as fallback for complex raster logos.
 - **Height**: `height="160"` to `height="240"` — scale to visual weight, not pixel count. Larger source images (1000x1000) use the lower end; smaller sources (300–500px) use the higher end. Never set both `width` and `height` unless the source aspect ratio requires it.
 - **Background**: Transparent for README headers. Solid colour backgrounds are only for listing thumbnails (DevHunt, Product Hunt).
-- **Breathing room**: Add `<br><br>` between the logo and the tagline text for visual spacing when using a single wrapper `<div>`. If using separate `<p align="center">` blocks for each header element, natural paragraph spacing handles this automatically.
+- **Breathing room**: Add `<br>` between the logo and the tagline text for visual spacing when using a single wrapper `<div>`. If using separate `<p align="center">` blocks for each header element, natural paragraph spacing handles this automatically.
 - **Dark mode support**: Use `<picture>` with `prefers-color-scheme` sources when the logo doesn't render well on both light and dark backgrounds:
   ```html
   <picture>
@@ -88,7 +88,7 @@ If the project has a logo, place it as the first element inside the centred cont
 
 <img src="docs/assets/logo.svg" height="200" alt="Project Name" />
 
-<br><br>
+<br>
 
 **One compelling sentence that explains the value proposition — not what it IS, but what it DOES FOR YOU.**
 
