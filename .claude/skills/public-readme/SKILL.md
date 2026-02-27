@@ -56,19 +56,17 @@ Follow the GEO section in the `doc-standards` rule. These README-specific additi
 
 If the project has a logo, place it as the first element inside the centred container. A prominent logo creates instant visual identity and makes the repo feel polished and maintained.
 
-```markdown
-<div align="center">
-
-<img src="docs/assets/logo.svg" height="200" alt="Project Name" />
-
-<br>
+```html
+<p align="center">
+  <img src="docs/assets/logo.svg" height="200" alt="Project Name" />
+</p>
 ```
 
 **Logo guidelines:**
 - **Format**: SVG preferred (scales crisply on retina displays). PNG as fallback for complex raster logos.
 - **Height**: `height="160"` to `height="240"` — scale to visual weight, not pixel count. Larger source images (1000x1000) use the lower end; smaller sources (300–500px) use the higher end. Never set both `width` and `height` unless the source aspect ratio requires it.
 - **Background**: Transparent for README headers. Solid colour backgrounds are only for listing thumbnails (DevHunt, Product Hunt).
-- **Breathing room**: Add `<br>` between the logo and the tagline text for visual spacing when using a single wrapper `<div>`. If using separate `<p align="center">` blocks for each header element, natural paragraph spacing handles this automatically.
+- **Breathing room**: Use separate `<p align="center">` blocks for the logo, tagline, badges, and links. Each `<p>` gets natural CSS margin from GitHub's stylesheet (~16px), creating consistent spacing without `<br>` hacks. Avoid `<br>` inside `<div>` blocks — GitHub's renderer collapses them unpredictably.
 - **Dark mode support**: Use `<picture>` with `prefers-color-scheme` sources when the logo doesn't render well on both light and dark backgrounds:
   ```html
   <picture>
@@ -83,24 +81,26 @@ If the project has a logo, place it as the first element inside the centred cont
 
 **Full hero template:**
 
-```markdown
-<div align="center">
+```html
+<p align="center">
+  <img src="docs/assets/logo.svg" height="200" alt="Project Name" />
+</p>
 
-<img src="docs/assets/logo.svg" height="200" alt="Project Name" />
+<p align="center">
+  <strong>One compelling sentence that explains the value proposition — not what it IS, but what it DOES FOR YOU.</strong>
+</p>
 
-<br>
+<p align="center">
+  <a href="link"><img src="https://img.shields.io/github/actions/workflow/status/org/repo/ci.yml?branch=main" alt="Build" /></a>
+  <a href="link"><img src="https://img.shields.io/codecov/c/github/org/repo" alt="Coverage" /></a>
+  <a href="link"><img src="https://img.shields.io/npm/v/package-name" alt="npm" /></a>
+  <a href="link"><img src="https://img.shields.io/github/license/org/repo" alt="License" /></a>
+  <a href="link"><img src="https://img.shields.io/npm/dm/package-name" alt="Downloads" /></a>
+</p>
 
-**One compelling sentence that explains the value proposition — not what it IS, but what it DOES FOR YOU.**
-
-[![Build](https://img.shields.io/github/actions/workflow/status/org/repo/ci.yml?branch=main)](link)
-[![Coverage](https://img.shields.io/codecov/c/github/org/repo)](link)
-[![npm](https://img.shields.io/npm/v/package-name)](link)
-[![License](https://img.shields.io/github/license/org/repo)](link)
-[![Downloads](https://img.shields.io/npm/dm/package-name)](link)
-
-[Documentation](link) · [Examples](link) · [Discord](link) · [Blog](link)
-
-</div>
+<p align="center">
+  <a href="link">Documentation</a> · <a href="link">Examples</a> · <a href="link">Discord</a> · <a href="link">Blog</a>
+</p>
 
 ---
 ```

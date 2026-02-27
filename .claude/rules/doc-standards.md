@@ -84,7 +84,7 @@ Use when features need status indicators, direct side-by-side comparison, or whe
 
 ## Marketing Principles for Technical Docs
 
-- **Hero section**: Four-part structure — (1) project logo image (`height="160"` to `height="240"`, SVG preferred, transparent background, `<picture>` for dark mode support), (2) bold one-liner explaining what it provides, (3) explanatory sentence covering scope and capabilities, (4) badges and platform compatibility line. Add `<br>` between the logo and the tagline for breathing room. If the logo contains a wordmark (the project name), omit the `# Project Name` heading to avoid duplication.
+- **Hero section**: Four-part structure — (1) project logo image (`height="160"` to `height="240"`, SVG preferred, transparent background, `<picture>` for dark mode support), (2) bold one-liner explaining what it provides, (3) explanatory sentence covering scope and capabilities, (4) badges and platform compatibility line. Use separate `<p align="center">` blocks for each element — each `<p>` gets natural CSS margin from GitHub's stylesheet, creating consistent spacing. Avoid `<br>` inside `<div>` blocks for spacing — GitHub's renderer collapses them unpredictably. If the logo contains a wordmark (the project name), omit the `# Project Name` heading to avoid duplication.
 - **Why section**: Frame features as solutions to real problems
 - **Social proof**: Stars, downloads, contributors, "used by" logos where applicable
 - **Competitive edge**: Subtle positioning vs alternatives (benchmark charts, comparison tables)

@@ -1,24 +1,30 @@
-<div align="center">
+<p align="center">
+  <img src="docs/assets/pitchdocs-logo-full.svg" height="200" alt="PitchDocs" />
+</p>
 
-<img src="docs/assets/pitchdocs-logo-full.svg" height="200" alt="PitchDocs" />
+<p align="center">
+  <strong>GitHub repository documentation skills and templates for AI coding assistants.</strong>
+</p>
 
-<br>
+<p align="center">
+  Give your AI the knowledge to map out any codebase, extract a features-and-benefits summary, then create, enhance, and maintain professional public-facing GitHub repository docs — SEO and GEO ready with llms.txt (including external documentation sites), and npm/PyPI registry compatible.
+</p>
 
-**GitHub repository documentation skills and templates for AI coding assistants.**
+<p align="center">
+  A plugin for <a href="https://code.claude.com/">Claude Code</a> and <a href="https://opencode.ai/">OpenCode</a> — also works with <a href="https://codex.openai.com/">Codex CLI</a>, <a href="https://cursor.com/">Cursor</a>, <a href="https://github.com/google-gemini/gemini-cli">Gemini CLI</a>, and more.
+</p>
 
-Give your AI the knowledge to map out any codebase, extract a features-and-benefits summary, then create, enhance, and maintain professional public-facing GitHub repository docs — SEO and GEO ready with llms.txt (including external documentation sites), and npm/PyPI registry compatible.
+<p align="center">
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/static/v1?label=version&message=1.5.0&color=blue" alt="Version" /></a> <!-- x-release-please-version -->
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/littlebearapps/pitchdocs" alt="License" /></a>
+  <a href="https://code.claude.com/docs/en/plugins"><img src="https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white" alt="Claude Code Plugin" /></a>
+  <a href="https://opencode.ai/"><img src="https://img.shields.io/badge/OpenCode-Compatible-22c55e" alt="OpenCode Compatible" /></a>
+  <a href="https://www.npmjs.com/"><img src="https://img.shields.io/badge/npm_%26_PyPI-Ready-cb3837" alt="npm & PyPI Ready" /></a>
+</p>
 
-A plugin for [Claude Code](https://code.claude.com/) and [OpenCode](https://opencode.ai/) — also works with [Codex CLI](https://codex.openai.com/), [Cursor](https://cursor.com/), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and more.
-
-[![Version](https://img.shields.io/static/v1?label=version&message=1.5.0&color=blue)](CHANGELOG.md) <!-- x-release-please-version -->
-[![License](https://img.shields.io/github/license/littlebearapps/pitchdocs)](LICENSE)
-[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white)](https://code.claude.com/docs/en/plugins)
-[![OpenCode Compatible](https://img.shields.io/badge/OpenCode-Compatible-22c55e)](https://opencode.ai/)
-[![npm & PyPI Ready](https://img.shields.io/badge/npm_%26_PyPI-Ready-cb3837)](https://www.npmjs.com/)
-
-[Get Started](#-get-started) · [Features](#-features) · [How It Compares](#%EF%B8%8F-how-pitchdocs-compares) · [Commands](#-commands) · [Skills](#-skills) · [Other AI Tools](#-use-with-other-ai-tools) · [Contributing](CONTRIBUTING.md)
-
-</div>
+<p align="center">
+  <a href="#-get-started">Get Started</a> · <a href="#-features">Features</a> · <a href="#%EF%B8%8F-how-pitchdocs-compares">How It Compares</a> · <a href="#-commands">Commands</a> · <a href="#-skills">Skills</a> · <a href="#-use-with-other-ai-tools">Other AI Tools</a> · <a href="CONTRIBUTING.md">Contributing</a>
+</p>
 
 ---
 
