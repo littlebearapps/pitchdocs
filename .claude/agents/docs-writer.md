@@ -147,6 +147,7 @@ Before finalising any document, check:
 - [ ] Use-case scenarios framed with reader context (if "What X Does" section is present)
 - [ ] Document ends with a clear call to action
 - [ ] README includes at least one visual element (image, GIF, or diagram) or documents why not
+- [ ] README hero includes a project logo image (`height="160"` to `height="240"`) if a logo file exists in `docs/assets/` or `.github/assets/`
 - [ ] LICENSE file matches the license field in the project manifest
 - [ ] Social preview image reminder flagged if not set
 - [ ] llms.txt is present and up to date (or flagged as missing)

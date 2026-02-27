@@ -52,10 +52,43 @@ Follow the GEO section in the `doc-standards` rule. These README-specific additi
 
 ### 1. Hero Section
 
+**Project logo (optional but recommended):**
+
+If the project has a logo, place it as the first element inside the centred container. A prominent logo creates instant visual identity and makes the repo feel polished and maintained.
+
 ```markdown
 <div align="center">
 
-# Project Name
+<img src="docs/assets/logo.svg" height="200" alt="Project Name" />
+
+<br>
+```
+
+**Logo guidelines:**
+- **Format**: SVG preferred (scales crisply on retina displays). PNG as fallback for complex raster logos.
+- **Height**: `height="160"` to `height="240"` — scale to visual weight, not pixel count. Larger source images (1000x1000) use the lower end; smaller sources (300–500px) use the higher end. Never set both `width` and `height` unless the source aspect ratio requires it.
+- **Background**: Transparent for README headers. Solid colour backgrounds are only for listing thumbnails (DevHunt, Product Hunt).
+- **Breathing room**: Add `<br>` between the logo and the tagline text for visual spacing when using a single wrapper `<div>`. If using separate `<p align="center">` blocks for each header element, natural paragraph spacing handles this automatically.
+- **Dark mode support**: Use `<picture>` with `prefers-color-scheme` sources when the logo doesn't render well on both light and dark backgrounds:
+  ```html
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo-light.svg">
+    <img src="docs/assets/logo-light.svg" height="200" alt="Project Name">
+  </picture>
+  ```
+- **Wordmark logos**: If the logo contains the project name (a wordmark), omit the `# Project Name` heading to avoid duplication.
+- **Storage**: `docs/assets/` or `.github/assets/` in the repo. For npm/PyPI-published packages, use absolute URLs (`https://raw.githubusercontent.com/org/repo/main/docs/assets/logo.svg`) — relative paths break on registry pages.
+- **Alt text**: Always include descriptive alt text (the project name at minimum).
+
+**Full hero template:**
+
+```markdown
+<div align="center">
+
+<img src="docs/assets/logo.svg" height="200" alt="Project Name" />
+
+<br>
 
 **One compelling sentence that explains the value proposition — not what it IS, but what it DOES FOR YOU.**
 
