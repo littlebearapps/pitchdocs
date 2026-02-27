@@ -327,6 +327,37 @@ AI Context Audit:
   · GEMINI.md — not present (recommend generating)
 ```
 
+## AGENTS.md Spec Version Tracking
+
+The AGENTS.md format is defined by the [agents.md spec](https://github.com/agentsmd/agents.md). PitchDocs tracks the pinned version in `upstream-versions.json`.
+
+### Current Stable: v1.0
+
+The v1.0 spec defines these standard sections:
+
+| Section | Purpose |
+|---------|---------|
+| Identity | Project name, description, what it does |
+| Project Structure | Key directories and their purposes |
+| Conventions | Coding standards, naming, commit conventions |
+| Commands | Test, build, deploy, lint commands |
+| Architecture | System design, data flow, key abstractions |
+| Files | Important files and their roles |
+| Rules | Hard constraints (security, compatibility) |
+
+### Proposed v1.1 Features (Draft — Do Not Implement)
+
+These features are under discussion and may change before stabilisation:
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Sub-agents section | Draft | Nested agent definitions within AGENTS.md |
+| Tool permissions | Proposed | Declaring which tools an agent can use |
+| `.agent/` directory | Proposed | Directory-based agent definitions (alternative to single file) |
+| `when:` frontmatter | Draft | Trigger conditions for agent activation |
+
+**Guidance:** Do not generate these proposed sections until they reach stable status. Monitor the [agents.md releases](https://github.com/agentsmd/agents.md/releases) for v1.1 announcement. The `check-upstream` GitHub Action will flag when a new version is available.
+
 ## Anti-Patterns
 
 - **Don't dump entire codebase** — context files should be concise summaries, not file listings

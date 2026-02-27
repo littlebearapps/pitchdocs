@@ -52,6 +52,6 @@
 - [License](./LICENSE): MIT licence terms
 - [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, and author info
 - [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language, visual formatting
-- [Upstream Versions](./upstream-versions.json): Pinned versions of 7 referenced specifications (Keep a Changelog, Contributor Covenant, Conventional Commits, Semantic Versioning, GitHub Issue Forms, npm/PyPI Trusted Publishing)
+- [Upstream Versions](./upstream-versions.json): Pinned versions of 8 referenced specifications (Keep a Changelog, Contributor Covenant, Conventional Commits, Semantic Versioning, GitHub Issue Forms, npm/PyPI Trusted Publishing, AGENTS.md Spec)
 - [Cursor Rules](./.cursorrules): Cursor IDE project context — architecture, writing standards, sync requirements
 - [Copilot Instructions](./.github/copilot-instructions.md): GitHub Copilot project context — structure, conventions, sync points

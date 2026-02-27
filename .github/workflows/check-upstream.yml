@@ -56,6 +56,14 @@ jobs:
             DRIFT_REPORT="${DRIFT_REPORT}\n- **Keep a Changelog**: pinned \`${KAC_PINNED}\`, latest \`${KAC_LATEST}\`"
           fi
 
+          # Check AGENTS.md spec
+          AGENTS_PINNED=$(jq -r '.sources["agents-md"].version' "$VERSIONS_FILE")
+          AGENTS_LATEST=$(curl -sf https://api.github.com/repos/agentsmd/agents.md/releases/latest | jq -r '.tag_name // empty' | sed 's/^v//')
+          if [ -n "$AGENTS_LATEST" ] && [ "$AGENTS_LATEST" != "$AGENTS_PINNED" ]; then
+            DRIFT_FOUND=true
+            DRIFT_REPORT="${DRIFT_REPORT}\n- **AGENTS.md Spec**: pinned \`${AGENTS_PINNED}\`, latest \`${AGENTS_LATEST}\`"
+          fi
+
           echo "drift_found=$DRIFT_FOUND" >> "$GITHUB_OUTPUT"
           # Write multiline report
           {

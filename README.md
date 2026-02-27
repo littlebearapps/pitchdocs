@@ -149,7 +149,7 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 | Docs audit checklist | 20+ files | README through CITATION.cff across 3 priority tiers ([detail](commands/docs-audit.md)) |
 | AI tools supported | 9 | Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose |
 | Benefit categories | 5 | Time saved, confidence gained, pain avoided, capability unlocked, cost reduced |
-| Upstream specs tracked | 7 | Frozen and evolving specs checked monthly by GitHub Action |
+| Upstream specs tracked | 8 | Frozen and evolving specs checked monthly by GitHub Action |
 | Launch platforms | 5 | Dev.to, Hacker News, Reddit, Twitter/X, awesome lists |
 
 ---
@@ -484,6 +484,7 @@ This plugin references several third-party specifications. Pinned versions are t
 | [GitHub Issue Forms](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema) | preview | Evolving |
 | [npm Trusted Publishing](https://docs.npmjs.com/generating-provenance-statements) | 2025-07 | Evolving |
 | [PyPI Trusted Publishers](https://docs.pypi.org/trusted-publishers/) | 2023-04 | Evolving |
+| [AGENTS.md Spec](https://github.com/agentsmd/agents.md) | 1.0 | Evolving |
 
 ---
 
