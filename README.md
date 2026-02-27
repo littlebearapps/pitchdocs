@@ -1,6 +1,6 @@
 <div align="center">
 
-# PitchDocs
+<img src="docs/assets/pitchdocs-logo-full.svg" height="120" alt="PitchDocs" />
 
 **GitHub repository documentation skills and templates for AI coding assistants.**
 
