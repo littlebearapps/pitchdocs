@@ -65,6 +65,24 @@ git tag --sort=-v:refname | head -10 2>/dev/null
 ls src/ 2>/dev/null || ls lib/ 2>/dev/null || ls app/ 2>/dev/null
 ```
 
+After running discovery, classify the project:
+
+```
+PROJECT_TYPE = library | cli | web-app | api | plugin | docs-site | monorepo
+LANGUAGE     = typescript | python | go | rust | java | ...
+FRAMEWORK    = react | nextjs | fastapi | django | express | cloudflare-workers | ...
+AUDIENCE     = developers | devtools | end-users | data-scientists
+```
+
+Detection signals:
+- **library**: `main`/`exports` in package.json, `py_modules` in pyproject.toml, no `bin` field
+- **cli**: `bin` field in package.json, `[project.scripts]` in pyproject.toml, `cobra`/`clap` imports
+- **web-app**: `next.config`, `vite.config`, `app/` directory with routes/pages
+- **api**: `routes/`, `endpoints/`, OpenAPI spec, `fastapi`/`express`/`hono` imports
+- **plugin**: `plugin.json`, `.claude-plugin/`, `package.json` with `claude-code-plugin` keyword
+- **docs-site**: `docusaurus.config`, `mkdocs.yml`, `astro.config` with docs theme
+- **monorepo**: `workspaces` in package.json, `pnpm-workspace.yaml`, `lerna.json`
+
 ### Step 1.5: Check Repository Metadata
 
 Read the repo's GitHub-level metadata to identify discoverability gaps:
@@ -122,6 +140,27 @@ From the classified features, derive:
 - **Proof points** — benchmarks, test coverage %, production usage, stars (from the scan evidence)
 
 ### Step 3: Write with Marketing Framework
+
+Use the `PROJECT_TYPE` from Step 1 to select tone and template emphasis:
+
+| Project Type | Tone | Hero Emphasis | Quick Start Style |
+|-------------|------|---------------|-------------------|
+| library | Technical-professional | API surface, type safety, bundle size | `npm install` + import example |
+| cli | Practical-terse | Commands, speed, developer workflow | One command demo with output |
+| web-app | Product-focused | User workflows, screenshots, live demo | `npx create-*` or `git clone` + `npm start` |
+| api | Technical-professional | Endpoints, auth, performance | `curl` example with response |
+| plugin | Ecosystem-aware | Integration points, compatibility | Plugin install command |
+| docs-site | Informational-warm | Content quality, navigation, search | Clone + serve locally |
+| monorepo | Architectural-clear | Package overview, workspace structure | Root install + key package usage |
+
+Adjust language level for the detected `AUDIENCE`:
+
+| Audience | Language Level | Example Phrasing |
+|----------|---------------|-------------------|
+| developers | Technical, assume familiarity | "Wraps the X API with typed methods" |
+| devtools | Technical, tool-focused | "Integrates with your existing CI pipeline" |
+| end-users | Non-technical, outcome-focused | "Create beautiful documents in seconds" |
+| data-scientists | Technical, domain-specific | "Process datasets with pandas-compatible API" |
 
 For each document, apply the **Daytona "4000 Stars" approach**:
 
