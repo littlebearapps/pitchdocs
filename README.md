@@ -2,7 +2,7 @@
 
 <img src="docs/assets/pitchdocs-logo-full.svg" height="200" alt="PitchDocs" />
 
-<br>
+<br><br>
 
 **GitHub repository documentation skills and templates for AI coding assistants.**
 
