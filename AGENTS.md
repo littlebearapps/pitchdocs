@@ -21,7 +21,7 @@ Every feature mentioned must translate into a user benefit using this pattern:
 
 ## Available Skills
 
-Skills are loaded on-demand to provide deep reference knowledge. Each lives at `.claude/skills/<name>/SKILL.md` (or `.agents/skills/<name>/SKILL.md` if you've copied them for Codex CLI). There are 13 skills in total.
+Skills are loaded on-demand to provide deep reference knowledge. Each lives at `.claude/skills/<name>/SKILL.md` (or `.agents/skills/<name>/SKILL.md` if you've copied them for Codex CLI). There are 14 skills in total.
 
 | Skill | What It Provides |
 |-------|-----------------|
@@ -38,6 +38,7 @@ Skills are loaded on-demand to provide deep reference knowledge. Each lives at `
 | `launch-artifacts` | Platform-specific launch content — Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
 | `api-reference` | API reference generator guidance — TypeDoc, Sphinx, godoc, rustdoc configuration templates and comment conventions |
 | `doc-refresh` | Version-bump documentation orchestration — analyses git history, identifies affected docs, and delegates to existing skills for selective refresh |
+| `context-guard` | Context Guard installation reference — hook architecture, settings.json configuration, customisation, and troubleshooting *(Claude Code only)* |
 
 ## Docs-Writer Agent
 
@@ -50,7 +51,7 @@ The docs-writer agent (`.claude/agents/docs-writer.md`) orchestrates the full do
 
 ## Workflow Commands
 
-These commands are defined in `commands/*.md` and can be invoked as slash commands in Claude Code and OpenCode, or as prompts in Codex CLI:
+These commands are defined in `commands/*.md` and can be invoked as slash commands in Claude Code and OpenCode, or as prompts in Codex CLI. Commands marked *(Claude Code only)* use features not available in other tools:
 
 | Command | What It Does |
 |---------|-------------|
@@ -65,6 +66,14 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 | `docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs |
 | `launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
 | `doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context, llms.txt |
+| `context-guard` | Install, uninstall, or check status of Context Guard hooks for AI context file freshness *(Claude Code only)* |
+
+## Rules and Hooks (Claude Code Only)
+
+PitchDocs includes features that are specific to Claude Code and do not work in OpenCode, Codex CLI, or other tools:
+
+- **Rules** (2): `.claude/rules/doc-standards.md` (quality standards, auto-loaded) and `.claude/rules/context-quality.md` (AI context file quality, auto-loaded after `/context-guard install`)
+- **Hooks** (2): `hooks/context-drift-check.sh` (post-commit drift detection) and `hooks/context-structural-change.sh` (structural change reminders) — opt-in via `/context-guard install`
 
 ## AI Context Files
 

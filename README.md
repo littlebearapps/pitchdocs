@@ -136,8 +136,9 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 - **Token budget auditing** — measurable token cost targets for skill files with automated audit to keep context lean
 - **Docs CI workflow** — ready-to-use GitHub Actions with markdownlint and link checking, triggered on Markdown changes
 - **Launch artifacts** — transform your README and CHANGELOG into Dev.to articles, Hacker News "Show HN" posts, Reddit posts, Twitter/X threads, and awesome list submission PRs
+- **Context Guard hooks** — opt-in post-commit drift detection and structural change reminders that nudge you to update AI context files before they go stale *(Claude Code only — hooks are not supported in OpenCode or other tools)*
 - **20+ file documentation audit** — never ship a repo with missing docs, broken metadata, AI context drift, or invisible image links
-- **11 slash commands** — generate or refresh any doc type from your terminal in under a minute, from README to release-time doc updates
+- **12 slash commands** — generate or refresh any doc type from your terminal in under a minute, from README to release-time doc updates
 - **Ready-to-use templates** — CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, issue templates, PR templates, and release config — one plugin replaces writing 10+ files by hand
 - **llms.txt generation** — create AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec so coding assistants and search engines surface your docs
 - **API reference guidance** — configuration templates for TypeDoc, Sphinx, godoc, and rustdoc with comment conventions for each language
@@ -150,8 +151,9 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 
 | Metric | Count | Evidence |
 |--------|-------|----------|
-| Slash commands | 11 | `commands/*.md` — README, features, changelog, roadmap, docs audit, llms.txt, user guide, AI context, docs verify, launch, doc refresh |
-| Reference skills | 13 | `.claude/skills/*/SKILL.md` — loaded on-demand for deep knowledge in each doc type |
+| Slash commands | 12 | `commands/*.md` — README, features, changelog, roadmap, docs audit, llms.txt, user guide, AI context, docs verify, launch, doc refresh, context guard |
+| Reference skills | 14 | `.claude/skills/*/SKILL.md` — loaded on-demand for deep knowledge in each doc type |
+| Quality rules | 2 | `.claude/rules/*.md` — doc-standards (cross-tool) and context-quality (Claude Code only) |
 | Signal categories scanned | 10 | Feature extraction covers CLI, API, config, integrations, data models, and 5 more ([detail](commands/features.md)) |
 | Docs audit checklist | 20+ files | README through CITATION.cff across 3 priority tiers ([detail](commands/docs-audit.md)) |
 | AI tools supported | 9 | Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose |
@@ -193,8 +195,11 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 | `/docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs | Catch documentation decay before it reaches users |
 | `/launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions | Transform docs into platform-specific launch content |
 | `/doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context, llms.txt | Never ship a release with stale documentation |
+| `/context-guard` | Install, uninstall, or check status of Context Guard hooks for AI context file freshness | Catch stale context files automatically after commits and structural changes |
 
-The **docs-writer** agent powers these commands — it scans your codebase, extracts features with evidence, and writes docs that pass the 4-question test.
+The **docs-writer** agent powers the documentation commands — it scans your codebase, extracts features with evidence, and writes docs that pass the 4-question test.
+
+**Note:** `/context-guard` is **Claude Code only** — it installs PostToolUse hooks that are specific to Claude Code's hook system. OpenCode, Codex CLI, and other tools do not support these hooks. All other commands work across all supported AI tools.
 
 ### Quick Examples
 
@@ -249,6 +254,12 @@ The **docs-writer** agent powers these commands — it scans your codebase, extr
 
 # Refresh docs for a specific version
 /doc-refresh 1.7.0
+
+# Install Context Guard hooks (Claude Code only)
+/context-guard install
+
+# Check if context files are stale
+/context-guard status
 ```
 
 ---
@@ -272,6 +283,7 @@ Skills are loaded on-demand to provide deep reference knowledge:
 | `launch-artifacts` | Platform-specific launch content — Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
 | `api-reference` | API reference generator guidance — TypeDoc, Sphinx, godoc, rustdoc configuration templates and comment conventions |
 | `doc-refresh` | Version-bump documentation orchestration — change detection from git history, selective doc refresh, release-please integration, and quality score tracking |
+| `context-guard` | Context Guard installation reference — hook architecture, settings.json configuration, customisation, and troubleshooting *(Claude Code only)* |
 
 ---
 
@@ -281,12 +293,29 @@ PitchDocs is built as a Claude Code plugin, but the documentation knowledge it c
 
 The source of truth lives in `.claude/`. Here's what's inside and what each piece does:
 
-| Directory | Contents | Purpose |
-|-----------|----------|---------|
-| `.claude/skills/*/SKILL.md` | 13 skill files | Reference knowledge for README generation, feature extraction, changelogs, roadmaps, user guides, llms.txt, package registry auditing, AI context files, docs verification, launch artifacts, API reference, doc refresh orchestration, and full docs suite inventory |
-| `.claude/agents/docs-writer.md` | 1 agent file | Orchestration workflow: codebase scanning → feature extraction → doc writing → validation |
-| `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language, feature list formatting (bold+em-dash and table), three-part hero structure, visual formatting with emoji anchors |
-| `commands/*.md` | 11 command files | Slash command definitions for `/readme`, `/changelog`, `/roadmap`, `/docs-audit`, `/features`, `/llms-txt`, `/user-guide`, `/ai-context`, `/docs-verify`, `/launch`, `/doc-refresh` |
+| Directory | Contents | Purpose | Cross-Tool? |
+|-----------|----------|---------|-------------|
+| `.claude/skills/*/SKILL.md` | 14 skill files | Reference knowledge for all doc types plus context guard installation | Yes — Claude Code, OpenCode, Codex CLI |
+| `.claude/agents/docs-writer.md` | 1 agent file | Orchestration workflow: codebase scanning → feature extraction → doc writing → validation | Partial — Claude Code, OpenCode (may vary) |
+| `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language | **Claude Code only** |
+| `.claude/rules/context-quality.md` | 1 rule file | AI context file quality standards: cross-file consistency, path verification, sync points | **Claude Code only** |
+| `commands/*.md` | 12 command files | Slash command definitions for all PitchDocs commands | Yes — Claude Code, OpenCode |
+| `hooks/*.sh` | 2 hook scripts | Post-commit drift detection and structural change reminders for AI context files | **Claude Code only** |
+
+### Tool Compatibility Summary
+
+Not all PitchDocs features work in every tool. Here's what's portable and what's Claude Code-specific:
+
+| Feature | Claude Code | OpenCode | Codex CLI | Cursor / Windsurf / Cline / Gemini CLI |
+|---------|------------|----------|-----------|----------------------------------------|
+| Skills (14 SKILL.md files) | Native | Native (`.claude/skills/` fallback) | Copy to `.agents/skills/` | Reference on demand |
+| Slash commands (12) | Native | Native (`.claude/commands/` fallback) | Copy to prompts | Not supported |
+| Docs-writer agent | Native | Likely supported | Reference manually | Cursor: `.cursor/agents/` |
+| Doc-standards rule | Auto-loaded | Not supported | Not supported | Cursor: `.cursor/rules/` |
+| Context-quality rule | Auto-loaded | Not supported | Not supported | Not supported |
+| Context Guard hooks | Native (opt-in) | Not supported | Not supported | Not supported |
+| AGENTS.md | Loaded | Primary context file | Primary context file | Not used |
+| CLAUDE.md | Loaded | Fallback (if no AGENTS.md) | Not used | Not used |
 
 ### OpenCode
 

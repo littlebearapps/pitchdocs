@@ -27,6 +27,9 @@
     "quality-scoring",
     "security-scan",
     "token-budget",
-    "docs-ci"
+    "docs-ci",
+    "hooks",
+    "context-guard",
+    "context-freshness"
   ]
 }

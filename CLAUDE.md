@@ -1,17 +1,19 @@
 # PitchDocs
 
-Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 13 skills, 1 orchestration agent, 1 quality rule, and 11 slash commands.
+Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 14 skills, 1 orchestration agent, 2 quality rules, 12 slash commands, and 2 opt-in hooks.
 
 ## Project Architecture
 
 This is a **100% Markdown-based plugin** — no JavaScript, no Python, no build step. All knowledge lives in structured YAML+Markdown files:
 
 ```
-.claude-plugin/plugin.json     → Plugin manifest (name, version, keywords)
-.claude/skills/*/SKILL.md      → 13 reference knowledge modules (loaded on-demand)
-.claude/agents/docs-writer.md  → Orchestration agent (codebase scan → feature extract → write → validate)
-.claude/rules/doc-standards.md → Quality standards (auto-loaded every session)
-commands/*.md                  → 11 slash command definitions
+.claude-plugin/plugin.json      → Plugin manifest (name, version, keywords)
+.claude/skills/*/SKILL.md       → 14 reference knowledge modules (loaded on-demand)
+.claude/agents/docs-writer.md   → Orchestration agent (codebase scan → feature extract → write → validate)
+.claude/rules/doc-standards.md  → Quality standards (auto-loaded every session)
+.claude/rules/context-quality.md → AI context file quality standards (auto-loaded; Claude Code only)
+commands/*.md                   → 12 slash command definitions
+hooks/*.sh                      → 2 opt-in hook scripts (Claude Code only)
 ```
 
 ## Conventions
@@ -28,7 +30,9 @@ commands/*.md                  → 11 slash command definitions
 |------|---------|
 | `plugin.json` | Version, description, keywords — update on every release |
 | `doc-standards.md` | Quality rule auto-loaded in every session — the source of truth for formatting, GEO, badges, and visual structure |
+| `context-quality.md` | AI context file quality rule — cross-file consistency, path verification, sync points (Claude Code only) |
 | `docs-writer.md` | Agent workflow: 4 steps (discover → extract → write → validate) with content filter mitigations |
+| `hooks/*.sh` | Context Guard hooks — post-commit drift detection and structural change reminders (Claude Code only, opt-in) |
 | `upstream-versions.json` | Tracks 7 pinned spec versions — checked monthly by GitHub Action |
 | `llms.txt` | AI-readable content index — must be updated when files are added/removed |
 | `AGENTS.md` | Cross-tool AI context (Codex CLI format) — must stay in sync with skills/commands |

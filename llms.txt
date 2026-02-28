@@ -28,6 +28,7 @@
 - [Launch Artifacts](./.claude/skills/launch-artifacts/SKILL.md): Platform-specific launch content — Dev.to articles, Hacker News posts, Reddit posts, Twitter/X threads, awesome list submissions, and social preview guidance
 - [API Reference](./.claude/skills/api-reference/SKILL.md): API reference generator guidance — TypeDoc, Sphinx, godoc, rustdoc configuration templates and docstring conventions
 - [Doc Refresh](./.claude/skills/doc-refresh/SKILL.md): Version-bump documentation orchestration — change detection from git history, selective doc refresh, release-please integration, and quality score tracking
+- [Context Guard](./.claude/skills/context-guard/SKILL.md): Context Guard installation reference — hook architecture, settings.json configuration, customisation, and troubleshooting (Claude Code only)
 
 ## Agent
 
@@ -46,6 +47,7 @@
 - [/docs-verify](./commands/docs-verify.md): Verify documentation links, freshness, llms.txt sync, badge URLs, quality score, and security
 - [/launch](./commands/launch.md): Generate platform-specific launch artifacts (Dev.to, HN, Reddit, Twitter, awesome lists)
 - [/doc-refresh](./commands/doc-refresh.md): Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context files, and llms.txt
+- [/context-guard](./commands/context-guard.md): Install, uninstall, or check status of Context Guard hooks for AI context file freshness (Claude Code only)
 
 ## Optional
 
@@ -54,6 +56,9 @@
 - [License](./LICENSE): MIT licence terms
 - [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, and author info
 - [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language, visual formatting, token budget guidelines
+- [Context Quality](./.claude/rules/context-quality.md): Auto-loaded quality rule for AI context files — cross-file consistency, path verification, version accuracy, sync points table (Claude Code only)
+- [Context Drift Check Hook](./hooks/context-drift-check.sh): PostToolUse hook that detects stale AI context files after git commits — compares timestamps, checks broken paths (Claude Code only)
+- [Context Structural Change Hook](./hooks/context-structural-change.sh): PostToolUse hook that reminds about context file updates after structural file changes (Claude Code only)
 - [Upstream Versions](./upstream-versions.json): Pinned versions of 8 referenced specifications (Keep a Changelog, Contributor Covenant, Conventional Commits, Semantic Versioning, GitHub Issue Forms, npm/PyPI Trusted Publishing, AGENTS.md Spec)
 - [Cursor Rules](./.cursorrules): Cursor IDE project context — architecture, writing standards, sync requirements
 - [Copilot Instructions](./.github/copilot-instructions.md): GitHub Copilot project context — structure, conventions, sync points

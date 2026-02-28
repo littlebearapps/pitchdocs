@@ -4,10 +4,11 @@ You are working on PitchDocs, a Claude Code plugin that generates marketing-qual
 
 ## Architecture
 
-- **Skills** (13): `.claude/skills/*/SKILL.md` — reference knowledge loaded on-demand
+- **Skills** (14): `.claude/skills/*/SKILL.md` — reference knowledge loaded on-demand
 - **Agent** (1): `.claude/agents/docs-writer.md` — orchestration workflow
-- **Rule** (1): `.claude/rules/doc-standards.md` — quality standards (source of truth)
-- **Commands** (11): `commands/*.md` — slash command definitions
+- **Rules** (2): `.claude/rules/*.md` — doc-standards (cross-tool) and context-quality (Claude Code only)
+- **Commands** (12): `commands/*.md` — slash command definitions
+- **Hooks** (2): `hooks/*.sh` — Context Guard post-commit and structural change hooks (Claude Code only, opt-in)
 
 ## Writing Standards
 
