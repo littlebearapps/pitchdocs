@@ -1,12 +1,12 @@
 # PitchDocs
 
-> GitHub repository documentation skills and templates for AI coding assistants. A Claude Code plugin that scans codebases, extracts features with file-level evidence, and generates marketing-quality docs — README, CHANGELOG, ROADMAP, user guides, llms.txt, AI context files, launch artifacts, and 20+ files total. GEO-optimised for AI citation. Pure Markdown, zero runtime dependencies. Also works with OpenCode, Codex CLI, Cursor, Gemini CLI, Aider, and Goose.
+> GitHub repository documentation skills and templates for AI coding assistants. A Claude Code plugin that scans codebases, extracts features with file-level evidence, and generates marketing-quality docs — README, CHANGELOG, ROADMAP, user guides, llms.txt, AI context files, launch artifacts, and 20+ files total. Includes quality scoring, security scanning, and project type auto-detection. GEO-optimised for AI citation. Pure Markdown, zero runtime dependencies. Also works with OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, and Goose.
 
 ## Docs
 
-- [README](./README.md): Project overview, value proposition, quick start, commands table, skills table, and setup instructions for 7 AI coding tools
+- [README](./README.md): Project overview, value proposition, quick start, commands table, skills table, and setup instructions for 9 AI coding tools
 - [Contributing](./CONTRIBUTING.md): Development setup, how to improve templates, add skills/commands, and submit PRs using conventional commits
-- [Changelog](./CHANGELOG.md): Version history from v1.0.0 to v1.5.0 with user-facing change descriptions
+- [Changelog](./CHANGELOG.md): Version history from v1.0.0 to v1.6.0 with user-facing change descriptions
 - [Agents.md](./AGENTS.md): Codex CLI compatibility file with condensed skills reference and docs-writer agent overview
 - [Support](./SUPPORT.md): Getting help, common questions, contact details, and response times
 - [Claude.md](./CLAUDE.md): Claude Code project context — architecture, conventions, key files, and modification guide
@@ -24,7 +24,7 @@
 - [Package Registry](./.claude/skills/package-registry/SKILL.md): npm and PyPI metadata auditing, README cross-renderer compatibility, trusted publishing, and registry badges
 - [User Guides](./.claude/skills/user-guides/SKILL.md): Task-oriented how-to documentation with Diataxis framework, numbered steps, copy-paste-ready code, error recovery, and cross-linked hub pages
 - [AI Context](./.claude/skills/ai-context/SKILL.md): AI IDE context file generation — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md from codebase analysis with staleness audit
-- [Docs Verify](./.claude/skills/docs-verify/SKILL.md): Documentation validation — broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, and CI-friendly output with GitHub Actions template
+- [Docs Verify](./.claude/skills/docs-verify/SKILL.md): Documentation validation — broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, quality scoring (0–100), security scanning, token audit, and CI-friendly output with GitHub Actions template
 - [Launch Artifacts](./.claude/skills/launch-artifacts/SKILL.md): Platform-specific launch content — Dev.to articles, Hacker News posts, Reddit posts, Twitter/X threads, awesome list submissions, and social preview guidance
 - [API Reference](./.claude/skills/api-reference/SKILL.md): API reference generator guidance — TypeDoc, Sphinx, godoc, rustdoc configuration templates and docstring conventions
 
@@ -42,7 +42,7 @@
 - [/llms-txt](./commands/llms-txt.md): Generate llms.txt and llms-full.txt
 - [/user-guide](./commands/user-guide.md): Generate task-oriented user guides with Diataxis classification
 - [/ai-context](./commands/ai-context.md): Generate AI IDE context files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md)
-- [/docs-verify](./commands/docs-verify.md): Verify documentation links, freshness, llms.txt sync, and badge URLs
+- [/docs-verify](./commands/docs-verify.md): Verify documentation links, freshness, llms.txt sync, badge URLs, quality score, and security
 - [/launch](./commands/launch.md): Generate platform-specific launch artifacts (Dev.to, HN, Reddit, Twitter, awesome lists)
 
 ## Optional
@@ -51,7 +51,7 @@
 - [Code of Conduct](./CODE_OF_CONDUCT.md): Community behaviour standards (Contributor Covenant v3.0)
 - [License](./LICENSE): MIT licence terms
 - [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, and author info
-- [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language, visual formatting
+- [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language, visual formatting, token budget guidelines
 - [Upstream Versions](./upstream-versions.json): Pinned versions of 8 referenced specifications (Keep a Changelog, Contributor Covenant, Conventional Commits, Semantic Versioning, GitHub Issue Forms, npm/PyPI Trusted Publishing, AGENTS.md Spec)
 - [Cursor Rules](./.cursorrules): Cursor IDE project context — architecture, writing standards, sync requirements
 - [Copilot Instructions](./.github/copilot-instructions.md): GitHub Copilot project context — structure, conventions, sync points

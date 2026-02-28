@@ -32,8 +32,8 @@ Step-by-step instructions for common tasks:
 | `/docs-audit` | Audit docs completeness against 20+ file checklist |
 | `/llms-txt` | Generate llms.txt and llms-full.txt |
 | `/user-guide` | Generate task-oriented user guides |
-| `/ai-context` | Generate AI IDE context files |
-| `/docs-verify` | Verify links, freshness, and consistency |
+| `/ai-context` | Generate 7 AI IDE context files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md) |
+| `/docs-verify` | Verify links, freshness, quality score, security, and consistency |
 | `/launch` | Generate platform-specific launch artifacts |
 
 ## Skills Reference
