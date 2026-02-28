@@ -5,6 +5,13 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.1](https://github.com/littlebearapps/pitchdocs/compare/v1.8.0...v1.8.1) (2026-02-28)
+
+
+### Fixed
+
+* handle both relative and absolute paths in structural change hook ([d9562e7](https://github.com/littlebearapps/pitchdocs/commit/d9562e7a21a320bd2b62df2257db7ef098bd1879))
+
 ## [1.8.0](https://github.com/littlebearapps/pitchdocs/compare/v1.7.0...v1.8.0) (2026-02-28)
 
 
