@@ -28,6 +28,16 @@
 
 ---
 
+<p align="center">
+  <em>Untether's README — before and after PitchDocs</em>
+</p>
+
+<p align="center">
+  <img src="docs/assets/devhunt/untether-before-after-readme.png" alt="Before and after comparison — Untether's README transformed by PitchDocs from a basic text README to a marketing-friendly README with logo, badges, benefit-driven features, and structured sections" width="700" />
+</p>
+
+---
+
 ## ⚡ Get Started
 
 ### Claude Code / OpenCode
@@ -90,14 +100,6 @@ flowchart LR
 ```
 
 **Scan** reads your manifest, project structure, git history, and GitHub metadata. **Extract** runs a 5-step workflow across 10 signal categories to surface features with file-level evidence. **Write** applies the Daytona/Banesullivan marketing framework with progressive disclosure. **Validate** checks every doc against the 4-question test, verifies links and badges, and ensures cross-renderer compatibility.
-
-<p align="center">
-  <em>Untether's README — before and after PitchDocs</em>
-</p>
-
-<p align="center">
-  <img src="docs/assets/devhunt/untether-before-after-readme.png" alt="Before and after comparison — Untether's README transformed by PitchDocs from a basic text README to a marketing-friendly README with logo, badges, benefit-driven features, and structured sections" width="700" />
-</p>
 
 ---
 
