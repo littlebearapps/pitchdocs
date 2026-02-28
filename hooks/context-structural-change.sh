@@ -31,23 +31,28 @@ done
 
 # Determine what type of structural change this is
 MSG=""
-case "$FILE_PATH" in
-  */commands/*.md)
+# Extract just the filename/relative portion for matching
+# Claude Code may pass absolute or relative paths
+REL_PATH="${FILE_PATH##"$PROJECT_DIR"/}"
+REL_PATH="${REL_PATH#/}"
+
+case "$REL_PATH" in
+  commands/*.md)
     MSG="You modified a command definition. AGENTS.md, CLAUDE.md, and llms.txt may need their command tables updated."
     ;;
-  */.claude/skills/*/SKILL.md|*/.agents/skills/*/SKILL.md)
+  .claude/skills/*/SKILL.md|.agents/skills/*/SKILL.md)
     MSG="You modified a skill. AGENTS.md, CLAUDE.md, and llms.txt may need their skill listings updated."
     ;;
-  */.claude/agents/*.md|*/.agents/agents/*.md)
+  .claude/agents/*.md|.agents/agents/*.md)
     MSG="You modified an agent definition. AGENTS.md may need updating."
     ;;
-  */.claude/rules/*.md)
+  .claude/rules/*.md)
     MSG="You modified a rule. CLAUDE.md and AGENTS.md may need updating if they list rules."
     ;;
-  */package.json|*/pyproject.toml|*/Cargo.toml|*/go.mod)
+  package.json|*/package.json|pyproject.toml|*/pyproject.toml|Cargo.toml|*/Cargo.toml|go.mod|*/go.mod)
     MSG="Project manifest changed. AI context files may reference outdated dependencies or commands."
     ;;
-  */tsconfig*.json|*/wrangler.toml|*/vitest.config*|*/jest.config*|*/eslint.config*|*/biome.json)
+  tsconfig*.json|*/tsconfig*.json|wrangler.toml|*/wrangler.toml|vitest.config*|*/vitest.config*|jest.config*|*/jest.config*|eslint.config*|*/eslint.config*|biome.json|*/biome.json)
     MSG="Build/test/lint configuration changed. AI context files may reference outdated tooling."
     ;;
   *)
