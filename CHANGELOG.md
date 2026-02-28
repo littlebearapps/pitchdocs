@@ -5,6 +5,14 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0](https://github.com/littlebearapps/pitchdocs/compare/v1.7.0...v1.8.0) (2026-02-28)
+
+
+### Added
+
+* add context-guard hooks for AI context file freshness ([ce0e47f](https://github.com/littlebearapps/pitchdocs/commit/ce0e47f615ce7bd6c5d8388b0b74b2e870a7d6c7))
+* notify littlebearapps.com on new releases ([de2ab32](https://github.com/littlebearapps/pitchdocs/commit/de2ab328955c706cd7a8254d1024eb67e9f01c67))
+
 ## [1.7.0](https://github.com/littlebearapps/pitchdocs/compare/v1.6.0...v1.7.0) (2026-02-28)
 
 
