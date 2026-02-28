@@ -280,6 +280,7 @@ The following skills extend the documentation suite beyond the core README/CHANG
 - **`docs-verify`** — Validates documentation quality, links, freshness, and llms.txt sync. Use `/docs-verify` to run checks.
 - **`launch-artifacts`** — Transforms README/CHANGELOG into platform-specific launch content (Dev.to, Hacker News, Reddit, Twitter/X, awesome list submissions). Use `/launch` to generate.
 - **`api-reference`** — Guidance for setting up API reference documentation generators (TypeDoc, Sphinx, godoc, rustdoc). Use when a project needs automated API docs.
+- **`doc-refresh`** — Orchestrates documentation updates after version bumps. Analyses git history, identifies affected docs, and delegates to existing skills for selective refresh. Use `/doc-refresh` to run.
 
 Load these skills on demand when the user requests the corresponding functionality.
 

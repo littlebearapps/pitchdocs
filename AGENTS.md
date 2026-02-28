@@ -21,7 +21,7 @@ Every feature mentioned must translate into a user benefit using this pattern:
 
 ## Available Skills
 
-Skills are loaded on-demand to provide deep reference knowledge. Each lives at `.claude/skills/<name>/SKILL.md` (or `.agents/skills/<name>/SKILL.md` if you've copied them for Codex CLI).
+Skills are loaded on-demand to provide deep reference knowledge. Each lives at `.claude/skills/<name>/SKILL.md` (or `.agents/skills/<name>/SKILL.md` if you've copied them for Codex CLI). There are 13 skills in total.
 
 | Skill | What It Provides |
 |-------|-----------------|
@@ -37,6 +37,7 @@ Skills are loaded on-demand to provide deep reference knowledge. Each lives at `
 | `docs-verify` | Documentation validation — broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, and CI-friendly output |
 | `launch-artifacts` | Platform-specific launch content — Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
 | `api-reference` | API reference generator guidance — TypeDoc, Sphinx, godoc, rustdoc configuration templates and comment conventions |
+| `doc-refresh` | Version-bump documentation orchestration — analyses git history, identifies affected docs, and delegates to existing skills for selective refresh |
 
 ## Docs-Writer Agent
 
@@ -63,6 +64,7 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 | `ai-context` | Generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md from codebase analysis |
 | `docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs |
 | `launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
+| `doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context, llms.txt |
 
 ## AI Context Files
 

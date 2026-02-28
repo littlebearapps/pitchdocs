@@ -12,7 +12,7 @@ Step-by-step instructions for common tasks:
 
 | Guide | What You'll Do |
 |-------|---------------|
-| [Getting Started](guides/getting-started.md) | Install PitchDocs, generate your first README, and explore all 10 commands |
+| [Getting Started](guides/getting-started.md) | Install PitchDocs, generate your first README, and explore all 11 commands |
 
 ## Quick Links
 
@@ -35,7 +35,8 @@ Step-by-step instructions for common tasks:
 | `/ai-context` | Generate 7 AI IDE context files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md) |
 | `/docs-verify` | Verify links, freshness, quality score, security, and consistency |
 | `/launch` | Generate platform-specific launch artifacts |
+| `/doc-refresh` | Refresh docs after version bumps, feature additions, or periodic maintenance |
 
 ## Skills Reference
 
-PitchDocs includes 12 reference skills loaded on-demand. See the [Skills section](../README.md#-skills) in the README for the full inventory.
+PitchDocs includes 13 reference skills loaded on-demand. See the [Skills section](../README.md#-skills) in the README for the full inventory.

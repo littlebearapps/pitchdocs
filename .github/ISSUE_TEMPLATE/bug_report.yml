@@ -23,6 +23,7 @@ body:
         - /ai-context command
         - /docs-verify command
         - /launch command
+        - /doc-refresh command
         - docs-writer agent
         - public-readme skill
         - feature-benefits skill
@@ -36,6 +37,7 @@ body:
         - docs-verify skill
         - launch-artifacts skill
         - api-reference skill
+        - doc-refresh skill
         - doc-standards rule
         - Upstream drift detection
         - Other
