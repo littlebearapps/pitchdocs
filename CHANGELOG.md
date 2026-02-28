@@ -5,6 +5,33 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0](https://github.com/littlebearapps/pitchdocs/compare/v1.5.0...v1.6.0) (2026-02-28)
+
+### Added
+
+- **Numeric quality scoring (0–100)** — `/docs-verify score` rates documentation across 5 dimensions (completeness, structure, freshness, link health, evidence) with A–F grade bands — CI mode exports `PITCHDOCS_SCORE` and `PITCHDOCS_GRADE`, supports `--min-score N` threshold
+- **Security scanning for generated docs** — `/docs-verify` detects leaked credentials, internal paths (`/Users/`, `/home/`), and internal hostnames so you can catch accidental exposure before shipping
+- **Enhanced link validation** — 4 new detection patterns: case-sensitive path checks, fragment-only anchor validation, redirect chain detection, and relative link resolution from nested docs directories
+- **Docs CI workflow** — ready-to-use `.github/workflows/docs-ci.yml` with markdownlint-cli2 and lychee link checking, triggered on Markdown changes and monthly schedule
+- **Token budget guidelines** — skill token cost targets (reference <3K, workflow <4K, combined <5K) in `doc-standards` rule, plus token audit check in `/docs-verify` to flag oversized skills
+- **Skill version tracking** — all 12 skills carry `version:` and `upstream:` fields in YAML frontmatter for provenance and drift detection
+- **Project type auto-detection** — docs-writer agent classifies repos (library, CLI, web-app, API, plugin, docs-site, monorepo) and selects writing tone, hero emphasis, and quick start style automatically
+- **Windsurf, Cline, and Gemini CLI context files** — `/ai-context` generates `.windsurfrules`, `.clinerules`, and `GEMINI.md` alongside existing formats (7 AI context files total, 9 AI tools supported)
+- **AGENTS.md spec tracking** — upstream version monitoring for the AGENTS.md v1.0 spec with v1.1 feature watch (8 upstream specs tracked total)
+- **Licence embed detection** — pitchdocs-suite validates that verbatim licence text isn't accidentally embedded in skill/rule/context files, and cross-checks manifest `license` field against the LICENSE file
+
+### Changed
+
+- docs-verify skill version bumped to 1.3.0 (quality scoring, enhanced links, security scan, token audit)
+- ai-context skill version bumped to 1.1.0 (3 new context file formats, spec tracking)
+- doc-standards rule expanded with token budget guidelines section
+- docs-writer agent validation now includes security scan checklist items and project type classification
+- Plugin keywords updated for v1.6.0
+
+### Fixed
+
+- Licence file extension check — flags `LICENSE.md` (GitHub prefers extensionless `LICENSE` for automatic detection)
+
 ## [1.5.0](https://github.com/littlebearapps/pitchdocs/compare/v1.4.1...v1.5.0) (2026-02-26)
 
 ### Added

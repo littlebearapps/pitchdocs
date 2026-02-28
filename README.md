@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/static/v1?label=version&message=1.5.0&color=blue" alt="Version" /></a> <!-- x-release-please-version -->
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/static/v1?label=version&message=1.6.0&color=blue" alt="Version" /></a> <!-- x-release-please-version -->
   <a href="LICENSE"><img src="https://img.shields.io/github/license/littlebearapps/pitchdocs" alt="License" /></a>
   <a href="https://code.claude.com/docs/en/plugins"><img src="https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white" alt="Claude Code Plugin" /></a>
   <a href="https://opencode.ai/"><img src="https://img.shields.io/badge/OpenCode-Compatible-22c55e" alt="OpenCode Compatible" /></a>
@@ -127,7 +127,12 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 - **GEO-optimised content structure** — crisp definitions, atomic sections, comparison tables, and concrete statistics structured for LLM extraction and AI citation (based on the Princeton GEO study)
 - **AI context file generation** — generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, and GEMINI.md from a single codebase scan so AI coding assistants understand your conventions
 - **Diataxis documentation framework** — classify docs into tutorials, how-to guides, reference, and explanation quadrants for clear information architecture
-- **Documentation verification** — check for broken links, stale content, llms.txt sync, heading hierarchy issues, and badge URL validity — locally or in CI
+- **Documentation verification** — check for broken links (with case-sensitivity, fragment, and redirect detection), stale content, llms.txt sync, heading hierarchy issues, badge URL validity, security issues, and quality scoring — locally or in CI
+- **Quality scoring (0–100)** — rate documentation across completeness, structure, freshness, link health, and evidence dimensions with A–F grades — export to CI with `PITCHDOCS_SCORE` and `--min-score` threshold
+- **Security scanning** — detect leaked credentials, internal file paths, and private hostnames in generated docs before they reach users
+- **Project type auto-detection** — docs-writer classifies your repo and selects the right tone, hero emphasis, and quick start template so CLIs read differently from libraries
+- **Token budget auditing** — measurable token cost targets for skill files with automated audit to keep context lean
+- **Docs CI workflow** — ready-to-use GitHub Actions with markdownlint and link checking, triggered on Markdown changes
 - **Launch artifacts** — transform your README and CHANGELOG into Dev.to articles, Hacker News "Show HN" posts, Reddit posts, Twitter/X threads, and awesome list submission PRs
 - **20+ file documentation audit** — never ship a repo with missing docs, broken metadata, AI context drift, or invisible image links
 - **10 slash commands** — generate any doc type from your terminal in under a minute, from README to launch artifacts
