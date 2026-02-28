@@ -5,6 +5,49 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0](https://github.com/littlebearapps/pitchdocs/compare/v1.4.1...v1.5.0) (2026-02-28)
+
+
+### Added
+
+* add AGENTS.md spec to upstream version tracking with v1.1 feature monitoring ([c8c9fa3](https://github.com/littlebearapps/pitchdocs/commit/c8c9fa38ce92d09d06c4a18a392b0a297c494dc4))
+* add cross-platform AI tool setup instructions ([3746e05](https://github.com/littlebearapps/pitchdocs/commit/3746e053c071d160b69eac411e240c27dafaff16))
+* add cross-platform AI tool setup instructions and AGENTS.md ([b0253df](https://github.com/littlebearapps/pitchdocs/commit/b0253dfd1a0cff0d1ca069ef7d5551fc71d89597))
+* add GEO optimisation, AI context files, docs verification, and launch artifacts ([9bd7a5e](https://github.com/littlebearapps/pitchdocs/commit/9bd7a5e4ee1498ec7d6a2ee1f22e00a8ae908dbc))
+* add numeric quality scoring (0-100) to docs-verify with grade bands and CI export ([e3a670f](https://github.com/littlebearapps/pitchdocs/commit/e3a670f7fb23a7a57cb07bc0dab5d1cea50ee1a3))
+* add PitchDocs logo and update README header ([1b5f018](https://github.com/littlebearapps/pitchdocs/commit/1b5f018925ea2b1105eb4e588dc6988d5e825083))
+* add security scan check to docs-verify and docs-writer validation ([a1987a1](https://github.com/littlebearapps/pitchdocs/commit/a1987a16429c767a07a86155db96e68f09308fe4))
+* add token budget guidelines to doc-standards and token audit check to docs-verify ([053ef50](https://github.com/littlebearapps/pitchdocs/commit/053ef5032fc0c623cb4e50a47b226db58834a2ad))
+* add version and upstream fields to all skill frontmatter ([3989731](https://github.com/littlebearapps/pitchdocs/commit/3989731516e34750a0a9145bcc428559e1a660b6))
+* add Windsurf, Cline, and Gemini CLI context file generation to ai-context skill ([54df3e1](https://github.com/littlebearapps/pitchdocs/commit/54df3e178cc82216f18f324484da89c14a8cbe38))
+* enhance link validation with 4 detection patterns and add docs-ci workflow ([2cd88c5](https://github.com/littlebearapps/pitchdocs/commit/2cd88c540dcef1052d26c545c9df11d37663d0ca))
+* increase README logo size and add logo guidance to skills/rules ([c75d350](https://github.com/littlebearapps/pitchdocs/commit/c75d350180a887458108fc7fb63b2d902c1fee54))
+* PitchDocs v1.5.0 — GEO, AI context, docs verification, launch artifacts ([2fd32c1](https://github.com/littlebearapps/pitchdocs/commit/2fd32c1805794b068b8ba58abc3c850b26514014))
+* self-audit improvements — AI context files, comparison table, user guide ([6d91796](https://github.com/littlebearapps/pitchdocs/commit/6d91796d78187f1d1fe465daf9f6735cdd39d3f9))
+* use project type auto-detection to select writing tone and template in docs-writer agent ([7e91f70](https://github.com/littlebearapps/pitchdocs/commit/7e91f700e1d4b92bdca9ade978016cdff8124a91))
+
+
+### Fixed
+
+* add license embed detection and manifest-match validation to pitchdocs-suite ([4d91287](https://github.com/littlebearapps/pitchdocs/commit/4d91287f9f15314f21f8b3a127f87efa1ad3dbac))
+* improve hero tagline clarity and features section readability ([c439044](https://github.com/littlebearapps/pitchdocs/commit/c439044d309004fcc94bb72b34de9538f5533c0c))
+* increase logo breathing room with double br tag ([87c7744](https://github.com/littlebearapps/pitchdocs/commit/87c7744856ce57b13e389f460a4ae3cb0686af38))
+* reduce logo spacing from double to single br tag ([8f4c1d8](https://github.com/littlebearapps/pitchdocs/commit/8f4c1d89025742fddda0150e46f947e56a93b3c0))
+* refine hero copy with GitHub repo focus, features extraction, and SEO/GEO ([8210f31](https://github.com/littlebearapps/pitchdocs/commit/8210f31879c28bb43a19254167516e5d7e1433d7))
+* rework README hero, get started, and use-case sections ([64c08d1](https://github.com/littlebearapps/pitchdocs/commit/64c08d17fdb7030cef349fdd6c4691d817baa230))
+* use separate p blocks for README hero spacing ([f1ce395](https://github.com/littlebearapps/pitchdocs/commit/f1ce39535fd4c3af693f231a5ec9040075ae1a95))
+
+
+### Documentation
+
+* add before-after screenshots and move showcase to top of README ([6d482d3](https://github.com/littlebearapps/pitchdocs/commit/6d482d38cc74826d3398da448adb583715f024ea))
+* add v1.6.0 changelog, bump version to 1.6.0, and update README features ([5ad5b75](https://github.com/littlebearapps/pitchdocs/commit/5ad5b755b85c3fa9aaf86c98df5a6c8330e5cfda))
+* pre-submission fixes for awesome list and directory submissions ([339fa85](https://github.com/littlebearapps/pitchdocs/commit/339fa851e186e8e9d6a6430e9c0c34162eff8294))
+* propagate enhanced hero, use-case framing, and bold+em-dash patterns into plugin guidance ([536412a](https://github.com/littlebearapps/pitchdocs/commit/536412a8a64084ad5dab3b79352574df24e275de))
+* update getting-started guide and docs hub for v1.6.0 features ([ba068dd](https://github.com/littlebearapps/pitchdocs/commit/ba068dd9a67ba3baa587f968f8e39c7a8743727a))
+* update homepage URL to littlebearapps.com/tools/pitchdocs ([610f789](https://github.com/littlebearapps/pitchdocs/commit/610f789547ed40434e52da4b47747a243620bc6f))
+* update README to reflect new bullets mode and enhanced skill descriptions ([1eae311](https://github.com/littlebearapps/pitchdocs/commit/1eae311a67e2aac015985c3b4f8730fe83196afc))
+
 ## [1.6.0](https://github.com/littlebearapps/pitchdocs/compare/v1.5.0...v1.6.0) (2026-02-28)
 
 ### Added
