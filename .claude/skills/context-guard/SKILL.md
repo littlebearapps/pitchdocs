@@ -98,4 +98,5 @@ Edit `context-structural-change.sh` case statement to add or remove structural f
 | Hooks not firing | Scripts not executable | `chmod +x .claude/hooks/*.sh` |
 | No output after commit | Throttle active | Delete `.git/.context-guard-last-check` to reset |
 | "jq: command not found" | jq not installed | Install jq: `apt install jq` or `brew install jq` |
+| Hooks fail silently | jq receives malformed JSON | Run `.claude/hooks/context-drift-check.sh` manually and check for JSON parse errors — common when `settings.json` has trailing commas or comments |
 | Hook errors in logs | Wrong project directory | Check `CLAUDE_PROJECT_DIR` is set correctly |

@@ -16,7 +16,7 @@ PitchDocs is a Claude Code plugin that generates marketing-quality repository do
 
 - Australian English spelling (realise, colour, behaviour, licence)
 - Conventional Commits for git messages (feat:, fix:, docs:, chore:)
-- Benefit-driven documentation: every feature claim traces to code evidence
+- Benefit-driven documentation: every feature claim traces to code evidence (with optional JTBD job mapping for richer benefits)
 - 4-question framework: Does this solve my problem? Can I use it? Who made it? Where do I learn more?
 - GEO-optimised structure for AI citation (crisp definitions, atomic sections, comparison tables)
 

@@ -25,8 +25,8 @@ Skills are loaded on-demand to provide deep reference knowledge. Each lives at `
 
 | Skill | What It Provides |
 |-------|-----------------|
-| `public-readme` | README structure with the Daytona/Banesullivan marketing framework — hero section, why section, quickstart, features table with evidence-based benefits |
-| `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories. Extracts concrete features with file/function evidence and translates them into benefits across 5 categories (time saved, confidence gained, pain avoided, capability unlocked, cost reduced) |
+| `public-readme` | README structure with the Daytona/Banesullivan marketing framework — hero section, audience-segmented value proposition, quickstart with Time to Hello World targets, features table with evidence-based benefits |
+| `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with JTBD job mapping (functional, emotional, social). Extracts concrete features with file/function evidence and translates them into benefits across 5 categories (time saved, confidence gained, pain avoided, capability unlocked, cost reduced) |
 | `changelog` | Keep a Changelog format with language rules that rewrite conventional commits into user-facing benefit language. Maps `feat:` to Added, `fix:` to Fixed, etc. |
 | `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators, mission statement, and community involvement section |
 | `pitchdocs-suite` | Full 20+ file inventory (README, CONTRIBUTING, CHANGELOG, CODE_OF_CONDUCT, SECURITY, AI context files, issue templates, PR templates, and more), GitHub metadata guidance, visual assets, licence selection framework, and ready-to-use templates |

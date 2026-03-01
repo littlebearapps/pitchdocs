@@ -13,7 +13,7 @@ You are working on PitchDocs, a Claude Code plugin that generates marketing-qual
 ## Writing Standards
 
 - Australian English (realise, colour, behaviour, licence/license)
-- Benefit-driven language: `[Feature] so you can [outcome] — [evidence]`
+- Benefit-driven language: `[Feature] so you can [outcome] — [evidence]` (with optional JTBD job mapping for richer benefits)
 - 4-question test on every doc: problem solved? usable? credible? linked?
 - Progressive disclosure: non-technical first, technical deeper
 - Every feature claim must trace to actual code (file path, function, config)

@@ -101,6 +101,35 @@ Category: [Signal category from Step 2]
 - No speculative features — if you can't point to code, it's not a feature
 - Be specific: "Zero-config TypeScript support" not "Good developer experience"
 
+### Step 3.5: Map to Jobs-to-be-Done
+
+For richer benefit writing, identify the job each feature is hired to do before translating to a benefit sentence. JTBD adds an input lens for understanding *why* a feature matters — the 5 benefit categories remain the output classification.
+
+For each extracted feature, frame the job:
+
+```
+When I am [situation/context],
+I want [capability this feature provides],
+so I can [desired outcome].
+```
+
+Classify each job:
+- **Functional** — the practical task ("deploy to production", "generate a changelog")
+- **Emotional** — how the user wants to feel ("confident my docs are complete")
+- **Social** — how the user wants to be perceived ("my repo looks professional")
+
+**When to apply:**
+
+| Impact Tier | JTBD Depth | Rationale |
+|-------------|-----------|-----------|
+| **Hero** (1–3) | Recommended — all three job types | Hero features drive adoption; emotional and social jobs sharpen the "why switch?" narrative |
+| **Core** (4–8) | Functional job only | Core features need clear practical framing but don't need emotional/social depth |
+| **Supporting** (9+) | Skip | Supporting features are nice-to-haves — the 5 benefit categories suffice |
+
+**Rules:**
+- For projects with fewer than 5 features, skip JTBD — the 5 benefit categories suffice
+- JTBD informs the benefit sentence — the final output still uses the `[Feature] so you can [outcome] — [evidence]` pattern
+
 ### Step 4: Classify by Impact Tier
 
 | Tier | Count | Criteria | README Placement |
@@ -120,19 +149,19 @@ Category: [Signal category from Step 2]
 ## Feature Inventory: [Project Name]
 
 ### Hero Features (1–3)
-| Feature | Evidence | Benefit Category |
-|---------|----------|-----------------|
-| ... | `src/...` | Time saved |
+| Feature | Evidence | Benefit Category | JTBD (optional) |
+|---------|----------|-----------------|-----------------|
+| ... | `src/...` | Time saved | Functional: ... |
 
 ### Core Features (4–8)
-| Feature | Evidence | Benefit Category |
-|---------|----------|-----------------|
-| ... | `src/...` | Confidence gained |
+| Feature | Evidence | Benefit Category | JTBD (optional) |
+|---------|----------|-----------------|-----------------|
+| ... | `src/...` | Confidence gained | |
 
 ### Supporting Features
-| Feature | Evidence | Benefit Category |
-|---------|----------|-----------------|
-| ... | `src/...` | Pain avoided |
+| Feature | Evidence | Benefit Category | JTBD (optional) |
+|---------|----------|-----------------|-----------------|
+| ... | `src/...` | Pain avoided | |
 ```
 
 ### Alternative Output: Bold+Em-Dash Bullets
@@ -165,6 +194,8 @@ Features describe what code does. Benefits describe what users gain. Every featu
 
 ### 5 Benefit Categories
 
+JTBD mapping (Step 3.5) enriches benefit writing by identifying the underlying job before choosing a category — the job's desired outcome often points directly to the right category.
+
 Use at least 3 different categories across your features table to avoid monotone docs.
 
 | Category | Pattern | Example Benefit |
@@ -189,6 +220,10 @@ Use at least 3 different categories across your features table to avoid monotone
 | Testing | "N% test coverage" | "Battle-tested — every edge case covered" |
 | Middleware/Plugins | "Plugin system with N hooks" | "Extend it your way — no forking required" |
 | Documentation | "Guides, examples, API docs" | "Answers without reading source code" |
+
+### Mapping Benefits to Badges
+
+When a benefit claim maps to a verifiable metric (test coverage, bundle size, download count), load the `package-registry` skill for badge templates that make the claim visible in the README hero. Badges turn prose claims into at-a-glance proof.
 
 ### Anti-Patterns
 

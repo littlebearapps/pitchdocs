@@ -140,6 +140,8 @@ Load the `package-registry` skill for the full badge inventory and cross-rendere
 3. **Badges and compatibility line** — standard shields.io badges (version, licence, CI), plus any platform/ecosystem badges that signal where the project fits.
    - `[![Claude Code Plugin](badge-url)](link) [![OpenCode Compatible](badge-url)](link) [![npm & PyPI Ready](badge-url)](link)`
 
+**Audience awareness:** The bold one-liner should resonate with both developers (what it does technically) and decision makers (what it achieves for the team/org). Test by asking: "Would a developer click through?" *and* "Would a team lead forward this link?"
+
 ### 2. Visual Element (Optional but High-Impact)
 
 - Screenshot, demo GIF, or terminal recording
@@ -164,19 +166,42 @@ Load the `package-registry` skill for the full badge inventory and cross-rendere
 - GIF for demo recordings (<10MB GitHub limit, aim for ~10fps)
 - Always include descriptive alt text for accessibility
 
-### 3. Why [Project Name]?
+### 3. Value Proposition
 
-Frame features as **solutions to real problems**. Use the pattern:
+Frame the value proposition to serve two reader tracks simultaneously:
+
+**Developer/Implementer track** (primary flow):
+- Technical problem → technical solution with code evidence
+- "How do I use this?" focus
+- Quick start placement immediately follows
+
+**Decision Maker/Ops track** (credibility signals and measurable outcomes):
+- Business problem → measurable outcome
+- "Why should we adopt this?" focus
+- Links to SECURITY.md, compliance, team-scale evidence
+
+Both tracks share the same section — structure serves both without duplication:
 
 ```markdown
 ## Why Project Name?
 
-| Problem | Solution |
-|---------|----------|
-| Manual changelog writing is tedious and inconsistent | Automatically generates changelogs from conventional commits |
-| READMEs go stale within weeks of launch | Detects drift between code and docs, suggests updates |
-| New contributors don't know where to start | Generates CONTRIBUTING.md with your actual workflow |
+| Problem | Solution | Evidence |
+|---------|----------|----------|
+| Manual changelog writing wastes hours per release | Generates changelogs from conventional commits in seconds | `src/changelog.ts` |
+| READMEs go stale within weeks of launch | Detects drift between code and docs, suggests updates | `hooks/context-drift-check.sh` |
+| Hard to justify adoption to team leads | Test coverage, benchmarks, and adoption stats in README | `npm test -- --coverage` |
 ```
+
+For projects with security, compliance, or enterprise appeal, add a **credibility row** pattern. Place these rows inside the "Why" section (not as a separate top-level section) — they serve the decision-maker track alongside the developer-facing problem/solution rows:
+
+```markdown
+| Trust signal | What it demonstrates | Where to verify |
+|-------------|---------------------|----------------|
+| SECURITY.md present | Transparent vulnerability process | [Security Policy](SECURITY.md) |
+| Test coverage N% | Code quality and reliability | `npm test -- --coverage` |
+```
+
+**Placement guidance:** For most projects, credibility rows belong inside the "Why" section as a subheading ("### For decision makers") or a second table. Only create a standalone "Security & Trust" section after Features if the project has 4+ security signals (auth, encryption, compliance, dependency scanning) — otherwise the thin section hurts more than it helps.
 
 Alternative format for fewer features:
 
@@ -224,7 +249,7 @@ Great [thing] is useless if nobody finds it. ProjectName handles [discovery]:
 
 ### 4. Quick Start
 
-Must work in **under 5 minutes** for a developer who's never seen the project.
+Must achieve the **Time to Hello World** target for the detected project type (see `doc-standards` rule for targets by project type). State the TTHW explicitly where evidence supports it (e.g. "Get your first README in under 60 seconds").
 
 ```markdown
 ## Quick Start
@@ -258,6 +283,7 @@ console.log(result) // Expected output
 - Include expected output in comments
 - Use TypeScript if the project supports it
 - Link to full docs for advanced usage
+- Never require the reader to leave the page — all prereqs listed upfront, all commands copy-paste-ready
 
 ### 5. Features
 
@@ -361,17 +387,6 @@ We welcome contributions! See our [Contributing Guide](CONTRIBUTING.md) for deta
 - **Don't show error handling in quickstart** — keep it minimal
 - **Don't include TOC for READMEs under 7 sections** — the hero quick-links row is sufficient for shorter docs
 - **Don't use emoji heading prefixes for READMEs under 5 sections** — the visual overhead outweighs the navigation benefit
-
-## Tone Examples
-
-**Bad:** "This library provides a set of utilities for generating documentation files."
-**Good:** "Stop writing READMEs by hand. Generate docs that actually make people want to use your project."
-
-**Bad:** "We implemented a new changelog generation algorithm."
-**Good:** "Your git history becomes a beautiful changelog — automatically, on every release."
-
-**Bad:** "Features: Markdown support, CLI interface, configuration files."
-**Good:** "Write once, publish everywhere — Markdown docs that render perfectly on GitHub, npm, and your docs site."
 
 ## Cross-Renderer Compatibility
 

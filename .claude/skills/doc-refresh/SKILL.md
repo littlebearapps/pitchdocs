@@ -128,6 +128,10 @@ Load the `llms-txt` skill. Regenerate if files were added, removed, or renamed s
 
 Load the `package-registry` skill. Verify that package.json/pyproject.toml metadata (description, keywords, repository, homepage) is still current. Flag any drift.
 
+### Step 7.5: Plugin Manifest (if applicable)
+
+If the project has a `.claude-plugin/plugin.json`, verify the `description` and `keywords` fields still match the current README one-liner and features. CLAUDE.md notes "update on every release" — flag stale descriptions that no longer reflect the project's scope.
+
 ### Step 8: Verify (always runs last)
 
 Load the `docs-verify` skill. Run full verification: broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, feature coverage, quality score. Report the score and any issues found.

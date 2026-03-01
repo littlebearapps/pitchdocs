@@ -24,7 +24,7 @@ Scan a codebase, extract its features with evidence, and translate them into ben
    - Extract features with file/function evidence
    - Classify into Hero / Core / Supporting tiers
    - Output structured feature inventory
-4. Translate each feature into a benefit using the 5 benefit categories
+4. Translate each feature into a benefit using the 5 benefit categories (with optional JTBD job mapping for richer benefits)
 
 ## Arguments
 
@@ -94,6 +94,6 @@ Recommendation: Run /features table to generate an updated features section
 ## Quality Checks
 
 - Every feature must trace to a specific file, function, or config
-- Every benefit must use one of the 5 benefit categories
+- Every benefit must use one of the 5 benefit categories (JTBD mapping available for richer benefit writing)
 - No speculative claims — if you can't find evidence, don't list it
 - At least 3 different benefit categories used across the table

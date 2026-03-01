@@ -7,7 +7,7 @@
 - [README](./README.md): Project overview, value proposition, quick start, commands table, skills table, and setup instructions for 9 AI coding tools
 - [Contributing](./CONTRIBUTING.md): Development setup, how to improve templates, add skills/commands, and submit PRs using conventional commits
 - [Changelog](./CHANGELOG.md): Version history from v1.0.0 to v1.6.0 with user-facing change descriptions
-- [Agents.md](./AGENTS.md): Codex CLI compatibility file with condensed skills reference and docs-writer agent overview
+- [AGENTS.md](./AGENTS.md): Codex CLI compatibility file with condensed skills reference and docs-writer agent overview
 - [Support](./SUPPORT.md): Getting help, common questions, contact details, and response times
 - [Claude.md](./CLAUDE.md): Claude Code project context — architecture, conventions, key files, and modification guide
 - [Docs Hub](./docs/README.md): Documentation index with command reference, skills reference, and links to all guides
@@ -15,8 +15,8 @@
 
 ## Skills
 
-- [Public README](./.claude/skills/public-readme/SKILL.md): Three-part hero structure, use-case framing, bold+em-dash features, GEO patterns for AI citation, and the Daytona/Banesullivan marketing framework for README generation
-- [Feature Benefits](./.claude/skills/feature-benefits/SKILL.md): 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation
+- [Public README](./.claude/skills/public-readme/SKILL.md): Three-part hero structure, audience-segmented value proposition, use-case framing, bold+em-dash features, Time to Hello World targets, GEO patterns for AI citation, and the Daytona/Banesullivan marketing framework for README generation
+- [Feature Benefits](./.claude/skills/feature-benefits/SKILL.md): 5-step codebase scanning workflow across 10 signal categories with JTBD job mapping and evidence-based benefit translation
 - [Changelog](./.claude/skills/changelog/SKILL.md): Keep a Changelog format with language rules that rewrite commits into user-facing benefit language
 - [Roadmap](./.claude/skills/roadmap/SKILL.md): ROADMAP.md structure from GitHub milestones with emoji status indicators and community involvement section
 - [PitchDocs Suite](./.claude/skills/pitchdocs-suite/SKILL.md): 20+ file inventory, GitHub metadata, AI context files, visual assets, licence selection, and ready-to-use templates for the full docs suite

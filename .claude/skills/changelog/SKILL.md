@@ -121,6 +121,28 @@ If the repo doesn't use conventional commits:
 3. Read the diff to understand the nature of the change
 4. Classify manually based on the actual change
 
+## Breaking Changes
+
+When a version contains breaking changes (`BREAKING CHANGE:` footer or `feat!:`/`fix!:` prefix), place them prominently:
+
+1. Add a **Breaking Changes** subsection at the top of the version entry, before `### Added`
+2. Each entry must include: what changed, why, and a migration path
+3. Link to a migration guide if the change affects multiple areas
+
+```markdown
+## [2.0.0] - 2026-03-15
+
+### Breaking Changes
+
+- Configuration format changed from JSON to YAML — run `npx migrate-config` to convert (#80)
+- The `--format plain` flag has been removed — use `--format markdown` instead (#75)
+
+### Added
+...
+```
+
+For major versions with many breaking changes, recommend a standalone `docs/guides/migration-v2.md` and link to it from the CHANGELOG entry.
+
 ## Anti-Patterns
 
 - **Don't include every commit** — changelogs are curated, not comprehensive

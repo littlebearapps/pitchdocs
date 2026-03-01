@@ -31,9 +31,9 @@ hooks/*.sh                      → 2 opt-in hook scripts (Claude Code only)
 | `plugin.json` | Version, description, keywords — update on every release |
 | `doc-standards.md` | Quality rule auto-loaded in every session — the source of truth for formatting, GEO, badges, and visual structure |
 | `context-quality.md` | AI context file quality rule — cross-file consistency, path verification, sync points (Claude Code only) |
-| `docs-writer.md` | Agent workflow: 4 steps (discover → extract → write → validate) with content filter mitigations |
+| `docs-writer.md` | Agent workflow: 4 steps + Step 2.5 security extraction (discover → extract → write → validate) with content filter mitigations |
 | `hooks/*.sh` | Context Guard hooks — post-commit drift detection and structural change reminders (Claude Code only, opt-in) |
-| `upstream-versions.json` | Tracks 7 pinned spec versions — checked monthly by GitHub Action |
+| `upstream-versions.json` | Tracks 8 pinned spec versions — checked monthly by GitHub Action |
 | `llms.txt` | AI-readable content index — must be updated when files are added/removed |
 | `AGENTS.md` | Cross-tool AI context (Codex CLI format) — must stay in sync with skills/commands |
 

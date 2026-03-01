@@ -18,6 +18,25 @@ Every document must answer these questions for the reader:
 - Deeper sections: technical details, API reference, architecture
 - A familiar user should be able to refresh their memory without scrolling past the fold
 
+## Time to Hello World
+
+The primary DevEx metric for documentation. Every quick start section should target a measurable Time to Hello World (TTHW) based on project type:
+
+| TTHW Target | Project Type | Example |
+|-------------|-------------|---------|
+| Under 60 seconds | CLI tool, plugin | `npx create-thing && thing run` |
+| Under 2 minutes | Library, SDK | `npm install` + 5-line code example |
+| Under 5 minutes | Framework, platform | Clone + config + first request |
+| Under 15 minutes | Infrastructure, self-hosted | Docker compose + verify health |
+
+State the TTHW target explicitly in the quick start section where evidence supports it (e.g. "Get your first README in under 60 seconds").
+
+**Cognitive Load Theory principles** (Sweller, 1988):
+- **Leverage prior knowledge** — use analogies to familiar tools ("like ESLint, but for your docs")
+- **Protect flow state** — never require the reader to leave the page during quick start; all prereqs listed upfront, all commands copy-paste-ready
+- **Concrete before abstract** — show a working example first, explain the theory after
+- **One concept per step** — each numbered step introduces exactly one new thing
+
 ## Tone & Language
 
 - Consistent language — follow the project's existing locale and spelling conventions

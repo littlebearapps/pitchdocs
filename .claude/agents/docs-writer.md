@@ -125,7 +125,7 @@ Flag any missing fields that affect the registry page. When generating README ba
 
 ### Step 2: Extract Features and Value Propositions
 
-Load the `feature-benefits` skill and run the **5-step Feature Extraction Workflow**:
+Load the `feature-benefits` skill and run the **5-step Feature Extraction Workflow** (with optional JTBD enrichment at Step 3.5):
 
 1. **Detect project type** from manifest files (package.json, pyproject.toml, etc.)
 2. **Scan all 10 signal categories** — CLI commands, Public API, Configuration, Integrations, Performance, Security, TypeScript/DX, Testing, Middleware/Plugins, Documentation
@@ -138,6 +138,34 @@ From the classified features, derive:
 - **Key differentiators** — the Hero tier features ARE the differentiators
 - **Target audience** — who benefits from these specific features?
 - **Proof points** — benchmarks, test coverage %, production usage, stars (from the scan evidence)
+
+### Step 2.5: Extract Security Credibility Signals
+
+Scan for security transparency signals to surface in the README credibility section. Security is a frontline value proposition for B2B and enterprise adoption — not just backend hygiene.
+
+Check for:
+1. `SECURITY.md` — responsible disclosure policy exists?
+2. Authentication/authorisation patterns — OAuth, JWT, API keys, RBAC
+3. Encryption — at-rest (database), in-transit (TLS/HTTPS), end-to-end
+4. Input validation — schema validation (Zod, Joi, Pydantic), sanitisation, CSP headers
+5. Infrastructure signals — SOC 2, ISO 27001, GDPR mentions in docs/config
+6. Dependency security — `npm audit`, Dependabot/Renovate config, lock files
+7. Test coverage for security paths — auth tests, permission tests
+
+Output a "Security & Trust" credibility block for the README:
+
+```markdown
+### 🔒 Security & Trust
+
+- **Responsible disclosure** — [SECURITY.md](SECURITY.md) with 48-hour acknowledgement SLA
+- **Input validation** — Zod schema validation on all API inputs (`src/schema.ts`)
+- **Dependency monitoring** — Dependabot enabled with weekly updates
+```
+
+**Rules:**
+- Only include signals with file-level evidence — no speculative security claims
+- Skip the security section entirely if the project has no security-relevant features (simple CLIs, docs-only projects)
+- Surface high-level signals in README; keep implementation details in SECURITY.md
 
 ### Step 3: Write with Marketing Framework
 
@@ -166,7 +194,7 @@ For each document, apply the **Daytona "4000 Stars" approach**:
 
 1. **Three-part hero** — (1) Bold one-liner explaining what the project provides (max 15 words, action verb or benefit, no jargon), (2) explanatory sentence covering scope, capabilities, and key selling points (SEO/GEO, registry compatibility, ecosystem signals), (3) badges and platform compatibility line
 2. **Use-case framing** — For projects with multiple capabilities, add a "What [Project] Does" section with 2–4 reader-centric scenarios. Open each with the reader's situation ("You've finished your MVP...", "Beyond X, you need..."), then show how the project helps. Skip for single-purpose tools.
-3. **Engaging narrative** — The "why" from the READER'S perspective, not the author's
+3. **Engaging narrative** — The "why" from the READER'S perspective, not the author's. Structure the value proposition for two reader tracks: developers (technical problem → solution with code evidence) and decision makers (business problem → measurable outcome). If security credibility signals were found in Step 2.5, place them as credibility rows in the "Why" section or as a dedicated "Security & Trust" subsection — these are frontline trust signals for the decision-maker track, not footnotes.
 4. **Features with benefits** — Use bold+em-dash bullets (`- **Feature** — benefit`) for 5+ features, or a table with benefits column for shorter lists or when status tracking is needed. Every feature must trace to code evidence.
 5. **Technical substance** — Installation, usage, API, configuration
 6. **Project hygiene** — Contributing, license, code of conduct
@@ -176,7 +204,7 @@ For each document, apply the **Daytona "4000 Stars" approach**:
 Before finalising any document, check:
 - [ ] Hero has three parts: bold one-liner + explanatory sentence + badges/compatibility line
 - [ ] First paragraph is understandable by a non-developer
-- [ ] Quick start works in under 5 minutes
+- [ ] Quick start achieves Time to Hello World target for the detected project type
 - [ ] All links are valid
 - [ ] Badges use correct URLs
 - [ ] Consistent spelling (matches project's language conventions)
@@ -194,6 +222,8 @@ Before finalising any document, check:
 - [ ] Package registry badges use correct package name and link to registry page
 - [ ] Security scan: no credential patterns, internal paths, or real tokens in generated docs (load `docs-verify` skill check #9 if suspicious content detected)
 - [ ] Package names referenced in docs exist on the relevant registry (spot-check 1–2 if new packages introduced)
+- [ ] Security credibility signals extracted and surfaced (if SECURITY.md or auth/encryption code exists)
+- [ ] SECURITY.md linked from README credibility section (if it exists)
 
 ## Gold Standard Examples
 

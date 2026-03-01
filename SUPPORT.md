@@ -4,9 +4,9 @@ Need help with PitchDocs? Here's how to get it.
 
 ## Getting Help
 
-- **GitHub Issues** — [Open an issue](https://github.com/littlebearapps/pitchdocs/issues/new/choose) for bug reports, feature requests, or questions about generated output
-- **Discussions** — Browse [existing issues](https://github.com/littlebearapps/pitchdocs/issues) to see if your question has already been answered
-- **Contributing Guide** — See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and how to improve templates
+- **GitHub Issues** — [Open an issue](https://github.com/littlebearapps/pitchdocs/issues/new/choose) so you can get a fix or workaround for bugs, request features, or ask questions about generated output
+- **Existing Issues** — Browse [existing issues](https://github.com/littlebearapps/pitchdocs/issues) so you can find answers without waiting — your question may already be resolved
+- **Contributing Guide** — See [CONTRIBUTING.md](CONTRIBUTING.md) so you can improve templates, fix language rules, or add new doc types yourself
 
 ## Common Questions
 

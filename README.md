@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <strong>GitHub repository documentation skills and templates for AI coding assistants.</strong>
+  <strong>Turn any codebase into professional, marketing-ready GitHub documentation — powered by AI coding assistants.</strong>
 </p>
 
 <p align="center">
@@ -15,8 +15,10 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/littlebearapps/pitchdocs/actions/workflows/check-upstream.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlebearapps/pitchdocs/check-upstream.yml?label=upstream%20check" alt="Upstream Check" /></a>
   <a href="CHANGELOG.md"><img src="https://img.shields.io/static/v1?label=version&message=1.8.1&color=blue" alt="Version" /></a> <!-- x-release-please-version -->
   <a href="LICENSE"><img src="https://img.shields.io/github/license/littlebearapps/pitchdocs" alt="License" /></a>
+  <a href="https://github.com/littlebearapps/pitchdocs/stargazers"><img src="https://img.shields.io/github/stars/littlebearapps/pitchdocs?style=flat" alt="GitHub Stars" /></a>
   <a href="https://code.claude.com/docs/en/plugins"><img src="https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white" alt="Claude Code Plugin" /></a>
   <a href="https://opencode.ai/"><img src="https://img.shields.io/badge/OpenCode-Compatible-22c55e" alt="OpenCode Compatible" /></a>
   <a href="https://www.npmjs.com/"><img src="https://img.shields.io/badge/npm_%26_PyPI-Ready-cb3837" alt="npm & PyPI Ready" /></a>
@@ -39,6 +41,12 @@
 ---
 
 ## ⚡ Get Started
+
+Get your first generated README in under 60 seconds.
+
+### Prerequisites
+
+- [Claude Code](https://code.claude.com/) or [OpenCode](https://opencode.ai/) installed
 
 ### Claude Code / OpenCode
 
@@ -112,11 +120,21 @@ PitchDocs generates documentation with a **marketing edge** — docs that answer
 | Question | How PitchDocs Answers It |
 |----------|-------------------------|
 | Does this solve my problem? | Benefit-driven feature descriptions, not just specs |
-| Can I use it? | Quick start that works in under 5 minutes |
+| Can I use it? | Quick start with Time to Hello World targets by project type |
 | Who made it? | Badges, contributor counts, credibility signals |
 | Where do I learn more? | Cross-linked guides, hub pages, community links |
 
 Every doc follows **progressive disclosure** — non-technical first paragraph, technical details deeper — and every doc **cross-links** to related docs so readers never hit a dead end.
+
+### For decision makers
+
+| Trust signal | What it demonstrates | Where to verify |
+|-------------|---------------------|----------------|
+| [SECURITY.md](SECURITY.md) | Transparent vulnerability process with 48-hour acknowledgement SLA | [Security Policy](SECURITY.md) |
+| MIT licence | Permissive, no legal review needed | [LICENSE](LICENSE) |
+| Upstream spec tracking | Dependencies stay current — monthly automated drift checks | [upstream-versions.json](upstream-versions.json) |
+| Zero runtime dependencies | No supply chain risk — pure Markdown, nothing to audit or patch | [plugin.json](.claude-plugin/plugin.json) |
+| 9 AI tools supported | Team-wide adoption regardless of editor choice | [Tool setup](#-use-with-other-ai-tools) |
 
 Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs are structured with crisp definitions, atomic sections, comparison tables, and concrete statistics so that ChatGPT, Perplexity, Google AI Overviews, and other generative engines can extract and cite your project accurately. AI context files (AGENTS.md, CLAUDE.md, .cursorrules) ensure coding assistants understand your conventions from day one — and launch artifacts help you reach the third-party platforms (Dev.to, Hacker News, Reddit, awesome lists) that AI systems treat as trust signals.
 
@@ -124,26 +142,26 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 
 ## 🎯 Features
 
-- **Evidence-based feature extraction** — scans 10 signal categories in your codebase and surfaces selling points automatically, with every feature traced to actual code
+- **Evidence-based feature extraction** — scans 10 signal categories in your codebase with optional JTBD job mapping (functional, emotional, social) and surfaces selling points automatically, with every feature traced to actual code
 - **4-question framework on every doc** — validates that your docs answer "Does this solve my problem?", "Can I use it?", "Who made it?", and "Where do I learn more?"
 - **GEO-optimised content structure** — crisp definitions, atomic sections, comparison tables, and concrete statistics structured for LLM extraction and AI citation (based on the Princeton GEO study)
 - **AI context file generation** — generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, and GEMINI.md from a single codebase scan so AI coding assistants understand your conventions
-- **Diataxis documentation framework** — classify docs into tutorials, how-to guides, reference, and explanation quadrants for clear information architecture
+- **Diataxis documentation framework** — classify docs into tutorials, how-to guides, reference, and explanation quadrants so you can organise information by how readers actually use it
 - **Documentation verification** — check for broken links (with case-sensitivity, fragment, and redirect detection), stale content, llms.txt sync, heading hierarchy issues, badge URL validity, security issues, and quality scoring — locally or in CI
 - **Quality scoring (0–100)** — rate documentation across completeness, structure, freshness, link health, and evidence dimensions with A–F grades — export to CI with `PITCHDOCS_SCORE` and `--min-score` threshold
 - **Security scanning** — detect leaked credentials, internal file paths, and private hostnames in generated docs before they reach users
 - **Project type auto-detection** — docs-writer classifies your repo and selects the right tone, hero emphasis, and quick start template so CLIs read differently from libraries
-- **Token budget auditing** — measurable token cost targets for skill files with automated audit to keep context lean
+- **Token budget auditing** — measurable token cost targets for skill files so you can keep AI context lean without guessing at size limits
 - **Docs CI workflow** — ready-to-use GitHub Actions with markdownlint and link checking, triggered on Markdown changes
 - **Launch artifacts** — transform your README and CHANGELOG into Dev.to articles, Hacker News "Show HN" posts, Reddit posts, Twitter/X threads, and awesome list submission PRs
-- **Context Guard hooks** — opt-in post-commit drift detection and structural change reminders that nudge you to update AI context files before they go stale *(Claude Code only — hooks are not supported in OpenCode or other tools)*
+- **Context Guard hooks** — opt-in post-commit drift detection and structural change reminders so you can catch stale AI context files before they mislead your coding assistant *(Claude Code only — hooks are not supported in OpenCode or other tools)*
 - **20+ file documentation audit** — never ship a repo with missing docs, broken metadata, AI context drift, or invisible image links
 - **12 slash commands** — generate or refresh any doc type from your terminal in under a minute, from README to release-time doc updates
 - **Ready-to-use templates** — CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, issue templates, PR templates, and release config — one plugin replaces writing 10+ files by hand
 - **llms.txt generation** — create AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec so coding assistants and search engines surface your docs
 - **API reference guidance** — configuration templates for TypeDoc, Sphinx, godoc, and rustdoc with comment conventions for each language
 - **npm and PyPI compatibility** — audit registry metadata and ensure your README renders correctly on GitHub, npm, and PyPI
-- **Progressive disclosure** — docs open with non-technical language and reveal technical depth as readers scroll, with automatic cross-linking between sections
+- **Progressive disclosure** — docs open with non-technical language and reveal technical depth as readers scroll so you can reach both decision makers and developers with a single document
 - **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
 - **Cross-tool portability** — works with 9 AI coding tools (Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose) with documented setup for each
 
@@ -158,6 +176,7 @@ Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs 
 | Docs audit checklist | 20+ files | README through CITATION.cff across 3 priority tiers ([detail](commands/docs-audit.md)) |
 | AI tools supported | 9 | Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose |
 | Benefit categories | 5 | Time saved, confidence gained, pain avoided, capability unlocked, cost reduced |
+| Job types mapped | 3 | Functional, emotional, social (JTBD framework for richer benefit writing) |
 | Upstream specs tracked | 8 | Frozen and evolving specs checked monthly by GitHub Action |
 | Launch platforms | 5 | Dev.to, Hacker News, Reddit, Twitter/X, awesome lists |
 
@@ -270,8 +289,8 @@ Skills are loaded on-demand to provide deep reference knowledge:
 
 | Skill | What You Get |
 |-------|-------------|
-| `public-readme` | README structure with three-part hero, use-case framing, bold+em-dash features, GEO patterns, and the Daytona/Banesullivan marketing framework |
-| `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with evidence-based benefit translation — outputs as inventory, table, or bold+em-dash bullets |
+| `public-readme` | README structure with three-part hero, audience-segmented value proposition, use-case framing, bold+em-dash features, Time to Hello World targets, GEO patterns, and the Daytona/Banesullivan marketing framework |
+| `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with JTBD job mapping and evidence-based benefit translation — outputs as inventory, table, or bold+em-dash bullets |
 | `changelog` | Keep a Changelog format with language rules that rewrite commits into user-facing benefit language |
 | `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators and community involvement section |
 | `pitchdocs-suite` | 20+ file inventory, GitHub metadata, AI context files, visual assets guidance, licence selection framework, and ready-to-use templates |
@@ -552,8 +571,7 @@ See our [Contributing Guide](CONTRIBUTING.md) to get started, or jump straight i
 - [Feature Requests](https://github.com/littlebearapps/pitchdocs/issues/new?template=feature_request.yml) — Suggest improvements
 - [Open Issues](https://github.com/littlebearapps/pitchdocs/issues) — See what needs doing
 
-> [!NOTE]
-> **Claude Code content filter:** When generating `CODE_OF_CONDUCT.md`, `SECURITY.md`, or `LICENSE` files, Claude Code's API may return HTTP 400 due to its server-side content filtering policy. This is a [known upstream issue](https://github.com/anthropics/claude-code/issues/2111) that Anthropic considers [expected behaviour](https://github.com/anthropics/claude-code/issues/6195). PitchDocs includes built-in workarounds — the plugin fetches these files from canonical URLs rather than generating them inline. See the `docs-writer` agent's Content Filter Mitigation section for details.
+**Note:** Claude Code's API may return HTTP 400 ("content filtering policy") when generating `CODE_OF_CONDUCT.md`, `SECURITY.md`, or `LICENSE` files. This is a [known upstream issue](https://github.com/anthropics/claude-code/issues/2111) that Anthropic considers [expected behaviour](https://github.com/anthropics/claude-code/issues/6195). PitchDocs includes built-in workarounds — the plugin fetches these files from canonical URLs rather than generating them inline. See the `docs-writer` agent's Content Filter Mitigation section for details.
 
 ---
 

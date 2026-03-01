@@ -29,7 +29,7 @@ Generate or update a README.md that sells as well as it informs.
    - Hero section with three-part structure: bold one-liner + explanatory sentence + badges
    - "What [Project] Does" with reader-centric use-case scenarios (for multi-capability projects)
    - "Why [Project]?" with benefit-driven feature descriptions
-   - Quick start (under 5 minutes)
+   - Quick start (Time to Hello World target by project type)
    - Features section with benefits (bold+em-dash bullets for 5+ features, or table for shorter lists)
    - Documentation links (including user guides if `docs/guides/` exists)
    - Contributing CTA

@@ -2,7 +2,7 @@
 
 This guide walks you through installing PitchDocs, generating your first README, and exploring the full command set.
 
-**Time to complete:** 5 minutes
+**Time to Hello World:** Under 60 seconds for your first README. Full walkthrough below: ~5 minutes.
 
 **Prerequisites:**
 

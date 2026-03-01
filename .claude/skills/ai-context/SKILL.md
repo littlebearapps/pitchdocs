@@ -356,7 +356,7 @@ These features are under discussion and may change before stabilisation:
 | `.agent/` directory | Proposed | Directory-based agent definitions (alternative to single file) |
 | `when:` frontmatter | Draft | Trigger conditions for agent activation |
 
-**Guidance:** Do not generate these proposed sections until they reach stable status. Monitor the [agents.md releases](https://github.com/agentsmd/agents.md/releases) for v1.1 announcement. The `check-upstream` GitHub Action will flag when a new version is available.
+**Guidance:** Do not generate these proposed sections until they reach stable status. Monitor the [agents.md releases](https://github.com/agentsmd/agents.md/releases) for v1.1 announcement. The `check-upstream` GitHub Action will flag when a new version is available. When v1.1 reaches stable, update the pinned version in `upstream-versions.json` and add the new sections to the generation templates above.
 
 ## Anti-Patterns
 
