@@ -86,28 +86,20 @@ flowchart LR
 
 ## 🎯 Features
 
-- **Evidence-based feature extraction** — scans 10 signal categories in your codebase with optional JTBD job mapping (functional, emotional, social) and surfaces selling points automatically, with every feature traced to actual code
-- **4-question framework on every doc** — validates that your docs answer "Does this solve my problem?", "Can I use it?", "Who made it?", and "Where do I learn more?"
-- **GEO-optimised content structure** — crisp definitions, atomic sections, comparison tables, and concrete statistics structured for LLM extraction and AI citation (based on the Princeton GEO study)
-- **AI context file generation** — generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, and GEMINI.md from a single codebase scan so AI coding assistants understand your conventions
-- **Diataxis documentation framework** — classify docs into tutorials, how-to guides, reference, and explanation quadrants so you can organise information by how readers actually use it
-- **Documentation verification** — check for broken links (with case-sensitivity, fragment, and redirect detection), stale content, llms.txt sync, heading hierarchy issues, badge URL validity, security issues, and quality scoring — locally or in CI
-- **Quality scoring (0–100)** — rate documentation across completeness, structure, freshness, link health, and evidence dimensions with A–F grades — export to CI with `PITCHDOCS_SCORE` and `--min-score` threshold
-- **Security scanning** — detect leaked credentials, internal file paths, and private hostnames in generated docs before they reach users
-- **Project type auto-detection** — docs-writer classifies your repo and selects the right tone, hero emphasis, and quick start template so CLIs read differently from libraries
-- **Token budget auditing** — measurable token cost targets for skill files so you can keep AI context lean without guessing at size limits
-- **Docs CI workflow** — ready-to-use GitHub Actions with markdownlint and link checking, triggered on Markdown changes
-- **Launch artifacts** — transform your README and CHANGELOG into Dev.to articles, Hacker News "Show HN" posts, Reddit posts, Twitter/X threads, and awesome list submission PRs
-- **Context Guard hooks** — opt-in post-commit drift detection and structural change reminders so you can catch stale AI context files before they mislead your coding assistant *(Claude Code only — hooks are not supported in OpenCode or other tools)*
-- **20+ file documentation audit** — never ship a repo with missing docs, broken metadata, AI context drift, or invisible image links
-- **12 slash commands** — generate or refresh any doc type from your terminal in under a minute, from README to release-time doc updates
-- **Ready-to-use templates** — CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, SUPPORT, issue templates, PR templates, and release config — one plugin replaces writing 10+ files by hand
-- **llms.txt generation** — create AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec so coding assistants and search engines surface your docs
-- **API reference guidance** — configuration templates for TypeDoc, Sphinx, godoc, and rustdoc with comment conventions for each language
-- **npm and PyPI compatibility** — audit registry metadata and ensure your README renders correctly on GitHub, npm, and PyPI
-- **Progressive disclosure** — docs open with non-technical language and reveal technical depth as readers scroll so you can reach both decision makers and developers with a single document
-- **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
-- **Cross-tool portability** — works with 9 AI coding tools (Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose) with documented setup for each
+- 🔍 **Evidence-based feature extraction** — scans 10 signal categories in your code and backs every claim with a file path
+- 📋 **Full docs suite from one command** — README, CHANGELOG, CONTRIBUTING, ROADMAP, SECURITY, issue templates, and 15+ more files
+- ✅ **4-question test on every doc** — does this solve my problem? can I use it? who made it? where do I learn more?
+- 🎯 **Benefit-driven language** — turns technical features into user outcomes with 5 benefit categories and evidence requirements
+- 🤖 **AI context file generation** — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, and 3 more from one codebase scan
+- 🔎 **GEO-optimised for AI citation** — structured so ChatGPT, Perplexity, and Google AI Overviews cite your project accurately
+- 📊 **Quality scoring (0–100)** — grades docs on completeness, structure, freshness, and link health — export to CI with `--min-score`
+- 🔗 **Documentation verification** — broken links, stale content, heading hierarchy, badge URLs, and credential scanning
+- 📡 **llms.txt generation** — AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec
+- 🚀 **Launch artifacts** — Dev.to articles, Hacker News posts, Reddit posts, Twitter/X threads, and awesome list submissions
+- 🔒 **Context Guard** — post-commit hooks detect stale AI context files before they mislead your assistant *(Claude Code only)*
+- 📦 **npm and PyPI ready** — audit registry metadata and ensure README renders correctly across GitHub, npm, and PyPI
+- 🗂️ **Diataxis framework** — classify docs into tutorials, how-to guides, reference, and explanation quadrants
+- 🔌 **Works with 9 AI tools** — Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose
 
 ### By the Numbers
 
