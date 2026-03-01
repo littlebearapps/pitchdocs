@@ -5,6 +5,28 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0](https://github.com/littlebearapps/pitchdocs/compare/v1.8.1...v1.9.0) (2026-03-01)
+
+
+### Added
+
+* add JTBD mapping, B2B value framework, Time to Hello World, and security credibility extraction ([f941dac](https://github.com/littlebearapps/pitchdocs/commit/f941dacd478d572ff4198b992505125af79cf63a))
+* add Lobby Principle for README conciseness with structural budgets ([8a580ee](https://github.com/littlebearapps/pitchdocs/commit/8a580eeac0ce2b64d0320fbe464186abf6cb457e))
+* recommend emoji+bold+em-dash as default feature list format ([65c87ad](https://github.com/littlebearapps/pitchdocs/commit/65c87ad0541700944ae1f8dad122933c0ba652c1))
+
+
+### Documentation
+
+* add paragraph break in What PitchDocs Does section ([ec11249](https://github.com/littlebearapps/pitchdocs/commit/ec11249b7eb32804bf273751fcd42f1d50b66c95))
+* add upstream spec tracking and reusability to features list ([fda18eb](https://github.com/littlebearapps/pitchdocs/commit/fda18eb57f7678054f0b9bdca0d19321ac795c6a))
+* clean up README hero and add optional hooks install step ([0f25878](https://github.com/littlebearapps/pitchdocs/commit/0f25878b6fa134b9539fc70451bc66d31b0b9759))
+* condense README body, remove Why section, improve How It Works diagram ([e5e11f1](https://github.com/littlebearapps/pitchdocs/commit/e5e11f1cd9b7a681cc28b947b7c063b6f2a0566a))
+* fix mermaid diagram — compact LR layout, use br tags for line breaks ([7a8678a](https://github.com/littlebearapps/pitchdocs/commit/7a8678a910a008caac7dbaaea99d9df2b8137fd0))
+* remove By the Numbers table from README ([1ebe6e6](https://github.com/littlebearapps/pitchdocs/commit/1ebe6e6df11236e8739173bcd18be8a0df4f4b28))
+* rewrite features as emoji+bold+em-dash bullets (Untether style) ([1aab3c5](https://github.com/littlebearapps/pitchdocs/commit/1aab3c5ba7e547c292c5984f7492da7246fbe413))
+* rewrite What PitchDocs Does — problem-first, one paragraph, no diagram ([61eb6a7](https://github.com/littlebearapps/pitchdocs/commit/61eb6a779604ed2c4af99169e5562a02fbc5521f))
+* trim README and move detailed setup guides to docs/ ([426bf5a](https://github.com/littlebearapps/pitchdocs/commit/426bf5aabecc88047d7fd925b2fd75ac6e8b176e))
+
 ## [1.8.1](https://github.com/littlebearapps/pitchdocs/compare/v1.8.0...v1.8.1) (2026-02-28)
 
 
