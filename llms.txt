@@ -15,7 +15,7 @@
 
 ## Skills
 
-- [Public README](./.claude/skills/public-readme/SKILL.md): Three-part hero structure, audience-segmented value proposition, use-case framing, bold+em-dash features, Time to Hello World targets, GEO patterns for AI citation, and the Daytona/Banesullivan marketing framework for README generation
+- [Public README](./.claude/skills/public-readme/SKILL.md): Three-part hero structure, audience-segmented value proposition, use-case framing, emoji+bold+em-dash features, Time to Hello World targets, GEO patterns for AI citation, and the Daytona/Banesullivan marketing framework for README generation
 - [Feature Benefits](./.claude/skills/feature-benefits/SKILL.md): 5-step codebase scanning workflow across 10 signal categories with JTBD job mapping and evidence-based benefit translation
 - [Changelog](./.claude/skills/changelog/SKILL.md): Keep a Changelog format with language rules that rewrite commits into user-facing benefit language
 - [Roadmap](./.claude/skills/roadmap/SKILL.md): ROADMAP.md structure from GitHub milestones with emoji status indicators and community involvement section

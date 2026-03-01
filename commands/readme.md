@@ -30,7 +30,7 @@ Generate or update a README.md that sells as well as it informs.
    - "What [Project] Does" with reader-centric use-case scenarios (for multi-capability projects)
    - "Why [Project]?" with benefit-driven feature descriptions
    - Quick start (Time to Hello World target by project type)
-   - Features section with benefits (bold+em-dash bullets for 5+ features, or table for shorter lists)
+   - Features section with benefits (emoji+bold+em-dash bullets for 5+ features, or table for shorter lists)
    - Documentation links (including user guides if `docs/guides/` exists)
    - Contributing CTA
    - License
@@ -54,7 +54,7 @@ After generation, verify:
 - Quick start code examples actually work
 - Links to existing docs/guides are included
 - Consistent spelling throughout
-- Features use bold+em-dash bullets or table with benefits column (evidence-based claims)
+- Features use emoji+bold+em-dash bullets or table with benefits column (evidence-based claims)
 - At least 3 different benefit categories used across the features section
 - Use-case scenarios framed with reader context (if "What X Does" section is present)
 - Cross-renderer compatibility verified if published to npm or PyPI (load `package-registry` skill)

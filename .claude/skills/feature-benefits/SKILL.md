@@ -164,16 +164,16 @@ Classify each job:
 | ... | `src/...` | Pain avoided | |
 ```
 
-### Alternative Output: Bold+Em-Dash Bullets
+### Alternative Output: Emoji+Bold+Em-Dash Bullets
 
-For direct use in a README features section (especially with 5+ features), output as bold+em-dash bullets instead of a table. This format is more scannable when feature descriptions vary in length:
+For direct use in a README features section (especially with 5+ features), output as emoji+bold+em-dash bullets instead of a table. The emoji creates a visual anchor per item, making long lists scannable at a glance:
 
 ```markdown
-- **Feature name** — benefit description with evidence
-- **Another feature** — benefit description with evidence
+- 🔍 **Feature name** — benefit description with evidence
+- 📋 **Another feature** — benefit description with evidence
 ```
 
-Use this format when the `/features bullets` command is invoked, or when the feature list has 5+ items and doesn't need status tracking or side-by-side comparison.
+Choose an emoji that relates to the feature content — not decorative randomness. Use this format when the `/features bullets` command is invoked, or when the feature list has 5+ items and doesn't need status tracking or side-by-side comparison.
 
 ---
 

@@ -74,7 +74,7 @@ See what PitchDocs detects in your codebase:
 # Output as a benefits table for your README
 /features table
 
-# Output as bold+em-dash bullets
+# Output as emoji+bold+em-dash bullets
 /features bullets
 
 # Audit: compare what's documented vs what's in the code

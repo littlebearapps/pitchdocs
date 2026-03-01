@@ -195,7 +195,7 @@ For each document, apply the **Daytona "4000 Stars" approach**:
 1. **Three-part hero** — (1) Bold one-liner explaining what the project provides (max 15 words, action verb or benefit, no jargon), (2) explanatory sentence covering scope, capabilities, and key selling points (SEO/GEO, registry compatibility, ecosystem signals), (3) badges and platform compatibility line
 2. **Use-case framing** — For projects with multiple capabilities, add a "What [Project] Does" section with 2–4 reader-centric scenarios. Open each with the reader's situation ("You've finished your MVP...", "Beyond X, you need..."), then show how the project helps. Skip for single-purpose tools.
 3. **Engaging narrative** — The "why" from the READER'S perspective, not the author's. Structure the value proposition for two reader tracks: developers (technical problem → solution with code evidence) and decision makers (business problem → measurable outcome). If security credibility signals were found in Step 2.5, place them as credibility rows in the "Why" section or as a dedicated "Security & Trust" subsection — these are frontline trust signals for the decision-maker track, not footnotes.
-4. **Features with benefits** — Use bold+em-dash bullets (`- **Feature** — benefit`) for 5+ features, or a table with benefits column for shorter lists or when status tracking is needed. Every feature must trace to code evidence.
+4. **Features with benefits** — Use emoji+bold+em-dash bullets (`- 🔍 **Feature** — benefit`) for 5+ features, or a table with benefits column for shorter lists or when status tracking is needed. Choose an emoji that relates to the feature content. Every feature must trace to code evidence.
 5. **Technical substance** — Installation, usage, API, configuration
 6. **Project hygiene** — Contributing, license, code of conduct
 
@@ -210,7 +210,7 @@ Before finalising any document, check:
 - [ ] Consistent spelling (matches project's language conventions)
 - [ ] No placeholder text left behind
 - [ ] Every section answers at least one of the 4 questions
-- [ ] Features use bold+em-dash bullets or table with benefits column (evidence-based)
+- [ ] Features use emoji+bold+em-dash bullets or table with benefits column (evidence-based)
 - [ ] Use-case scenarios framed with reader context (if "What X Does" section is present)
 - [ ] Document ends with a clear call to action
 - [ ] README includes at least one visual element (image, GIF, or diagram) or documents why not

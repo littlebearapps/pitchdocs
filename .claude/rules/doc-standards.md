@@ -77,14 +77,14 @@ Every feature mentioned in documentation must be translated into a user benefit.
 
 For features sections in READMEs, two formats are available. Choose based on content:
 
-**Bold+em-dash bullets** (recommended for 5+ features — more scannable):
+**Emoji+bold+em-dash bullets** (recommended for 5+ features — more scannable):
 
 ```markdown
-- **Feature name** — benefit description with evidence
-- **Another feature** — another benefit with evidence
+- 🔍 **Feature name** — benefit description with evidence
+- 📋 **Another feature** — another benefit with evidence
 ```
 
-The bold text creates visual anchors, the em-dash cleanly separates "what" from "why", and each item gets breathing room. Use when feature descriptions vary in length or don't need structured comparison.
+The emoji creates a visual anchor for each item, the bold text names the feature, and the em-dash cleanly separates "what" from "why". Choose an emoji that relates to the feature content — not decorative randomness. Use when feature descriptions vary in length or don't need structured comparison.
 
 **Table with benefits column** (use for structured comparisons or when status tracking is needed):
 
@@ -144,7 +144,7 @@ Use a single emoji before each H2 heading to create visual anchors when scrollin
 - One emoji per heading — never two
 - Use the same emoji consistently for the same section type across projects
 - H3 sub-features within a Features section may also use emoji prefixes for visual grouping (`### 📡 Progress streaming`)
-- Inline bullet emoji (`- 🎙️ **Voice notes**`) works for compact feature lists within a section
+- Inline bullet emoji is the recommended format for feature lists (`- 🎙️ **Voice notes** — description`)
 - Choose emoji that relate to the section content — decorative randomness hurts more than it helps
 - Skip emoji prefixes for READMEs under 5 sections — the visual overhead outweighs the navigation benefit
 

@@ -289,17 +289,17 @@ console.log(result) // Expected output
 
 Two formats are available. Choose based on content:
 
-**Bold+em-dash bullets** (recommended for 5+ features — more scannable):
+**Emoji+bold+em-dash bullets** (recommended for 5+ features — more scannable):
 
 ```markdown
 ## Features
 
-- **Feature name** — benefit description with evidence
-- **Another feature** — benefit description with evidence
-- **Third feature** — benefit description with evidence
+- 🔍 **Feature name** — benefit description with evidence
+- 📋 **Another feature** — benefit description with evidence
+- 🚀 **Third feature** — benefit description with evidence
 ```
 
-The bold text creates visual anchors, the em-dash cleanly separates "what" from "why", and each item gets breathing room. Use when feature descriptions vary in length or don't need structured comparison.
+The emoji creates a visual anchor for each item, the bold text names the feature, and the em-dash cleanly separates "what" from "why". Choose an emoji that relates to the feature content. Use when feature descriptions vary in length or don't need structured comparison.
 
 **Table with benefits column** (use for structured comparisons or when status tracking is needed):
 
