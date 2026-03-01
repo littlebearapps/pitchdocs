@@ -52,7 +52,7 @@ Get your first generated README in under 60 seconds.
 /context-guard install
 ```
 
-This adds two PostToolUse hooks to your project: post-commit drift detection (checks if AI context files are stale after each `git commit`) and structural change reminders (nudges you to update AGENTS.md/CLAUDE.md/llms.txt when you add commands, skills, or agents). You can uninstall at any time with `/context-guard uninstall`.
+Keeps your AI context files (AGENTS.md, CLAUDE.md, etc.) in sync as your project evolves. See [Context Guard](#-skills) for details, or uninstall with `/context-guard uninstall`.
 
 OpenCode reads `.claude/skills/` natively — the same install steps (1–3) work in both tools.
 
@@ -62,74 +62,25 @@ OpenCode reads `.claude/skills/` natively — the same install steps (1–3) wor
 
 ## 🚀 What PitchDocs Does
 
-### Ship a professional README
+Run `/readme` and get a marketing-friendly README in under 60 seconds — hero section, benefit-driven features, working quick start, and proper badges, all backed by evidence from your actual code.
 
-You've finished your MVP. The repo is about to go public. You need a README that does more than list install commands — it needs to **sell** the project to potential users, contributors, and sponsors.
+Need the full suite? `/docs-audit fix` scans your repo against a 20+ file checklist and generates everything that's missing: CHANGELOG, CONTRIBUTING, ROADMAP, CODE_OF_CONDUCT, SECURITY, issue templates, PR templates, and more. Or use individual commands (`/changelog`, `/roadmap`, `/user-guide`) for just what you need.
 
-PitchDocs scans your codebase, extracts features with file-level evidence, translates them into benefit-driven language, and generates a marketing-friendly README with a hero section, a "why" narrative, a features-and-benefits table, a working quick start, and proper badges. Run `/readme` and get a README that passes the [4-question test](#-why-pitchdocs).
-
-### Generate the full docs suite
-
-Beyond the README, a professional open-source repo needs **CHANGELOG**, **CONTRIBUTING**, **ROADMAP**, **CODE_OF_CONDUCT**, **SECURITY**, issue templates, PR templates, release config, and more. Writing all of these by hand is tedious and error-prone.
-
-Run `/docs-audit fix` to scan your repo against a 20+ file checklist and auto-generate everything that's missing — or use individual commands (`/changelog`, `/roadmap`, `/user-guide`) for just the docs you need.
-
-### Make your project discoverable
-
-Great docs are useless if nobody can find them. PitchDocs handles the discovery layer:
-
-- **`llms.txt`** — generate AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec, so AI coding assistants and search engines surface your docs (SEO and GEO)
-- **AI context files** — generate AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, and GEMINI.md so AI coding assistants understand your project's conventions and architecture
-- **GEO-optimised structure** — crisp definitions, atomic sections, comparison tables, and concrete statistics structured for LLM extraction and citation
-- **npm / PyPI metadata** — audit your `package.json` and `pyproject.toml` for missing fields that affect your registry page (description, keywords, repository, homepage, types)
-- **Cross-renderer compatibility** — ensure your README renders correctly on GitHub, npm, and PyPI, not just one platform
-- **Launch artifacts** — transform your README and CHANGELOG into Dev.to articles, Hacker News posts, Reddit posts, and awesome list submissions
-- **Upstream spec drift detection** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
+PitchDocs also handles discoverability — `llms.txt` for AI search engines, AI context files (AGENTS.md, CLAUDE.md, .cursorrules, and 4 more) for coding assistants, GEO-optimised structure for AI citation, npm/PyPI metadata auditing, and launch artifacts for Dev.to, Hacker News, and Reddit.
 
 ### How it works
 
 ```mermaid
-flowchart LR
-    A["🔍 Scan\nCodebase"] --> B["📋 Extract\nFeatures"]
-    B --> C["✍️ Write\nDocs"]
-    C --> D["✅ Validate\n4-Question Test"]
+flowchart TB
+    A["🔍 Scan your code\nReads project files, git history, and dependencies"] --> B["📋 Find your features\nIdentifies what your project does, backed by file-level proof"]
+    B --> C["✍️ Write the docs\nTurns features into benefit-driven, marketing-friendly documentation"]
+    C --> D["✅ Check quality\nVerifies links, badges, structure, and completeness"]
 
     style A fill:#1e3a5f,stroke:#4a9eff,color:#fff
     style B fill:#1e3a5f,stroke:#4a9eff,color:#fff
     style C fill:#1e3a5f,stroke:#4a9eff,color:#fff
     style D fill:#1e3a5f,stroke:#4a9eff,color:#fff
 ```
-
-**Scan** reads your manifest, project structure, git history, and GitHub metadata. **Extract** runs a 5-step workflow across 10 signal categories to surface features with file-level evidence. **Write** applies the Daytona/Banesullivan marketing framework with progressive disclosure. **Validate** checks every doc against the 4-question test, verifies links and badges, and ensures cross-renderer compatibility.
-
----
-
-## 💡 Why PitchDocs?
-
-Most documentation generators produce technically-accurate but dry output. Nobody reads it, nobody gets excited, nobody stars the repo.
-
-PitchDocs generates documentation with a **marketing edge** — docs that answer the reader's real questions:
-
-| Question | How PitchDocs Answers It |
-|----------|-------------------------|
-| Does this solve my problem? | Benefit-driven feature descriptions, not just specs |
-| Can I use it? | Quick start with Time to Hello World targets by project type |
-| Who made it? | Badges, contributor counts, credibility signals |
-| Where do I learn more? | Cross-linked guides, hub pages, community links |
-
-Every doc follows **progressive disclosure** — non-technical first paragraph, technical details deeper — and every doc **cross-links** to related docs so readers never hit a dead end.
-
-### For decision makers
-
-| Trust signal | What it demonstrates | Where to verify |
-|-------------|---------------------|----------------|
-| [SECURITY.md](SECURITY.md) | Transparent vulnerability process with 48-hour acknowledgement SLA | [Security Policy](SECURITY.md) |
-| MIT licence | Permissive, no legal review needed | [LICENSE](LICENSE) |
-| Upstream spec tracking | Dependencies stay current — monthly automated drift checks | [upstream-versions.json](upstream-versions.json) |
-| Zero runtime dependencies | No supply chain risk — pure Markdown, nothing to audit or patch | [plugin.json](.claude-plugin/plugin.json) |
-| 9 AI tools supported | Team-wide adoption regardless of editor choice | [Tool setup](#-use-with-other-ai-tools) |
-
-Beyond human readers, PitchDocs also optimises for **AI discoverability**. Docs are structured with crisp definitions, atomic sections, comparison tables, and concrete statistics so that ChatGPT, Perplexity, Google AI Overviews, and other generative engines can extract and cite your project accurately. AI context files (AGENTS.md, CLAUDE.md, .cursorrules) ensure coding assistants understand your conventions from day one — and launch artifacts help you reach the third-party platforms (Dev.to, Hacker News, Reddit, awesome lists) that AI systems treat as trust signals.
 
 ---
 
