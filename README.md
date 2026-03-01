@@ -85,6 +85,8 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 - 🔒 **Context Guard** — post-commit hooks detect stale AI context files before they mislead your assistant *(Claude Code only)*
 - 📦 **npm and PyPI ready** — audit registry metadata and ensure README renders correctly across GitHub, npm, and PyPI
 - 🗂️ **Diataxis framework** — classify docs into tutorials, how-to guides, reference, and explanation quadrants
+- 🔄 **Upstream spec tracking** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
+- ♻️ **Install once, use everywhere** — add the plugin once and use it across all your projects without repeating setup
 - 🔌 **Works with 9 AI tools** — Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose
 
 ### By the Numbers
