@@ -241,9 +241,9 @@ Great [thing] is useless if nobody finds it. ProjectName handles [discovery]:
 ```
 
 **Rules:**
-- 2–4 use cases maximum — enough to show breadth, not so many it overwhelms
-- Each scenario opens with reader context ("You've finished...", "Beyond X, you need...", "Great X is useless if...")
-- Each scenario ends with a concrete action the user can take (a command, a link, a next step)
+- 2–3 use cases maximum — keep each under 3 sentences plus a concrete action
+- Each scenario opens with reader context ("You've finished...", "Beyond X, you need...")
+- Each scenario ends with a concrete action (a command, a link, a next step)
 - Use H3 subheadings within the section for each scenario
 - Skip this section for single-purpose tools — the "Why" section is sufficient
 
@@ -282,6 +282,7 @@ console.log(result) // Expected output
 - Show the SIMPLEST possible usage first
 - Include expected output in comments
 - Use TypeScript if the project supports it
+- Limit to 5–7 lines of code — move extensive tutorials to `docs/guides/getting-started.md`
 - Link to full docs for advanced usage
 - Never require the reader to leave the page — all prereqs listed upfront, all commands copy-paste-ready
 
@@ -319,9 +320,10 @@ Use when features need status indicators, direct side-by-side comparison, or whe
 
 1. Load the `feature-benefits` skill and run the 5-step Feature Extraction Workflow
 2. Take all **Hero** and **Core** tier features from the classified inventory
-3. Apply the feature-to-benefit translation for each — use at least 3 different benefit categories
-4. For tables: set status from evidence (`:white_check_mark: Stable` if tested, `:construction: Beta` if experimental)
-5. No features without file/function evidence — if you can't point to code, don't list it
+3. **Limit to the top 8 features in the README.** If the project has 10+, include the top Hero and Core features here and link to a full feature list in docs (e.g. "See the [full feature list](docs/features.md) for all N capabilities")
+4. Apply the feature-to-benefit translation for each — use at least 3 different benefit categories
+5. For tables: set status from evidence (`:white_check_mark: Stable` if tested, `:construction: Beta` if experimental)
+6. No features without file/function evidence — if you can't point to code, don't list it
 
 **Rules for both formats:**
 - Every feature must have evidence (file path, function, config option)
@@ -332,7 +334,7 @@ Use when features need status indicators, direct side-by-side comparison, or whe
 
 ### 6. Comparison (If Applicable)
 
-Only include if there are genuine alternatives. Be honest and fair.
+Only include if there are genuine alternatives. Be honest and fair. Limit to the top 3–4 competitors and 5–8 distinguishing capabilities — comparison tables earn their README space for GEO value, but keep them focused.
 
 ```markdown
 ## How It Compares
@@ -387,14 +389,8 @@ We welcome contributions! See our [Contributing Guide](CONTRIBUTING.md) for deta
 - **Don't show error handling in quickstart** — keep it minimal
 - **Don't include TOC for READMEs under 7 sections** — the hero quick-links row is sufficient for shorter docs
 - **Don't use emoji heading prefixes for READMEs under 5 sections** — the visual overhead outweighs the navigation benefit
+- **Don't put exhaustive content in the README** — per-tool setup guides, full feature inventories, architecture deep-dives, and specification references belong in `docs/guides/` or separate files. The README is the lobby, not the building.
 
 ## Cross-Renderer Compatibility
 
-If the project is published to a package registry, the README renders on multiple platforms with different Markdown support. Load the `package-registry` skill for the full compatibility matrix.
-
-**Key rules for multi-renderer READMEs:**
-- **Always use absolute URLs for images** — relative paths break on npm and PyPI (`https://raw.githubusercontent.com/org/repo/main/docs/images/demo.gif`)
-- **Avoid GitHub-specific callouts** (`[!NOTE]`, `[!WARNING]`) — render as plain text on npm and PyPI
-- **Avoid heading anchor links** (`#section-name`) — broken on PyPI
-- **Avoid `<details>`/`<summary>`** for critical content — unreliable on PyPI
-- **Test before PyPI upload**: `twine check dist/*` validates README rendering
+If published to npm or PyPI, load the `package-registry` skill for the full compatibility matrix. Key rules: use absolute image URLs, avoid GitHub callouts (`[!NOTE]`), avoid heading anchors on PyPI, test with `twine check dist/*` before PyPI upload.

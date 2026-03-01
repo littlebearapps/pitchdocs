@@ -108,8 +108,10 @@ For README.md:
 - [ ] First paragraph is non-technical and benefit-focused
 - [ ] Has a quickstart section that works
 - [ ] Has a features section with benefits (emoji+bold+em-dash bullets or table)
+- [ ] Features list is 8 or fewer items (Lobby Principle — excess delegated to docs)
 - [ ] Hero has bold one-liner + explanatory sentence (not just a one-liner)
 - [ ] Use-case framing with reader context (if "What X Does" section is present)
+- [ ] No section exceeds 2 paragraphs or an 8-row table without delegation to a guide
 - [ ] Has contributing/community links
 - [ ] Consistent spelling and language
 - [ ] Links to user guides (if docs/guides/ exists)

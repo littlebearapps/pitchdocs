@@ -39,7 +39,7 @@ hooks/*.sh                      → 2 opt-in hook scripts (Claude Code only)
 
 ## When Modifying This Plugin
 
-1. **Adding a skill**: Create `.claude/skills/<name>/SKILL.md`, add a corresponding command in `commands/<name>.md`, update the skills table in `README.md`, `AGENTS.md`, and `llms.txt`
+1. **Adding a skill**: Create `.claude/skills/<name>/SKILL.md`, add a corresponding command in `commands/<name>.md`, update the features list in `README.md`, skills table in `AGENTS.md`, and `llms.txt`
 2. **Adding a command**: Create `commands/<name>.md` with YAML frontmatter, update commands tables in `README.md`, `AGENTS.md`, and `llms.txt`
 3. **Changing quality standards**: Edit `.claude/rules/doc-standards.md` — this propagates to all generated docs automatically
 4. **Updating upstream specs**: Edit `upstream-versions.json` and the corresponding skill content

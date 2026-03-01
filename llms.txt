@@ -4,18 +4,19 @@
 
 ## Docs
 
-- [README](./README.md): Project overview, value proposition, quick start, commands table, skills table, and setup instructions for 9 AI coding tools
+- [README](./README.md): Project overview, value proposition, quick start, commands table, comparison table, and features list
 - [Contributing](./CONTRIBUTING.md): Development setup, how to improve templates, add skills/commands, and submit PRs using conventional commits
-- [Changelog](./CHANGELOG.md): Version history from v1.0.0 to v1.6.0 with user-facing change descriptions
+- [Changelog](./CHANGELOG.md): Version history with user-facing change descriptions
 - [AGENTS.md](./AGENTS.md): Codex CLI compatibility file with condensed skills reference and docs-writer agent overview
 - [Support](./SUPPORT.md): Getting help, common questions, contact details, and response times
 - [Claude.md](./CLAUDE.md): Claude Code project context — architecture, conventions, key files, and modification guide
 - [Docs Hub](./docs/README.md): Documentation index with command reference, skills reference, and links to all guides
 - [Getting Started Guide](./docs/guides/getting-started.md): Step-by-step installation, first README generation, and full command walkthrough
+- [Other AI Tools Guide](./docs/guides/other-ai-tools.md): Per-tool setup instructions and compatibility matrix for Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, and Goose
 
 ## Skills
 
-- [Public README](./.claude/skills/public-readme/SKILL.md): Three-part hero structure, audience-segmented value proposition, use-case framing, emoji+bold+em-dash features, Time to Hello World targets, GEO patterns for AI citation, and the Daytona/Banesullivan marketing framework for README generation
+- [Public README](./.claude/skills/public-readme/SKILL.md): Three-part hero structure, audience-segmented value proposition, use-case framing, emoji+bold+em-dash features (max 8 in README), structural budgets, Time to Hello World targets, GEO patterns for AI citation, and the Daytona/Banesullivan marketing framework for README generation
 - [Feature Benefits](./.claude/skills/feature-benefits/SKILL.md): 5-step codebase scanning workflow across 10 signal categories with JTBD job mapping and evidence-based benefit translation
 - [Changelog](./.claude/skills/changelog/SKILL.md): Keep a Changelog format with language rules that rewrite commits into user-facing benefit language
 - [Roadmap](./.claude/skills/roadmap/SKILL.md): ROADMAP.md structure from GitHub milestones with emoji status indicators and community involvement section
@@ -32,7 +33,7 @@
 
 ## Agent
 
-- [Docs Writer](./.claude/agents/docs-writer.md): Orchestration agent that powers all commands — codebase scanning, feature extraction, doc writing with marketing framework, and 15-point validation checklist
+- [Docs Writer](./.claude/agents/docs-writer.md): Orchestration agent that powers all commands — codebase scanning, feature extraction, lobby split planning, doc writing with marketing framework, and validation checklist with Lobby Principle compliance
 
 ## Commands
 
@@ -55,7 +56,7 @@
 - [Code of Conduct](./CODE_OF_CONDUCT.md): Community behaviour standards (Contributor Covenant v3.0)
 - [License](./LICENSE): MIT licence terms
 - [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, and author info
-- [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language, visual formatting, token budget guidelines
+- [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, Lobby Principle (README conciseness), GEO optimisation with data density guidance, progressive disclosure, benefit-driven language, visual formatting, token budget guidelines
 - [Context Quality](./.claude/rules/context-quality.md): Auto-loaded quality rule for AI context files — cross-file consistency, path verification, version accuracy, sync points table (Claude Code only)
 - [Context Drift Check Hook](./hooks/context-drift-check.sh): PostToolUse hook that detects stale AI context files after git commits — compares timestamps, checks broken paths (Claude Code only)
 - [Context Structural Change Hook](./hooks/context-structural-change.sh): PostToolUse hook that reminds about context file updates after structural file changes (Claude Code only)

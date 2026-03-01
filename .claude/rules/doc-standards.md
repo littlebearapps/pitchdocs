@@ -11,12 +11,32 @@ Every document must answer these questions for the reader:
 3. **Who made it?** — Credibility signals: author, contributors, badges, community size
 4. **Where do I learn more?** — Links to docs, examples, community, and support channels
 
-## Progressive Disclosure
+## Progressive Disclosure (The Lobby Principle)
+
+The README is the **lobby** of the repository — it gives visitors enough to decide whether they want to enter the building, but it should not contain the entire building. Detailed content belongs in separate docs and guides, linked from the README.
 
 - First paragraph: non-technical, benefit-focused, anyone can understand
 - Second section: quick start for developers who want to try it NOW
 - Deeper sections: technical details, API reference, architecture
 - A familiar user should be able to refresh their memory without scrolling past the fold
+
+**Lobby content (belongs in README):**
+- Value proposition (2–3 paragraphs max)
+- Quick start with 5–7 examples
+- Top features (8 or fewer emoji+bold+em-dash bullets)
+- Comparison table (top 3–4 competitors, top 5–8 distinguishing capabilities)
+- Credibility signals (badges, security, social proof)
+- Links to docs, contributing, and licence
+
+**Building content (delegate to `docs/guides/` or separate files):**
+- Per-tool or per-platform setup instructions
+- Exhaustive feature inventories or API surface docs
+- Multi-step tutorials longer than 5–7 lines
+- Configuration reference tables
+- Architecture deep-dives
+- Upstream specification details
+
+**The delegation test:** If a README section exceeds 2 paragraphs of prose or a table exceeds 8 rows, it likely belongs in a dedicated guide linked from the README with a 2–3 line summary.
 
 ## Time to Hello World
 
@@ -307,6 +327,15 @@ Explicit, structured prerequisite blocks improve LLM understanding of dependenci
 ```
 
 Never bury prerequisites in prose paragraphs — AI extractors miss them.
+
+### Data Density Over Narrative
+
+AI systems extract concrete data, not marketing adjectives. To keep documents concise while maximising GEO value:
+
+- Replace long paragraphs explaining *why* a feature is good with a single concrete statistic or benchmark
+- Embed "by the numbers" stats directly into feature bullets as evidence — don't create a standalone stats section
+- Comparison tables earn their place (LLMs surface them for "X vs Y" queries), but limit to the top 3–4 competitors and 5–8 distinguishing capabilities
+- Be factually accurate about competitors — false claims erode trust with both humans and AI
 
 ### Cross-Referencing for Semantic Scaffolding
 

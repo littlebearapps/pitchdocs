@@ -167,6 +167,19 @@ Output a "Security & Trust" credibility block for the README:
 - Skip the security section entirely if the project has no security-relevant features (simple CLIs, docs-only projects)
 - Surface high-level signals in README; keep implementation details in SECURITY.md
 
+### Step 2.8: Plan the Lobby Split
+
+Before writing the README, evaluate the scope of extracted content to decide what belongs in the README vs separate guides. The README is the **lobby** — it must remain a highly scannable summary that links to deeper content.
+
+**Delegation rules:**
+- **Features**: If 8+ features extracted, include only the top Hero and Core tier features in the README. Create a full feature list in `docs/` or link to the docs hub.
+- **Setup instructions**: If setup differs across 3+ tools or platforms, write a 2–3 line summary in README and create `docs/guides/` with detailed per-tool instructions.
+- **Examples**: Limit README quick examples to 5–7. Move exhaustive examples to `docs/guides/getting-started.md` or `examples/`.
+- **Comparison tables**: Keep in README (GEO value) but limit to 3–4 competitors and 5–8 capabilities.
+- **Architecture/internals**: Always delegate to a separate guide or CONTRIBUTING.md.
+
+**The test:** If a README section would exceed 2 paragraphs of prose or a table would exceed 8 rows, delegate it to a guide and summarise in 2–3 lines with a link.
+
 ### Step 3: Write with Marketing Framework
 
 Use the `PROJECT_TYPE` from Step 1 to select tone and template emphasis:
@@ -213,6 +226,10 @@ Before finalising any document, check:
 - [ ] Features use emoji+bold+em-dash bullets or table with benefits column (evidence-based)
 - [ ] Use-case scenarios framed with reader context (if "What X Does" section is present)
 - [ ] Document ends with a clear call to action
+- [ ] README follows the Lobby Principle — deep-dive setup, exhaustive feature lists, and edge-cases are delegated to `docs/guides/`
+- [ ] Features list contains no more than 8 items (excess moved to separate docs with link)
+- [ ] Quick start examples are concise (5–7 lines) and don't attempt to show the entire API surface
+- [ ] No README section exceeds 2 paragraphs of prose or an 8-row table without being delegated to a guide
 - [ ] README includes at least one visual element (image, GIF, or diagram) or documents why not
 - [ ] README hero includes a project logo image (`height="160"` to `height="240"`) if a logo file exists in `docs/assets/` or `.github/assets/`
 - [ ] LICENSE file matches the license field in the project manifest

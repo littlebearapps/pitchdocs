@@ -21,8 +21,8 @@ You are working on PitchDocs, a Claude Code plugin that generates marketing-qual
 ## File Sync Requirements
 
 When adding skills or commands, update all of:
-- `README.md` (skills table, commands table, features section)
-- `AGENTS.md` (skills table, commands table)
+- `README.md` (commands table, features section)
+- `AGENTS.md` (skills table, commands table, if applicable)
 - `llms.txt` (file reference with benefit description)
 - `.github/ISSUE_TEMPLATE/bug_report.yml` (component dropdown)
 

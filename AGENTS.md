@@ -46,8 +46,9 @@ The docs-writer agent (`.claude/agents/docs-writer.md`) orchestrates the full do
 
 1. **Codebase discovery** — reads manifest files, scans project structure, checks git history and GitHub metadata
 2. **Feature extraction** — loads the `feature-benefits` skill and runs a 5-step extraction across 10 signal categories
-3. **Writing with marketing framework** — applies the Daytona "4000 Stars" approach with progressive disclosure
-4. **Validation** — checks the 4-question test, verifies links, badges, spelling, and cross-renderer compatibility
+3. **Lobby split** — evaluates extracted content scope and decides what belongs in README vs separate `docs/guides/` (max 8 features, 5–7 examples, delegate exhaustive content)
+4. **Writing with marketing framework** — applies the Daytona "4000 Stars" approach with progressive disclosure
+5. **Validation** — checks the 4-question test, Lobby Principle compliance, verifies links, badges, spelling, and cross-renderer compatibility
 
 ## Workflow Commands
 

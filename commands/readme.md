@@ -50,6 +50,7 @@ Writes directly to `README.md` in the target directory. If a README already exis
 After generation, verify:
 - Hero has three parts: bold one-liner + explanatory sentence + badges/compatibility line
 - First paragraph is understandable by a non-developer
+- README follows the Lobby Principle — no more than 8 features, 5–7 examples, exhaustive content delegated to guides
 - All badge URLs are correct for this repo
 - Quick start code examples actually work
 - Links to existing docs/guides are included
