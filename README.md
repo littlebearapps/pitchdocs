@@ -71,10 +71,10 @@ PitchDocs also handles discoverability — `llms.txt` for AI search engines, AI 
 ### How it works
 
 ```mermaid
-flowchart TB
-    A["🔍 Scan your code\nReads project files, git history, and dependencies"] --> B["📋 Find your features\nIdentifies what your project does, backed by file-level proof"]
-    B --> C["✍️ Write the docs\nTurns features into benefit-driven, marketing-friendly documentation"]
-    C --> D["✅ Check quality\nVerifies links, badges, structure, and completeness"]
+flowchart LR
+    A["🔍 Scan<br/>your code"] --> B["📋 Find<br/>features"]
+    B --> C["✍️ Write<br/>the docs"]
+    C --> D["✅ Check<br/>quality"]
 
     style A fill:#1e3a5f,stroke:#4a9eff,color:#fff
     style B fill:#1e3a5f,stroke:#4a9eff,color:#fff
