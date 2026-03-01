@@ -64,7 +64,9 @@ OpenCode reads `.claude/skills/` natively — the same install steps (1–3) wor
 
 Your repo is ready to go public, but the docs aren't. You need a README that sells, a CHANGELOG that makes sense to users, a SECURITY policy, contributing guidelines, issue templates, PR templates — and it all needs to look professional.
 
-PitchDocs gives your AI coding assistant the skills and knowledge to scan your codebase, find what's worth talking about, and write the whole documentation suite for you. README, CHANGELOG, CONTRIBUTING, ROADMAP, CODE_OF_CONDUCT, SECURITY, issue templates, PR templates, user guides, AI context files, and `llms.txt` — all from slash commands like `/readme` and `/docs-audit fix`. Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, and backed by evidence from your actual code.
+PitchDocs gives your AI coding assistant the skills and knowledge to scan your codebase, find what's worth talking about, and write the whole documentation suite for you. README, CHANGELOG, CONTRIBUTING, ROADMAP, CODE_OF_CONDUCT, SECURITY, issue templates, PR templates, user guides, AI context files, and `llms.txt` — all from slash commands like `/readme` and `/docs-audit fix`.
+
+Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, and backed by evidence from your actual code.
 
 ---
 
