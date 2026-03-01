@@ -62,25 +62,9 @@ OpenCode reads `.claude/skills/` natively — the same install steps (1–3) wor
 
 ## 🚀 What PitchDocs Does
 
-Run `/readme` and get a marketing-friendly README in under 60 seconds — hero section, benefit-driven features, working quick start, and proper badges, all backed by evidence from your actual code.
+Your repo is ready to go public, but the docs aren't. You need a README that sells, a CHANGELOG that makes sense to users, a SECURITY policy, contributing guidelines, issue templates, PR templates — and it all needs to look professional.
 
-Need the full suite? `/docs-audit fix` scans your repo against a 20+ file checklist and generates everything that's missing: CHANGELOG, CONTRIBUTING, ROADMAP, CODE_OF_CONDUCT, SECURITY, issue templates, PR templates, and more. Or use individual commands (`/changelog`, `/roadmap`, `/user-guide`) for just what you need.
-
-PitchDocs also handles discoverability — `llms.txt` for AI search engines, AI context files (AGENTS.md, CLAUDE.md, .cursorrules, and 4 more) for coding assistants, GEO-optimised structure for AI citation, npm/PyPI metadata auditing, and launch artifacts for Dev.to, Hacker News, and Reddit.
-
-### How it works
-
-```mermaid
-flowchart LR
-    A["🔍 Scan<br/>your code"] --> B["📋 Find<br/>features"]
-    B --> C["✍️ Write<br/>the docs"]
-    C --> D["✅ Check<br/>quality"]
-
-    style A fill:#1e3a5f,stroke:#4a9eff,color:#fff
-    style B fill:#1e3a5f,stroke:#4a9eff,color:#fff
-    style C fill:#1e3a5f,stroke:#4a9eff,color:#fff
-    style D fill:#1e3a5f,stroke:#4a9eff,color:#fff
-```
+PitchDocs gives your AI coding assistant the skills and knowledge to scan your codebase, find what's worth talking about, and write the whole documentation suite for you. README, CHANGELOG, CONTRIBUTING, ROADMAP, CODE_OF_CONDUCT, SECURITY, issue templates, PR templates, user guides, AI context files, and `llms.txt` — all from slash commands like `/readme` and `/docs-audit fix`. Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, and backed by evidence from your actual code.
 
 ---
 
