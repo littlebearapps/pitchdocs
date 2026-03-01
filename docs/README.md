@@ -13,6 +13,7 @@ Step-by-step instructions for common tasks:
 | Guide | What You'll Do |
 |-------|---------------|
 | [Getting Started](guides/getting-started.md) | Install PitchDocs, generate your first README, and explore all 12 commands |
+| [Other AI Tools](guides/other-ai-tools.md) | Set up PitchDocs with Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, and Goose |
 
 ## Quick Links
 
