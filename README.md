@@ -89,21 +89,6 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 - ♻️ **Install once, use everywhere** — add the plugin once and use it across all your projects without repeating setup
 - 🔌 **Works with 9 AI tools** — Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose
 
-### By the Numbers
-
-| Metric | Count | Evidence |
-|--------|-------|----------|
-| Slash commands | 12 | `commands/*.md` — README, features, changelog, roadmap, docs audit, llms.txt, user guide, AI context, docs verify, launch, doc refresh, context guard |
-| Reference skills | 14 | `.claude/skills/*/SKILL.md` — loaded on-demand for deep knowledge in each doc type |
-| Quality rules | 2 | `.claude/rules/*.md` — doc-standards (cross-tool) and context-quality (Claude Code only) |
-| Signal categories scanned | 10 | Feature extraction covers CLI, API, config, integrations, data models, and 5 more ([detail](commands/features.md)) |
-| Docs audit checklist | 20+ files | README through CITATION.cff across 3 priority tiers ([detail](commands/docs-audit.md)) |
-| AI tools supported | 9 | Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose |
-| Benefit categories | 5 | Time saved, confidence gained, pain avoided, capability unlocked, cost reduced |
-| Job types mapped | 3 | Functional, emotional, social (JTBD framework for richer benefit writing) |
-| Upstream specs tracked | 8 | Frozen and evolving specs checked monthly by GitHub Action |
-| Launch platforms | 5 | Dev.to, Hacker News, Reddit, Twitter/X, awesome lists |
-
 ---
 
 ## ⚖️ How PitchDocs Compares
