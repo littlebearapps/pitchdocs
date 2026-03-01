@@ -11,14 +11,8 @@
 </p>
 
 <p align="center">
-  A plugin for <a href="https://code.claude.com/">Claude Code</a> and <a href="https://opencode.ai/">OpenCode</a> — also works with <a href="https://codex.openai.com/">Codex CLI</a>, <a href="https://cursor.com/">Cursor</a>, <a href="https://codeium.com/windsurf">Windsurf</a>, <a href="https://github.com/cline/cline">Cline</a>, <a href="https://github.com/google-gemini/gemini-cli">Gemini CLI</a>, and more.
-</p>
-
-<p align="center">
-  <a href="https://github.com/littlebearapps/pitchdocs/actions/workflows/check-upstream.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlebearapps/pitchdocs/check-upstream.yml?label=upstream%20check" alt="Upstream Check" /></a>
   <a href="CHANGELOG.md"><img src="https://img.shields.io/static/v1?label=version&message=1.8.1&color=blue" alt="Version" /></a> <!-- x-release-please-version -->
   <a href="LICENSE"><img src="https://img.shields.io/github/license/littlebearapps/pitchdocs" alt="License" /></a>
-  <a href="https://github.com/littlebearapps/pitchdocs/stargazers"><img src="https://img.shields.io/github/stars/littlebearapps/pitchdocs?style=flat" alt="GitHub Stars" /></a>
   <a href="https://code.claude.com/docs/en/plugins"><img src="https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white" alt="Claude Code Plugin" /></a>
   <a href="https://opencode.ai/"><img src="https://img.shields.io/badge/OpenCode-Compatible-22c55e" alt="OpenCode Compatible" /></a>
   <a href="https://www.npmjs.com/"><img src="https://img.shields.io/badge/npm_%26_PyPI-Ready-cb3837" alt="npm & PyPI Ready" /></a>
@@ -26,16 +20,6 @@
 
 <p align="center">
   <a href="#-get-started">Get Started</a> · <a href="#-features">Features</a> · <a href="#%EF%B8%8F-how-pitchdocs-compares">How It Compares</a> · <a href="#-commands">Commands</a> · <a href="#-skills">Skills</a> · <a href="#-use-with-other-ai-tools">Other AI Tools</a> · <a href="CONTRIBUTING.md">Contributing</a> · <a href="commands/doc-refresh.md">Doc Refresh</a>
-</p>
-
----
-
-<p align="center">
-  <em>Untether's README — before and after PitchDocs</em>
-</p>
-
-<p align="center">
-  <img src="docs/assets/devhunt/untether-before-after-readme.png" alt="Before and after comparison — Untether's README transformed by PitchDocs from a basic text README to a marketing-friendly README with logo, badges, benefit-driven features, and structured sections" width="700" />
 </p>
 
 ---
@@ -61,7 +45,16 @@ Get your first generated README in under 60 seconds.
 /readme
 ```
 
-OpenCode reads `.claude/skills/` natively — the same install steps work in both tools.
+**Optional — install quality rules and hooks (Claude Code only):**
+
+```bash
+# 4. Install Context Guard hooks for AI context file freshness
+/context-guard install
+```
+
+This adds two PostToolUse hooks to your project: post-commit drift detection (checks if AI context files are stale after each `git commit`) and structural change reminders (nudges you to update AGENTS.md/CLAUDE.md/llms.txt when you add commands, skills, or agents). You can uninstall at any time with `/context-guard uninstall`.
+
+OpenCode reads `.claude/skills/` natively — the same install steps (1–3) work in both tools.
 
 **Using Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, or Goose?** See [Use with Other AI Tools](#-use-with-other-ai-tools) for setup instructions.
 
