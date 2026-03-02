@@ -357,7 +357,7 @@ After fetching, use Edit tool to replace these placeholders:
 **Generation method — fetch and customise:**
 
 ```bash
-# Option 1: GitHub's default security policy template
+# Option 1: GitHub's own security policy (needs heavy customisation — replace all GitHub-specific references)
 curl -sL "https://raw.githubusercontent.com/github/.github/main/SECURITY.md" -o SECURITY.md
 
 # Option 2: If Option 1 fails, create a minimal starter file

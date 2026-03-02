@@ -58,8 +58,10 @@
 - [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, and author info
 - [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, Lobby Principle (README conciseness), GEO optimisation with data density guidance, progressive disclosure, benefit-driven language, visual formatting, token budget guidelines
 - [Context Quality](./.claude/rules/context-quality.md): Auto-loaded quality rule for AI context files — cross-file consistency, path verification, version accuracy, sync points table (Claude Code only)
+- [Content Filter Quick Reference](./.claude/rules/content-filter.md): Auto-loaded quick reference for content filter risk levels, fetch commands, and chunked writing strategies when generating standard OSS files (Claude Code only)
 - [Context Drift Check Hook](./hooks/context-drift-check.sh): PostToolUse hook that detects stale AI context files after git commits — compares timestamps, checks broken paths (Claude Code only)
 - [Context Structural Change Hook](./hooks/context-structural-change.sh): PostToolUse hook that reminds about context file updates after structural file changes (Claude Code only)
+- [Content Filter Guard Hook](./hooks/content-filter-guard.sh): PreToolUse hook that blocks Write operations on high-risk OSS files (CODE_OF_CONDUCT, LICENSE, SECURITY) and advises chunked writing for medium-risk files (Claude Code only)
 - [Upstream Versions](./upstream-versions.json): Pinned versions of 8 referenced specifications (Keep a Changelog, Contributor Covenant, Conventional Commits, Semantic Versioning, GitHub Issue Forms, npm/PyPI Trusted Publishing, AGENTS.md Spec)
 - [Cursor Rules](./.cursorrules): Cursor IDE project context — architecture, writing standards, sync requirements
 - [Copilot Instructions](./.github/copilot-instructions.md): GitHub Copilot project context — structure, conventions, sync points
