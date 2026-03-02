@@ -5,6 +5,13 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.0](https://github.com/littlebearapps/pitchdocs/compare/v1.9.0...v1.10.0) (2026-03-02)
+
+
+### Added
+
+* add content filter mitigation rule, hook, and guidance ([#13](https://github.com/littlebearapps/pitchdocs/issues/13)) ([a88db5a](https://github.com/littlebearapps/pitchdocs/commit/a88db5a0da22c8c986725e0aebeb2f902f74bade))
+
 ## [1.9.0](https://github.com/littlebearapps/pitchdocs/compare/v1.8.1...v1.9.0) (2026-03-01)
 
 
