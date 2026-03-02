@@ -1,0 +1,7 @@
+// PitchDocs markdownlint configuration
+// Used by docs-ci.yml and local linting
+{
+  "MD013": false,
+  "MD033": false,
+  "MD041": false
+}
