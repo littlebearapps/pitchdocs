@@ -12,7 +12,7 @@ allowed-tools:
 
 # /context-guard
 
-Install opt-in hooks that detect stale AI context files and remind you to update them. **Claude Code only** — these hooks use Claude Code's PostToolUse hook system, which is not supported by OpenCode, Codex CLI, or other AI coding tools.
+Install opt-in hooks that detect stale AI context files, remind you to update them, and prevent content filter errors when generating standard OSS files. **Claude Code only** — these hooks use Claude Code's PreToolUse and PostToolUse hook system, which is not supported by OpenCode, Codex CLI, or other AI coding tools.
 
 ## Behaviour
 
@@ -23,15 +23,15 @@ Install opt-in hooks that detect stale AI context files and remind you to update
 
 - **`install`**: Install Context Guard into the current project:
   1. Create `.claude/hooks/` directory if it does not exist
-  2. Copy `context-drift-check.sh` and `context-structural-change.sh` from the plugin's `hooks/` directory to `.claude/hooks/`
+  2. Copy `context-drift-check.sh`, `context-structural-change.sh`, and `content-filter-guard.sh` from the plugin's `hooks/` directory to `.claude/hooks/`
   3. Make the scripts executable (`chmod +x`)
-  4. Merge PostToolUse hook entries into `.claude/settings.json` (create the file if needed; if PostToolUse entries already exist, append without overwriting)
+  4. Merge PreToolUse and PostToolUse hook entries into `.claude/settings.json` (create the file if needed; if entries already exist, append without overwriting)
   5. Copy `context-quality.md` to `.claude/rules/context-quality.md` (create directory if needed)
   6. Report what was installed
 
 - **`uninstall`**: Remove Context Guard from the current project:
-  1. Remove `.claude/hooks/context-drift-check.sh` and `.claude/hooks/context-structural-change.sh`
-  2. Remove the Context Guard hook entries from `.claude/settings.json` (preserve other hooks)
+  1. Remove `.claude/hooks/context-drift-check.sh`, `.claude/hooks/context-structural-change.sh`, and `.claude/hooks/content-filter-guard.sh`
+  2. Remove the Context Guard hook entries (both PreToolUse and PostToolUse) from `.claude/settings.json` (preserve other hooks)
   3. Remove `.claude/rules/context-quality.md`
   4. Report what was removed
 
@@ -49,8 +49,9 @@ Install opt-in hooks that detect stale AI context files and remind you to update
 Context Guard installed:
   ✓ .claude/hooks/context-drift-check.sh — warns after commits if context files are stale
   ✓ .claude/hooks/context-structural-change.sh — reminds after structural file changes
+  ✓ .claude/hooks/content-filter-guard.sh — blocks Write on high-risk OSS files, advises on medium-risk
   ✓ .claude/rules/context-quality.md — auto-loaded quality standards for context files
-  ✓ .claude/settings.json — PostToolUse hooks registered
+  ✓ .claude/settings.json — PreToolUse and PostToolUse hooks registered
 
 Note: These hooks are Claude Code-specific. If your team also uses OpenCode or
 Codex CLI, the hooks will be ignored by those tools (no errors, just no effect).
@@ -60,8 +61,8 @@ Add .claude/hooks/ to .gitignore if you prefer hooks to be per-developer.
 ### Status
 ```
 Context Guard Status:
-  ✓ Hooks installed (2/2 scripts in .claude/hooks/)
-  ✓ Settings configured (PostToolUse entries in .claude/settings.json)
+  ✓ Hooks installed (3/3 scripts in .claude/hooks/)
+  ✓ Settings configured (PreToolUse and PostToolUse entries in .claude/settings.json)
   ✓ Quality rule active (.claude/rules/context-quality.md)
 
 Drift check:

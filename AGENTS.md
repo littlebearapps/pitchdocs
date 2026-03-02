@@ -67,14 +67,14 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 | `docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs |
 | `launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
 | `doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context, llms.txt |
-| `context-guard` | Install, uninstall, or check status of Context Guard hooks for AI context file freshness *(Claude Code only)* |
+| `context-guard` | Install, uninstall, or check status of Context Guard hooks for AI context file freshness and content filter protection *(Claude Code only)* |
 
 ## Rules and Hooks (Claude Code Only)
 
 PitchDocs includes features that are specific to Claude Code and do not work in OpenCode, Codex CLI, or other tools:
 
-- **Rules** (2): `.claude/rules/doc-standards.md` (quality standards, auto-loaded) and `.claude/rules/context-quality.md` (AI context file quality, auto-loaded after `/context-guard install`)
-- **Hooks** (2): `hooks/context-drift-check.sh` (post-commit drift detection) and `hooks/context-structural-change.sh` (structural change reminders) — opt-in via `/context-guard install`
+- **Rules** (3): `.claude/rules/doc-standards.md` (quality standards, auto-loaded), `.claude/rules/context-quality.md` (AI context file quality, auto-loaded after `/context-guard install`), and `.claude/rules/content-filter.md` (content filter quick reference, auto-loaded)
+- **Hooks** (3): `hooks/context-drift-check.sh` (post-commit drift detection), `hooks/context-structural-change.sh` (structural change reminders), and `hooks/content-filter-guard.sh` (Write guard for high-risk OSS files) — opt-in via `/context-guard install`
 
 ## AI Context Files
 

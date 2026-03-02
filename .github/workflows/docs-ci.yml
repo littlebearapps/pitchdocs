@@ -25,12 +25,6 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v18
         with:
           globs: '**/*.md'
-          config: |
-            {
-              "MD013": false,
-              "MD033": false,
-              "MD041": false
-            }
 
       - name: Check links
         uses: lycheeverse/lychee-action@v2
@@ -40,6 +34,10 @@ jobs:
             --no-progress
             --exclude "https://img.shields.io"
             --exclude "https://shields.io"
+            --exclude "https://codex.openai.com"
+            --exclude "https://readme.so"
+            --exclude "https://www.npmjs.com"
+            --exclude "https://github.com/littlebearapps/pitchdocs/compare/"
             docs/
             README.md
             CONTRIBUTING.md

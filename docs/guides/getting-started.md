@@ -119,6 +119,26 @@ This checks for:
 
 ---
 
+## 7. Install Context Guard Hooks (Optional, Claude Code Only)
+
+Context Guard adds three hooks to your project that run automatically during your Claude Code sessions:
+
+```bash
+/context-guard install
+```
+
+What it installs:
+
+- **Drift detection** — warns after commits if AI context files (AGENTS.md, CLAUDE.md) are stale
+- **Structural change reminders** — nudges you to update context files when you modify commands, skills, or config
+- **Content filter guard** — prevents content filter errors (HTTP 400) by intercepting Write operations on files like CODE_OF_CONDUCT.md, LICENSE, and SECURITY.md, advising you to fetch them from canonical URLs instead
+
+Check status anytime with `/context-guard status`. Uninstall with `/context-guard uninstall`.
+
+**Note:** These hooks are Claude Code-specific. If your team uses OpenCode or Codex CLI alongside Claude Code, the hooks are silently ignored by those tools.
+
+---
+
 ## What's Next?
 
 - **Improve your README further** — Run `/readme` again with specific focus areas (e.g., `/readme focus on the comparison table`)

@@ -1,6 +1,6 @@
 ---
 name: context-guard
-description: Installs opt-in Claude Code hooks that detect stale AI context files (CLAUDE.md, AGENTS.md, GEMINI.md, etc.) and remind developers to update them. Includes post-commit drift detection, structural change reminders, and a quality rule. Claude Code only — hooks do not work in OpenCode, Codex CLI, or other tools.
+description: Installs opt-in Claude Code hooks that detect stale AI context files (CLAUDE.md, AGENTS.md, GEMINI.md, etc.), remind developers to update them, and prevent content filter errors when generating standard OSS files. Includes post-commit drift detection, structural change reminders, content filter write guards, and a quality rule. Claude Code only — hooks do not work in OpenCode, Codex CLI, or other tools.
 version: "1.0.0"
 ---
 
@@ -8,7 +8,7 @@ version: "1.0.0"
 
 ## What It Does
 
-Context Guard adds two PostToolUse hooks and one quality rule to a project. The hooks detect when AI context files (CLAUDE.md, AGENTS.md, GEMINI.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules) are out of date and nudge the developer to update them.
+Context Guard adds two PostToolUse hooks, one PreToolUse hook, and one quality rule to a project. The PostToolUse hooks detect when AI context files (CLAUDE.md, AGENTS.md, GEMINI.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules) are out of date and nudge the developer to update them. The PreToolUse hook prevents content filter errors by intercepting Write operations on files known to trigger Claude Code's API content filter.
 
 **Claude Code only.** These hooks use Claude Code's hook system (PostToolUse events, `.claude/settings.json` configuration). OpenCode, Codex CLI, Cursor, Windsurf, Cline, and Gemini CLI do not support Claude Code hooks. The quality rule (`.claude/rules/context-quality.md`) is also Claude Code-specific.
 
@@ -39,6 +39,18 @@ Cross-tool features like skills (`.claude/skills/`) and AGENTS.md work in OpenCo
   - `.claude/rules/*.md` → CLAUDE.md, AGENTS.md
   - `package.json`, `pyproject.toml`, config files → all context files
 
+### Hook: content-filter-guard.sh
+
+- **Event:** PreToolUse on `Write`
+- **Fires:** Before Claude Code writes a file
+- **HIGH-risk files** (CODE_OF_CONDUCT.md, LICENSE, SECURITY.md):
+  - Blocks the write (exit non-zero)
+  - Returns fetch commands for the canonical URL
+- **MEDIUM-risk files** (CHANGELOG.md, CONTRIBUTING.md):
+  - Allows the write
+  - Returns advisory about chunked writing (5–10 entries at a time)
+- **All other files:** Passes through silently
+
 ### Rule: context-quality.md
 
 Auto-loaded every session. Establishes cross-file consistency, path verification, version accuracy, command accuracy, and a sync-points table mapping project changes to context files.
@@ -57,6 +69,15 @@ The `/context-guard install` command:
 ```json
 {
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [{
+          "type": "command",
+          "command": ".claude/hooks/content-filter-guard.sh"
+        }]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Bash",
@@ -79,7 +100,7 @@ The `/context-guard install` command:
 
 ## Uninstallation
 
-The `/context-guard uninstall` command removes the hook scripts, settings.json entries, and the quality rule.
+The `/context-guard uninstall` command removes all hook scripts (context-drift-check.sh, context-structural-change.sh, content-filter-guard.sh), settings.json entries, and the quality rule.
 
 ## Customisation
 
@@ -100,3 +121,4 @@ Edit `context-structural-change.sh` case statement to add or remove structural f
 | "jq: command not found" | jq not installed | Install jq: `apt install jq` or `brew install jq` |
 | Hooks fail silently | jq receives malformed JSON | Run `.claude/hooks/context-drift-check.sh` manually and check for JSON parse errors — common when `settings.json` has trailing commas or comments |
 | Hook errors in logs | Wrong project directory | Check `CLAUDE_PROJECT_DIR` is set correctly |
+| Hook blocks legitimate writes | content-filter-guard too aggressive | Uninstall with `/context-guard uninstall`, or remove just the PreToolUse entry from `.claude/settings.json` |

@@ -48,11 +48,11 @@ Get your first generated README in under 60 seconds.
 **Optional — install quality rules and hooks (Claude Code only):**
 
 ```bash
-# 4. Install Context Guard hooks for AI context file freshness
+# 4. Install Context Guard hooks for AI context file freshness and content filter protection
 /context-guard install
 ```
 
-Keeps your AI context files (AGENTS.md, CLAUDE.md, etc.) in sync as your project evolves. Uninstall anytime with `/context-guard uninstall`.
+Keeps your AI context files (AGENTS.md, CLAUDE.md, etc.) in sync as your project evolves, and prevents content filter errors when generating standard OSS files (CODE_OF_CONDUCT, LICENSE, SECURITY). Uninstall anytime with `/context-guard uninstall`.
 
 OpenCode reads `.claude/skills/` natively — the same install steps (1–3) work in both tools.
 
@@ -82,7 +82,7 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 - 🔗 **Documentation verification** — broken links, stale content, heading hierarchy, badge URLs, and credential scanning
 - 📡 **llms.txt generation** — AI-readable content indices following the [llmstxt.org](https://llmstxt.org/) spec
 - 🚀 **Launch artifacts** — Dev.to articles, Hacker News posts, Reddit posts, Twitter/X threads, and awesome list submissions
-- 🔒 **Context Guard** — post-commit hooks detect stale AI context files before they mislead your assistant *(Claude Code only)*
+- 🔒 **Context Guard** — post-commit hooks detect stale AI context files, and a write guard prevents content filter errors on standard OSS files *(Claude Code only)*
 - 📦 **npm and PyPI ready** — audit registry metadata and ensure README renders correctly across GitHub, npm, and PyPI
 - 🗂️ **Diataxis framework** — classify docs into tutorials, how-to guides, reference, and explanation quadrants
 - 🔄 **Upstream spec tracking** — a GitHub Action checks monthly that your CHANGELOG, CODE_OF_CONDUCT, and commit conventions follow the latest spec versions
@@ -123,7 +123,7 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 | `/docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs | Catch documentation decay before it reaches users |
 | `/launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions | Transform docs into platform-specific launch content |
 | `/doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context, llms.txt | Never ship a release with stale documentation |
-| `/context-guard` | Install, uninstall, or check status of Context Guard hooks for AI context file freshness | Catch stale context files automatically after commits and structural changes |
+| `/context-guard` | Install, uninstall, or check status of Context Guard hooks for AI context file freshness and content filter protection | Catch stale context files and prevent content filter errors automatically |
 
 **Note:** `/context-guard` is **Claude Code only**. All other commands work across all supported AI tools.
 

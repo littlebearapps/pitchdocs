@@ -39,6 +39,9 @@ body:
         - api-reference skill
         - doc-refresh skill
         - doc-standards rule
+        - content-filter rule
+        - content-filter-guard hook
+        - context-guard skill
         - Upstream drift detection
         - Other
     validations:
