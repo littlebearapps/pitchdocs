@@ -1,7 +1,32 @@
 // PitchDocs markdownlint configuration
 // Used by docs-ci.yml and local linting
 {
-  "MD013": false,
-  "MD033": false,
-  "MD041": false
+  "config": {
+    // Line length — prose wraps naturally
+    "MD013": false,
+    // Blanks around headings — compact formatting in docs
+    "MD022": false,
+    // Blanks around fences — compact formatting in skills/guides
+    "MD031": false,
+    // Blanks around lists — compact formatting in skills/guides
+    "MD032": false,
+    // Inline HTML — used for hero sections, badges, alignment
+    "MD033": false,
+    // Bare URLs — used in curl examples and references
+    "MD034": false,
+    // First line heading — files have YAML frontmatter or badges first
+    "MD041": false,
+    // List style — project uses dashes consistently
+    "MD004": false,
+    // Multiple blank lines — used as visual separators in CHANGELOG
+    "MD012": false,
+    // Duplicate headings — CHANGELOG reuses Added/Fixed/Changed per version
+    "MD024": false,
+    // Fenced code language — some template blocks are language-agnostic
+    "MD040": false
+  },
+  "ignores": [
+    ".claude/**",
+    "node_modules/**"
+  ]
 }

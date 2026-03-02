@@ -34,6 +34,10 @@ jobs:
             --no-progress
             --exclude "https://img.shields.io"
             --exclude "https://shields.io"
+            --exclude "https://codex.openai.com"
+            --exclude "https://readme.so"
+            --exclude "https://www.npmjs.com"
+            --exclude "https://github.com/littlebearapps/pitchdocs/compare/"
             docs/
             README.md
             CONTRIBUTING.md
