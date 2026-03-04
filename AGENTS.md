@@ -73,7 +73,7 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 
 PitchDocs includes features that are specific to Claude Code and do not work in OpenCode, Codex CLI, or other tools:
 
-- **Rules** (3): `.claude/rules/doc-standards.md` (quality standards, auto-loaded), `.claude/rules/context-quality.md` (AI context file quality, auto-loaded after `/context-guard install`), and `.claude/rules/content-filter.md` (content filter quick reference, auto-loaded)
+- **Rules** (3): `.claude/rules/doc-standards.md` (quality standards, auto-loaded), `.claude/rules/context-quality.md` (AI context file quality, auto-loaded), and `.claude/rules/content-filter.md` (content filter quick reference, auto-loaded)
 - **Hooks** (3): `hooks/context-drift-check.sh` (post-commit drift detection), `hooks/context-structural-change.sh` (structural change reminders), and `hooks/content-filter-guard.sh` (Write guard for high-risk OSS files) — opt-in via `/context-guard install`
 
 ## AI Context Files
