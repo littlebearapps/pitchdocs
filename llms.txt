@@ -28,7 +28,8 @@
 - [PitchDocs Suite](./.claude/skills/pitchdocs-suite/SKILL.md): 20+ file inventory, GitHub metadata, AI context files, visual assets, licence selection, and ready-to-use templates for the full docs suite
 - [llms.txt](./.claude/skills/llms-txt/SKILL.md): llmstxt.org specification reference with generation patterns for repositories and documentation sites
 - [Package Registry](./.claude/skills/package-registry/SKILL.md): npm and PyPI metadata auditing, README cross-renderer compatibility, trusted publishing, and registry badges
-- [User Guides](./.claude/skills/user-guides/SKILL.md): Task-oriented how-to documentation with Diataxis framework, numbered steps, copy-paste-ready code, error recovery, and cross-linked hub pages
+- [User Guides](./.claude/skills/user-guides/SKILL.md): Task-oriented how-to documentation with Diataxis framework, guide frontmatter standard, title conventions, numbered steps, copy-paste-ready code, error recovery, and cross-linked hub pages
+- [User Guide Templates](./.claude/skills/user-guides/SKILL-templates.md): Companion templates for tutorial, reference, and explanation document types (Diataxis quadrants not covered in the main user-guides skill)
 - [AI Context](./.claude/skills/ai-context/SKILL.md): AI IDE context file generation — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md from codebase analysis with staleness audit
 - [Docs Verify](./.claude/skills/docs-verify/SKILL.md): Documentation validation — broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, quality scoring (0–100), security scanning, token audit, and CI-friendly output with GitHub Actions template
 - [Launch Artifacts](./.claude/skills/launch-artifacts/SKILL.md): Platform-specific launch content — Dev.to articles, Hacker News posts, Reddit posts, Twitter/X threads, awesome list submissions, and social preview guidance
@@ -61,7 +62,7 @@
 - [Code of Conduct](./CODE_OF_CONDUCT.md): Community behaviour standards (Contributor Covenant v3.0)
 - [License](./LICENSE): MIT licence terms
 - [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, and author info
-- [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, Lobby Principle (README conciseness), GEO optimisation with data density guidance, progressive disclosure, benefit-driven language, visual formatting, token budget guidelines
+- [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, Lobby Principle (README conciseness), GEO optimisation with data density guidance, progressive disclosure, benefit-driven language, visual formatting (device screenshot dimensions, caption patterns, shadow/border guidance), token budget guidelines
 - [Context Quality](./.claude/rules/context-quality.md): Auto-loaded quality rule for AI context files — cross-file consistency, path verification, version accuracy, sync points table (Claude Code only)
 - [Content Filter Quick Reference](./.claude/rules/content-filter.md): Auto-loaded quick reference for content filter risk levels, fetch commands, and chunked writing strategies when generating standard OSS files (Claude Code only)
 - [Context Drift Check Hook](./hooks/context-drift-check.sh): PostToolUse hook that detects stale AI context files after git commits — compares timestamps, checks broken paths (Claude Code only)

@@ -32,7 +32,7 @@ Skills are loaded on-demand to provide deep reference knowledge. Each lives at `
 | `pitchdocs-suite` | Full 20+ file inventory (README, CONTRIBUTING, CHANGELOG, CODE_OF_CONDUCT, SECURITY, AI context files, issue templates, PR templates, and more), GitHub metadata guidance, visual assets, licence selection framework, and ready-to-use templates |
 | `llms-txt` | llmstxt.org specification reference for generating `llms.txt` and `llms-full.txt` — LLM-friendly content indices for AI coding assistants |
 | `package-registry` | npm and PyPI metadata field auditing, cross-renderer README compatibility (GitHub vs npm vs PyPI), trusted publishing guidance, and registry-specific badges |
-| `user-guides` | Task-oriented how-to documentation with Diataxis framework, numbered steps, copy-paste-ready code, error recovery, and cross-linked hub pages |
+| `user-guides` | Task-oriented how-to documentation with Diataxis framework, guide frontmatter standard, title conventions, numbered steps, copy-paste-ready code, error recovery, and cross-linked hub pages. Companion file `SKILL-templates.md` provides tutorial, reference, and explanation templates. |
 | `ai-context` | AI IDE context file generation — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md from codebase analysis with staleness audit |
 | `docs-verify` | Documentation validation — broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, and CI-friendly output |
 | `launch-artifacts` | Platform-specific launch content — Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
@@ -73,7 +73,7 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 
 PitchDocs includes features that are specific to Claude Code and do not work in OpenCode, Codex CLI, or other tools:
 
-- **Rules** (3): `.claude/rules/doc-standards.md` (quality standards, auto-loaded), `.claude/rules/context-quality.md` (AI context file quality, auto-loaded), and `.claude/rules/content-filter.md` (content filter quick reference, auto-loaded)
+- **Rules** (3): `.claude/rules/doc-standards.md` (quality standards — 4-question framework, GEO, device screenshot dimensions, caption patterns, shadow/border guidance, auto-loaded), `.claude/rules/context-quality.md` (AI context file quality, auto-loaded), and `.claude/rules/content-filter.md` (content filter quick reference, auto-loaded)
 - **Hooks** (3): `hooks/context-drift-check.sh` (post-commit drift detection), `hooks/context-structural-change.sh` (structural change reminders), and `hooks/content-filter-guard.sh` (Write guard for high-risk OSS files) — opt-in via `/context-guard install`
 
 ## AI Context Files

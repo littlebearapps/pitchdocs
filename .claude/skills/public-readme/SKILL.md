@@ -150,10 +150,12 @@ Load the `package-registry` skill for the full badge inventory and cross-rendere
 - Keep under 800px wide, optimised for GitHub's renderer
 
 ```markdown
-<div align="center">
+<p align="center">
   <img src="docs/images/demo.gif" alt="Quick start demo showing project setup in 30 seconds" width="700" />
-</div>
+</p>
 ```
+
+**For device-specific screenshots, captions, and shadow/border styling**, see the `doc-standards` rule (auto-loaded) — it covers capture dimensions per device, HTML display patterns, cross-renderer caption formats, and baked shadow guidance.
 
 **Where to store visual assets:**
 - **In-repo** (`docs/images/` or `assets/`): version-controlled, always accessible. Best for files under 5MB.

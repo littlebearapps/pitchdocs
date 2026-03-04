@@ -1,7 +1,7 @@
 ---
 name: docs-verify
 description: Validates documentation quality and freshness — checks for broken links, stale content, llms.txt sync, image issues, heading hierarchy, and badge URLs. Runs locally or in CI. Use to catch documentation decay before it reaches users.
-version: "1.3.0"
+version: "1.4.0"
 ---
 
 # Documentation Verifier
@@ -266,11 +266,40 @@ Accept `--min-score N` to fail the CI job if the score falls below a threshold:
 /docs-verify ci --min-score 70
 ```
 
-### 8. Token Audit
+### 8. Guide Frontmatter Validation
+
+Verify that documentation files in `docs/` have valid YAML frontmatter following the standard defined in the `user-guides` skill.
+
+```bash
+# Check for frontmatter presence in all guide files
+for f in docs/guides/*.md docs/tutorials/*.md docs/reference/*.md docs/explanation/*.md; do
+  [ -f "$f" ] || continue
+  head -1 "$f" | grep -q "^---" && echo "✓ $f — has frontmatter" || echo "✗ $f — missing frontmatter"
+done
+```
+
+For each file with frontmatter, validate:
+- **Required fields**: `title`, `description`, `type` must be present
+- **Type value**: must be one of `tutorial`, `how-to`, `reference`, `explanation`
+- **Title matches H1**: the `title` field should match the first H1 heading in the document
+- **Related paths exist**: each path in `related:` must point to a file that exists on disk (relative to `docs/`)
+
+Report format:
+```
+Guide Frontmatter:
+  ✓ docs/guides/getting-started.md — valid (how-to, 8 fields)
+  ⚠ docs/guides/workflows.md — missing optional: difficulty, time_to_complete
+  ✗ docs/guides/old-guide.md — missing required: type
+  ✗ docs/guides/broken.md — related path not found: guides/nonexistent.md
+```
+
+**Scoring**: Deduct -2 per guide missing required frontmatter fields under the Structure dimension.
+
+### 9. Token Audit
 
 Estimate token cost for all skill files in `.claude/skills/` using `wc -w` × 1.3. Flag skills over 3,000 tokens (reference) or 5,000 tokens (combined). Full audit script and thresholds in `SKILL-extended.md`.
 
-### 9. Security Scan
+### 10. Security Scan
 
 Scan generated documentation for content that should never appear in public repos. AI-generated docs can accidentally surface internal paths, credentials, or proprietary configuration.
 

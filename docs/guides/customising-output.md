@@ -1,4 +1,19 @@
+---
+title: "Customising PitchDocs Output"
+description: "Steer PitchDocs output with prompt patterns, tone control, monorepo support, and iterative refinement."
+type: how-to
+difficulty: intermediate
+last_verified: "1.11.0"
+related:
+  - guides/concepts.md
+  - guides/command-reference.md
+  - guides/workflows.md
+order: 4
+---
+
 # Customising PitchDocs Output
+
+> **Summary**: Learn how to steer PitchDocs output — prompt patterns, tone control, monorepo support, and iterative refinement.
 
 PitchDocs generates documentation based on its quality standards and frameworks. This guide explains how to steer the output to match your project's needs.
 

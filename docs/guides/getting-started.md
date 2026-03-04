@@ -1,10 +1,24 @@
+---
+title: "Getting Started with PitchDocs"
+description: "Install PitchDocs, generate your first README, and explore all 12 commands."
+type: how-to
+difficulty: beginner
+time_to_complete: "5 minutes"
+last_verified: "1.11.0"
+related:
+  - guides/workflows.md
+  - guides/command-reference.md
+  - guides/customising-output.md
+order: 1
+---
+
 # Getting Started with PitchDocs
 
-This guide walks you through installing PitchDocs, generating your first README, and exploring the full command set.
+> **Summary**: Install PitchDocs, generate your first README, and explore the full command set.
 
 **Time to Hello World:** Under 60 seconds for your first README. Full walkthrough below: ~5 minutes.
 
-**Prerequisites:**
+## Prerequisites
 
 - [Claude Code](https://code.claude.com/) or [OpenCode](https://opencode.ai/) installed
 - A project repository you want to document

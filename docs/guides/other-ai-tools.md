@@ -1,4 +1,18 @@
+---
+title: "Use PitchDocs with Other AI Tools"
+description: "Set up PitchDocs with Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, and Goose."
+type: how-to
+difficulty: intermediate
+last_verified: "1.11.0"
+related:
+  - guides/getting-started.md
+  - guides/troubleshooting.md
+order: 7
+---
+
 # Use PitchDocs with Other AI Tools
+
+> **Summary**: PitchDocs skills are plain Markdown — here's how to use them with Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, and Goose.
 
 PitchDocs is built as a Claude Code plugin, but the documentation knowledge it contains — skills, agent workflows, quality standards — is stored as plain Markdown files with YAML frontmatter. That makes it portable to other AI coding tools with minimal effort.
 
