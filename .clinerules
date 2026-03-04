@@ -1,0 +1,37 @@
+# PitchDocs
+
+## Project Overview
+
+PitchDocs is a Claude Code plugin that generates marketing-quality repository documentation — READMEs, changelogs, AI context files, and 15+ more doc types from slash commands. Pure Markdown, no runtime dependencies.
+
+## Tech Stack
+
+- **Language**: Markdown (YAML frontmatter in skills and commands)
+- **Framework**: Claude Code plugin system (`.claude-plugin/plugin.json`)
+- **Test runner**: None (pure Markdown, manual validation via `/pitchdocs:docs-verify`)
+- **Linter**: markdownlint-cli2 (`.markdownlint-cli2.jsonc`)
+
+## Coding Standards
+
+- Australian English (realise, colour, behaviour, licence/license)
+- Conventional Commits (feat:, fix:, docs:, chore:)
+- Benefit-driven language: `[Feature] so you can [outcome] — [evidence]`
+- 4-question test on every doc: Does this solve my problem? Can I use it? Who made it? Where do I learn more?
+- Progressive disclosure: non-technical first paragraph, technical details deeper
+- Every feature claim must trace to actual code (file path, function, config)
+
+## Important Paths
+
+- `.claude/skills/*/SKILL.md` — 14 reference knowledge modules
+- `.claude/agents/docs-writer.md` — orchestration agent (scan, extract, write, validate)
+- `.claude/rules/doc-standards.md` — quality standards rule (Claude Code only)
+- `commands/*.md` — 12 slash command definitions
+- `hooks/*.sh` — 3 Context Guard hook scripts (Claude Code only, opt-in)
+- `.claude-plugin/plugin.json` — plugin manifest
+- `upstream-versions.json` — pinned upstream spec versions
+
+## Before Committing
+
+- [ ] Linting passes (`npx markdownlint-cli2 "**/*.md"`)
+- [ ] No secrets or credentials in changed files
+- [ ] Sync files updated if skills/commands changed (README.md, AGENTS.md, llms.txt)

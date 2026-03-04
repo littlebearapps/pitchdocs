@@ -88,3 +88,4 @@ This repository includes context files for multiple AI coding tools:
 - `.clinerules` — Cline VS Code extension project context
 - `GEMINI.md` — Gemini CLI project context
 - `llms.txt` — LLM-friendly content index (llmstxt.org spec)
+- `llms-full.txt` — Full concatenated documentation content for LLM ingestion (~58K tokens)

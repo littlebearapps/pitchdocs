@@ -1,0 +1,38 @@
+# PitchDocs — Windsurf Rules
+
+## Project Context
+
+PitchDocs is a Claude Code plugin that generates marketing-quality repository documentation. Built with pure Markdown — no code runtime, no build step.
+
+## Architecture
+
+- Skills (14): `.claude/skills/*/SKILL.md` — reference knowledge loaded on-demand
+- Agent (1): `.claude/agents/docs-writer.md` — orchestration workflow (scan, extract, write, validate)
+- Rules (3): `.claude/rules/*.md` — doc-standards, context-quality, content-filter (Claude Code only)
+- Commands (12): `commands/*.md` — slash command definitions
+- Hooks (3): `hooks/*.sh` — Context Guard hooks (Claude Code only, opt-in)
+
+## Coding Standards
+
+- Australian English (realise, colour, behaviour, licence/license)
+- Conventional Commits (feat:, fix:, docs:, chore:)
+- Benefit-driven language: `[Feature] so you can [outcome] — [evidence]`
+- 4-question test: problem solved? usable? credible? linked?
+- Every feature claim must trace to actual code (file path, function, config)
+
+## Key Files
+
+- `.claude-plugin/plugin.json` — plugin manifest (version, description, keywords)
+- `.claude/rules/doc-standards.md` — quality standards (auto-loaded, Claude Code only)
+- `.claude/agents/docs-writer.md` — orchestration agent workflow
+- `upstream-versions.json` — pinned upstream spec versions, checked monthly
+
+## Commands
+
+No build or test commands — this is a pure Markdown plugin.
+
+## Rules
+
+- When adding skills or commands, update: README.md, AGENTS.md, llms.txt, bug report template
+- Do not bump upstream spec versions without verifying the source
+- GEO-optimise docs: crisp definitions, one topic per H2, comparison tables, concrete statistics
