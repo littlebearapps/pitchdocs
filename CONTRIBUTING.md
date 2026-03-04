@@ -95,6 +95,8 @@ We use [Conventional Commits](https://www.conventionalcommits.org/):
 - `docs: update readme` — Documentation only
 - `chore: update upstream versions` — Maintenance
 
+**Note:** release-please auto-generates CHANGELOG entries from commit messages. Before merging a release PR, review the CHANGELOG entries and rewrite them in user-benefit language (e.g., "You can now..." not "add feature X"). Run `/pitchdocs:changelog` to help with this.
+
 ### Pull Requests
 
 1. Fork the repo and create a branch: `git checkout -b feature/your-feature`

@@ -2,6 +2,8 @@
 title: "How PitchDocs Thinks"
 description: "Design rationale and frameworks behind PitchDocs output — evidence-based features, GEO, 4-question test, Diátaxis, and the Lobby Principle."
 type: explanation
+difficulty: intermediate
+last_verified: "1.12.1"
 related:
   - guides/customising-output.md
   - guides/command-reference.md
