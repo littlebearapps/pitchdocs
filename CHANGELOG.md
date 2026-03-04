@@ -5,6 +5,20 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.0](https://github.com/littlebearapps/pitchdocs/compare/v1.10.0...v1.11.0) (2026-03-04)
+
+
+### Added
+
+* add workflow, troubleshooting, and reference guides ([0a5b82b](https://github.com/littlebearapps/pitchdocs/commit/0a5b82b6aa07d7307cb043bf8f6577ee89cb40db))
+
+
+### Documentation
+
+* fix context-quality rule description in AGENTS.md ([98b3c77](https://github.com/littlebearapps/pitchdocs/commit/98b3c77fa5409d3922021b60e5c10d85385f5336))
+* fix quick start wording and expand documentation links ([a425b54](https://github.com/littlebearapps/pitchdocs/commit/a425b5477d333524a562b6812219234c2a11dfac))
+* fix stale counts and broken anchor links in guides ([11af31a](https://github.com/littlebearapps/pitchdocs/commit/11af31ab6e886b9725ec0ac4dae940df4b571646))
+
 ## [1.10.0](https://github.com/littlebearapps/pitchdocs/compare/v1.9.0...v1.10.0) (2026-03-02)
 
 
