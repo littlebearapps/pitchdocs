@@ -1,4 +1,16 @@
+---
+title: "How PitchDocs Thinks"
+description: "Design rationale and frameworks behind PitchDocs output — evidence-based features, GEO, 4-question test, Diátaxis, and the Lobby Principle."
+type: explanation
+related:
+  - guides/customising-output.md
+  - guides/command-reference.md
+order: 5
+---
+
 # How PitchDocs Thinks
+
+> **TL;DR**: PitchDocs applies 6 documentation frameworks — evidence-based features, feature-to-benefit translation, the 4-question test, progressive disclosure, GEO, and Diátaxis — to generate consistently high-quality output.
 
 PitchDocs applies several documentation frameworks to generate consistently high-quality output. Understanding these frameworks helps you steer the tool and evaluate its suggestions.
 

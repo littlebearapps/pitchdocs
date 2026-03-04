@@ -214,6 +214,91 @@ For brief warnings, tips, and notes within a section, use bold inline callouts r
 
 Reserve GitHub callout syntax (`> [!NOTE]`, `> [!WARNING]`) for GitHub-only documents (issue templates, PR templates) where cross-renderer compatibility is not a concern.
 
+### Screenshots & Device Images
+
+Guidelines for including screenshots and device-specific captures in documentation. These complement the general image rules in the `pitchdocs-suite` skill (format, storage, alt text).
+
+#### Capture Dimensions & Display Sizes
+
+Capture at native resolution (or 2× for retina) but always set an explicit display `width` in HTML so the image renders at a consistent, readable size across screens.
+
+| Device | Capture Size (logical px) | Display HTML | Notes |
+|--------|--------------------------|-------------|-------|
+| Desktop / laptop | 1280×800 | `width="700"` | Standard width; use `width="800"` for full-width hero screenshots |
+| Mobile (iPhone) | 390×844 | `width="280"` | Centre-align; narrow images look odd left-aligned |
+| Tablet (iPad) | 820×1180 | `width="400"` | Portrait orientation default |
+| Terminal / CLI | 80 columns wide | `width="700"` | Use `asciinema`, `vhs`, or `terminalizer` for recordings |
+
+#### HTML Patterns
+
+**Desktop screenshot (standard):**
+```html
+<p align="center">
+  <img src="docs/images/dashboard-desktop.png" width="700" alt="Dashboard showing project metrics and recent activity" />
+</p>
+```
+
+**Mobile screenshot (centred, narrow):**
+```html
+<p align="center">
+  <img src="docs/images/dashboard-mobile.png" width="280" alt="Dashboard mobile view with collapsed navigation" />
+</p>
+```
+
+**Side-by-side desktop + mobile (responsive comparison):**
+```html
+<p align="center">
+  <img src="docs/images/dashboard-desktop.png" width="480" alt="Dashboard desktop view" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/images/dashboard-mobile.png" width="200" alt="Dashboard mobile view" />
+</p>
+```
+
+**Terminal recording (GIF or SVG):**
+```html
+<p align="center">
+  <img src="docs/images/demo-quick-start.gif" width="700" alt="Terminal recording: installing and running first command in 30 seconds" />
+</p>
+```
+
+#### Retina / HiDPI Handling
+
+- **Capture at 2× resolution** (e.g., 2560×1600 for a desktop screenshot) to ensure crisp rendering on retina displays
+- **Always set an explicit `width`** in the HTML — without it, the 2× image displays at double size
+- Do not use `srcset` in GitHub Markdown — it is not supported. The explicit `width` attribute handles scaling.
+
+#### Annotation Conventions
+
+When annotating screenshots with callouts, arrows, or highlights:
+
+- **Colour**: red (#E34234) for callout arrows and highlight boxes — high contrast on most UI backgrounds
+- **Stroke**: 2px for arrows and boxes; 3px for emphasis
+- **Style**: rounded rectangles for area highlights; straight arrows with solid heads for pointing
+- **Text labels**: white text on red background pill, 14px minimum — must be legible at the display `width`
+- **Tool recommendations**: Cleanshot X (macOS), Flameshot (Linux), or ShareX (Windows) all support annotation presets
+
+#### Browser Chrome
+
+- **Exclude** browser chrome (address bar, tabs) for focused UI screenshots — readers care about the app, not the browser
+- **Include** browser chrome when demonstrating URL patterns, browser extensions, or full-page context
+- **Include** browser chrome for marketing hero screenshots where the browser frame adds perceived realism
+
+#### File Naming
+
+Pattern: `{feature}-{device}-{variant}.{ext}`
+
+Examples:
+- `dashboard-desktop.png` — desktop screenshot of the dashboard
+- `dashboard-mobile-dark.png` — mobile screenshot with dark mode
+- `setup-terminal.gif` — terminal recording of setup process
+- `login-tablet-annotated.png` — annotated tablet screenshot of login
+
+#### Optimisation
+
+- Run PNG screenshots through `optipng` or `pngquant` before committing
+- Keep GIFs under 5MB (10MB GitHub limit, but large GIFs load slowly); prefer `vhs` SVG recordings for terminal demos
+- Target under 300KB per image where possible
+
 ## Shields.io Badges
 
 Use these badge categories (in order):

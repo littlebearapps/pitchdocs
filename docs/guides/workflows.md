@@ -1,6 +1,22 @@
+---
+title: "Workflow Cookbook"
+description: "Step-by-step recipes for common PitchDocs workflows: public-ready repos, releases, launches, and maintenance."
+type: how-to
+difficulty: intermediate
+time_to_complete: "varies per workflow"
+last_verified: "1.11.0"
+related:
+  - guides/getting-started.md
+  - guides/command-reference.md
+  - guides/customising-output.md
+order: 2
+---
+
 # Workflow Cookbook
 
-Step-by-step recipes for common PitchDocs workflows. Each recipe lists the commands in order with brief notes — see the [Command Reference](command-reference.md) for full argument details.
+> **Summary**: Step-by-step recipes for common PitchDocs workflows — making repos public-ready, preparing releases, launching on platforms, and keeping docs fresh.
+
+Each recipe lists the commands in order with brief notes — see the [Command Reference](command-reference.md) for full argument details.
 
 ---
 

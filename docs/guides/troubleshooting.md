@@ -1,4 +1,18 @@
+---
+title: "Troubleshooting & FAQ"
+description: "Common PitchDocs issues and solutions — content filter errors, score interpretation, badge issues, and cross-tool limitations."
+type: how-to
+difficulty: intermediate
+last_verified: "1.11.0"
+related:
+  - guides/getting-started.md
+  - guides/other-ai-tools.md
+order: 6
+---
+
 # Troubleshooting & FAQ
+
+> **Summary**: Common issues when using PitchDocs and how to resolve them — content filter errors, quality scores, feature extraction, badges, and cross-tool limitations.
 
 Common issues when using PitchDocs and how to resolve them.
 

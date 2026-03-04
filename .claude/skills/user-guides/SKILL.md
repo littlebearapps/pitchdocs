@@ -1,7 +1,7 @@
 ---
 name: user-guides
 description: Generates task-oriented user guides and how-to documentation for a repository. Creates docs/guides/ with step-by-step instructions for common workflows, integrations, and advanced usage. Links guides into README.md and CONTRIBUTING.md. Use when a project needs user-facing how-to documentation beyond the README quickstart.
-version: "1.0.0"
+version: "2.0.0"
 ---
 
 # User Guide Generator
@@ -42,6 +42,67 @@ Explanation:   docs/explanation/architecture.md, docs/explanation/security-model
 ```
 
 Flag any quadrant with zero documents — this indicates a documentation gap worth addressing.
+
+## Guide Frontmatter
+
+Every documentation file in `docs/` should include YAML frontmatter for metadata, navigation, and cross-referencing. This enables hub page generation, related article linking, and docs-verify validation.
+
+### Required Fields
+
+```yaml
+---
+title: "Getting Started with PitchDocs"
+description: "Install PitchDocs, generate your first README, and explore all 12 commands."
+type: how-to          # tutorial | how-to | reference | explanation
+---
+```
+
+### Optional Fields
+
+```yaml
+---
+difficulty: beginner   # beginner | intermediate | advanced
+time_to_complete: "5 minutes"
+last_verified: "1.11.0"  # Product version this guide was last verified against
+related:
+  - guides/workflows.md
+  - guides/command-reference.md
+order: 1               # Sort position within its type for hub page listings
+---
+```
+
+**Field descriptions:**
+- `title` — matches the H1 heading; used in hub page tables and llms.txt
+- `description` — one-sentence summary; used in hub page and search
+- `type` — Diataxis quadrant classification (determines structural expectations)
+- `difficulty` — reader skill level; displayed in hub page if present
+- `time_to_complete` — estimated reading or completion time
+- `last_verified` — the product version against which this guide was last tested
+- `related` — paths to related documents (relative to `docs/`); used for "What's Next?" sections and cross-referencing
+- `order` — numeric sort position within its type grouping on the hub page
+
+**Rules:**
+- All three required fields (`title`, `description`, `type`) must be present
+- `type` must be exactly one of: `tutorial`, `how-to`, `reference`, `explanation`
+- `related` paths must point to files that exist on disk
+- `last_verified` should be updated when a guide is re-tested against a new version
+
+## Title Conventions
+
+Use consistent title patterns per document type:
+
+| Doc Type | Pattern | Example |
+|----------|---------|---------|
+| Tutorial | "Build Your First [Thing]" | "Build Your First API" |
+| How-to | "[Task] Guide" or "How to [Task]" | "Deployment Guide" |
+| Reference | "[Subject] Reference" | "CLI Reference" |
+| Explanation | "How [Project] [Concept]" or "Why [Decision]" | "How PitchDocs Thinks" |
+
+**Rules:**
+- The H1 heading must match the `title` frontmatter field exactly
+- Keep titles under 60 characters for readability in navigation
+- Use the project name in the title when the guide is project-specific ("Getting Started with PitchDocs"), omit it for generic tasks ("Deployment Guide")
+- Task-oriented titles for how-to guides; concept-oriented titles for explanations
 
 ## Guide Structure
 
@@ -101,9 +162,20 @@ Step-by-step instructions for common tasks:
 
 ### Individual Guide Format
 
-Every guide follows this structure:
+Every guide follows this structure (how-to template shown; tutorial, reference, and explanation templates are in `SKILL-templates.md` — ask Claude to load it if needed):
 
 ```markdown
+---
+title: "[Task Name] Guide"
+description: "One-sentence summary of what the reader will accomplish."
+type: how-to
+difficulty: beginner
+time_to_complete: "10 minutes"
+related:
+  - guides/getting-started.md
+  - reference/cli.md
+---
+
 # [Task Name] Guide
 
 > **Summary**: What you'll accomplish by the end of this guide.
@@ -395,3 +467,8 @@ Each guide must link to related documents in other Diataxis quadrants:
 - **Don't mix guide and reference** — keep them in separate Diataxis quadrants
 - **Don't use placeholder code** — every code block must be copy-paste-ready with realistic values
 - **Don't bury prerequisites in prose** — use a structured prerequisites block (see `doc-standards` GEO section)
+- **Don't skip frontmatter** — every guide needs at minimum `title`, `description`, and `type` fields
+
+## Companion File
+
+Extended templates for the remaining three Diataxis types (tutorial, reference, explanation) are in `SKILL-templates.md`. Ask Claude to load it when generating documents in those quadrants.

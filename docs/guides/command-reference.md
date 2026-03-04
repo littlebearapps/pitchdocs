@@ -1,6 +1,17 @@
+---
+title: "Command Reference"
+description: "All 12 PitchDocs commands with arguments, generated files, and examples."
+type: reference
+last_verified: "1.11.0"
+related:
+  - guides/getting-started.md
+  - guides/workflows.md
+order: 3
+---
+
 # Command Reference
 
-All 12 PitchDocs commands with arguments, generated files, and examples.
+> **Summary**: All 12 PitchDocs commands with arguments, generated files, and examples.
 
 ---
 
