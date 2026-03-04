@@ -172,6 +172,7 @@ Guidance on storing and referencing visual elements (screenshots, demo GIFs, dia
 - **File size**: optimise to <300KB where possible (use tools like `optipng`, `gifsicle`)
 - **Naming**: kebab-case, descriptive (`demo-quick-start.gif`, `architecture-overview.svg`)
 - **Folder convention**: use `docs/images/` or `assets/` consistently within a project
+- **Device screenshots, captions, and shadows**: see the `doc-standards` rule (auto-loaded) for device-specific capture dimensions, HTML display patterns, caption formats, and shadow/border guidance
 
 ## Audit Workflow
 
