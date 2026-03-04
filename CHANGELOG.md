@@ -5,6 +5,13 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.12.1](https://github.com/littlebearapps/pitchdocs/compare/v1.12.0...v1.12.1) (2026-03-04)
+
+
+### Documentation
+
+* use pitchdocs: namespace prefix for all user-facing slash commands ([#18](https://github.com/littlebearapps/pitchdocs/issues/18)) ([2a44f73](https://github.com/littlebearapps/pitchdocs/commit/2a44f731207f74b9a8e047b9c3c01c000e090687))
+
 ## [1.12.0](https://github.com/littlebearapps/pitchdocs/compare/v1.11.0...v1.12.0) (2026-03-04)
 
 
