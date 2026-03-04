@@ -13,7 +13,7 @@ The source of truth lives in `.claude/`. Here's what each piece does:
 | `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language | **Claude Code only** |
 | `.claude/rules/context-quality.md` | 1 rule file | AI context file quality standards: cross-file consistency, path verification, sync points | **Claude Code only** |
 | `commands/*.md` | 12 command files | Slash command definitions for all PitchDocs commands | Yes — Claude Code, OpenCode |
-| `hooks/*.sh` | 2 hook scripts | Post-commit drift detection and structural change reminders for AI context files | **Claude Code only** |
+| `hooks/*.sh` | 3 hook scripts | Post-commit drift detection, structural change reminders, and content filter write guard for AI context files | **Claude Code only** |
 
 ## Tool Compatibility Summary
 
@@ -36,7 +36,7 @@ Not all PitchDocs features work in every tool. Here's what's portable and what's
 
 [OpenCode](https://opencode.ai/) reads `.claude/skills/` natively — PitchDocs works out of the box with no extra setup.
 
-**Install** the same way as Claude Code (clone or add as a plugin), then invoke skills by name in your OpenCode session. The 13 SKILL.md files, the docs-writer agent, and the doc-standards rule are all picked up automatically.
+**Install** the same way as Claude Code (clone or add as a plugin), then invoke skills by name in your OpenCode session. The 14 SKILL.md files, the docs-writer agent, and the doc-standards rule are all picked up automatically.
 
 OpenCode also supports MCP servers, so if you have the GitHub MCP server configured, the docs-writer agent can access repository metadata, issues, and releases just as it does in Claude Code.
 
@@ -52,7 +52,7 @@ OpenCode also supports MCP servers, so if you have the GitHub MCP server configu
 # From your project root (not the PitchDocs repo)
 PITCHDOCS="/path/to/pitchdocs"
 
-# Copy all 13 skills
+# Copy all 14 skills
 cp -r "$PITCHDOCS/.claude/skills/"* .agents/skills/
 
 # Copy the quality standards as AGENTS.md (Codex reads this automatically)

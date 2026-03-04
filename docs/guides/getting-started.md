@@ -145,7 +145,7 @@ Check status anytime with `/context-guard status`. Uninstall with `/context-guar
 - **Check your quality score** — Run `/docs-verify score` to get a numeric rating and actionable suggestions for improvement
 - **Set up CI verification** — The `/docs-verify` command outputs CI-friendly results for GitHub Actions
 - **Launch your project** — Run `/launch` to generate Dev.to articles, Hacker News posts, and awesome list submissions
-- **Explore skills** — Each command loads specialised reference knowledge. See the [Skills section](../../README.md#-skills) for the full inventory.
+- **Explore skills** — Each command loads specialised reference knowledge. See the [Available Skills](../../AGENTS.md#available-skills) table for the full inventory.
 
 ---
 

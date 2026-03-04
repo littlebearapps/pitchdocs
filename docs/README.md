@@ -41,4 +41,4 @@ Step-by-step instructions for common tasks:
 
 ## Skills Reference
 
-PitchDocs includes 14 reference skills loaded on-demand. See the [Skills section](../README.md#-skills) in the README for the full inventory.
+PitchDocs includes 14 reference skills loaded on-demand. See the [Available Skills](../AGENTS.md#available-skills) table in AGENTS.md for the full inventory.
