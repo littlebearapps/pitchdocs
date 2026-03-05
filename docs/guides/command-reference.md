@@ -1,6 +1,6 @@
 ---
 title: "Command Reference"
-description: "All 12 PitchDocs commands with arguments, generated files, and examples."
+description: "All 13 PitchDocs commands with arguments, generated files, and examples."
 type: reference
 last_verified: "1.11.0"
 related:
@@ -11,9 +11,37 @@ order: 3
 
 # Command Reference
 
-> **Summary**: All 12 PitchDocs commands with arguments, generated files, and examples.
+> **Summary**: All 13 PitchDocs commands with arguments, generated files, and examples.
 
 **Note:** When installed as a plugin, all commands use the `pitchdocs:` prefix (e.g., `/pitchdocs:readme`). The short form `/readme` only works inside the pitchdocs source directory.
+
+### Using commands in other AI tools
+
+Slash commands are a Claude Code / OpenCode feature. If you're using Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, or Goose, invoke commands as natural-language prompts that reference the underlying skill:
+
+```
+Using the public-readme skill from PitchDocs, generate a README for this project
+```
+
+Each command maps to a skill file in `.claude/skills/`. The mapping:
+
+| Command | Skill file |
+|---------|-----------|
+| `/pitchdocs:readme` | `.claude/skills/public-readme/SKILL.md` |
+| `/pitchdocs:features` | `.claude/skills/feature-benefits/SKILL.md` |
+| `/pitchdocs:docs-audit` | `.claude/skills/pitchdocs-suite/SKILL.md` |
+| `/pitchdocs:docs-verify` | `.claude/skills/docs-verify/SKILL.md` |
+| `/pitchdocs:changelog` | `.claude/skills/changelog/SKILL.md` |
+| `/pitchdocs:roadmap` | `.claude/skills/roadmap/SKILL.md` |
+| `/pitchdocs:user-guide` | `.claude/skills/user-guides/SKILL.md` |
+| `/pitchdocs:llms-txt` | `.claude/skills/llms-txt/SKILL.md` |
+| `/pitchdocs:ai-context` | `.claude/skills/ai-context/SKILL.md` |
+| `/pitchdocs:doc-refresh` | `.claude/skills/doc-refresh/SKILL.md` |
+| `/pitchdocs:launch` | `.claude/skills/launch-artifacts/SKILL.md` |
+| `/pitchdocs:platform` | `.claude/skills/platform-profiles/SKILL.md` |
+| `/pitchdocs:context-guard` | `.claude/skills/context-guard/SKILL.md` (Claude Code only) |
+
+See the [Other AI Tools guide](other-ai-tools.md) for full per-tool setup instructions.
 
 ---
 
@@ -247,6 +275,27 @@ Generate platform-specific launch and promotion artifacts.
 ```
 
 All artifacts are written to `docs/launch/` for human review — they are starting points, not copy-paste-ready.
+
+---
+
+## `/pitchdocs:platform`
+
+Detect hosting platform and report PitchDocs feature support.
+
+| Detail | Value |
+|--------|-------|
+| Arguments | `[github\|gitlab\|bitbucket]` or auto-detect |
+| Generates | Report to chat (read-only, no files modified) |
+| Cross-tool | Yes |
+
+**Examples:**
+```
+/pitchdocs:platform                # Auto-detect from git remote and CI config
+/pitchdocs:platform gitlab         # Force GitLab platform profile
+/pitchdocs:platform bitbucket      # Force Bitbucket platform profile
+```
+
+Reports template paths, badge URL patterns, CI/CD equivalents, and rendering limitations for the detected platform.
 
 ---
 

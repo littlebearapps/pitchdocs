@@ -16,17 +16,43 @@ order: 7
 
 PitchDocs is built as a Claude Code plugin, but the documentation knowledge it contains — skills, agent workflows, quality standards — is stored as plain Markdown files with YAML frontmatter. That makes it portable to other AI coding tools with minimal effort.
 
+## Universal Pattern
+
+Regardless of which AI tool you use, the workflow is the same:
+
+1. **Clone the PitchDocs repo** (or download just the `.claude/` directory):
+
+   ```bash
+   git clone https://github.com/littlebearapps/pitchdocs.git /path/to/pitchdocs
+   ```
+
+2. **Point your AI tool at a skill file** when you need it:
+
+   ```
+   Read /path/to/pitchdocs/.claude/skills/public-readme/SKILL.md and use it to generate a README for this project
+   ```
+
+3. **Copy the quality standards** into your tool's context file (`.cursorrules`, `.windsurfrules`, `.clinerules`, `GEMINI.md`, `.goosehints`, etc.):
+
+   ```bash
+   cp /path/to/pitchdocs/.claude/rules/doc-standards.md <your-tool-context-file>
+   ```
+
+Every skill file is self-contained Markdown with YAML frontmatter. Your AI tool reads the file, follows the instructions, and produces documentation. The per-tool sections below show the optimal setup for each tool.
+
+---
+
 ## What's Inside
 
 The source of truth lives in `.claude/`. Here's what each piece does:
 
 | Directory | Contents | Purpose | Cross-Tool? |
 |-----------|----------|---------|-------------|
-| `.claude/skills/*/SKILL.md` | 14 skill files | Reference knowledge for all doc types plus context guard installation | Yes — Claude Code, OpenCode, Codex CLI |
+| `.claude/skills/*/SKILL.md` | 15 skill files | Reference knowledge for all doc types plus context guard installation | Yes — Claude Code, OpenCode, Codex CLI |
 | `.claude/agents/docs-writer.md` | 1 agent file | Orchestration workflow: codebase scanning → feature extraction → doc writing → validation | Partial — Claude Code, OpenCode (may vary) |
-| `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language | **Claude Code only** |
-| `.claude/rules/context-quality.md` | 1 rule file | AI context file quality standards: cross-file consistency, path verification, sync points | **Claude Code only** |
-| `commands/*.md` | 12 command files | Slash command definitions for all PitchDocs commands | Yes — Claude Code, OpenCode |
+| `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language | Auto-loaded in Claude Code; copy manually for other tools |
+| `.claude/rules/context-quality.md` | 1 rule file | AI context file quality standards: cross-file consistency, path verification, sync points | Auto-loaded in Claude Code; copy manually for other tools |
+| `commands/*.md` | 13 command files | Slash command definitions for all PitchDocs commands | Yes — Claude Code, OpenCode |
 | `hooks/*.sh` | 3 hook scripts | Post-commit drift detection, structural change reminders, and content filter write guard for AI context files | **Claude Code only** |
 
 ## Tool Compatibility Summary
@@ -35,11 +61,11 @@ Not all PitchDocs features work in every tool. Here's what's portable and what's
 
 | Feature | Claude Code | OpenCode | Codex CLI | Cursor / Windsurf / Cline / Gemini CLI |
 |---------|------------|----------|-----------|----------------------------------------|
-| Skills (14 SKILL.md files) | Native | Native (`.claude/skills/` fallback) | Copy to `.agents/skills/` | Reference on demand |
-| Slash commands (12) | Native | Native (`.claude/commands/` fallback) | Copy to prompts | Not supported |
+| Skills (15 SKILL.md files) | Native | Native (`.claude/skills/` fallback) | Copy to `.agents/skills/` | Reference on demand |
+| Slash commands (13) | Native | Native (`.claude/commands/` fallback) | Copy to prompts | Not supported |
 | Docs-writer agent | Native | Likely supported | Reference manually | Cursor: `.cursor/agents/` |
-| Doc-standards rule | Auto-loaded | Not supported | Not supported | Cursor: `.cursor/rules/` |
-| Context-quality rule | Auto-loaded | Not supported | Not supported | Not supported |
+| Doc-standards rule | Auto-loaded | Copy to context | Copy to context | Cursor: `.cursor/rules/`; others: copy to context file |
+| Context-quality rule | Auto-loaded | Copy to context | Copy to context | Copy to tool-specific context file |
 | Context Guard hooks | Native (opt-in) | Not supported | Not supported | Not supported |
 | AGENTS.md | Loaded | Primary context file | Primary context file | Not used |
 | CLAUDE.md | Loaded | Fallback (if no AGENTS.md) | Not used | Not used |
@@ -50,7 +76,7 @@ Not all PitchDocs features work in every tool. Here's what's portable and what's
 
 [OpenCode](https://opencode.ai/) reads `.claude/skills/` natively — PitchDocs works out of the box with no extra setup.
 
-**Install** the same way as Claude Code (clone or add as a plugin), then invoke skills by name in your OpenCode session. The 14 SKILL.md files, the docs-writer agent, and the doc-standards rule are all picked up automatically.
+**Install** the same way as Claude Code (clone or add as a plugin), then invoke skills by name in your OpenCode session. The 15 SKILL.md files, the docs-writer agent, and the doc-standards rule are all picked up automatically.
 
 OpenCode also supports MCP servers, so if you have the GitHub MCP server configured, the docs-writer agent can access repository metadata, issues, and releases just as it does in Claude Code.
 
@@ -66,7 +92,7 @@ OpenCode also supports MCP servers, so if you have the GitHub MCP server configu
 # From your project root (not the PitchDocs repo)
 PITCHDOCS="/path/to/pitchdocs"
 
-# Copy all 14 skills
+# Copy all 15 skills
 cp -r "$PITCHDOCS/.claude/skills/"* .agents/skills/
 
 # Copy the quality standards as AGENTS.md (Codex reads this automatically)
@@ -258,3 +284,15 @@ cat /path/to/pitchdocs/.claude/rules/doc-standards.md >> .goosehints
 ```
 
 For specific documentation tasks, reference skill files in your Goose session. If you have the GitHub MCP server configured, Goose can access repository metadata just as Claude Code does.
+
+---
+
+## Discovering Available Skills
+
+PitchDocs includes an `llms.txt` file at the repository root — an AI-readable index of all skills, commands, and documentation files. If your AI tool supports `llms.txt` (or can read files from disk), point it at this file to discover everything PitchDocs offers:
+
+```
+Read /path/to/pitchdocs/llms.txt to see all available PitchDocs skills and documentation
+```
+
+This is especially useful when you're not sure which skill to use — `llms.txt` maps each file to a short description so your AI tool can pick the right one.

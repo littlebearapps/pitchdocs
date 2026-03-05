@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  Give your AI the knowledge to map out any codebase, extract a features-and-benefits summary, then create, enhance, and maintain professional public-facing repository docs — works with GitHub, GitLab, and Bitbucket. SEO and GEO ready with llms.txt (including external documentation sites), and npm/PyPI registry compatible.
+  Give your AI the knowledge to map out any codebase, extract a features-and-benefits summary, then create, enhance, and maintain professional public-facing repository docs — works with GitHub, GitLab, and Bitbucket. 100% Markdown, zero runtime dependencies — use with Claude Code, OpenCode, Codex CLI, Cursor, Gemini CLI, and more. SEO and GEO ready with llms.txt (including external documentation sites), and npm/PyPI registry compatible.
 </p>
 
 <p align="center">
@@ -33,6 +33,8 @@ Get your first generated README in under 60 seconds.
 ### Prerequisites
 
 - [Claude Code](https://code.claude.com/) or [OpenCode](https://opencode.ai/) installed
+
+**Using a different AI tool?** PitchDocs skills are plain Markdown files — they work with [Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, and Goose](docs/guides/other-ai-tools.md) too.
 
 ### Claude Code / OpenCode
 
@@ -60,7 +62,7 @@ Keeps your AI context files (AGENTS.md, CLAUDE.md, etc.) in sync as your project
 
 OpenCode reads `.claude/skills/` natively — the same install steps (1–3) work in both tools.
 
-**Using Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, or Goose?** See [Use with Other AI Tools](#-use-with-other-ai-tools) for setup instructions.
+For other AI tools, see the [setup guide](docs/guides/other-ai-tools.md).
 
 ---
 
@@ -117,6 +119,7 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 | `/pitchdocs:docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs | Catch documentation decay before it reaches users |
 | `/pitchdocs:launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions | Transform docs into platform-specific launch content |
 | `/pitchdocs:doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context, llms.txt | Never ship a release with stale documentation |
+| `/pitchdocs:platform` | Detect hosting platform (GitHub, GitLab, Bitbucket) and report feature support | Know which PitchDocs features work on your platform before you start |
 | `/pitchdocs:context-guard` | Install, uninstall, or check status of Context Guard hooks for AI context file freshness and content filter protection | Catch stale context files and prevent content filter errors automatically |
 
 **Note:** `/pitchdocs:context-guard` is **Claude Code only**. All other commands work across all supported AI tools.
