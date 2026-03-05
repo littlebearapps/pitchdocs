@@ -6,3 +6,6 @@
 .idea/
 .vscode/
 incoming/
+.claude/hooks/
+.claude/settings.json
+docs/promotion/

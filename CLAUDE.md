@@ -46,3 +46,7 @@ hooks/*.sh                      → 3 opt-in hook scripts (Claude Code only)
 3. **Changing quality standards**: Edit `.claude/rules/doc-standards.md` — this propagates to all generated docs automatically
 4. **Updating upstream specs**: Edit `upstream-versions.json` and the corresponding skill content
 5. **Bumping version**: Handled automatically by release-please from conventional commit messages
+
+## Promotion
+
+Listing and promotion drafts, status tracking, and submission content live in `docs/promotion/`. This includes awesome list PR content, Reddit post drafts, directory submission templates, and a `STATUS.md` tracking all listings and their current state. Refer to these files when preparing new submissions or checking on existing ones.
