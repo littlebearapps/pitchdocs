@@ -21,7 +21,7 @@ Every feature mentioned must translate into a user benefit using this pattern:
 
 ## Available Skills
 
-Skills are loaded on-demand to provide deep reference knowledge. Each lives at `.claude/skills/<name>/SKILL.md` (or `.agents/skills/<name>/SKILL.md` if you've copied them for Codex CLI). There are 14 skills in total.
+Skills are loaded on-demand to provide deep reference knowledge. Each lives at `.claude/skills/<name>/SKILL.md` (or `.agents/skills/<name>/SKILL.md` if you've copied them for Codex CLI). There are 15 skills in total.
 
 | Skill | What It Provides |
 |-------|-----------------|
@@ -39,6 +39,7 @@ Skills are loaded on-demand to provide deep reference knowledge. Each lives at `
 | `api-reference` | API reference generator guidance — TypeDoc, Sphinx, godoc, rustdoc configuration templates and comment conventions |
 | `doc-refresh` | Version-bump documentation orchestration — analyses git history, identifies affected docs, and delegates to existing skills for selective refresh |
 | `context-guard` | Context Guard installation reference — hook architecture, settings.json configuration, customisation, and troubleshooting *(Claude Code only)* |
+| `platform-profiles` | Platform-specific equivalents for GitLab and Bitbucket — template directory mapping, badge URL patterns, Markdown rendering compatibility matrix, CLI tool mapping, CI/CD alternatives, and Bitbucket graceful degradation guidance |
 
 ## Docs-Writer Agent
 
@@ -67,6 +68,7 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 | `docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs |
 | `launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
 | `doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context, llms.txt |
+| `platform` | Detect hosting platform (GitHub/GitLab/Bitbucket) and report feature support |
 | `context-guard` | Install, uninstall, or check status of Context Guard hooks for AI context file freshness and content filter protection *(Claude Code only)* |
 
 ## Rules and Hooks (Claude Code Only)

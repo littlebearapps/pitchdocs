@@ -18,13 +18,14 @@ Scan a codebase, extract its features with evidence, and translate them into ben
 
 1. Load the `feature-benefits` skill for the extraction workflow and translation framework
 2. Load the `doc-standards` rule for tone and language guidance
-3. Run the 5-step Feature Extraction Workflow:
+3. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather equivalent data via `glab` CLI, REST API, or git history
+4. Run the 5-step Feature Extraction Workflow:
    - Detect project type from manifest files
    - Scan all 10 signal categories with concrete file patterns
    - Extract features with file/function evidence
    - Classify into Hero / Core / Supporting tiers
    - Output structured feature inventory
-4. Translate each feature into a benefit using the 5 benefit categories (with optional JTBD job mapping for richer benefits)
+5. Translate each feature into a benefit using the 5 benefit categories (with optional JTBD job mapping for richer benefits)
 
 ## Arguments
 

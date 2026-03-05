@@ -219,7 +219,7 @@ Template for submitting the project to relevant awesome lists.
 **Step 1: Find relevant awesome lists**
 
 ```bash
-# Search GitHub for awesome lists in your category
+# Search GitHub for awesome lists in your category (GitHub CLI — for GitLab/Bitbucket, search manually)
 gh search repos "awesome-[category]" --sort stars --limit 10
 ```
 
@@ -255,7 +255,7 @@ Every awesome list has its own rules. Before submitting:
 
 ### GitHub Discussions Announcement
 
-For projects using GitHub Discussions, template for a release announcement.
+For projects using GitHub Discussions (GitHub-only feature — GitLab and Bitbucket do not have an equivalent), template for a release announcement.
 
 ```markdown
 Title: [Project Name] v[X.Y.Z] released — [headline feature]

@@ -30,6 +30,9 @@
     "docs-ci",
     "hooks",
     "context-guard",
-    "context-freshness"
+    "context-freshness",
+    "gitlab",
+    "bitbucket",
+    "multi-platform"
   ]
 }

@@ -11,6 +11,8 @@ upstream: "contributor-covenant@3.0"
 
 A well-documented public repository should have these files:
 
+**Platform note:** The file paths below use GitHub conventions. For GitLab or Bitbucket repositories, load the `platform-profiles` skill for equivalent paths (e.g. `.gitlab/issue_templates/` instead of `.github/ISSUE_TEMPLATE/`).
+
 ### Tier 1: Essential (Every Public Repo)
 
 | File | Purpose | Generator |
@@ -37,7 +39,7 @@ A well-documented public repository should have these files:
 | `CODE_OF_CONDUCT.md` | Community behaviour standards | This skill |
 | `SECURITY.md` | Vulnerability reporting process | This skill |
 | `.github/ISSUE_TEMPLATE/config.yml` | Issue template chooser config | This skill |
-| `.github/FUNDING.yml` | Sponsorship links | This skill |
+| `.github/FUNDING.yml` | Sponsorship links (GitHub only) | This skill |
 | `docs/README.md` | Documentation hub page | `user-guides` skill |
 | `docs/guides/getting-started.md` | Expanded quickstart for new users | `user-guides` skill |
 
@@ -52,13 +54,13 @@ A well-documented public repository should have these files:
 | `docs/guides/configuration.md` | All config options explained | `user-guides` skill |
 | `docs/guides/deployment.md` | Production deployment guide | `user-guides` skill |
 | `docs/guides/troubleshooting.md` | Common issues and solutions | `user-guides` skill |
-| `.github/DISCUSSION_TEMPLATE/` | Structured discussion categories | This skill |
+| `.github/DISCUSSION_TEMPLATE/` | Structured discussion categories (GitHub only) | This skill |
 | `.github/CODEOWNERS` | Automatic review assignment | Manual |
 | `CITATION.cff` | Machine-readable citation for academic/research repos (GitHub shows "Cite this repository" button) | This skill |
 
-### Repository Metadata (GitHub Settings)
+### Repository Metadata (Hosting Platform Settings)
 
-Beyond files, a well-configured repo also needs correct GitHub-level metadata for discoverability:
+Beyond files, a well-configured repo also needs correct platform-level metadata for discoverability. The commands below use `gh` CLI (GitHub). For GitLab, use `glab`. For Bitbucket, use the REST API. Load the `platform-profiles` skill for full CLI mapping.
 
 | Setting | Purpose | Limit |
 |---------|---------|-------|

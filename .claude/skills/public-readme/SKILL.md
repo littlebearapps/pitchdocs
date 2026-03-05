@@ -77,7 +77,8 @@ If the project has a logo, place it as the first element inside the centred cont
   </picture>
   ```
 - **Wordmark logos**: If the logo contains the project name (a wordmark), omit the `# Project Name` heading to avoid duplication.
-- **Storage**: `docs/assets/` or `.github/assets/` in the repo. For npm/PyPI-published packages, use absolute URLs (`https://raw.githubusercontent.com/org/repo/main/docs/assets/logo.svg`) — relative paths break on registry pages.
+- **Storage**: `docs/assets/` or `.github/assets/` in the repo. For npm/PyPI-published packages, use absolute URLs — relative paths break on registry pages. URL pattern by platform: GitHub `https://raw.githubusercontent.com/org/repo/main/path`, GitLab `https://gitlab.com/org/repo/-/raw/main/path`, Bitbucket `https://bitbucket.org/org/repo/raw/main/path`. Load the `platform-profiles` skill for the full mapping.
+- **Bitbucket limitations**: `<picture>` tags are not supported — use a single high-contrast image. Load `platform-profiles` for the full rendering compatibility matrix.
 - **Alt text**: Always include descriptive alt text (the project name at minimum).
 
 **Full hero template:**

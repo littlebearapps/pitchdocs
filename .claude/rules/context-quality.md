@@ -53,7 +53,7 @@ When these project changes occur, update the corresponding context files:
 
 ## Tool Compatibility
 
-Not all context files work in all tools:
+Not all context files work in all tools. Note that `.github/copilot-instructions.md` is GitHub-specific — for GitLab and Bitbucket projects, generate only the tool-agnostic context files (AGENTS.md, CLAUDE.md, .cursorrules, .windsurfrules, .clinerules, GEMINI.md).
 
 | File | Works In | Does NOT Work In |
 |------|----------|-----------------|

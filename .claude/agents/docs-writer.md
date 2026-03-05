@@ -41,6 +41,21 @@ Load and follow the `doc-standards` rule for tone, language, badges, and the 4-q
 
 ## Workflow
 
+### Step 0.5: Platform Detection
+
+Detect the hosting platform before any other work:
+
+```bash
+# Detect from CI config and git remote
+[ -f ".gitlab-ci.yml" ] && PLATFORM="gitlab"
+[ -f "bitbucket-pipelines.yml" ] && PLATFORM="bitbucket"
+[ -d ".github" ] && PLATFORM="github"
+PLATFORM=${PLATFORM:-$(git remote get-url origin 2>/dev/null | grep -oE '(github|gitlab|bitbucket)' | head -1)}
+echo "Platform: ${PLATFORM:-unknown}"
+```
+
+If the platform is **not GitHub**, load the `platform-profiles` skill for template paths, badge URLs, CLI tools, and Markdown rendering differences. The `mcp__github__*` tools in this agent's tool list are GitHub-specific — for GitLab, use `glab` CLI; for Bitbucket, use REST API via `curl`. Adapt all generated file paths, badges, and CI references to match the detected platform.
+
 ### Step 1: Codebase Discovery
 
 Before writing anything, deeply understand the project:
@@ -85,17 +100,24 @@ Detection signals:
 
 ### Step 1.5: Check Repository Metadata
 
-Read the repo's GitHub-level metadata to identify discoverability gaps:
+Read the repo's platform-level metadata to identify discoverability gaps. Use the CLI tool matching the detected platform:
 
 ```bash
+# GitHub
 gh repo view --json topics,homepageUrl,description
+
+# GitLab (if glab is available)
+glab repo view
+
+# Bitbucket (REST API)
+curl -s "https://api.bitbucket.org/2.0/repositories/ORG/REPO" | head -50
 ```
 
 - **Topics**: If fewer than 5, suggest relevant topics based on the project type, language, framework, and ecosystem discovered in Step 1. Use the topic suggestion framework from the `pitchdocs-suite` skill.
 - **Description**: If empty or generic, derive a concise description from the README one-liner or the hero features extracted in Step 2.
 - **Website URL**: If empty, suggest the project's docs site, homepage, or package registry page.
 
-Flag any gaps in the audit output. When generating docs in `fix` mode, offer to apply metadata via `gh repo edit`.
+Flag any gaps in the audit output. When generating docs in `fix` mode, offer to apply metadata via the platform's CLI or API.
 
 ### Step 1.6: Check Package Registry Configuration
 
@@ -219,7 +241,7 @@ Before finalising any document, check:
 - [ ] First paragraph is understandable by a non-developer
 - [ ] Quick start achieves Time to Hello World target for the detected project type
 - [ ] All links are valid
-- [ ] Badges use correct URLs
+- [ ] Badges use correct URLs for the detected platform (not hard-coded to GitHub)
 - [ ] Consistent spelling (matches project's language conventions)
 - [ ] No placeholder text left behind
 - [ ] Every section answers at least one of the 4 questions

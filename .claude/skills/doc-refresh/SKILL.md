@@ -140,12 +140,14 @@ Load the `docs-verify` skill. Run full verification: broken links, stale content
 
 If `release-notes` argument was provided or running in `full` mode, generate a GitHub release body from the CHANGELOG entry for this version. Format with benefit-driven language and include migration notes for breaking changes.
 
-## Release-Please Integration
+## Release Automation Integration
 
-| Responsibility | release-please | `/doc-refresh` |
-|---------------|---------------|----------------|
+The table below shows the split of responsibilities between your release automation tool and `/doc-refresh`. release-please (GitHub Actions) is the default; for GitLab use `semantic-release` with GitLab CI or `release-it`; for Bitbucket use `semantic-release` with Bitbucket Pipelines. Load the `platform-profiles` skill for CI/CD equivalents.
+
+| Responsibility | Release automation tool | `/doc-refresh` |
+|---------------|------------------------|----------------|
 | Version strings in manifests | Yes | No |
-| Version badge in README | Yes (`x-release-please-version`) | No |
+| Version badge in README | Yes (e.g. `x-release-please-version`) | No |
 | CHANGELOG scaffolding | Yes (from commit messages) | Enhance with benefit language |
 | README prose, features, metrics | No | Yes |
 | User guides | No | Yes |
@@ -153,11 +155,11 @@ If `release-notes` argument was provided or running in `full` mode, generate a G
 | llms.txt | No | Yes |
 | Release notes body | Basic (from commits) | Enhanced with benefit language |
 
-**Timing:** Run `/doc-refresh` before merging the release-please PR:
-1. release-please creates a PR with version bumps and CHANGELOG skeleton
+**Timing:** Run `/doc-refresh` before merging the release PR:
+1. Your release tool creates a PR with version bumps and CHANGELOG skeleton
 2. Run `/doc-refresh` to enhance CHANGELOG, update README, guides, context files
-3. Commit the refreshed docs to the release-please branch
-4. Merge the PR — release-please creates the GitHub Release
+3. Commit the refreshed docs to the release branch
+4. Merge the PR — the release tool creates the platform release
 
 ## Anti-Patterns
 

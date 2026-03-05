@@ -3,11 +3,11 @@
 </p>
 
 <p align="center">
-  <strong>Turn any codebase into professional, marketing-ready GitHub documentation — powered by AI coding assistants.</strong>
+  <strong>Turn any codebase into professional, marketing-ready repository documentation — powered by AI coding assistants.</strong>
 </p>
 
 <p align="center">
-  Give your AI the knowledge to map out any codebase, extract a features-and-benefits summary, then create, enhance, and maintain professional public-facing GitHub repository docs — SEO and GEO ready with llms.txt (including external documentation sites), and npm/PyPI registry compatible.
+  Give your AI the knowledge to map out any codebase, extract a features-and-benefits summary, then create, enhance, and maintain professional public-facing repository docs — works with GitHub, GitLab, and Bitbucket. SEO and GEO ready with llms.txt (including external documentation sites), and npm/PyPI registry compatible.
 </p>
 
 <p align="center">
@@ -84,6 +84,7 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 - 📊 **Quality scoring (0–100)** — grades docs on completeness, structure, freshness, and link health — export to CI with `--min-score`
 - 🔒 **Context Guard** — post-commit hooks detect when AI context files drift out of sync with your code and nudge you to update them *(Claude Code only)*
 - 🛡️ **Content filter protection** — automatically handles Claude Code's API filter for CODE_OF_CONDUCT, LICENSE, and SECURITY so you never hit HTTP 400 errors *(Claude Code only)*
+- 🌐 **GitHub, GitLab, and Bitbucket** — auto-detects hosting platform and adapts badges, URLs, CI config, and Markdown rendering for each
 - 🔌 **Works with 9 AI tools** — Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose
 
 ---

@@ -1,6 +1,6 @@
 # PitchDocs
 
-Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 14 skills, 1 orchestration agent, 3 quality rules, 12 slash commands, and 3 opt-in hooks.
+Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 15 skills, 1 orchestration agent, 3 quality rules, 13 slash commands, and 3 opt-in hooks.
 
 ## Project Architecture
 
@@ -8,12 +8,12 @@ This is a **100% Markdown-based plugin** — no JavaScript, no Python, no build 
 
 ```
 .claude-plugin/plugin.json      → Plugin manifest (name, version, keywords)
-.claude/skills/*/SKILL.md       → 14 reference knowledge modules (loaded on-demand)
+.claude/skills/*/SKILL.md       → 15 reference knowledge modules (loaded on-demand)
 .claude/agents/docs-writer.md   → Orchestration agent (codebase scan → feature extract → write → validate)
 .claude/rules/doc-standards.md  → Quality standards (auto-loaded every session)
 .claude/rules/context-quality.md → AI context file quality standards (auto-loaded; Claude Code only)
 .claude/rules/content-filter.md → Content filter quick reference (auto-loaded; Claude Code only)
-commands/*.md                   → 12 slash command definitions
+commands/*.md                   → 13 slash command definitions
 hooks/*.sh                      → 3 opt-in hook scripts (Claude Code only)
 ```
 
@@ -45,7 +45,8 @@ hooks/*.sh                      → 3 opt-in hook scripts (Claude Code only)
 2. **Adding a command**: Create `commands/<name>.md` with YAML frontmatter, update commands tables in `README.md`, `AGENTS.md`, and `llms.txt`
 3. **Changing quality standards**: Edit `.claude/rules/doc-standards.md` — this propagates to all generated docs automatically
 4. **Updating upstream specs**: Edit `upstream-versions.json` and the corresponding skill content
-5. **Bumping version**: Handled automatically by release-please from conventional commit messages
+5. **Adding platform support**: Update the `platform-profiles` skill for new platform equivalents. Existing skills reference it via cross-link.
+6. **Bumping version**: Handled automatically by release-please from conventional commit messages
 
 ## Promotion
 

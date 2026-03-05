@@ -19,9 +19,10 @@ Transform your README and CHANGELOG into platform-specific posts for launching o
 
 1. Load the `launch-artifacts` skill for platform templates
 2. Load the `feature-benefits` skill for feature extraction (if not already done)
-3. Read README.md and CHANGELOG.md for source content
-4. Generate the requested artifact(s) from the source content
-5. Write artifacts to `docs/launch/` directory (not committed by default — review before posting)
+3. If GitHub MCP tools are unavailable (GitLab/Bitbucket), search for awesome lists manually or via web search
+4. Read README.md and CHANGELOG.md for source content
+5. Generate the requested artifact(s) from the source content
+6. Write artifacts to `docs/launch/` directory (not committed by default — review before posting)
 
 ## Arguments
 

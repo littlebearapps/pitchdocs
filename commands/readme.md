@@ -20,12 +20,13 @@ Generate or update a README.md that sells as well as it informs.
 
 ## Behaviour
 
-1. Run the `docs-writer` agent
-2. Load the `public-readme` skill for structure and marketing framework
-3. Load the `feature-benefits` skill for systematic feature extraction
-4. Load the `doc-standards` rule for tone, language, and badge standards
-5. Scan the codebase using the 5-step Feature Extraction Workflow — extract features with evidence, classify by tier, translate to benefits
-6. Generate README.md with the full marketing framework:
+1. Run the `docs-writer` agent (which auto-detects the hosting platform)
+2. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather equivalent data via `glab` CLI, REST API, or git history. Load the `platform-profiles` skill for platform-specific badge URLs, file paths, and rendering guidance.
+3. Load the `public-readme` skill for structure and marketing framework
+4. Load the `feature-benefits` skill for systematic feature extraction
+5. Load the `doc-standards` rule for tone, language, and badge standards
+6. Scan the codebase using the 5-step Feature Extraction Workflow — extract features with evidence, classify by tier, translate to benefits
+7. Generate README.md with the full marketing framework:
    - Hero section with three-part structure: bold one-liner + explanatory sentence + badges
    - "What [Project] Does" with reader-centric use-case scenarios (for multi-capability projects)
    - "Why [Project]?" with benefit-driven feature descriptions

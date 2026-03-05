@@ -21,9 +21,10 @@ Check what public-facing documentation is missing or needs improvement.
 
 1. Load the `pitchdocs-suite` skill for the complete inventory
 2. Load the `doc-standards` rule for quality criteria
-3. Scan the repository for all expected documentation files
-4. Quality-check existing documents against the 4-question framework
-5. Report findings with severity levels
+3. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather equivalent data via `glab` CLI, REST API, or git history. Load `platform-profiles` for platform-specific template paths.
+4. Scan the repository for all expected documentation files
+5. Quality-check existing documents against the 4-question framework
+6. Report findings with severity levels
 
 ## Audit Checklist
 

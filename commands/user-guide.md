@@ -20,13 +20,14 @@ Generate task-oriented user guides and how-to documentation.
 
 1. Load the `user-guides` skill for structure and templates
 2. Load the `doc-standards` rule for tone and language
-3. Analyse the project to determine what guides are needed:
+3. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather equivalent data via `glab` CLI, REST API, or git history
+4. Analyse the project to determine what guides are needed:
    - Check existing docs for gaps
    - Scan GitHub issues/discussions for common questions
    - Identify config files, CLI commands, and workflows users need to understand
-4. Generate guide files in `docs/guides/`
-5. Create or update `docs/README.md` as a hub page
-6. Update `README.md` to link to the documentation section
+5. Generate guide files in `docs/guides/`
+6. Create or update `docs/README.md` as a hub page
+7. Update `README.md` to link to the documentation section
 
 ## Arguments
 

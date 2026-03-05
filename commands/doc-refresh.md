@@ -25,11 +25,12 @@ Refresh existing documentation to reflect the current state of the codebase. Ana
 
 1. Load the `doc-refresh` skill for the orchestration workflow
 2. Load the `doc-standards` rule for tone and quality
-3. Detect the change boundary (latest tag, provided version, or range)
-4. Parse conventional commits and classify changes by type and doc impact
-5. Detect file-level changes to identify which areas of the project changed
-6. Build a refresh plan mapping changes to doc updates
-7. Execute the plan, loading additional skills as needed:
+3. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather equivalent data via `glab` CLI, REST API, or git history. Load `platform-profiles` for CI/CD equivalents.
+4. Detect the change boundary (latest tag, provided version, or range)
+5. Parse conventional commits and classify changes by type and doc impact
+6. Detect file-level changes to identify which areas of the project changed
+7. Build a refresh plan mapping changes to doc updates
+8. Execute the plan, loading additional skills as needed:
    - `changelog` for CHANGELOG updates
    - `feature-benefits` for README features
    - `user-guides` for affected guides
@@ -37,7 +38,7 @@ Refresh existing documentation to reflect the current state of the codebase. Ana
    - `llms-txt` for file index updates
    - `package-registry` for registry metadata
    - `docs-verify` for final verification
-8. Report what was updated and the quality score
+9. Report what was updated and the quality score
 
 ## Arguments
 

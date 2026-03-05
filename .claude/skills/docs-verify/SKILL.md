@@ -108,7 +108,7 @@ grep -roE '!\[([^\]]*)\]\(([^)]+)\)' docs/ README.md 2>/dev/null
 For each image reference:
 - **File exists** — Verify the image file is on disk (for relative paths)
 - **Alt text present** — Flag images with empty alt text (`![]()`)
-- **Absolute URLs for registries** — If the project is published to npm/PyPI, images must use absolute URLs (`https://raw.githubusercontent.com/...`), not relative paths
+- **Absolute URLs for registries** — If the project is published to npm/PyPI, images must use absolute URLs, not relative paths. URL pattern varies by platform: GitHub `raw.githubusercontent.com/...`, GitLab `gitlab.com/org/repo/-/raw/...`, Bitbucket `bitbucket.org/org/repo/raw/...`. Load `platform-profiles` for the full mapping.
 - **File size** — Flag images over 1MB (GitHub has a 10MB file limit, but large images slow page load)
 
 Report format:
@@ -256,8 +256,13 @@ Always include the actionable "To reach next grade" suggestion showing the 1–2
 When run with `ci` argument, export the score for pipeline use:
 
 ```bash
+# GitHub Actions
 echo "PITCHDOCS_SCORE=74" >> "$GITHUB_OUTPUT"
 echo "PITCHDOCS_GRADE=C" >> "$GITHUB_OUTPUT"
+
+# GitLab CI — write to dotenv artifact instead
+echo "PITCHDOCS_SCORE=74" >> metrics.env
+echo "PITCHDOCS_GRADE=C" >> metrics.env
 ```
 
 Accept `--min-score N` to fail the CI job if the score falls below a threshold:

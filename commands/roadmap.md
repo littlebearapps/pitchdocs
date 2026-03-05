@@ -23,14 +23,15 @@ Generate or update ROADMAP.md from GitHub milestones, issues, and project boards
 
 1. Load the `roadmap` skill for structure and format
 2. Load the `doc-standards` rule for tone
-3. Gather data from GitHub:
+3. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather data via `glab` CLI, REST API, or git history. Load `platform-profiles` for CLI equivalents.
+4. Gather data from the hosting platform:
    - Milestones and their issues
    - Issues labelled `enhancement` or `feature`
    - Recent releases/tags for completed milestones
-4. Structure into current, upcoming, and completed milestones
-5. Add mission statement (from README or package description)
-6. Add "How to get involved" section
-7. Write ROADMAP.md
+5. Structure into current, upcoming, and completed milestones
+6. Add mission statement (from README or package description)
+7. Add "How to get involved" section
+8. Write ROADMAP.md
 
 ## Arguments
 

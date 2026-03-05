@@ -49,6 +49,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 [1.2.0]: https://github.com/org/repo/compare/v1.1.0...v1.2.0
 ```
 
+**Compare URL patterns by platform** (load `platform-profiles` for full mapping):
+- GitHub: `https://github.com/org/repo/compare/v1.1.0...v1.2.0`
+- GitLab: `https://gitlab.com/org/repo/-/compare/v1.1.0...v1.2.0`
+- Bitbucket: `https://bitbucket.org/org/repo/branches/compare/v1.2.0..v1.1.0` (note: reversed order)
+
+
 ## Categories (Keep a Changelog Standard)
 
 | Category | When to Use | Conventional Commit Types |

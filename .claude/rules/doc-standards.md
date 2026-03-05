@@ -185,7 +185,7 @@ Use `---` between major H2 sections to create visual breathing room. This is esp
 
 ### Table of Contents with Emoji Anchors
 
-When a README uses emoji heading prefixes and has a table of contents, the anchor links must account for the emoji. GitHub strips the emoji character but retains the leading hyphen.
+When a README uses emoji heading prefixes and has a table of contents, the anchor links must account for the emoji. GitHub and GitLab strip the emoji character but retain the leading hyphen. Bitbucket prefixes all heading anchors with `markdown-header-` (e.g. `#markdown-header--quick-start`) — load the `platform-profiles` skill when targeting Bitbucket.
 
 **Pattern:**
 ```markdown
@@ -346,6 +346,8 @@ Examples:
 - Target under 300KB per image where possible
 
 ## Shields.io Badges
+
+Badge URL paths differ by hosting platform (`/github/`, `/gitlab/`, `/bitbucket/`). Load the `platform-profiles` skill for platform-specific badge URL templates.
 
 Use these badge categories (in order):
 1. Build/CI status

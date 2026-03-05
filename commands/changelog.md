@@ -22,13 +22,14 @@ Generate or update CHANGELOG.md using conventional commits and user-benefit lang
 
 1. Load the `changelog` skill for format and language rules
 2. Load the `doc-standards` rule for tone
-3. Analyse git history:
+3. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather equivalent data via `glab` CLI, REST API, or git history. Load `platform-profiles` for compare URL patterns.
+4. Analyse git history:
    - Parse conventional commit messages
    - Identify tagged releases
    - Map commits to issues/PRs
-4. Classify changes into Keep a Changelog categories
-5. Rewrite commit messages in user-benefit language
-6. Generate or update CHANGELOG.md
+5. Classify changes into Keep a Changelog categories
+6. Rewrite commit messages in user-benefit language
+7. Generate or update CHANGELOG.md
 
 ## Arguments
 

@@ -91,18 +91,24 @@ Items marked :thought_balloon: are especially open to community feedback.
 
 ## Data Sources
 
-### GitHub Milestones (via `github` MCP)
+Data source commands below default to GitHub (`gh` CLI / `mcp__github__*`). For GitLab, use `glab` CLI. For Bitbucket, use REST API or Jira integration. Load the `platform-profiles` skill for CLI and API equivalents.
 
+### Milestones (via platform CLI or MCP)
+
+```bash
+# GitHub
+gh issue list --milestone "v1.3" --state all
+
+# GitLab
+glab issue list --milestone "v1.3" --all
 ```
-mcp__github__list_issues with milestone filter
-```
 
-Use milestones to group features into releases. Each milestone becomes a section.
+Use milestones to group features into releases. Each milestone becomes a section. GitLab also supports Epics for higher-level grouping across milestones.
 
-### GitHub Projects (via `github` MCP)
+### Project Boards
 
-If the repo uses GitHub Projects (v2), pull items from there:
-1. Get project board items
+If the repo uses project boards (GitHub Projects v2, GitLab Boards, or Jira), pull items from there:
+1. Get board items
 2. Map columns/statuses to roadmap legend
 3. Extract issue numbers and titles
 
@@ -117,12 +123,13 @@ Map tags to completed milestones. Include completion dates.
 ### Open Issues with Labels
 
 ```bash
-# Issues labelled as enhancements/features
+# GitHub
 gh issue list --label "enhancement" --state open --limit 50
 gh issue list --label "feature" --state open --limit 50
 
-# Issues in milestones
-gh issue list --milestone "v1.3" --state all
+# GitLab
+glab issue list --label "enhancement" --all --per-page 50
+glab issue list --label "feature" --all --per-page 50
 ```
 
 ## Language Rules
