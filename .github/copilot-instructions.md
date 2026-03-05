@@ -4,12 +4,12 @@ PitchDocs is a Claude Code plugin that generates marketing-quality repository do
 
 ## Project Structure
 
-- `.claude/skills/*/SKILL.md` — 14 reference knowledge modules (README, features, changelog, roadmap, docs suite, llms.txt, package registry, user guides, AI context, docs verify, launch artifacts, API reference, doc refresh, context guard)
+- `.claude/skills/*/SKILL.md` — 15 reference knowledge modules (README, features, changelog, roadmap, docs suite, llms.txt, package registry, user guides, AI context, docs verify, launch artifacts, API reference, doc refresh, context guard, platform profiles)
 - `.claude/agents/docs-writer.md` — orchestration agent (scan → extract → write → validate)
 - `.claude/rules/doc-standards.md` — quality standards rule (auto-loaded, Claude Code only)
 - `.claude/rules/context-quality.md` — AI context file quality rule (auto-loaded, Claude Code only)
 - `.claude/rules/content-filter.md` — content filter quick reference rule (auto-loaded, Claude Code only)
-- `commands/*.md` — 12 slash command definitions
+- `commands/*.md` — 13 slash command definitions
 - `hooks/*.sh` — 3 Context Guard hook scripts (Claude Code only, opt-in via `/pitchdocs:context-guard install`)
 - `.claude-plugin/plugin.json` — plugin manifest
 

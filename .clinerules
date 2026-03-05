@@ -22,10 +22,10 @@ PitchDocs is a Claude Code plugin that generates marketing-quality repository do
 
 ## Important Paths
 
-- `.claude/skills/*/SKILL.md` — 14 reference knowledge modules
+- `.claude/skills/*/SKILL.md` — 15 reference knowledge modules
 - `.claude/agents/docs-writer.md` — orchestration agent (scan, extract, write, validate)
 - `.claude/rules/doc-standards.md` — quality standards rule (Claude Code only)
-- `commands/*.md` — 12 slash command definitions
+- `commands/*.md` — 13 slash command definitions
 - `hooks/*.sh` — 3 Context Guard hook scripts (Claude Code only, opt-in)
 - `.claude-plugin/plugin.json` — plugin manifest
 - `upstream-versions.json` — pinned upstream spec versions
