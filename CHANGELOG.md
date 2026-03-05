@@ -5,6 +5,18 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.13.0](https://github.com/littlebearapps/pitchdocs/compare/v1.12.1...v1.13.0) (2026-03-05)
+
+
+### Added
+
+* generate missing AI context files and llms-full.txt ([85c2b69](https://github.com/littlebearapps/pitchdocs/commit/85c2b6918cdb6d456eecc3f93aacb85fa9d4b32c))
+
+
+### Documentation
+
+* trim README to comply with lobby principle and 4-question test ([9824332](https://github.com/littlebearapps/pitchdocs/commit/9824332fe6f4458c2ce19a7263183614e87b7cf3))
+
 ## [1.12.1](https://github.com/littlebearapps/pitchdocs/compare/v1.12.0...v1.12.1) (2026-03-04)
 
 
