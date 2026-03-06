@@ -206,7 +206,21 @@ For projects with security, compliance, or enterprise appeal, add a **credibilit
 
 **Placement guidance:** For most projects, credibility rows belong inside the "Why" section as a subheading ("### For decision makers") or a second table. Only create a standalone "Security & Trust" section after Features if the project has 4+ security signals (auth, encryption, compliance, dependency scanning) — otherwise the thin section hurts more than it helps.
 
-Alternative format for fewer features:
+**Alternative format: Bold-outcome bullets** (recommended for workflow/lifestyle tools with 3+ user benefits):
+
+```markdown
+## Why [Project]?
+
+[One sentence framing the problem or status quo.]
+
+- **[Outcome 1]** — mechanism description. Constraint if needed.
+- **[Outcome 2]** — mechanism description.
+- **[Outcome 3]** — mechanism description.
+```
+
+This format works best when user benefits come from the developer's lived experience. Use the conversational path in the `feature-benefits` skill (Step 4, Path B) to capture authentic use cases — the 4-question interview surfaces real scenarios that code scanning alone can't discover.
+
+**Alternative format: Problem/solution bullets** (for libraries, APIs, and technical tools):
 
 ```markdown
 ## Why Project Name?
@@ -215,6 +229,8 @@ Alternative format for fewer features:
 - **Another pain point** — Your elegant solution, with a specific metric if possible
 - **Third benefit** — Concrete outcome the user can expect
 ```
+
+**Choosing a format:** If the `feature-benefits` skill produced 3+ user benefits, recommend bold-outcome bullets. For purely technical projects or when fewer user benefits emerged, recommend the problem/solution table or bullets. Present both options to the developer and let them decide.
 
 ### 3.5 Use-Case Framing (Optional — High Impact)
 
@@ -321,7 +337,7 @@ Use when features need status indicators, direct side-by-side comparison, or whe
 
 #### How to Populate Features
 
-1. Load the `feature-benefits` skill and run the 5-step Feature Extraction Workflow
+1. Load the `feature-benefits` skill and run the 7-step Feature Extraction Workflow
 2. Take all **Hero** and **Core** tier features from the classified inventory
 3. **Limit to the top 8 features in the README.** If the project has 10+, include the top Hero and Core features here and link to a full feature list in docs (e.g. "See the [full feature list](docs/features.md) for all N capabilities")
 4. Apply the feature-to-benefit translation for each — use at least 3 different benefit categories

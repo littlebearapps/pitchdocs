@@ -93,6 +93,30 @@ Every feature mentioned in documentation must be translated into a user benefit.
 
 **Anti-patterns:** Avoid "simple", "easy", "powerful" without evidence. Show simplicity through short examples, not adjectives.
 
+### User Benefits (the "Why?" Layer)
+
+Documentation has two benefit layers:
+
+- **Feature benefits** answer "What does this do for me?" — `[Feature] so you can [outcome] — [evidence]`. Used in Features sections.
+- **User benefits** answer "Why should I care?" — outcome-first statements that describe real-world impact. Used in "Why [Project]?" sections.
+
+**The user benefit pattern:**
+```
+**[Bold user outcome]** — [mechanism/how it works]. [Constraint if needed].
+```
+
+**Examples:**
+- **Work from anywhere** — voice notes are transcribed and queued as tasks on your VPS. Once queued, tasks continue even if your phone disconnects.
+- **Ship without context-switching** — the daemon runs in the background, so you review results when you're ready.
+
+**Signal gate:** The aspiration level of user benefits scales with code signals. Default to workflow benefits ("Deploy without being at your desk"). Only escalate to experiential benefits ("Start from your phone at the park") when mobile, async, or remote signals exist in the codebase.
+
+**Two paths to user benefits:**
+- **Auto-scan** — synthesised from Hero features, JTBD emotional/social jobs, and inferred personas. Good starting point.
+- **Conversational** — developer describes their real use cases and motivations. Produces the most authentic, compelling benefits. Load the `feature-benefits` skill for the full two-path workflow.
+
+**Anti-fluff rules:** Every user benefit requires a specific context, an enabling mechanism, and an evidence pointer. No ungrounded lifestyle claims.
+
 ### Feature List Formatting
 
 For features sections in READMEs, two formats are available. Choose based on content:
@@ -124,7 +148,7 @@ Use when features need status indicators, direct side-by-side comparison, or whe
 ## Marketing Principles for Technical Docs
 
 - **Hero section**: Four-part structure — (1) project logo image (`height="160"` to `height="240"`, SVG preferred, transparent background, `<picture>` for dark mode support), (2) bold one-liner explaining what it provides, (3) explanatory sentence covering scope and capabilities, (4) badges and platform compatibility line. Use separate `<p align="center">` blocks for each element — each `<p>` gets natural CSS margin from GitHub's stylesheet, creating consistent spacing. Avoid `<br>` inside `<div>` blocks for spacing — GitHub's renderer collapses them unpredictably. If the logo contains a wordmark (the project name), omit the `# Project Name` heading to avoid duplication.
-- **Why section**: Frame features as solutions to real problems
+- **Why section**: Frame with outcome-first user benefits (see "User Benefits" subsection above). Offer bold-outcome bullets for workflow/lifestyle tools, problem/solution table for technical tools
 - **Social proof**: Stars, downloads, contributors, "used by" logos where applicable
 - **Competitive edge**: Subtle positioning vs alternatives (benchmark charts, comparison tables)
 - **Call to action**: Every doc should end with a clear next step

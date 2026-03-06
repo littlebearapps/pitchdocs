@@ -8,7 +8,7 @@ version: "1.0.0"
 
 Scan a codebase systematically, extract concrete features with evidence, classify by impact, and translate into benefit-driven language for documentation.
 
-## 5-Step Feature Extraction Workflow
+## 7-Step Feature Extraction Workflow
 
 ### Step 1: Detect Project Type
 
@@ -130,7 +130,83 @@ Classify each job:
 - For projects with fewer than 5 features, skip JTBD — the 5 benefit categories suffice
 - JTBD informs the benefit sentence — the final output still uses the `[Feature] so you can [outcome] — [evidence]` pattern
 
-### Step 4: Classify by Impact Tier
+### Step 3.6: Persona Inference
+
+Infer 1–2 target personas from code signals to ground benefit writing. Personas prevent generic output by anchoring benefits to specific users.
+
+| Signal Source | What to Check | Persona Implications |
+|---|---|---|
+| Integration surface | Telegram/Slack/GitHub/mobile APIs | Remote/async users |
+| Execution model | Daemon/queue/cron/webhook | Background/automation users |
+| Entry points | CLI vs SDK vs web UI | Developer maturity/context |
+| Deploy artifacts | Docker/K8s/serverless/VPS | Ops/platform users |
+| Manifest keywords | description, topics, README intro | General audience signal |
+
+Map to archetypes (1 primary, 1 secondary):
+- **Solo builder** — speed, low setup, shipping fast
+- **Team lead** — consistency, onboarding, standardisation
+- **Platform/ops engineer** — reliability, automation, deployability
+- **Power user / automator** — multi-tool, async, extensibility
+- **Compliance-aware org** — auditability, security, traceability
+
+**Rules:**
+- Infer from code signals only — don't guess from the project name
+- If signals are ambiguous, default to "Solo builder" (broadest useful persona)
+- Record the persona alongside the feature inventory — it feeds into Step 4 benefit writing
+
+### Step 4: User Benefits (the "Why?" Layer)
+
+User benefits sit above feature benefits. Feature benefits answer "What does this do for me?" (`[Feature] so you can [outcome]`). User benefits answer **"Why should I care?"** — the real-world reasons someone would choose this project.
+
+**Two paths are available. Both produce the same output format.**
+
+#### Path A: Auto-Scan (default)
+
+Synthesise outcome-first benefits from Hero features + JTBD emotional/social jobs + persona:
+
+1. Take the Hero tier features and their JTBD jobs from Steps 3–3.5
+2. Take the inferred persona from Step 3.6
+3. Apply the **signal gate** to determine aspiration level:
+   - **Standard** (default): workflow benefits — "Deploy without being at your desk", "Review changes between meetings"
+   - **Elevated** (requires mobile/async/remote/voice signals in the codebase): experiential benefits — "Start from your phone at the park, review on your laptop at home"
+4. Generate 3–7 draft benefits, each tagged with claim strength:
+   - **Strong**: code directly enables the claimed outcome (e.g., daemon process → "works while you're away")
+   - **Medium**: code supports the outcome with reasonable inference (e.g., CLI + webhook → "trigger from anywhere")
+   - **Weak**: outcome is aspirational without direct code evidence — discard these
+5. Ship only Strong + Medium benefits
+
+#### Path B: Conversational ("Talk it out")
+
+The most compelling user benefits come from the developer's lived experience. This path uses interactive questions to surface authentic use cases.
+
+**Prompt sequence** (for Claude Code, use `AskUserQuestion`; for other agents, present as numbered chat prompts):
+
+1. "Why do YOU use [Project]? What made you build it?" — surfaces motivation and origin story
+2. "What real-world scenarios does it enable? Where are you when you use it?" — surfaces contexts (on the train, walking the dog, between meetings)
+3. "What would you lose if [Project] didn't exist? What's the alternative?" — surfaces differentiation and pain
+4. "Who else would benefit from this, and why?" — surfaces audience expansion
+
+After collecting answers, enrich with code evidence from the Path A scan. The developer's words become the primary material; code evidence validates and strengthens each claim.
+
+#### Combined Output Format
+
+Whether auto-scanned or conversational, each user benefit follows:
+
+```
+**[Bold user outcome]** — [mechanism/how it works]. [Constraint if needed].
+```
+
+**Examples:**
+- **Work from anywhere** — voice notes are transcribed and queued as tasks on your VPS. Once queued, tasks continue even if your phone disconnects.
+- **Ship without context-switching** — the daemon runs in the background, so you review results when you're ready, not when the terminal demands it.
+- **Never lose a thought** — Telegram messages bridge directly to your dev environment. Ideas captured on the train arrive as actionable tasks.
+
+**Each benefit requires:**
+- A specific context ("on the train", "between meetings", "during CI")
+- An enabling mechanism ("voice notes → transcription", "daemon → background execution")
+- An evidence pointer (file path, function, or config that proves the mechanism)
+
+### Step 5: Classify by Impact Tier
 
 | Tier | Count | Criteria | README Placement |
 |------|-------|----------|-----------------|
@@ -143,7 +219,7 @@ Classify each job:
 - Would a user leave if this feature were missing? → Core
 - Does this feature delight but isn't essential? → Supporting
 
-### Step 5: Output Structured Feature Inventory
+### Step 6: Output Structured Feature Inventory
 
 ```markdown
 ## Feature Inventory: [Project Name]
@@ -232,6 +308,9 @@ When a benefit claim maps to a verifiable metric (test coverage, bundle size, do
 - **No speculative benefits** — "could save you hours" requires evidence of what it replaces
 - **No feature-as-benefit** — "Has caching" is a feature, not a benefit. "Responses in <50ms after first request" is the benefit
 - **No superlatives without proof** — "fastest", "best", "most complete" need benchmarks or comparisons
+- **No benefit without context** — every user benefit needs a specific situation ("between meetings", "on the train", "during CI")
+- **No benefit without mechanism** — every user benefit needs an enabling mechanism ("voice notes → transcription", "daemon → background execution")
+- **No ungrounded lifestyle claims** — experiential benefits (elevated signal gate) only when code signals prove the enabling mechanism (mobile API, daemon, async queue)
 
 ---
 

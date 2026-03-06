@@ -1,10 +1,10 @@
 ---
 title: "Getting Started with PitchDocs"
-description: "Install PitchDocs, generate your first README, and explore all 12 commands."
+description: "Install PitchDocs, generate your first README, and explore all 13 commands."
 type: how-to
 difficulty: beginner
 time_to_complete: "5 minutes"
-last_verified: "1.11.0"
+last_verified: "1.14.0"
 related:
   - guides/workflows.md
   - guides/command-reference.md
@@ -14,7 +14,7 @@ order: 1
 
 # Getting Started with PitchDocs
 
-> **Summary**: Install PitchDocs, generate your first README, and explore the full command set.
+> **Summary**: Install PitchDocs, generate your first README, and explore all 13 commands.
 
 **Time to Hello World:** Under 60 seconds for your first README. Full walkthrough below: ~5 minutes.
 
@@ -92,6 +92,9 @@ See what PitchDocs detects in your codebase:
 
 # Output as emoji+bold+em-dash bullets
 /pitchdocs:features bullets
+
+# Extract user benefits for a "Why?" section (auto-scan or conversational)
+/pitchdocs:features benefits
 
 # Audit: compare what's documented vs what's in the code
 /pitchdocs:features audit

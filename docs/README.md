@@ -12,9 +12,9 @@ Step-by-step instructions for common tasks:
 
 | Guide | What You'll Do |
 |-------|---------------|
-| [Getting Started](guides/getting-started.md) | Install PitchDocs, generate your first README, and explore all 12 commands |
+| [Getting Started](guides/getting-started.md) | Install PitchDocs, generate your first README, and explore all 13 commands |
 | [Workflows](guides/workflows.md) | Step-by-step recipes: make a repo public-ready, prepare a release, launch on a platform, keep docs fresh |
-| [Command Reference](guides/command-reference.md) | All 12 commands with arguments, generated files, and examples |
+| [Command Reference](guides/command-reference.md) | All 13 commands with arguments, generated files, and examples |
 | [Customising Output](guides/customising-output.md) | Steer PitchDocs: prompt patterns, tone control, monorepo support, iterative refinement |
 | [Concepts](guides/concepts.md) | How PitchDocs thinks: evidence-based features, GEO, 4-question test, Diataxis, Lobby Principle |
 | [Troubleshooting](guides/troubleshooting.md) | Content filter errors, score interpretation, badge issues, cross-tool limitations, FAQ |
@@ -29,8 +29,8 @@ Step-by-step instructions for common tasks:
 
 ## Command Reference
 
-See the [Command Reference guide](guides/command-reference.md) for all 12 commands with arguments, generated files, cross-tool support, and examples.
+See the [Command Reference guide](guides/command-reference.md) for all 13 commands with arguments, generated files, cross-tool support, and examples.
 
 ## Skills Reference
 
-PitchDocs includes 14 reference skills loaded on-demand. See the [Available Skills](../AGENTS.md#available-skills) table in AGENTS.md for the full inventory.
+PitchDocs includes 15 reference skills loaded on-demand. See the [Available Skills](../AGENTS.md#available-skills) table in AGENTS.md for the full inventory.

@@ -25,11 +25,11 @@ Generate or update a README.md that sells as well as it informs.
 3. Load the `public-readme` skill for structure and marketing framework
 4. Load the `feature-benefits` skill for systematic feature extraction
 5. Load the `doc-standards` rule for tone, language, and badge standards
-6. Scan the codebase using the 5-step Feature Extraction Workflow — extract features with evidence, classify by tier, translate to benefits
+6. Scan the codebase using the 7-step Feature Extraction Workflow — extract features with evidence, infer personas, extract user benefits (auto-scan or conversational path), classify by tier, translate to benefits
 7. Generate README.md with the full marketing framework:
    - Hero section with three-part structure: bold one-liner + explanatory sentence + badges
    - "What [Project] Does" with reader-centric use-case scenarios (for multi-capability projects)
-   - "Why [Project]?" with benefit-driven feature descriptions
+   - "Why [Project]?" with user benefits (bold-outcome bullets or problem/solution table — developer's choice)
    - Quick start (Time to Hello World target by project type)
    - Features section with benefits (emoji+bold+em-dash bullets for 5+ features, or table for shorter lists)
    - Documentation links (including user guides if `docs/guides/` exists)

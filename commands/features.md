@@ -1,6 +1,6 @@
 ---
 description: "Extract features and benefits from a codebase: $ARGUMENTS"
-argument-hint: "[project-path, 'table', or 'audit']"
+argument-hint: "[project-path, 'table', 'bullets', 'benefits', or 'audit']"
 allowed-tools:
   - Read
   - Glob
@@ -19,7 +19,7 @@ Scan a codebase, extract its features with evidence, and translate them into ben
 1. Load the `feature-benefits` skill for the extraction workflow and translation framework
 2. Load the `doc-standards` rule for tone and language guidance
 3. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather equivalent data via `glab` CLI, REST API, or git history
-4. Run the 5-step Feature Extraction Workflow:
+4. Run the 7-step Feature Extraction Workflow:
    - Detect project type from manifest files
    - Scan all 10 signal categories with concrete file patterns
    - Extract features with file/function evidence
@@ -32,6 +32,7 @@ Scan a codebase, extract its features with evidence, and translate them into ben
 - **No arguments**: Full extraction — outputs a structured feature inventory to chat with Hero, Core, and Supporting tiers
 - **`table`**: Outputs a ready-to-paste `| Feature | Benefit | Status |` markdown table suitable for a README
 - **`bullets`**: Outputs emoji+bold+em-dash bullets (`- 🔍 **Feature** — benefit`) — more scannable for 5+ features
+- **`benefits`**: Runs persona inference + user benefits synthesis (Steps 3.6 and 4). Offers a choice of auto-scan or conversational ("talk it out") path. Outputs bold-outcome bullets for use in a "Why [Project]?" section
 - **`audit`**: Compares extracted features against the existing README features section, reports undocumented and over-documented features
 
 ## Output Formats

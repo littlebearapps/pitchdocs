@@ -26,7 +26,7 @@ Skills are loaded on-demand to provide deep reference knowledge. Each lives at `
 | Skill | What It Provides |
 |-------|-----------------|
 | `public-readme` | README structure with the Daytona/Banesullivan marketing framework — hero section, audience-segmented value proposition, quickstart with Time to Hello World targets, features table with evidence-based benefits |
-| `feature-benefits` | 5-step codebase scanning workflow across 10 signal categories with JTBD job mapping (functional, emotional, social). Extracts concrete features with file/function evidence and translates them into benefits across 5 categories (time saved, confidence gained, pain avoided, capability unlocked, cost reduced) |
+| `feature-benefits` | 7-step codebase scanning workflow across 10 signal categories with JTBD job mapping, persona inference (5 archetypes from code signals), and two-path user benefits extraction (auto-scan or conversational "talk it out"). Extracts concrete features with file/function evidence and translates them into benefits across 5 categories (time saved, confidence gained, pain avoided, capability unlocked, cost reduced) |
 | `changelog` | Keep a Changelog format with language rules that rewrite conventional commits into user-facing benefit language. Maps `feat:` to Added, `fix:` to Fixed, etc. |
 | `roadmap` | Roadmap structure from GitHub milestones with emoji status indicators, mission statement, and community involvement section |
 | `pitchdocs-suite` | Full 20+ file inventory (README, CONTRIBUTING, CHANGELOG, CODE_OF_CONDUCT, SECURITY, AI context files, issue templates, PR templates, and more), GitHub metadata guidance, visual assets, licence selection framework, and ready-to-use templates |
@@ -46,7 +46,7 @@ Skills are loaded on-demand to provide deep reference knowledge. Each lives at `
 The docs-writer agent (`.claude/agents/docs-writer.md`) orchestrates the full documentation workflow:
 
 1. **Codebase discovery** — reads manifest files, scans project structure, checks git history and GitHub metadata
-2. **Feature extraction** — loads the `feature-benefits` skill and runs a 5-step extraction across 10 signal categories
+2. **Feature extraction** — loads the `feature-benefits` skill and runs a 7-step extraction across 10 signal categories, with persona inference and two-path user benefits (auto-scan or conversational)
 3. **Lobby split** — evaluates extracted content scope and decides what belongs in README vs separate `docs/guides/` (max 8 features, 5–7 examples, delegate exhaustive content)
 4. **Writing with marketing framework** — applies the Daytona "4000 Stars" approach with progressive disclosure
 5. **Validation** — checks the 4-question test, Lobby Principle compliance, verifies links, badges, spelling, and cross-renderer compatibility
@@ -75,7 +75,7 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 
 PitchDocs includes features that are specific to Claude Code and do not work in OpenCode, Codex CLI, or other tools:
 
-- **Rules** (3): `.claude/rules/doc-standards.md` (quality standards — 4-question framework, GEO, device screenshot dimensions, caption patterns, shadow/border guidance, auto-loaded), `.claude/rules/context-quality.md` (AI context file quality, auto-loaded), and `.claude/rules/content-filter.md` (content filter quick reference, auto-loaded)
+- **Rules** (4): `.claude/rules/doc-standards.md` (quality standards — 4-question framework, GEO, user benefits writing, device screenshot dimensions, caption patterns, shadow/border guidance, auto-loaded), `.claude/rules/context-quality.md` (AI context file quality, auto-loaded), `.claude/rules/content-filter.md` (content filter quick reference, auto-loaded), and `.claude/rules/docs-awareness.md` (documentation trigger map — suggests PitchDocs commands when documentation-relevant work is detected, auto-loaded)
 - **Hooks** (5): `hooks/context-drift-check.sh` (post-commit drift detection), `hooks/context-structural-change.sh` (structural change reminders), `hooks/content-filter-guard.sh` (Write guard for high-risk OSS files), `hooks/context-guard-stop.sh` (session-end context doc nudge — Tier 1), and `hooks/context-commit-guard.sh` (pre-commit context doc enforcement — Tier 2) — opt-in via `/pitchdocs:context-guard install` (Claude Code)
 
 ## AI Context Files

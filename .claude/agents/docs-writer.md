@@ -145,21 +145,28 @@ print('requires-python:', p.get('requires-python'))
 
 Flag any missing fields that affect the registry page. When generating README badges, use the registry-specific badge templates from the `package-registry` skill.
 
-### Step 2: Extract Features and Value Propositions
+### Step 2: Extract Features, Value Propositions, and User Benefits
 
-Load the `feature-benefits` skill and run the **5-step Feature Extraction Workflow** (with optional JTBD enrichment at Step 3.5):
+Load the `feature-benefits` skill and run the **7-step Feature Extraction Workflow**:
 
 1. **Detect project type** from manifest files (package.json, pyproject.toml, etc.)
 2. **Scan all 10 signal categories** — CLI commands, Public API, Configuration, Integrations, Performance, Security, TypeScript/DX, Testing, Middleware/Plugins, Documentation
 3. **Extract concrete features with evidence** — every feature must trace to a file, function, or config
-4. **Classify by impact tier** — Hero (1–3 differentiators), Core (4–8 expected features), Supporting (9+ nice-to-haves)
-5. **Translate features into benefits** using the 5 benefit categories (Time saved, Confidence gained, Pain avoided, Capability unlocked, Cost reduced)
+4. **Map to JTBD** (Hero features) and **infer personas** (1–2 archetypes from code signals)
+5. **Extract user benefits** — offer the developer a choice of approach:
+   - **Quick scan**: "Let PitchDocs scan your codebase and draft user benefits automatically. Fast, evidence-based, good starting point."
+   - **Talk it out**: "Have a conversation about why you built this and who it's for. Produces the most compelling, authentic benefits — like a product interview with your code as backup evidence."
+   - For Claude Code: use `AskUserQuestion` for the conversational path's 4-question sequence
+   - For other agents: present the questions as numbered prompts in chat
+6. **Classify by impact tier** — Hero (1–3 differentiators), Core (4–8 expected features), Supporting (9+ nice-to-haves)
+7. **Translate features into benefits** using the 5 benefit categories (Time saved, Confidence gained, Pain avoided, Capability unlocked, Cost reduced)
 
 From the classified features, derive:
 - **Primary problem solved** — synthesise from Hero features: what pain point do they collectively address?
 - **Key differentiators** — the Hero tier features ARE the differentiators
-- **Target audience** — who benefits from these specific features?
+- **Target audience** — who benefits from these specific features? (informed by persona inference)
 - **Proof points** — benchmarks, test coverage %, production usage, stars (from the scan evidence)
+- **User benefits** — 3–7 outcome-first benefits from Step 5 (auto-scanned or conversational)
 
 ### Step 2.5: Extract Security Credibility Signals
 
@@ -229,7 +236,10 @@ For each document, apply the **Daytona "4000 Stars" approach**:
 
 1. **Three-part hero** — (1) Bold one-liner explaining what the project provides (max 15 words, action verb or benefit, no jargon), (2) explanatory sentence covering scope, capabilities, and key selling points (SEO/GEO, registry compatibility, ecosystem signals), (3) badges and platform compatibility line
 2. **Use-case framing** — For projects with multiple capabilities, add a "What [Project] Does" section with 2–4 reader-centric scenarios. Open each with the reader's situation ("You've finished your MVP...", "Beyond X, you need..."), then show how the project helps. Skip for single-purpose tools.
-3. **Engaging narrative** — The "why" from the READER'S perspective, not the author's. Structure the value proposition for two reader tracks: developers (technical problem → solution with code evidence) and decision makers (business problem → measurable outcome). If security credibility signals were found in Step 2.5, place them as credibility rows in the "Why" section or as a dedicated "Security & Trust" subsection — these are frontline trust signals for the decision-maker track, not footnotes.
+3. **Engaging narrative** — The "why" from the READER'S perspective, not the author's. Structure the value proposition for two reader tracks: developers (technical problem → solution with code evidence) and decision makers (business problem → measurable outcome). If security credibility signals were found in Step 2.5, place them as credibility rows in the "Why" section or as a dedicated "Security & Trust" subsection — these are frontline trust signals for the decision-maker track, not footnotes. For the "Why [Project]?" section, offer the developer a format choice:
+   - **Bold-outcome bullets** (Untether-style): Best for workflow/lifestyle tools, projects with clear experiential benefits. Outcome is bold, mechanism follows. Recommended when 3+ user benefits were generated.
+   - **Problem/solution table**: Best for libraries, APIs, and technical tools where the value is solving specific technical problems. Recommended when fewer user benefits or when the project is purely technical.
+   Both formats are valid — make the trade-offs clear and let the developer decide.
 4. **Features with benefits** — Use emoji+bold+em-dash bullets (`- 🔍 **Feature** — benefit`) for 5+ features, or a table with benefits column for shorter lists or when status tracking is needed. Choose an emoji that relates to the feature content. Every feature must trace to code evidence.
 5. **Technical substance** — Installation, usage, API, configuration
 6. **Project hygiene** — Contributing, license, code of conduct
@@ -247,6 +257,7 @@ Before finalising any document, check:
 - [ ] Every section answers at least one of the 4 questions
 - [ ] Features use emoji+bold+em-dash bullets or table with benefits column (evidence-based)
 - [ ] Use-case scenarios framed with reader context (if "What X Does" section is present)
+- [ ] Why section uses developer-chosen format (bold-outcome bullets or problem/solution table) with outcome-first benefits
 - [ ] Document ends with a clear call to action
 - [ ] README follows the Lobby Principle — deep-dive setup, exhaustive feature lists, and edge-cases are delegated to `docs/guides/`
 - [ ] Features list contains no more than 8 items (excess moved to separate docs with link)

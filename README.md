@@ -78,7 +78,7 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 
 ## 🎯 Features
 
-- 🔍 **Evidence-based feature extraction** — scans 10 signal categories in your code and backs every claim with a file path
+- 🔍 **Evidence-based feature extraction** — scans 10 signal categories, infers target personas, and extracts user benefits via auto-scan or a conversational "talk it out" path — every claim backed by a file path
 - 📋 **Full docs suite from one command** — README, CHANGELOG, CONTRIBUTING, ROADMAP, SECURITY, issue templates, and 15+ more files
 - ✅ **Professional docs without documentation expertise** — every generated doc passes the 4-question test, applies the lobby principle for progressive disclosure, and targets measurable Time to Hello World
 - 🤖 **AI context file generation** — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, and 3 more from one codebase scan
@@ -109,7 +109,7 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 | Command | What It Does | Why It Matters |
 |---------|-------------|----------------|
 | `/pitchdocs:readme` | Generate or update a marketing-friendly README.md | First impressions that convert browsers to users |
-| `/pitchdocs:features` | Extract features from code and translate to benefits — output as inventory, table, or emoji+bold+em-dash bullets | Never miss a feature worth documenting |
+| `/pitchdocs:features` | Extract features and user benefits from code — output as inventory, table, bullets, or bold-outcome benefits (auto-scan or conversational) | Never miss a feature worth documenting |
 | `/pitchdocs:changelog` | Generate CHANGELOG.md from git history with user-benefit language | Users see what changed for *them*, not your commit log |
 | `/pitchdocs:roadmap` | Generate ROADMAP.md from GitHub milestones and issues | Show contributors where the project is heading |
 | `/pitchdocs:docs-audit` | Audit docs completeness, quality, GitHub metadata, visual assets, AI context files, Diataxis coverage, and npm/PyPI registry config | Catch gaps in files, metadata, images, and package registry fields before you ship |
@@ -129,6 +129,7 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 ```bash
 /pitchdocs:readme                   # Generate a marketing-friendly README
 /pitchdocs:features bullets         # Extract features as emoji+bold+em-dash bullets
+/pitchdocs:features benefits        # Extract user benefits (auto-scan or "talk it out")
 /pitchdocs:docs-audit fix           # Audit and auto-generate missing docs
 /pitchdocs:changelog full           # Generate full changelog from all tags
 /pitchdocs:ai-context               # Generate AI context files for all tools

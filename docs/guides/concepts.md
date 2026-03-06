@@ -3,7 +3,7 @@ title: "How PitchDocs Thinks"
 description: "Design rationale and frameworks behind PitchDocs output — evidence-based features, GEO, 4-question test, Diátaxis, the Lobby Principle, and context drift detection."
 type: explanation
 difficulty: intermediate
-last_verified: "1.12.1"
+last_verified: "1.14.0"
 related:
   - guides/customising-output.md
   - guides/command-reference.md
@@ -12,7 +12,7 @@ order: 5
 
 # How PitchDocs Thinks
 
-> **TL;DR**: PitchDocs applies 6 documentation frameworks — evidence-based features, feature-to-benefit translation, the 4-question test, progressive disclosure, GEO, and Diátaxis — and detects context drift to keep AI coding assistants in sync with your code.
+> **TL;DR**: PitchDocs applies 7 documentation frameworks — evidence-based features, feature-to-benefit translation, user benefits extraction, the 4-question test, progressive disclosure, GEO, and Diátaxis — and detects context drift to keep AI coding assistants in sync with your code.
 
 PitchDocs applies several documentation frameworks to generate consistently high-quality output. Understanding these frameworks helps you steer the tool and evaluate its suggestions.
 
@@ -58,6 +58,27 @@ A feature describes what software does. A benefit describes what the user gains.
 | Pain avoided | "I don't have to worry" | "Never ship a repo with missing docs again" |
 | Capability unlocked | "Now I can do something new" | "Scan any codebase and extract its selling points automatically" |
 | Cost reduced | "This saves me effort" | "One plugin replaces five separate documentation tools" |
+
+---
+
+## User Benefits (the "Why?" Layer)
+
+Feature benefits answer "What does this do for me?" User benefits answer **"Why should I care?"** — the real-world reasons someone would choose a project over alternatives.
+
+PitchDocs extracts user benefits through two paths:
+
+**Auto-scan (default):** PitchDocs infers 1–2 target personas from code signals (integration surface, execution model, entry points, deploy artifacts), then synthesises outcome-first benefits from Hero features and JTBD emotional/social jobs. A **signal gate** controls the aspiration level — workflow benefits by default ("Deploy without being at your desk"), experiential benefits only when mobile/async/remote signals exist in the code.
+
+**Conversational ("Talk it out"):** The most compelling user benefits come from the developer's lived experience. PitchDocs asks four questions — why you built it, what scenarios it enables, what you'd lose without it, and who else benefits — then enriches your answers with code evidence. In Claude Code, this uses interactive questions; in other tools, the questions are presented as chat prompts.
+
+**The output pattern:**
+```
+**[Bold user outcome]** — [mechanism/how it works]. [Constraint if needed].
+```
+
+**Anti-fluff rules:** Every user benefit requires a specific context ("on the train", "between meetings"), an enabling mechanism ("daemon → background execution"), and an evidence pointer. No ungrounded lifestyle claims.
+
+Run `/pitchdocs:features benefits` to extract user benefits for your project.
 
 ---
 

@@ -4,7 +4,7 @@ description: "Step-by-step recipes for common PitchDocs workflows: public-ready 
 type: how-to
 difficulty: intermediate
 time_to_complete: "varies per workflow"
-last_verified: "1.11.0"
+last_verified: "1.14.0"
 related:
   - guides/getting-started.md
   - guides/command-reference.md
@@ -24,37 +24,43 @@ Each recipe lists the commands in order with brief notes — see the [Command Re
 
 Generate the full documentation set for a project you're about to open-source or publish.
 
-1. **Generate README first** — this establishes the project's voice and features:
+1. **Extract user benefits** — understand why someone should care about your project:
+   ```
+   /pitchdocs:features benefits
+   ```
+   Choose "talk it out" for the most compelling results — the conversational path surfaces your real use cases and motivations.
+
+2. **Generate README** — this uses the extracted benefits to establish the project's voice:
    ```
    /pitchdocs:readme
    ```
 
-2. **Audit for missing docs** — check what else the repo needs:
+3. **Audit for missing docs** — check what else the repo needs:
    ```
    /pitchdocs:docs-audit
    ```
 
-3. **Auto-generate everything missing** — fill all gaps in one go:
+4. **Auto-generate everything missing** — fill all gaps in one go:
    ```
    /pitchdocs:docs-audit fix
    ```
 
-4. **Generate AI context files** — help other developers' AI tools understand your project:
+5. **Generate AI context files** — help other developers' AI tools understand your project:
    ```
    /pitchdocs:ai-context
    ```
 
-5. **Generate llms.txt** — make the repo AI-discoverable:
+6. **Generate llms.txt** — make the repo AI-discoverable:
    ```
    /pitchdocs:llms-txt full
    ```
 
-6. **Verify everything** — check links, freshness, and quality:
+7. **Verify everything** — check links, freshness, and quality:
    ```
    /pitchdocs:docs-verify
    ```
 
-7. **Review the quality score** — aim for 80+ (Grade B or above):
+8. **Review the quality score** — aim for 80+ (Grade B or above):
    ```
    /pitchdocs:docs-verify score
    ```
@@ -187,22 +193,28 @@ After adding a feature to your codebase, update docs to reflect it.
    /pitchdocs:features audit
    ```
 
-2. **Update README features section**:
+2. **Update user benefits** (if the feature changes the project's value proposition):
+   ```
+   /pitchdocs:features benefits
+   ```
+   Choose auto-scan for a quick draft, or "talk it out" for authentic, experience-driven benefits.
+
+3. **Update README features section**:
    ```
    /pitchdocs:readme focus on features
    ```
 
-3. **Update affected guides** (if any):
+4. **Update affected guides** (if any):
    ```
    /pitchdocs:doc-refresh guides
    ```
 
-4. **Refresh AI context files**:
+5. **Refresh AI context files**:
    ```
    /pitchdocs:doc-refresh context
    ```
 
-5. **Verify everything is consistent**:
+6. **Verify everything is consistent**:
    ```
    /pitchdocs:docs-verify
    ```

@@ -3,7 +3,7 @@ title: "Customising PitchDocs Output"
 description: "Steer PitchDocs output with prompt patterns, tone control, monorepo support, and iterative refinement."
 type: how-to
 difficulty: intermediate
-last_verified: "1.11.0"
+last_verified: "1.14.0"
 related:
   - guides/concepts.md
   - guides/command-reference.md
@@ -119,10 +119,11 @@ The `/pitchdocs:features` command supports multiple output formats:
 /pitchdocs:features              # Structured inventory (Hero / Core / Supporting tiers)
 /pitchdocs:features table        # | Feature | Benefit | Status | table format
 /pitchdocs:features bullets      # Emoji+bold+em-dash bullet format
+/pitchdocs:features benefits     # User benefits for "Why?" section (auto-scan or "talk it out")
 /pitchdocs:features audit        # Gap analysis: documented vs actual
 ```
 
-Choose the format that matches where you'll paste the output. `table` works well for comparison sections; `bullets` works well for features lists.
+Choose the format that matches where you'll paste the output. `table` works well for comparison sections; `bullets` works well for features lists; `benefits` generates bold-outcome bullets for a "Why [Project]?" section — choose auto-scan for a quick draft or conversational for authentic, developer-driven benefits.
 
 ---
 

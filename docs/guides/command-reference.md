@@ -2,7 +2,7 @@
 title: "Command Reference"
 description: "All 13 PitchDocs commands with arguments, generated files, and examples."
 type: reference
-last_verified: "1.11.0"
+last_verified: "1.14.0"
 related:
   - guides/getting-started.md
   - guides/workflows.md
@@ -72,7 +72,7 @@ Extract features from code and translate to benefits.
 
 | Detail | Value |
 |--------|-------|
-| Arguments | `[project-path]`, `table`, `bullets`, `audit` |
+| Arguments | `[project-path]`, `table`, `bullets`, `benefits`, `audit` |
 | Generates | Output to chat only (no files written) |
 | Cross-tool | Yes |
 
@@ -81,6 +81,7 @@ Extract features from code and translate to benefits.
 /pitchdocs:features                # Full inventory (Hero / Core / Supporting tiers)
 /pitchdocs:features table          # Markdown table format
 /pitchdocs:features bullets        # Emoji+bold+em-dash bullet format
+/pitchdocs:features benefits       # User benefits for "Why?" section (auto-scan or conversational)
 /pitchdocs:features audit          # Compare extracted vs documented features
 ```
 
