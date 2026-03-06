@@ -52,8 +52,10 @@ The source of truth lives in `.claude/`. Here's what each piece does:
 | `.claude/agents/docs-writer.md` | 1 agent file | Orchestration workflow: codebase scanning → feature extraction → doc writing → validation | Partial — Claude Code, OpenCode (may vary) |
 | `.claude/rules/doc-standards.md` | 1 rule file | Quality standards: 4-question framework, GEO optimisation, progressive disclosure, benefit-driven language | Auto-loaded in Claude Code; copy manually for other tools |
 | `.claude/rules/context-quality.md` | 1 rule file | AI context file quality standards: cross-file consistency, path verification, sync points | Auto-loaded in Claude Code; copy manually for other tools |
+| `.claude/rules/content-filter.md` | 1 rule file | Content filter quick reference: risk levels, fetch commands, chunked writing for high-risk OSS files | Auto-loaded in Claude Code; copy manually for other tools |
+| `.claude/rules/docs-awareness.md` | 1 rule file | Documentation trigger map: suggests PitchDocs commands when documentation-relevant work is detected | Auto-loaded in Claude Code; copy manually for other tools |
 | `commands/*.md` | 13 command files | Slash command definitions for all PitchDocs commands | Yes — Claude Code, OpenCode |
-| `hooks/*.sh` | 3 hook scripts | Post-commit drift detection, structural change reminders, and content filter write guard for AI context files | **Claude Code only** |
+| `hooks/*.sh` | 5 hook scripts | Post-commit drift detection, structural change reminders, content filter write guard, session-end context nudge (Tier 1), and pre-commit context enforcement (Tier 2) | **Claude Code only** |
 
 ## Tool Compatibility Summary
 
@@ -66,7 +68,9 @@ Not all PitchDocs features work in every tool. Here's what's portable and what's
 | Docs-writer agent | Native | Likely supported | Reference manually | Cursor: `.cursor/agents/` |
 | Doc-standards rule | Auto-loaded | Copy to context | Copy to context | Cursor: `.cursor/rules/`; others: copy to context file |
 | Context-quality rule | Auto-loaded | Copy to context | Copy to context | Copy to tool-specific context file |
-| Context Guard hooks | Native (opt-in) | Not supported | Not supported | Not supported |
+| Content-filter rule | Auto-loaded | Copy to context | Copy to context | Copy to tool-specific context file |
+| Docs-awareness rule | Auto-loaded | Not applicable | Not applicable | Not applicable |
+| Context Guard hooks (5) | Native (opt-in) | Not supported | Not supported | Not supported |
 | AGENTS.md | Loaded | Primary context file | Primary context file | Not used |
 | CLAUDE.md | Loaded | Fallback (if no AGENTS.md) | Not used | Not used |
 
