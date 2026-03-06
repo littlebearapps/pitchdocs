@@ -5,6 +5,20 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.15.0](https://github.com/littlebearapps/pitchdocs/compare/v1.14.0...v1.15.0) (2026-03-06)
+
+
+### Added
+
+* add two-tier context doc enforcement to Context Guard ([46e110f](https://github.com/littlebearapps/pitchdocs/commit/46e110f6e8160260a1b26eb69d671f2dc81b09f9))
+* add user benefits extraction with persona inference and docs-awareness rule ([c014db5](https://github.com/littlebearapps/pitchdocs/commit/c014db5deb80e92d90c4bbb120465f88ce6d391b))
+
+
+### Documentation
+
+* improve cross-platform documentation for non-Claude Code users ([0b6d2a5](https://github.com/littlebearapps/pitchdocs/commit/0b6d2a5d459a1fa13f210d058c398139fc12640e))
+* sync AI context files with current skill and command counts ([30961d2](https://github.com/littlebearapps/pitchdocs/commit/30961d2a0571eb12290bd8db9a330ebb6dfc37eb))
+
 ## [1.14.0](https://github.com/littlebearapps/pitchdocs/compare/v1.13.0...v1.14.0) (2026-03-05)
 
 
