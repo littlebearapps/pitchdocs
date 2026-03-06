@@ -1,6 +1,6 @@
 # PitchDocs
 
-Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 15 skills, 1 orchestration agent, 3 quality rules, 13 slash commands, and 3 opt-in hooks.
+Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 15 skills, 1 orchestration agent, 3 quality rules, 13 slash commands, and 5 opt-in hooks.
 
 ## Project Architecture
 
@@ -14,7 +14,7 @@ This is a **100% Markdown-based plugin** — no JavaScript, no Python, no build 
 .claude/rules/context-quality.md → AI context file quality standards (auto-loaded; Claude Code only)
 .claude/rules/content-filter.md → Content filter quick reference (auto-loaded; Claude Code only)
 commands/*.md                   → 13 slash command definitions
-hooks/*.sh                      → 3 opt-in hook scripts (Claude Code only)
+hooks/*.sh                      → 5 opt-in hook scripts (Claude Code only)
 ```
 
 ## Conventions
@@ -34,7 +34,7 @@ hooks/*.sh                      → 3 opt-in hook scripts (Claude Code only)
 | `context-quality.md` | AI context file quality rule — cross-file consistency, path verification, sync points (Claude Code only) |
 | `content-filter.md` | Content filter quick reference rule — risk levels, fetch commands, chunked writing guidance (auto-loaded; Claude Code only) |
 | `docs-writer.md` | Agent workflow: 4 steps + Step 2.5 security extraction (discover → extract → write → validate) with content filter mitigations |
-| `hooks/*.sh` | Context Guard hooks — post-commit drift detection, structural change reminders, and content filter write guard (Claude Code only, opt-in) |
+| `hooks/*.sh` | Context Guard hooks — post-commit drift detection, structural change reminders, content filter write guard, session-end context nudge, and pre-commit context enforcement (Claude Code only, opt-in) |
 | `upstream-versions.json` | Tracks 8 pinned spec versions — checked monthly by GitHub Action |
 | `llms.txt` | AI-readable content index — must be updated when files are added/removed |
 | `AGENTS.md` | Cross-tool AI context (Codex CLI format) — must stay in sync with skills/commands |

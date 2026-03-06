@@ -70,6 +70,8 @@
 - [Context Drift Check Hook](./hooks/context-drift-check.sh): PostToolUse hook that detects stale AI context files after git commits — compares timestamps, checks broken paths (Claude Code only)
 - [Context Structural Change Hook](./hooks/context-structural-change.sh): PostToolUse hook that reminds about context file updates after structural file changes (Claude Code only)
 - [Content Filter Guard Hook](./hooks/content-filter-guard.sh): PreToolUse hook that blocks Write operations on high-risk OSS files (CODE_OF_CONDUCT, LICENSE, SECURITY) and advises chunked writing for medium-risk files (Claude Code only)
+- [Context Guard Stop Hook](./hooks/context-guard-stop.sh): Stop hook that nudges Claude to update AI context files before ending a session when structural changes were made — Tier 1 Nudge (Claude Code only)
+- [Context Commit Guard Hook](./hooks/context-commit-guard.sh): PreToolUse hook that blocks git commit when structural files are staged without AI context file updates — Tier 2 Guard (Claude Code only)
 - [Upstream Versions](./upstream-versions.json): Pinned versions of 8 referenced specifications (Keep a Changelog, Contributor Covenant, Conventional Commits, Semantic Versioning, GitHub Issue Forms, npm/PyPI Trusted Publishing, AGENTS.md Spec)
 - [Cursor Rules](./.cursorrules): Cursor IDE project context — architecture, writing standards, sync requirements
 - [Copilot Instructions](./.github/copilot-instructions.md): GitHub Copilot project context — structure, conventions, sync points

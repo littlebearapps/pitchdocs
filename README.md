@@ -84,7 +84,7 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 - 🤖 **AI context file generation** — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, and 3 more from one codebase scan
 - 🔎 **GEO-optimised for AI citation** — structured so ChatGPT, Perplexity, and Google AI Overviews cite your project accurately
 - 📊 **Quality scoring (0–100)** — grades docs on completeness, structure, freshness, and link health — export to CI with `--min-score`
-- 🔒 **Context Guard** — post-commit hooks detect when AI context files drift out of sync with your code and nudge you to update them *(Claude Code only)*
+- 🔒 **Context Guard** — two-tier enforcement keeps AI context files in sync: a session-end nudge reminds you to update docs, and an optional pre-commit guard blocks commits with stale context files *(Claude Code only)*
 - 🛡️ **Content filter protection** — automatically handles Claude Code's API filter for CODE_OF_CONDUCT, LICENSE, and SECURITY so you never hit HTTP 400 errors *(Claude Code only)*
 - 🌐 **GitHub, GitLab, and Bitbucket** — auto-detects hosting platform and adapts badges, URLs, CI config, and Markdown rendering for each
 - 🔌 **Works with 9 AI tools** — Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose
@@ -120,7 +120,7 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 | `/pitchdocs:launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions | Transform docs into platform-specific launch content |
 | `/pitchdocs:doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context, llms.txt | Never ship a release with stale documentation |
 | `/pitchdocs:platform` | Detect hosting platform (GitHub, GitLab, Bitbucket) and report feature support | Know which PitchDocs features work on your platform before you start |
-| `/pitchdocs:context-guard` | Install, uninstall, or check status of Context Guard hooks for AI context file freshness and content filter protection | Catch stale context files and prevent content filter errors automatically |
+| `/pitchdocs:context-guard` | Install, uninstall, or check status of Context Guard hooks with tiered enforcement for AI context file freshness and content filter protection | Catch stale context files before they reach your repo |
 
 **Note:** `/pitchdocs:context-guard` is **Claude Code only**. All other commands work across all supported AI tools.
 
