@@ -76,14 +76,7 @@ Using the research packet, write documentation with the marketing framework.
 | end-users | Non-technical, outcome-focused | "Create beautiful documents in seconds" |
 | data-scientists | Technical, domain-specific | "Process datasets with pandas-compatible API" |
 
-**Apply the Daytona "4000 Stars" approach:**
-
-1. **Three-part hero** — (1) Bold one-liner (max 15 words, action verb or benefit, no jargon), (2) explanatory sentence covering scope and key selling points, (3) badges and platform compatibility line
-2. **Use-case framing** — For multi-capability projects, add "What [Project] Does" with 2–4 reader-centric scenarios. Skip for single-purpose tools.
-3. **Engaging narrative** — "Why" from the reader's perspective. Two tracks: developers (technical problem → solution with code evidence) and decision makers (business problem → measurable outcome). Offer format choice: bold-outcome bullets or problem/solution table.
-4. **Features with benefits** — Emoji+bold+em-dash bullets for 5+ features, or table for shorter lists. Every feature traces to code evidence.
-5. **Technical substance** — Installation, usage, API, configuration
-6. **Project hygiene** — Contributing, license, code of conduct
+Apply the Daytona "4000 Stars" framework from the `public-readme` skill for hero structure, use-case framing, narrative tracks, and feature formatting.
 
 **Writing rules:**
 - Each H2 section must open with a citation capsule (40–60 words, standalone, includes a concrete fact)
@@ -131,9 +124,7 @@ When generating docs that depend on third-party specifications, verify you are u
 
 ## Content Filter Mitigation
 
-The `content-filter` rule (auto-loaded every session) and `content-filter-guard` hook (installed by Context Guard) handle content filter errors for CODE_OF_CONDUCT.md, LICENSE, SECURITY.md, CHANGELOG.md, and CONTRIBUTING.md. Refer to `.claude/rules/content-filter.md` for risk levels, fetch commands, and chunked writing strategies.
-
-**Key principle:** HIGH-risk files (CODE_OF_CONDUCT, LICENSE, SECURITY) must be fetched from canonical URLs using `curl`, never generated inline. MEDIUM-risk files (CHANGELOG, CONTRIBUTING) should be written in chunks of 5–10 entries. If a filter triggers, do not retry the same content — switch strategy or start a fresh session.
+Follow `.claude/rules/content-filter.md` for risk levels, fetch commands, and chunked writing strategies when generating CODE_OF_CONDUCT, LICENSE, SECURITY, CHANGELOG, or CONTRIBUTING files.
 
 ## Additional Skills
 

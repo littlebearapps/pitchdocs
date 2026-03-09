@@ -122,13 +122,13 @@ AI retrieval systems (RAG) preferentially extract the first paragraph under each
 ```markdown
 ## Features
 
-PitchDocs generates marketing-grade repository documentation from codebase analysis — 15 skills covering README, changelog, roadmap, and AI context files. It runs as a pure-Markdown Claude Code plugin with zero runtime dependencies, producing docs that pass the 4-question test in under 60 seconds.
+PitchDocs generates marketing-grade repository documentation from codebase analysis — 18 skills covering README, changelog, roadmap, and AI context files. It runs as a pure-Markdown Claude Code plugin with zero runtime dependencies, producing docs that pass the 4-question test in under 60 seconds.
 
 ### Individual feature details below...
 ```
 
 **Good capsule (standalone, concrete):**
-> PitchDocs generates marketing-grade repository documentation from codebase analysis — 15 skills covering README, changelog, roadmap, and AI context files.
+> PitchDocs generates marketing-grade repository documentation from codebase analysis — 18 skills covering README, changelog, roadmap, and AI context files.
 
 **Poor capsule (context-dependent, vague):**
 > This section covers the main features of the project. Below you'll find details about each capability.

@@ -142,7 +142,7 @@ This checks for:
 
 ## 7. Install Context Guard Hooks (Optional, Claude Code Only)
 
-Context Guard adds three hooks to your project that run automatically during your Claude Code sessions:
+Context Guard adds five hooks to your project that run automatically during your Claude Code sessions:
 
 ```bash
 /pitchdocs:context-guard install
@@ -153,6 +153,8 @@ What it installs:
 - **Drift detection** — warns after commits if AI context files (AGENTS.md, CLAUDE.md) are stale
 - **Structural change reminders** — nudges you to update context files when you modify commands, skills, or config
 - **Content filter guard** — prevents content filter errors (HTTP 400) by intercepting Write operations on files like CODE_OF_CONDUCT.md, LICENSE, and SECURITY.md, advising you to fetch them from canonical URLs instead
+- **Session-end context nudge (Tier 1)** — reminds you to update AI context files before ending a session when structural changes were made
+- **Pre-commit context enforcement (Tier 2)** — blocks commits with stale AI context files when structural files are staged
 
 Check status anytime with `/pitchdocs:context-guard status`. Uninstall with `/pitchdocs:context-guard uninstall`.
 

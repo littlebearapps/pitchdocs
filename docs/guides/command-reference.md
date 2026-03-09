@@ -355,12 +355,12 @@ Install, uninstall, or check Context Guard hooks. **Claude Code only.**
 
 **Examples:**
 ```
-/pitchdocs:context-guard install   # Install 3 hooks into the current project
+/pitchdocs:context-guard install   # Install 5 hooks into the current project
 /pitchdocs:context-guard status    # Check installation state and run drift check
 /pitchdocs:context-guard uninstall # Remove hooks (preserves other hooks)
 ```
 
-Installs 3 hooks: drift detection (warns after commits), structural change reminders (nudges on config changes), and content filter guard (prevents HTTP 400 on high-risk files).
+Installs 5 hooks: drift detection (warns after commits), structural change reminders (nudges on config changes), content filter guard (prevents HTTP 400 on high-risk files), session-end context nudge (Tier 1), and pre-commit context enforcement (Tier 2).
 
 ---
 

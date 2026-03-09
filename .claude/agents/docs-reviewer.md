@@ -3,7 +3,7 @@ name: docs-reviewer
 description: Post-generation quality validation for repository documentation. Runs the full validation checklist, citation capsule checks, banned phrase scanning, GEO readiness scoring, and content filter safety checks. Returns a structured review report with severity-ranked issues.
 when: "review docs", "validate documentation", "check docs quality"
 model: inherit
-color: orange
+color: yellow
 tools:
   - Read
   - Glob
@@ -50,14 +50,7 @@ Run all checks against the generated documentation files. For each check, report
 
 ### Banned Phrases Scan
 
-Scan all generated docs for banned phrases from the doc-standards rule:
-
-```bash
-grep -rniE "(in today's digital landscape|it's important to note|dive into|deep dive|leverage|game-changer|cutting-edge|state-of-the-art|seamless|seamlessly|robust|in conclusion|to summarise|furthermore|moreover|revolutionise|utilise|comprehensive|navigate the complexities|elevate your)" \
-  README.md CONTRIBUTING.md CHANGELOG.md docs/ 2>/dev/null
-```
-
-Flag each occurrence with file:line and suggest a replacement.
+Scan all generated docs for banned phrases listed in `.claude/rules/doc-standards.md` (Tone & Language section). Use `grep -rniE` with patterns from that file against README.md, CONTRIBUTING.md, CHANGELOG.md, and docs/. Flag each occurrence with file:line and suggest a replacement.
 
 ### Technical Accuracy
 

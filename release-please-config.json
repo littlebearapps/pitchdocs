@@ -15,6 +15,11 @@
         {
           "type": "generic",
           "path": "README.md"
+        },
+        {
+          "type": "yaml",
+          "path": "SKILL.md",
+          "jsonpath": "$.version"
         }
       ]
     }

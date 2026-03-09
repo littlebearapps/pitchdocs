@@ -1,7 +1,7 @@
 ---
 name: pitchdocs
 description: Generate marketing-quality repository documentation from codebase analysis. Scans 10 signal categories, extracts features with file-level evidence, and produces README, CHANGELOG, ROADMAP, AI context files, and 15+ more docs. Zero runtime dependencies.
-version: "1.15.0"
+version: "1.18.0"
 author: Little Bear Apps
 tags:
   - documentation
@@ -19,7 +19,7 @@ tags:
 
 PitchDocs is a pure Markdown Claude Code plugin that scans any codebase and generates professional, marketing-ready repository documentation. Every feature claim traces to an actual file path — no hallucinated marketing copy.
 
-15 skills, 13 slash commands, 1 orchestration agent, 4 quality rules, 5 opt-in hooks. 100% Markdown, zero runtime dependencies, MIT licensed.
+18 skills, 15 slash commands, 3 agents (researcher → writer → reviewer pipeline), 4 quality rules, 5 opt-in hooks. 100% Markdown, zero runtime dependencies, MIT licensed.
 
 ## When to Use
 
@@ -53,6 +53,8 @@ PitchDocs is a pure Markdown Claude Code plugin that scans any codebase and gene
    - `/pitchdocs:launch` — Generate launch and promotion content
    - `/pitchdocs:doc-refresh` — Refresh all docs after version bumps
    - `/pitchdocs:platform` — Detect hosting platform feature support
+   - `/pitchdocs:visual-standards` — Visual formatting standards for docs
+   - `/pitchdocs:geo` — GEO optimisation for AI citation readiness
    - `/pitchdocs:context-guard` — Install context freshness hooks
 
 ## Output Format

@@ -29,7 +29,7 @@ Step-by-step instructions for common tasks:
 
 ## Command Reference
 
-See the [Command Reference guide](guides/command-reference.md) for all 13 commands with arguments, generated files, cross-tool support, and examples.
+See the [Command Reference guide](guides/command-reference.md) for all 15 commands with arguments, generated files, cross-tool support, and examples.
 
 ## Skills Reference
 

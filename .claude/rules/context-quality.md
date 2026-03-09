@@ -39,18 +39,7 @@ Every command listed in a context file (test, build, lint, deploy) must be runna
 
 ## Sync Points
 
-When these project changes occur, update the corresponding context files:
-
-| Change | Files to Update |
-|--------|----------------|
-| New command or skill | AGENTS.md, CLAUDE.md, llms.txt |
-| New dependency | All context files referencing tech stack |
-| File rename or move | All context files referencing file paths |
-| Test runner change | All context files listing test commands |
-| New rule or convention | All context files listing coding standards |
-| Architecture change | AGENTS.md, CLAUDE.md (architecture section) |
-| New agent | AGENTS.md |
-| Stable pattern in MEMORY.md | Promote to CLAUDE.md (so the whole team benefits) |
+When project structure, dependencies, commands, or conventions change, update all context files that reference the affected content. Load the `ai-context` skill for the full sync matrix.
 
 ## Tool Compatibility
 

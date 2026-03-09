@@ -149,10 +149,12 @@ Install hooks that automatically warn about stale docs:
 /pitchdocs:context-guard install
 ```
 
-This adds three hooks:
+This adds five hooks:
 - **Drift detection** — warns after commits if AI context files are stale
 - **Structural change reminders** — nudges you when commands, skills, or config change
 - **Content filter guard** — prevents HTTP 400 errors on high-risk file writes
+- **Session-end context nudge (Tier 1)** — reminds you to update context files before ending a session
+- **Pre-commit context enforcement (Tier 2)** — blocks commits when structural files are staged without context updates
 
 Check status anytime:
 ```
