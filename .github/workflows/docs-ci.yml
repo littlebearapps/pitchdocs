@@ -107,6 +107,12 @@ jobs:
           echo "Checked $(ls hooks/*.sh | wc -l) hook scripts"
           [ "$errors" -eq 0 ] && echo "All hooks valid" || exit 1
 
+      - name: Run hook unit tests
+        run: bash tests/test-hook-content-filter.sh
+
+      - name: Check README for banned phrases
+        run: bash tests/check-banned-phrases.sh README.md
+
   consistency:
     runs-on: ubuntu-latest
     steps:

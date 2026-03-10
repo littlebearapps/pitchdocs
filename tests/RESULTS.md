@@ -137,7 +137,61 @@ V5 run total: ~$6.50 (20 tests x ~$0.32 avg, model falls back to Sonnet)
 
 ---
 
-## Phase 3: Output Quality Evaluation (Pending)
+## Phase 3: CI Integration
+
+**Status**: Implemented — deterministic tests added to CI, activation eval workflow created.
+
+### Deterministic Tests Added to `docs-ci.yml`
+
+Two existing test scripts promoted to the `validate-plugin` CI job:
+
+| Step | Script | What It Checks |
+|------|--------|----------------|
+| Hook unit tests | `tests/test-hook-content-filter.sh` | 25 functional tests for content-filter-guard.sh |
+| Banned phrase check | `tests/check-banned-phrases.sh README.md` | 23 AI-detectable phrases in README |
+
+These run on every PR and monthly schedule alongside existing checks. Zero cost, no API keys needed.
+
+### Activation Eval Workflow (`activation-evals.yml`)
+
+New manual-trigger GitHub Actions workflow for running skill activation evals in CI.
+
+| Input | Default | Purpose |
+|-------|---------|---------|
+| `model` | haiku | Claude model (haiku/sonnet/opus) |
+| `runs` | 1 | Repetitions per test case |
+| `threshold` | 75 | Minimum pass rate (%) |
+
+**Features**:
+- Installs Claude Code CLI, runs `run-activation-evals.sh`
+- Generates job summary table with category breakdown and failure details
+- Uploads results JSON as 90-day artifact
+- Fails if activation rate drops below threshold
+- Monthly schedule available (commented out, ~$6.50/run)
+
+**Prerequisite**: `ANTHROPIC_API_KEY` GitHub Actions secret must be configured.
+
+### Updated CI Check Inventory
+
+| Check | Workflow | Job | Trigger | Cost |
+|-------|----------|-----|---------|------|
+| Markdown linting | docs-ci | lint | PR + monthly | $0 |
+| Spell check | docs-ci | lint | PR + monthly | $0 |
+| GitHub Actions syntax | docs-ci | lint | PR + monthly | $0 |
+| Link validation | docs-ci | links | PR + monthly | $0 |
+| Plugin.json validation | docs-ci | validate-plugin | PR + monthly | $0 |
+| Evaluations.json validation | docs-ci | validate-plugin | PR + monthly | $0 |
+| Frontmatter validation | docs-ci | validate-plugin | PR + monthly | $0 |
+| Hook script syntax | docs-ci | validate-plugin | PR + monthly | $0 |
+| **Hook unit tests** | docs-ci | validate-plugin | PR + monthly | $0 |
+| **Banned phrase check** | docs-ci | validate-plugin | PR + monthly | $0 |
+| llms.txt consistency | docs-ci | consistency | PR + monthly | $0 |
+| Token budget warnings | docs-ci | consistency | PR + monthly | $0 |
+| **Activation evals** | activation-evals | activation-evals | Manual dispatch | ~$6.50 |
+
+---
+
+## Phase 4: Output Quality Evaluation (Pending)
 
 **Status**: Not yet run. Requires generating docs for test repos with and without PitchDocs, then blind comparison.
 
@@ -161,8 +215,8 @@ V5 run total: ~$6.50 (20 tests x ~$0.32 avg, model falls back to Sonnet)
 
 ## Test Scripts Added
 
-| Script | Purpose | CI-ready |
-|--------|---------|----------|
-| `tests/test-hook-content-filter.sh` | 25 unit tests for content-filter-guard.sh | Yes |
-| `tests/check-banned-phrases.sh` | Scans any file for banned AI phrases | Yes |
-| `tests/run-activation-evals.sh` | Skill activation testing via `claude -p` | No (requires API tokens) |
+| Script | Purpose | In CI |
+|--------|---------|-------|
+| `tests/test-hook-content-filter.sh` | 25 unit tests for content-filter-guard.sh | Yes (docs-ci) |
+| `tests/check-banned-phrases.sh` | Scans any file for banned AI phrases | Yes (docs-ci) |
+| `tests/run-activation-evals.sh` | Skill activation testing via `claude -p` | Yes (activation-evals, manual) |

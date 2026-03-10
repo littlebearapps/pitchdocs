@@ -1,0 +1,154 @@
+name: Activation Evals
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: 'Claude model to use'
+        required: false
+        default: 'haiku'
+        type: choice
+        options:
+          - haiku
+          - sonnet
+          - opus
+      runs:
+        description: 'Number of runs per test case'
+        required: false
+        default: '1'
+        type: string
+      threshold:
+        description: 'Minimum pass rate (%) to succeed'
+        required: false
+        default: '75'
+        type: string
+  # Uncomment for monthly scheduled runs (~$6.50/run):
+  # schedule:
+  #   - cron: '0 12 1 * *'
+
+permissions:
+  contents: read
+
+jobs:
+  activation-evals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Verify Claude CLI
+        run: claude --version
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Run activation evals
+        id: evals
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          MODEL="${{ inputs.model || 'haiku' }}"
+          RUNS="${{ inputs.runs || '1' }}"
+
+          bash tests/run-activation-evals.sh \
+            --model "$MODEL" \
+            --runs "$RUNS" \
+            --save-raw \
+            || true
+
+          # Find most recent results file
+          RESULT_FILE=$(ls -t tests/activation-results/run-*.json 2>/dev/null | head -1)
+
+          if [ -z "$RESULT_FILE" ]; then
+            echo "::error::No results file generated"
+            exit 1
+          fi
+
+          echo "result_file=$RESULT_FILE" >> "$GITHUB_OUTPUT"
+
+          # Calculate pass rate
+          TOTAL=$(jq length "$RESULT_FILE")
+          PASS=$(jq '[.[] | select(.result == "pass")] | length' "$RESULT_FILE")
+          FAIL=$(jq '[.[] | select(.result == "fail")] | length' "$RESULT_FILE")
+
+          if [ "$TOTAL" -eq 0 ]; then
+            echo "::error::No test results found in $RESULT_FILE"
+            exit 1
+          fi
+
+          RATE=$(echo "scale=1; $PASS * 100 / $TOTAL" | bc)
+
+          echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
+          echo "pass=$PASS" >> "$GITHUB_OUTPUT"
+          echo "fail=$FAIL" >> "$GITHUB_OUTPUT"
+          echo "rate=$RATE" >> "$GITHUB_OUTPUT"
+
+          echo "Activation rate: $PASS/$TOTAL ($RATE%)"
+
+      - name: Generate job summary
+        if: always() && steps.evals.outputs.result_file != ''
+        env:
+          RESULT_FILE: ${{ steps.evals.outputs.result_file }}
+          TOTAL: ${{ steps.evals.outputs.total }}
+          PASS: ${{ steps.evals.outputs.pass }}
+          FAIL: ${{ steps.evals.outputs.fail }}
+          RATE: ${{ steps.evals.outputs.rate }}
+        run: |
+          {
+            echo "## Activation Eval Results"
+            echo ""
+            echo "**Model**: ${{ inputs.model || 'haiku' }} | **Runs**: ${{ inputs.runs || '1' }} | **Pass rate**: ${PASS}/${TOTAL} (${RATE}%)"
+            echo ""
+
+            POS_PASS=$(jq '[.[] | select(.should_respond == true and .result == "pass")] | length' "$RESULT_FILE")
+            POS_TOTAL=$(jq '[.[] | select(.should_respond == true)] | length' "$RESULT_FILE")
+            NEG_PASS=$(jq '[.[] | select(.should_respond == false and .result == "pass")] | length' "$RESULT_FILE")
+            NEG_TOTAL=$(jq '[.[] | select(.should_respond == false)] | length' "$RESULT_FILE")
+
+            echo "| Category | Pass | Total | Rate |"
+            echo "|----------|------|-------|------|"
+            if [ "$POS_TOTAL" -gt 0 ]; then
+              echo "| Positive (should activate) | $POS_PASS | $POS_TOTAL | $(echo "scale=0; $POS_PASS * 100 / $POS_TOTAL" | bc)% |"
+            fi
+            if [ "$NEG_TOTAL" -gt 0 ]; then
+              echo "| Negative (should NOT activate) | $NEG_PASS | $NEG_TOTAL | $(echo "scale=0; $NEG_PASS * 100 / $NEG_TOTAL" | bc)% |"
+            fi
+            echo "| **Overall** | **$PASS** | **$TOTAL** | **${RATE}%** |"
+            echo ""
+
+            FAILURES=$(jq -r '.[] | select(.result == "fail") | "| \(.id) | \(.input) | \(.expected_skill) | \(.activated_skill) |"' "$RESULT_FILE")
+            if [ -n "$FAILURES" ]; then
+              echo "### Failures"
+              echo ""
+              echo "| Test ID | Input | Expected | Activated |"
+              echo "|---------|-------|----------|-----------|"
+              echo "$FAILURES"
+              echo ""
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload results artifact
+        if: always() && steps.evals.outputs.result_file != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: activation-eval-results-${{ github.run_number }}
+          path: tests/activation-results/run-*.json
+          retention-days: 90
+
+      - name: Check threshold
+        env:
+          RATE: ${{ steps.evals.outputs.rate }}
+          THRESHOLD: ${{ inputs.threshold || '75' }}
+        run: |
+          BELOW=$(echo "$RATE < $THRESHOLD" | bc -l)
+          if [ "$BELOW" -eq 1 ]; then
+            echo "::warning::Activation rate ${RATE}% is below threshold ${THRESHOLD}%"
+            exit 1
+          fi
+          echo "Activation rate ${RATE}% meets threshold ${THRESHOLD}%"
