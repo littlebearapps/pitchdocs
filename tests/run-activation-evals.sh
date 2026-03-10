@@ -27,6 +27,7 @@ EVALS_FILE="$SCRIPT_DIR/evaluations.json"
 RESULTS_DIR="$SCRIPT_DIR/activation-results"
 RUNS=1
 DRY_RUN=false
+SAVE_RAW=false
 MODEL="haiku"  # Use cheapest model for activation testing
 
 # Parse arguments
@@ -35,6 +36,7 @@ while [[ $# -gt 0 ]]; do
     --runs) RUNS="$2"; shift 2 ;;
     --dry-run) DRY_RUN=true; shift ;;
     --model) MODEL="$2"; shift 2 ;;
+    --save-raw) SAVE_RAW=true; shift ;;
     *) echo "Unknown option: $1"; exit 1 ;;
   esac
 done
@@ -43,6 +45,13 @@ done
 command -v claude >/dev/null 2>&1 || { echo "Error: claude CLI not found"; exit 1; }
 command -v jq >/dev/null 2>&1 || { echo "Error: jq not found"; exit 1; }
 [ -f "$EVALS_FILE" ] || { echo "Error: $EVALS_FILE not found"; exit 1; }
+
+# Check for nested Claude Code session
+if [ -n "${CLAUDECODE:-}" ]; then
+  echo "Error: Cannot run inside a Claude Code session (nested sessions crash)."
+  echo "Run this from a regular terminal: bash tests/run-activation-evals.sh"
+  exit 1
+fi
 
 # Load test cases
 TOTAL_CASES=$(jq length "$EVALS_FILE")
@@ -92,29 +101,56 @@ for run in $(seq 1 "$RUNS"); do
 
     echo -n "  [$ID] $INPUT ... "
 
-    # Run claude -p with constrained tools and budget
-    # --allowedTools Skill limits it to only invoking skills (no file edits, no bash)
+    # Run claude -p with stream-json to capture tool use events
     # --max-budget-usd 0.05 caps cost per invocation
+    # NOTE: Do NOT use --allowedTools "Skill" — it prevents Claude from loading
+    # plugin context. Let Claude use all tools so skills can activate properly.
     OUTPUT=$(cd "$PROJECT_DIR" && claude -p "$INPUT" \
-      --output-format json \
+      --output-format stream-json \
       --model "$MODEL" \
       --max-budget-usd 0.05 \
-      --allowedTools "Skill" \
       --no-session-persistence \
-      2>/dev/null) || OUTPUT="{}"
+      2>/dev/null) || OUTPUT=""
+
+    # Optionally save raw output for debugging
+    if $SAVE_RAW; then
+      RAW_DIR="$RESULTS_DIR/raw-$TIMESTAMP"
+      mkdir -p "$RAW_DIR"
+      echo "$OUTPUT" > "$RAW_DIR/${ID}-run${run}.json"
+    fi
 
     # Extract which skill was activated (if any)
-    # The JSON output contains tool_use blocks — look for Skill tool calls
-    ACTIVATED_SKILL=$(echo "$OUTPUT" | jq -r '
-      if type == "array" then
-        [.[] | select(.type == "tool_use" and .name == "Skill") | .input.skill // empty] | first // "none"
-      elif type == "object" then
-        if .tool_use then .tool_use | select(.name == "Skill") | .input.skill // "none"
-        else "none"
-        end
-      else "none"
-      end
-    ' 2>/dev/null || echo "parse_error")
+    # stream-json emits one JSON object per line. Skill invocations appear as
+    # tool_use events with tool_name "Skill" or in the result content.
+    # Try multiple parsing strategies:
+
+    # Strategy 1: Look for Skill tool_use in stream events
+    ACTIVATED_SKILL=$(echo "$OUTPUT" | \
+      grep -i '"Skill"' | \
+      grep -o '"skill"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | \
+      sed 's/.*"skill"[[:space:]]*:[[:space:]]*"//;s/"//' 2>/dev/null || echo "")
+
+    # Strategy 2: Look for tool_name field containing "Skill"
+    if [ -z "$ACTIVATED_SKILL" ]; then
+      ACTIVATED_SKILL=$(echo "$OUTPUT" | \
+        while IFS= read -r line; do
+          tool_name=$(echo "$line" | jq -r '.tool_name // empty' 2>/dev/null)
+          if [ "$tool_name" = "Skill" ]; then
+            echo "$line" | jq -r '.tool_input.skill // empty' 2>/dev/null
+            break
+          fi
+        done || echo "")
+    fi
+
+    # Strategy 3: Look for skill name in the content text (Claude may mention it)
+    if [ -z "$ACTIVATED_SKILL" ]; then
+      ACTIVATED_SKILL=$(echo "$OUTPUT" | \
+        grep -o '"skill_name"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | \
+        sed 's/.*"skill_name"[[:space:]]*:[[:space:]]*"//;s/"//' 2>/dev/null || echo "")
+    fi
+
+    # Default to "none" if nothing found
+    [ -z "$ACTIVATED_SKILL" ] && ACTIVATED_SKILL="none"
 
     # Evaluate result
     if [ "$SHOULD_RESPOND" = "true" ]; then
