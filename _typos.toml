@@ -1,0 +1,76 @@
+# Spell check configuration for crate-ci/typos
+# https://github.com/crate-ci/typos
+
+[default]
+locale = "en-au"
+
+[default.extend-words]
+# Australian English spellings (not typos)
+licence = "licence"
+licenced = "licenced"
+colour = "colour"
+colours = "colours"
+behaviour = "behaviour"
+behaviours = "behaviours"
+realise = "realise"
+realised = "realised"
+optimise = "optimise"
+optimised = "optimised"
+optimisation = "optimisation"
+organisation = "organisation"
+organisations = "organisations"
+customise = "customise"
+customised = "customised"
+customising = "customising"
+recognise = "recognise"
+recognised = "recognised"
+analyse = "analyse"
+analysed = "analysed"
+analyses = "analyses"
+summarise = "summarise"
+summarised = "summarised"
+minimise = "minimise"
+maximise = "maximise"
+specialise = "specialise"
+specialised = "specialised"
+categorise = "categorise"
+categorised = "categorised"
+standardise = "standardise"
+standardised = "standardised"
+synchronise = "synchronise"
+synchronised = "synchronised"
+prioritise = "prioritise"
+prioritised = "prioritised"
+initialise = "initialise"
+initialised = "initialised"
+
+# Technical terms
+pitchdocs = "pitchdocs"
+llms = "llms"
+frontmatter = "frontmatter"
+diataxis = "diataxis"
+cursorrules = "cursorrules"
+clinerules = "clinerules"
+windsurfrules = "windsurfrules"
+copilot = "copilot"
+monorepo = "monorepo"
+monorepos = "monorepos"
+quickstart = "quickstart"
+
+# Names and brands
+Banesullivan = "Banesullivan"
+Daytona = "Daytona"
+LobeChat = "LobeChat"
+PostHog = "PostHog"
+lychee = "lychee"
+Untether = "Untether"
+
+[files]
+extend-exclude = [
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "LICENSE",
+    "*.svg",
+    "*.json",
+    "llms-full.txt",
+]

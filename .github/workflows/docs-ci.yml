@@ -9,7 +9,9 @@ on:
       - 'upstream-versions.json'
       - '.claude/**'
       - 'commands/**'
+      - 'hooks/**'
       - 'tests/**'
+      - '.github/workflows/**'
   schedule:
     # 15th of each month at 9am UTC (staggered from check-upstream on the 1st)
     - cron: '0 9 15 * *'
@@ -19,7 +21,7 @@ permissions:
   contents: read
 
 jobs:
-  verify:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,6 +30,19 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v18
         with:
           globs: '**/*.md'
+
+      - name: Spell check
+        uses: crate-ci/typos@v1
+        with:
+          config: _typos.toml
+
+      - name: Lint GitHub Actions workflows
+        uses: raven-actions/actionlint@v2
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Check links
         uses: lycheeverse/lychee-action@v2
@@ -56,65 +71,49 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Validate plugin.json
+        run: |
+          python3 -m json.tool .claude-plugin/plugin.json > /dev/null
+          for field in name version description; do
+            if ! python3 -c "import json; d=json.load(open('.claude-plugin/plugin.json')); assert '$field' in d, 'missing $field'"; then
+              echo "ERROR: plugin.json — missing '$field'"
+              exit 1
+            fi
+          done
+          echo "plugin.json valid"
+
       - name: Validate evaluations.json
         run: python3 -m json.tool tests/evaluations.json > /dev/null
 
-      - name: Validate skill frontmatter
-        run: |
-          errors=0
-          for f in .claude/skills/*/SKILL.md; do
-            # Check file starts with YAML frontmatter
-            if ! head -1 "$f" | grep -q "^---"; then
-              echo "ERROR: $f — missing YAML frontmatter"
-              errors=$((errors + 1))
-              continue
-            fi
-            # Check required fields: name, description
-            frontmatter=$(sed -n '/^---$/,/^---$/p' "$f" | head -20)
-            if ! echo "$frontmatter" | grep -q "^name:"; then
-              echo "ERROR: $f — missing 'name' in frontmatter"
-              errors=$((errors + 1))
-            fi
-            if ! echo "$frontmatter" | grep -q "^description:"; then
-              echo "ERROR: $f — missing 'description' in frontmatter"
-              errors=$((errors + 1))
-            fi
-          done
-          echo "Checked $(find .claude/skills -name 'SKILL.md' | wc -l) skill files"
-          [ "$errors" -eq 0 ] && echo "All skills valid" || exit 1
+      - name: Validate upstream-versions.json
+        run: python3 -m json.tool upstream-versions.json > /dev/null
 
-      - name: Validate command frontmatter
-        run: |
-          errors=0
-          for f in commands/*.md; do
-            if ! head -1 "$f" | grep -q "^---"; then
-              echo "ERROR: $f — missing YAML frontmatter"
-              errors=$((errors + 1))
-              continue
-            fi
-            frontmatter=$(sed -n '/^---$/,/^---$/p' "$f" | head -10)
-            if ! echo "$frontmatter" | grep -q "description:"; then
-              echo "ERROR: $f — missing 'description' in frontmatter"
-              errors=$((errors + 1))
-            fi
-          done
-          echo "Checked $(ls commands/*.md | wc -l) command files"
-          [ "$errors" -eq 0 ] && echo "All commands valid" || exit 1
+      - name: Validate frontmatter (skills, commands, agents)
+        run: python3 tests/validate-frontmatter.py
 
-      - name: Validate agent frontmatter
+      - name: Validate hook scripts
         run: |
           errors=0
-          for f in .claude/agents/*.md; do
-            if ! head -1 "$f" | grep -q "^---"; then
-              echo "ERROR: $f — missing YAML frontmatter"
+          for f in hooks/*.sh; do
+            if ! head -1 "$f" | grep -q "^#!/"; then
+              echo "ERROR: $f — missing shebang line"
               errors=$((errors + 1))
-              continue
             fi
-            frontmatter=$(sed -n '/^---$/,/^---$/p' "$f" | head -10)
-            if ! echo "$frontmatter" | grep -q "^name:"; then
-              echo "ERROR: $f — missing 'name' in frontmatter"
+            if ! bash -n "$f" 2>/dev/null; then
+              echo "ERROR: $f — bash syntax error"
               errors=$((errors + 1))
             fi
           done
-          echo "Checked $(ls .claude/agents/*.md | wc -l) agent files"
-          [ "$errors" -eq 0 ] && echo "All agents valid" || exit 1
+          echo "Checked $(ls hooks/*.sh | wc -l) hook scripts"
+          [ "$errors" -eq 0 ] && echo "All hooks valid" || exit 1
+
+  consistency:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate llms.txt references and orphan detection
+        run: bash tests/validate-llms-txt.sh
+
+      - name: Check token budgets
+        run: bash tests/check-token-budgets.sh
