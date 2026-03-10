@@ -69,8 +69,8 @@ Report format:
 AI Context Files:
   ✓ AGENTS.md — present, references TypeScript + Vitest (matches codebase)
   ⚠ CLAUDE.md — references src/index.ts but file is now src/main.ts
-  · .cursorrules — not present (recommend: run /ai-context cursor)
-  · .github/copilot-instructions.md — not present (recommend: run /ai-context copilot)
+  · .cursorrules — not present (recommend: install ContextDocs and run /contextdocs:ai-context cursor)
+  · .github/copilot-instructions.md — not present (recommend: install ContextDocs and run /contextdocs:ai-context copilot)
 ```
 
 ### Diataxis Coverage Check

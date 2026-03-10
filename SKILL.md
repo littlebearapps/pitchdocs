@@ -1,14 +1,13 @@
 ---
 name: pitchdocs
-description: Generate marketing-quality repository documentation from codebase analysis. Scans 10 signal categories, extracts features with file-level evidence, and produces README, CHANGELOG, ROADMAP, AI context files, and 15+ more docs. Zero runtime dependencies.
-version: "1.18.0"
+description: Generate marketing-quality repository documentation from codebase analysis. Scans 10 signal categories, extracts features with file-level evidence, and produces README, CHANGELOG, ROADMAP, and 15+ more docs. Zero runtime dependencies. For AI context file management, see ContextDocs.
+version: "2.0.0"
 author: Little Bear Apps
 tags:
   - documentation
   - readme
   - changelog
   - marketing
-  - ai-context
   - quality-scoring
   - claude-code-plugin
 ---
@@ -19,14 +18,13 @@ tags:
 
 PitchDocs is a pure Markdown Claude Code plugin that scans any codebase and generates professional, marketing-ready repository documentation. Every feature claim traces to an actual file path — no hallucinated marketing copy.
 
-18 skills, 15 slash commands, 3 agents (researcher → writer → reviewer pipeline), 4 quality rules, 5 opt-in hooks. 100% Markdown, zero runtime dependencies, MIT licensed.
+16 skills, 15 slash commands (13 active + 2 stubs), 3 agents (researcher → writer → reviewer pipeline), 3 quality rules, 1 opt-in hook. 100% Markdown, zero runtime dependencies, MIT licensed.
 
 ## When to Use
 
 - Starting a new open-source project and need professional docs fast
 - Overhauling an existing README that undersells your project
 - Preparing for a public launch or Product Hunt submission
-- Generating AI context files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md) for your project
 - Auditing documentation completeness across 20+ files
 - Creating changelogs, roadmaps, or user guides from existing code and git history
 
@@ -45,7 +43,7 @@ PitchDocs is a pure Markdown Claude Code plugin that scans any codebase and gene
    - `/pitchdocs:docs-audit` — Audit documentation completeness (20+ file checklist)
    - `/pitchdocs:features` — Extract features with file-level evidence
    - `/pitchdocs:changelog` — Generate CHANGELOG from git history
-   - `/pitchdocs:ai-context` — Generate AI context files for 7 tools
+   - `/pitchdocs:ai-context` — Stub: redirects to ContextDocs
    - `/pitchdocs:llms-txt` — Generate llms.txt for AI discoverability
    - `/pitchdocs:docs-verify` — Quality scoring (0-100) with link checking
    - `/pitchdocs:roadmap` — Generate ROADMAP from GitHub milestones
@@ -55,7 +53,7 @@ PitchDocs is a pure Markdown Claude Code plugin that scans any codebase and gene
    - `/pitchdocs:platform` — Detect hosting platform feature support
    - `/pitchdocs:visual-standards` — Visual formatting standards for docs
    - `/pitchdocs:geo` — GEO optimisation for AI citation readiness
-   - `/pitchdocs:context-guard` — Install context freshness hooks
+   - `/pitchdocs:context-guard` — Stub: redirects to ContextDocs
 
 ## Output Format
 

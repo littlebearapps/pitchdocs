@@ -138,9 +138,6 @@ After a release, you don't always need to refresh everything. Target specific ar
 /pitchdocs:doc-refresh changelog         # Only CHANGELOG.md
 /pitchdocs:doc-refresh readme            # Only README.md features and metrics
 /pitchdocs:doc-refresh guides            # Only affected user guides
-/pitchdocs:doc-refresh context           # Only AI context files and llms.txt
-/pitchdocs:ai-context update             # Patch only what drifted (preserves human edits)
-/pitchdocs:ai-context promote            # Move stable MEMORY.md patterns to CLAUDE.md
 /pitchdocs:doc-refresh release-notes     # Only GitHub release body
 ```
 

@@ -335,72 +335,34 @@ Security Scan:
   ✗ CLAUDE.md:12 — credential pattern: "token: ghp_abc123..." — review immediately
 ```
 
-### 11. AI Context Health
+### 11. AI Context Health (Lightweight)
 
-Score the signal-to-noise ratio and freshness of AI context files (CLAUDE.md, AGENTS.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md). Research shows overstuffed context files reduce AI task success (ETH Zurich, 2026).
-
-**Checks:**
-
-1. **Line count** — context files over budget consume tokens without adding value:
+Basic presence and staleness check for AI context files. For full signal-gate scoring, line budget analysis, discoverable content detection, and MEMORY.md drift analysis, install [ContextDocs](https://github.com/littlebearapps/contextdocs) and use `/contextdocs:context-verify`.
 
 ```bash
-# Check line counts against budgets
+# Check which context files exist and their age
 for f in CLAUDE.md AGENTS.md .cursorrules .github/copilot-instructions.md .windsurfrules .clinerules GEMINI.md; do
-  [ -f "$f" ] && echo "$f: $(wc -l < "$f") lines"
+  if [ -f "$f" ]; then
+    DAYS_OLD=$(( ($(date +%s) - $(git log -1 --format=%ct -- "$f" 2>/dev/null || echo "0")) / 86400 ))
+    echo "$f: exists ($DAYS_OLD days since last update)"
+  else
+    echo "$f: not present"
+  fi
 done
 ```
-
-| File | Warning | Deduction |
-|------|---------|-----------|
-| CLAUDE.md | >80 lines | -2 warning, -5 if >120 |
-| AGENTS.md | >120 lines | -2 warning, -5 if >160 |
-| Other context files | >60 lines | -1 warning, -3 if >100 |
-
-2. **Discoverable content** — directory listings, file trees, and dependency lists waste tokens because agents discover these on their own:
-
-```bash
-# Grep for file tree characters and common discoverable patterns
-grep -c -E '(├──|└──|│   |src/.*—|tests/.*—)' CLAUDE.md AGENTS.md 2>/dev/null
-```
-
-Deduct -1 per instance of discoverable content (max -5). Flag with specific line numbers.
-
-3. **Stale paths** — every backtick-quoted path in a context file must exist on disk:
-
-```bash
-# Extract backtick-quoted paths and verify
-grep -oE '`[^`]*\.[a-z]+`' CLAUDE.md AGENTS.md 2>/dev/null | tr -d '`' | while read -r p; do
-  [ -f "$p" ] || echo "STALE: $p"
-done
-```
-
-Deduct -2 per stale path (max -10).
-
-4. **Cross-file consistency** — key commands (test, build, deploy) must match across all context files:
-
-Compare command strings extracted from each context file. Deduct -3 if test/build/deploy commands differ between CLAUDE.md and AGENTS.md.
-
-5. **MEMORY.md drift** — if a MEMORY.md exists for this project, check whether it contains conventions not yet promoted to CLAUDE.md:
-
-```bash
-# Locate project MEMORY.md
-find ~/.claude -name "MEMORY.md" -path "*$(basename $(pwd))*" 2>/dev/null
-```
-
-Deduct -2 if MEMORY.md contains convention-like patterns (lines starting with "Always", "Never", "Use") that don't appear in CLAUDE.md.
 
 Report format:
 ```
-AI Context Health:
-  ✓ CLAUDE.md — 62 lines (within 80-line budget)
-  ⚠ AGENTS.md — 145 lines (over 120-line budget, -2)
-  ✗ CLAUDE.md:34 — stale path: `src/old-module.ts` not found (-2)
-  ⚠ CLAUDE.md:12,18 — discoverable content: file tree listings (-2)
-  ⚠ MEMORY.md — 2 conventions not yet promoted to CLAUDE.md (-2)
-  ✓ Cross-file consistency — commands match across all context files
+AI Context Health (lightweight):
+  ✓ CLAUDE.md — present (12 days old)
+  ✓ AGENTS.md — present (12 days old)
+  ⚠ .cursorrules — present (95 days old — may be stale)
+  · .windsurfrules — not present
+  · .clinerules — not present
+  ℹ For full context health scoring, install ContextDocs: /plugin install contextdocs@lba-plugins
 ```
 
-**Scoring**: Deductions apply to the Completeness dimension (context files are part of a complete, well-maintained documentation set).
+**Scoring**: Deduct -2 per context file older than 90 days, -1 per missing context file that exists in the project's tool ecosystem. Full scoring (line budgets, signal quality, path accuracy) requires ContextDocs.
 
 ## CI Integration
 

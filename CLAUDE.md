@@ -1,6 +1,6 @@
 # PitchDocs
 
-Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 18 skills, 3 agents (adaptive researcher → writer → reviewer pipeline), 4 quality rules, 15 slash commands, and 5 opt-in hooks.
+Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 16 skills, 3 agents (adaptive researcher → writer → reviewer pipeline), 3 quality rules, 13 slash commands (+2 stubs redirecting to ContextDocs), and 1 opt-in hook.
 
 ## Project Architecture
 
@@ -8,16 +8,15 @@ This is a **100% Markdown-based plugin** — no JavaScript, no Python, no build 
 
 ```
 .claude-plugin/plugin.json      → Plugin manifest (name, version, keywords)
-.claude/skills/*/SKILL.md       → 18 reference knowledge modules (loaded on-demand)
+.claude/skills/*/SKILL.md       → 16 reference knowledge modules (loaded on-demand)
 .claude/agents/docs-writer.md   → Orchestration agent (coordinates researcher → write → reviewer pipeline)
 .claude/agents/docs-researcher.md → Codebase discovery and feature extraction agent
 .claude/agents/docs-reviewer.md → Post-generation quality validation agent
 .claude/rules/doc-standards.md  → Quality standards (auto-loaded every session)
-.claude/rules/context-quality.md → AI context file quality standards (auto-loaded; Claude Code only)
 .claude/rules/content-filter.md → Content filter quick reference (auto-loaded; Claude Code only)
 .claude/rules/docs-awareness.md → Documentation trigger map (auto-loaded; Claude Code only)
-commands/*.md                   → 15 slash command definitions
-hooks/*.sh                      → 5 opt-in hook scripts (Claude Code only)
+commands/*.md                   → 13 slash command definitions (+2 stubs redirecting to ContextDocs)
+hooks/*.sh                      → 1 opt-in hook script (Claude Code only)
 ```
 
 ## Conventions
@@ -32,14 +31,13 @@ hooks/*.sh                      → 5 opt-in hook scripts (Claude Code only)
 |------|---------|
 | `plugin.json` | Version, description, keywords — update on every release |
 | `doc-standards.md` | Quality rule auto-loaded in every session — core standards for tone, benefits, badges. Extended references in `visual-standards`, `geo-optimisation`, and `skill-authoring` skills |
-| `context-quality.md` | AI context file quality rule — cross-file consistency, path verification, sync points (Claude Code only) |
 | `content-filter.md` | Content filter quick reference rule — risk levels, fetch commands, chunked writing guidance (auto-loaded; Claude Code only) |
 | `docs-awareness.md` | Documentation trigger map rule — suggests PitchDocs commands when documentation-relevant work is detected (auto-loaded; Claude Code only) |
 | `docs-writer.md` | Orchestrator agent — lightweight inline research for small projects (< 20 files), full sub-agent research for larger projects, conditional reviewer (skipped for new READMEs), content filter mitigations |
 | `docs-researcher.md` | Codebase discovery agent — platform detection, feature extraction, security signals, lobby split planning. Only spawned for projects with 20+ files. |
 | `docs-reviewer.md` | Quality validation agent — checklist, banned phrases scan, GEO scoring, 6-dimension quality rubric. Skipped for new READMEs; runs for updates or with `--review`. |
-| `hooks/*.sh` | Context Guard hooks — post-commit drift detection, structural change reminders, content filter write guard, session-end context nudge, and pre-commit context enforcement (Claude Code only, opt-in) |
-| `upstream-versions.json` | Tracks 8 pinned spec versions — checked monthly by GitHub Action |
+| `hooks/*.sh` | Content filter write guard (Claude Code only, opt-in) |
+| `upstream-versions.json` | Tracks 7 pinned spec versions — checked monthly by GitHub Action |
 | `llms.txt` | AI-readable content index — must be updated when files are added/removed |
 | `AGENTS.md` | Cross-tool AI context (Codex CLI format) — must stay in sync with skills/commands |
 
@@ -51,6 +49,10 @@ hooks/*.sh                      → 5 opt-in hook scripts (Claude Code only)
 4. **Updating upstream specs**: Edit `upstream-versions.json` and the corresponding skill content
 5. **Adding platform support**: Update the `platform-profiles` skill for new platform equivalents. Existing skills reference it via cross-link.
 6. **Bumping version**: Handled automatically by release-please from conventional commit messages
+
+## Relationship to ContextDocs
+
+AI context file management (AGENTS.md, CLAUDE.md, .cursorrules, etc.) has moved to [ContextDocs](https://github.com/littlebearapps/contextdocs). PitchDocs retains `/pitchdocs:ai-context` and `/pitchdocs:context-guard` as stub commands that redirect users to install ContextDocs. The `doc-refresh` skill delegates Step 5 to ContextDocs if installed. The `docs-verify` skill uses a lightweight context health check; full scoring requires ContextDocs.
 
 ## Promotion
 

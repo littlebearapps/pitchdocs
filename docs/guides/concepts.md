@@ -156,28 +156,7 @@ AI context files (AGENTS.md, CLAUDE.md, .cursorrules, etc.) tell AI coding assis
 
 **Exclude (discoverable):** Directory listings, dependency lists, file trees, framework conventions, architecture overviews — agents discover these by reading the codebase.
 
-PitchDocs applies Signal Gate when generating context files via `/pitchdocs:ai-context`. The result: leaner files that stay within recommended line budgets (CLAUDE.md under 80 lines, AGENTS.md under 120 lines) and contain only high-signal content.
-
----
-
-## Context Drift Detection
-
-AI coding assistants (Claude Code, Cursor, Copilot, Windsurf) rely on context files to understand your project's conventions, architecture, and constraints. When your code changes but context files don't, the AI operates on stale information — suggesting deprecated patterns, referencing moved files, or missing new commands.
-
-**What drifts:**
-- File paths referenced in AGENTS.md or CLAUDE.md that no longer exist
-- Commands listed in context files that were renamed or removed
-- Architecture descriptions that don't reflect recent refactors
-
-**How PitchDocs detects it:**
-PitchDocs' Context Guard hooks (Claude Code only) run automatically after commits and file edits:
-
-- **Post-commit check** — compares modification dates of context files against code changes and flags stale references
-- **Structural change reminder** — fires when you modify commands, skills, agents, or rules and reminds you which context files need updating
-
-Install with `/pitchdocs:context-guard install`. See [Workflows — Set Up Context Guard](workflows.md#set-up-context-guard) for details.
-
-**Fixing drift:** Run `/pitchdocs:ai-context update` to patch only what drifted (preserves human edits). Run `/pitchdocs:ai-context audit` to check drift without making changes. Use `/pitchdocs:ai-context promote` to move stable patterns from Claude's auto-memory (MEMORY.md) into CLAUDE.md for the whole team.
+For AI context file generation and management using the Signal Gate principle, install [ContextDocs](https://github.com/littlebearapps/contextdocs) — it handles context file generation, drift detection, Context Guard hooks, and MEMORY.md promotion.
 
 ---
 

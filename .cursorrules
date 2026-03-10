@@ -4,11 +4,11 @@ You are working on PitchDocs, a Claude Code plugin that generates marketing-qual
 
 ## Architecture
 
-- **Skills** (15): `.claude/skills/*/SKILL.md` — reference knowledge loaded on-demand
-- **Agent** (1): `.claude/agents/docs-writer.md` — orchestration workflow
-- **Rules** (3): `.claude/rules/*.md` — doc-standards (cross-tool), context-quality (Claude Code only), content-filter (Claude Code only)
-- **Commands** (13): `commands/*.md` — slash command definitions
-- **Hooks** (3): `hooks/*.sh` — Context Guard post-commit, structural change, and content filter write guard hooks (Claude Code only, opt-in)
+- **Skills** (16): `.claude/skills/*/SKILL.md` — reference knowledge loaded on-demand
+- **Agents** (3): `.claude/agents/*.md` — docs-writer (orchestrator), docs-researcher, docs-reviewer
+- **Rules** (3): `.claude/rules/*.md` — doc-standards (cross-tool), content-filter (Claude Code only), docs-awareness (Claude Code only)
+- **Commands** (15): `commands/*.md` — 13 active + 2 stubs redirecting to [ContextDocs](https://github.com/littlebearapps/contextdocs)
+- **Hooks** (1): `hooks/content-filter-guard.sh` — content filter write guard (Claude Code only, opt-in)
 
 ## Writing Standards
 
