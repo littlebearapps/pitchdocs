@@ -13,10 +13,7 @@ When working on a project with PitchDocs installed, recognise documentation-rele
 | Project going public (no README or thin README) | `/pitchdocs:readme` | First impressions — generate the full marketing framework |
 | Missing docs detected (no `docs/guides/`, no llms.txt) | `/pitchdocs:docs-audit` | Identify all documentation gaps at once |
 | User asks "why should someone use this?" or discusses positioning | `/pitchdocs:features benefits` | Surface the two-path user benefits extraction (auto-scan or conversational) |
-| Structural files changed (skills, commands, agents, rules, config) | `/pitchdocs:ai-context audit` | AI context files may reference stale paths or counts |
-| New dependency or framework added | `/pitchdocs:ai-context` | Context files should reflect the current tech stack |
 | README section growing beyond 2 paragraphs or 8-row table | Suggest delegating to `docs/guides/` | Lobby Principle — keep README scannable |
-| MEMORY.md contains repeated project conventions or stable patterns | `/pitchdocs:ai-context claude` | Promote stable auto-memory insights to CLAUDE.md where the whole team benefits |
 | User mentions "talk it out" or wants to explain their project's value | `/pitchdocs:features benefits` (conversational path) | The 4-question interview produces the most authentic user benefits |
 
 ## When NOT to Suggest

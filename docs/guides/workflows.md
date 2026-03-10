@@ -45,9 +45,10 @@ Generate the full documentation set for a project you're about to open-source or
    /pitchdocs:docs-audit fix
    ```
 
-5. **Bootstrap AI context files** — help other developers' AI tools understand your project (generates all 7 file types using Signal Gate — lean, effective context):
+5. **Bootstrap AI context files** — for AI context file management, install [ContextDocs](https://github.com/littlebearapps/contextdocs):
    ```
-   /pitchdocs:ai-context init
+   /plugin install contextdocs@lba-plugins
+   /contextdocs:ai-context init
    ```
 
 6. **Generate llms.txt** — make the repo AI-discoverable:
@@ -138,30 +139,8 @@ Prevent documentation drift with regular maintenance.
 | After every release | `/pitchdocs:doc-refresh` (or `/pitchdocs:doc-refresh v1.x.0`) |
 | Monthly (active projects) | `/pitchdocs:docs-verify` to check for staleness |
 | Quarterly | `/pitchdocs:features audit` to catch undocumented features |
-| After major refactors | `/pitchdocs:ai-context update` to patch drift, then `audit` to verify |
-| After extended Claude sessions | `/pitchdocs:ai-context promote` to move stable MEMORY.md patterns to CLAUDE.md |
-
-### Set up Context Guard (Claude Code only)
-
-Install hooks that automatically warn about stale docs:
-
-```
-/pitchdocs:context-guard install
-```
-
-This adds five hooks:
-- **Drift detection** — warns after commits if AI context files are stale
-- **Structural change reminders** — nudges you when commands, skills, or config change
-- **Content filter guard** — prevents HTTP 400 errors on high-risk file writes
-- **Session-end context nudge (Tier 1)** — reminds you to update context files before ending a session
-- **Pre-commit context enforcement (Tier 2)** — blocks commits when structural files are staged without context updates
-
-Check status anytime:
-```
-/pitchdocs:context-guard status
-```
-
-**Note:** When running via [Untether](https://github.com/littlebearapps/untether), the session-end nudge is automatically deferred — see the [Untether integration guide](untether-integration.md).
+| After major refactors | Install [ContextDocs](https://github.com/littlebearapps/contextdocs) and run `/contextdocs:ai-context update` to patch drift |
+| After extended Claude sessions | Install ContextDocs and run `/contextdocs:ai-context promote` to move MEMORY.md patterns to CLAUDE.md |
 
 ### Add docs verification to CI
 
@@ -214,9 +193,9 @@ After adding a feature to your codebase, update docs to reflect it.
    /pitchdocs:doc-refresh guides
    ```
 
-5. **Patch AI context files** (only updates what drifted, preserves human edits):
+5. **Patch AI context files** (if [ContextDocs](https://github.com/littlebearapps/contextdocs) installed):
    ```
-   /pitchdocs:ai-context update
+   /contextdocs:ai-context update
    ```
 
 6. **Verify everything is consistent**:

@@ -118,7 +118,7 @@ When generating multiple docs:
 1. README.md (highest impact)
 2. CONTRIBUTING.md (most referenced)
 3. CHANGELOG.md (most maintained)
-4. AI context files (AGENTS.md, CLAUDE.md)
+4. AI context files — delegate to [ContextDocs](https://github.com/littlebearapps/contextdocs) if installed, or suggest installation
 5. Others as needed
 
 ## Gold Standard Examples
@@ -143,10 +143,10 @@ Follow `.claude/rules/content-filter.md` for risk levels, fetch commands, and ch
 
 ## Additional Skills
 
-- **`ai-context`** — AI IDE context files. Use `/ai-context` to generate.
 - **`docs-verify`** — Documentation quality validation. Use `/docs-verify` to run checks.
 - **`launch-artifacts`** — Platform-specific launch content. Use `/launch` to generate.
 - **`api-reference`** — API reference documentation generators.
 - **`doc-refresh`** — Post-version-bump documentation refresh. Use `/doc-refresh` to run.
+- **AI context files** — for AI context file management (AGENTS.md, CLAUDE.md, .cursorrules, etc.), install [ContextDocs](https://github.com/littlebearapps/contextdocs) and use `/contextdocs:ai-context`
 
 Load these skills on demand when the user requests the corresponding functionality.

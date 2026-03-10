@@ -1,6 +1,6 @@
 # PitchDocs
 
-Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs creates READMEs that sell, changelogs that communicate value, roadmaps from GitHub milestones, AI context files for coding assistants, and audits your docs completeness — with GEO-optimised structure for AI citation and launch artifacts for promotion.
+Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs creates READMEs that sell, changelogs that communicate value, roadmaps from GitHub milestones, and audits your docs completeness — with GEO-optimised structure for AI citation and launch artifacts for promotion. For AI context file management, see [ContextDocs](https://github.com/littlebearapps/contextdocs).
 
 ## Documentation Standards
 
@@ -8,7 +8,7 @@ Australian English (realise, colour). Conventional commits. Benefit-driven langu
 
 ## Available Skills
 
-Skills are loaded on-demand to provide deep reference knowledge. Each lives at `.claude/skills/<name>/SKILL.md` (or `.agents/skills/<name>/SKILL.md` if you've copied them for Codex CLI). There are 18 skills in total.
+Skills are loaded on-demand to provide deep reference knowledge. Each lives at `.claude/skills/<name>/SKILL.md` (or `.agents/skills/<name>/SKILL.md` if you've copied them for Codex CLI). There are 16 skills in total.
 
 | Skill | What It Provides |
 |-------|-----------------|
@@ -20,12 +20,10 @@ Skills are loaded on-demand to provide deep reference knowledge. Each lives at `
 | `llms-txt` | llmstxt.org specification reference for generating `llms.txt` and `llms-full.txt` — LLM-friendly content indices for AI coding assistants |
 | `package-registry` | npm and PyPI metadata field auditing, cross-renderer README compatibility (GitHub vs npm vs PyPI), trusted publishing guidance, and registry-specific badges |
 | `user-guides` | Task-oriented how-to documentation with Diataxis framework, guide frontmatter standard, title conventions, numbered steps, copy-paste-ready code, error recovery, and cross-linked hub pages. Companion file `SKILL-templates.md` provides tutorial, reference, and explanation templates. |
-| `ai-context` | AI IDE context file generation with Signal Gate principle — AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md from codebase analysis. Includes init (bootstrap), update (incremental drift patching), promote (MEMORY.md → CLAUDE.md), and audit with Context Guard status |
-| `docs-verify` | Documentation validation — broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, AI context health scoring, and CI-friendly output |
+| `docs-verify` | Documentation validation — broken links, stale content, llms.txt sync, heading hierarchy, badge URLs, lightweight AI context health check, and CI-friendly output |
 | `launch-artifacts` | Platform-specific launch content — Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
 | `api-reference` | API reference generator guidance — TypeDoc, Sphinx, godoc, rustdoc configuration templates and comment conventions |
-| `doc-refresh` | Version-bump documentation orchestration — analyses git history, identifies affected docs, and delegates to existing skills for selective refresh |
-| `context-guard` | Context Guard installation reference — hook architecture, settings.json configuration, customisation, and troubleshooting *(Claude Code only)* |
+| `doc-refresh` | Version-bump documentation orchestration — analyses git history, identifies affected docs, delegates AI context refresh to ContextDocs if installed |
 | `visual-standards` | Visual formatting — emoji heading prefixes, horizontal rules, TOC anchors, callouts. Companion `SKILL-reference.md` has screenshot dimensions, HTML patterns, captions, shadows, image optimisation (loaded on demand) |
 | `geo-optimisation` | GEO patterns for AI citation — citation capsules, crisp definitions, atomic sections, comparison tables, statistics, semantic scaffolding |
 | `skill-authoring` | Token budget guidelines for writing skills — budgets by type, metadata/activation limits, measuring cost, anti-patterns |
@@ -54,21 +52,21 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 | `docs-audit` | Audit docs completeness, quality, GitHub metadata, AI context files, Diataxis coverage, and registry config |
 | `llms-txt` | Generate llms.txt and llms-full.txt for AI discoverability |
 | `user-guide` | Generate task-oriented user guides in `docs/guides/` with Diataxis classification |
-| `ai-context` | Generate AI context files using Signal Gate — supports `all`, `claude`, `agents`, `cursor`, `copilot`, `windsurf`, `cline`, `gemini`, `init`, `update`, `promote`, `audit` |
-| `docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, badge URLs, and AI context health |
+| `ai-context` | **Stub** — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for AI context file management |
+| `docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, badge URLs, and lightweight AI context health |
 | `launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions |
-| `doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context, llms.txt |
+| `doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, llms.txt (AI context delegated to ContextDocs) |
 | `platform` | Detect hosting platform (GitHub/GitLab/Bitbucket) and report feature support |
 | `visual-standards` | Load visual formatting standards for screenshots, emoji headings, and image specs |
 | `geo` | Load GEO optimisation patterns for AI citation |
-| `context-guard` | Install, uninstall, or check status of Context Guard hooks for AI context file freshness and content filter protection *(Claude Code only)* |
+| `context-guard` | **Stub** — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for Context Guard hooks |
 
 ## Rules and Hooks (Claude Code Only)
 
 PitchDocs includes features that are specific to Claude Code and do not work in OpenCode, Codex CLI, or other tools:
 
-- **Rules** (4): `.claude/rules/doc-standards.md` (core quality standards — 4-question framework, benefits writing, badges; extended references in `visual-standards`, `geo-optimisation`, `skill-authoring` skills, auto-loaded), `.claude/rules/context-quality.md` (AI context file quality, auto-loaded), `.claude/rules/content-filter.md` (content filter quick reference, auto-loaded), and `.claude/rules/docs-awareness.md` (documentation trigger map — suggests PitchDocs commands when documentation-relevant work is detected, auto-loaded)
-- **Hooks** (5): `hooks/context-drift-check.sh` (post-commit drift detection), `hooks/context-structural-change.sh` (structural change reminders), `hooks/content-filter-guard.sh` (Write guard for high-risk OSS files), `hooks/context-guard-stop.sh` (session-end context doc nudge — Tier 1), and `hooks/context-commit-guard.sh` (pre-commit context doc enforcement — Tier 2) — opt-in via `/pitchdocs:context-guard install` (Claude Code)
+- **Rules** (3): `.claude/rules/doc-standards.md` (core quality standards — 4-question framework, benefits writing, badges; extended references in `visual-standards`, `geo-optimisation`, `skill-authoring` skills, auto-loaded), `.claude/rules/content-filter.md` (content filter quick reference, auto-loaded), and `.claude/rules/docs-awareness.md` (documentation trigger map — suggests PitchDocs commands when documentation-relevant work is detected, auto-loaded)
+- **Hooks** (1): `hooks/content-filter-guard.sh` (Write guard for high-risk OSS files) — opt-in via `/pitchdocs:context-guard install` redirects to ContextDocs for context-specific hooks
 
 ## AI Context Files
 

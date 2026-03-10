@@ -1,7 +1,7 @@
 {
   "name": "pitchdocs",
-  "version": "1.19.3",
-  "description": "Generate high-quality public-facing repository documentation with a marketing edge. Creates READMEs that sell, changelogs that communicate value, roadmaps from GitHub Projects, AI context files for coding assistants, and audits your docs completeness. Uses benefit-driven language, GEO-optimised structure, progressive disclosure, and the Banesullivan 4-question framework.",
+  "version": "2.0.0",
+  "description": "Generate high-quality public-facing repository documentation with a marketing edge. Creates READMEs that sell, changelogs that communicate value, roadmaps from GitHub milestones, and audits your docs completeness. Uses benefit-driven language, GEO-optimised structure, progressive disclosure, and the Banesullivan 4-question framework.",
   "author": {
     "name": "Little Bear Apps",
     "email": "hello@littlebearapps.com"
@@ -21,16 +21,12 @@
     "little-bear-apps",
     "seo",
     "geo",
-    "ai-context",
-    "agents-md",
     "diataxis",
     "quality-scoring",
     "security-scan",
     "token-budget",
     "docs-ci",
     "hooks",
-    "context-guard",
-    "context-freshness",
     "gitlab",
     "bitbucket",
     "multi-platform"

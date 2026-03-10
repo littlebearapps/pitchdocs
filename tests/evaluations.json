@@ -29,11 +29,11 @@
     "description": "Features command routes to feature-benefits skill"
   },
   {
-    "id": "cmd-ai-context",
+    "id": "cmd-ai-context-stub",
     "input": "/pitchdocs:ai-context audit",
     "expected_skill": "ai-context",
     "should_respond": true,
-    "description": "AI context audit routes to ai-context skill"
+    "description": "AI context command shows stub redirect to ContextDocs"
   },
   {
     "id": "cmd-launch",
@@ -78,11 +78,11 @@
     "description": "User guide command routes to user-guides skill"
   },
   {
-    "id": "cmd-context-guard",
+    "id": "cmd-context-guard-stub",
     "input": "/pitchdocs:context-guard install",
     "expected_skill": "context-guard",
     "should_respond": true,
-    "description": "Context guard install routes to context-guard skill"
+    "description": "Context guard command shows stub redirect to ContextDocs"
   },
   {
     "id": "cmd-platform",

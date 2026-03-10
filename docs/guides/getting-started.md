@@ -111,8 +111,6 @@ Use any command on its own for specific doc types:
 /pitchdocs:roadmap            # ROADMAP.md from GitHub milestones
 /pitchdocs:user-guide         # User guides in docs/guides/
 /pitchdocs:llms-txt           # llms.txt for AI discoverability
-/pitchdocs:ai-context init    # Bootstrap AGENTS.md, CLAUDE.md, .cursorrules, and 4 more (Signal Gate filtered)
-/pitchdocs:ai-context update  # Patch only what drifted since last update
 /pitchdocs:docs-verify        # Validate links, freshness, and consistency
 /pitchdocs:launch             # Dev.to articles, HN posts, Reddit posts, Twitter threads
 ```
@@ -134,39 +132,27 @@ This checks for:
 - Heading hierarchy issues (no level skipping)
 - Badge URL validity
 - Security issues (leaked credentials, internal paths, internal hostnames)
-- AI context health (line budgets, discoverable content, stale paths, cross-file consistency)
-- Quality score (0–100 across 5 dimensions with A–F grade bands)
+- AI context health (lightweight presence and staleness check — install [ContextDocs](https://github.com/littlebearapps/contextdocs) for full scoring)
+- Quality score (0–100 across 6 dimensions with A–F grade bands)
 - Token budget compliance (skill files within size targets)
 
 ---
 
-## 7. Install Context Guard Hooks (Optional, Claude Code Only)
+## 7. AI Context Files and Context Guard (Optional)
 
-Context Guard adds five hooks to your project that run automatically during your Claude Code sessions:
+For AI context file management (AGENTS.md, CLAUDE.md, .cursorrules, etc.) and Context Guard hooks, install [ContextDocs](https://github.com/littlebearapps/contextdocs) separately:
 
 ```bash
-/pitchdocs:context-guard install
+/plugin install contextdocs@lba-plugins
+/contextdocs:ai-context init          # Bootstrap all 7 context file types
+/contextdocs:context-guard install    # Install drift detection hooks (Claude Code only)
 ```
-
-What it installs:
-
-- **Drift detection** — warns after commits if AI context files (AGENTS.md, CLAUDE.md) are stale
-- **Structural change reminders** — nudges you to update context files when you modify commands, skills, or config
-- **Content filter guard** — prevents content filter errors (HTTP 400) by intercepting Write operations on files like CODE_OF_CONDUCT.md, LICENSE, and SECURITY.md, advising you to fetch them from canonical URLs instead
-- **Session-end context nudge (Tier 1)** — reminds you to update AI context files before ending a session when structural changes were made
-- **Pre-commit context enforcement (Tier 2)** — blocks commits with stale AI context files when structural files are staged
-
-Check status anytime with `/pitchdocs:context-guard status`. Uninstall with `/pitchdocs:context-guard uninstall`.
-
-**Note:** These hooks are Claude Code-specific. If your team uses OpenCode or Codex CLI alongside Claude Code, the hooks are silently ignored by those tools.
-
-**Untether users:** The session-end nudge is automatically skipped. See the [Untether integration guide](untether-integration.md) for details.
 
 ---
 
 ## What's Next?
 
-- **Manage AI context files** — Run `/pitchdocs:ai-context init` to bootstrap all 7 context files, or `update` to patch only what drifted. Use `promote` to move stable patterns from Claude's auto-memory to CLAUDE.md for the whole team.
+- **Manage AI context files** — Install [ContextDocs](https://github.com/littlebearapps/contextdocs) for AI context file generation, drift detection, and MEMORY.md promotion.
 - **Improve your README further** — Run `/pitchdocs:readme` again with specific focus areas (e.g., `/pitchdocs:readme focus on the comparison table`)
 - **Check your quality score** — Run `/pitchdocs:docs-verify score` to get a numeric rating and actionable suggestions for improvement
 - **Set up CI verification** — The `/pitchdocs:docs-verify` command outputs CI-friendly results for GitHub Actions

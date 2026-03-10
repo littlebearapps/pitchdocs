@@ -63,14 +63,13 @@ Not all PitchDocs features work in every tool. Here's what's portable and what's
 
 | Feature | Claude Code | OpenCode | Codex CLI | Cursor / Windsurf / Cline / Gemini CLI |
 |---------|------------|----------|-----------|----------------------------------------|
-| Skills (18 SKILL.md files) | Native | Native (`.claude/skills/` fallback) | Copy to `.agents/skills/` | Reference on demand |
+| Skills (16 SKILL.md files) | Native | Native (`.claude/skills/` fallback) | Copy to `.agents/skills/` | Reference on demand |
 | Slash commands (15) | Native | Native (`.claude/commands/` fallback) | Copy to prompts | Not supported |
 | Docs-writer agent | Native | Likely supported | Reference manually | Cursor: `.cursor/agents/` |
 | Doc-standards rule | Auto-loaded | Copy to context | Copy to context | Cursor: `.cursor/rules/`; others: copy to context file |
-| Context-quality rule | Auto-loaded | Copy to context | Copy to context | Copy to tool-specific context file |
 | Content-filter rule | Auto-loaded | Copy to context | Copy to context | Copy to tool-specific context file |
 | Docs-awareness rule | Auto-loaded | Not applicable | Not applicable | Not applicable |
-| Context Guard hooks (5) | Native (opt-in) | Not supported | Not supported | Not supported |
+| Content filter hook (1) | Native (opt-in) | Not supported | Not supported | Not supported |
 | AGENTS.md | Loaded | Primary context file | Primary context file | Not used |
 | CLAUDE.md | Loaded | Fallback (if no AGENTS.md) | Not used | Not used |
 
@@ -80,7 +79,7 @@ Not all PitchDocs features work in every tool. Here's what's portable and what's
 
 [OpenCode](https://opencode.ai/) reads `.claude/skills/` natively — PitchDocs works out of the box with no extra setup.
 
-**Install** the same way as Claude Code (clone or add as a plugin), then invoke skills by name in your OpenCode session. The 18 SKILL.md files, the docs-writer agent, and the doc-standards rule are all picked up automatically.
+**Install** the same way as Claude Code (clone or add as a plugin), then invoke skills by name in your OpenCode session. The 16 SKILL.md files, the docs-writer agent, and the doc-standards rule are all picked up automatically.
 
 OpenCode also supports MCP servers, so if you have the GitHub MCP server configured, the docs-writer agent can access repository metadata, issues, and releases just as it does in Claude Code.
 
@@ -96,7 +95,7 @@ OpenCode also supports MCP servers, so if you have the GitHub MCP server configu
 # From your project root (not the PitchDocs repo)
 PITCHDOCS="/path/to/pitchdocs"
 
-# Copy all 18 skills
+# Copy all 16 skills
 cp -r "$PITCHDOCS/.claude/skills/"* .agents/skills/
 
 # Copy the quality standards as AGENTS.md (Codex reads this automatically)
@@ -178,7 +177,7 @@ Create `.windsurfrules` in your project root:
 cp /path/to/pitchdocs/.claude/rules/doc-standards.md .windsurfrules
 ```
 
-Or use `/ai-context windsurf` in Claude Code to generate a tailored `.windsurfrules` from your codebase analysis.
+Or install [ContextDocs](https://github.com/littlebearapps/contextdocs) and use `/contextdocs:ai-context windsurf` to generate a tailored `.windsurfrules` from your codebase analysis.
 
 **Step 2 — Reference skills on demand:**
 
@@ -203,7 +202,7 @@ Create `.clinerules` in your project root:
 cp /path/to/pitchdocs/.claude/rules/doc-standards.md .clinerules
 ```
 
-Or use `/ai-context cline` in Claude Code to generate a tailored `.clinerules` from your codebase analysis.
+Or install [ContextDocs](https://github.com/littlebearapps/contextdocs) and use `/contextdocs:ai-context cline` to generate a tailored `.clinerules` from your codebase analysis.
 
 **Step 2 — Reference skills on demand:**
 

@@ -116,9 +116,22 @@ Load the `feature-benefits` skill. Run a features audit to compare current READM
 
 Load the `user-guides` skill. Identify which guides are affected by checking if changed files relate to documented workflows. Update affected sections. Add new guides if a major new feature warrants one. Update the docs hub page if guides were added.
 
-### Step 5: AI Context Files
+### Step 5: AI Context Files (ContextDocs)
 
-Load the `ai-context` skill. Run audit mode first to identify drift across CLAUDE.md, AGENTS.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md. Update **only files with actual drift** — do not regenerate all 7 when only one is stale.
+If [ContextDocs](https://github.com/littlebearapps/contextdocs) is installed (`[ -d ".claude/skills/ai-context" ]`), delegate to it:
+
+```bash
+# Check if ContextDocs is available
+if [ -d ".claude/skills/ai-context" ]; then
+  echo "ContextDocs detected — run /contextdocs:ai-context audit to check for drift"
+fi
+```
+
+If ContextDocs is not installed, print an advisory:
+```
+ℹ AI context file refresh skipped — install ContextDocs for AI context management:
+  /plugin install contextdocs@lba-plugins
+```
 
 ### Step 6: llms.txt
 

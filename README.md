@@ -86,14 +86,9 @@ Get your first generated README in under 60 seconds.
 
 **Note:** When installed as a plugin, all commands use the `pitchdocs:` prefix (e.g., `/pitchdocs:readme`). The short form `/readme` only works inside the pitchdocs source directory.
 
-**Optional — install Context Guard hooks (Claude Code only):**
+**Optional — AI context file management:**
 
-```bash
-# 4. Install Context Guard hooks for AI context file freshness and content filter protection
-/pitchdocs:context-guard install
-```
-
-Keeps your AI context files (AGENTS.md, CLAUDE.md, etc.) in sync as your project evolves, and prevents content filter errors when generating standard OSS files (CODE_OF_CONDUCT, LICENSE, SECURITY). Uninstall anytime with `/pitchdocs:context-guard uninstall`. If you use PitchDocs via [Untether](https://github.com/littlebearapps/untether), the session-end nudge [automatically defers](docs/guides/untether-integration.md) — no configuration needed.
+For AI context files (AGENTS.md, CLAUDE.md, .cursorrules, etc.), install [ContextDocs](https://github.com/littlebearapps/contextdocs) separately. It includes Context Guard hooks, Signal Gate generation, and drift auditing.
 
 OpenCode reads `.claude/skills/` natively — the same install steps (1–3) work in both tools.
 
@@ -107,21 +102,19 @@ Your repo is ready to go public, but the docs aren't. You need a README that sel
 
 PitchDocs gives your AI coding assistant the skills and knowledge to scan your codebase, find what's worth talking about, and write the whole documentation suite for you. README, CHANGELOG, CONTRIBUTING, ROADMAP, CODE_OF_CONDUCT, SECURITY, issue templates, PR templates, user guides, and `llms.txt` — all from slash commands like `/pitchdocs:readme` and `/pitchdocs:docs-audit fix`.
 
-It also manages your AI context files — AGENTS.md, CLAUDE.md, .cursorrules, and 4 more — so every AI coding tool on your team understands your project's conventions from day one. Context files are generated using the Signal Gate principle: only what agents can't discover on their own, keeping them lean and effective. Bootstrap with `/pitchdocs:ai-context init`, patch drift with `update`, and promote Claude's auto-learned patterns to CLAUDE.md with `promote`.
-
 Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, and backed by evidence from your actual code — with professional documentation standards (the 4-question test, lobby principle, and Time to Hello World targets) baked in automatically.
+
+For AI context file management (AGENTS.md, CLAUDE.md, .cursorrules, and more), see [ContextDocs](https://github.com/littlebearapps/contextdocs).
 
 ---
 
 ## 🎯 Features
 
-- 🧠 **AI context file management** — generate, maintain, and audit AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, and 3 more for 7 AI tools. Uses the Signal Gate principle to include only what agents can't discover on their own — leaner files, better AI performance. Bootstrap a new project with `init`, patch only what drifted with `update`, promote stable MEMORY.md patterns to CLAUDE.md with `promote`, and verify health with `audit`
 - 🔍 **Evidence-based feature extraction** — scans 10 signal categories, infers target personas, and extracts user benefits via auto-scan or a conversational "talk it out" path — every claim backed by a file path
 - 📋 **Full docs suite from one command** — README, CHANGELOG, CONTRIBUTING, ROADMAP, SECURITY, issue templates, and 15+ more files
 - ✅ **Professional docs without documentation expertise** — every generated doc passes the 4-question test, applies the lobby principle for progressive disclosure, and targets measurable Time to Hello World
 - 🔎 **GEO-optimised for AI citation** — structured so ChatGPT, Perplexity, and Google AI Overviews cite your project accurately
-- 📊 **Quality scoring (0–100)** — grades docs on completeness, structure, freshness, link health, and AI context health — export to CI with `--min-score`
-- 🔒 **Context Guard** — two-tier enforcement keeps AI context files in sync: a session-end nudge reminds you to update docs, and an optional pre-commit guard blocks commits with stale context files *(Claude Code only)*
+- 📊 **Quality scoring (0–100)** — grades docs on completeness, structure, freshness, link health, and evidence quality — export to CI with `--min-score`
 - 🛡️ **Content filter protection** — automatically handles Claude Code's API filter for CODE_OF_CONDUCT, LICENSE, and SECURITY so you never hit HTTP 400 errors *(Claude Code only)*
 - 🌐 **GitHub, GitLab, and Bitbucket** — auto-detects hosting platform and adapts badges, URLs, CI config, and Markdown rendering for each
 - 🔌 **Works with 9 AI tools** — Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose
@@ -135,7 +128,6 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 | Scans codebase for features | 10 signal categories with file-level evidence | Basic directory scan | Depends on prompt quality |
 | Full docs suite (20+ files) | One command: `/pitchdocs:docs-audit fix` | README only | One file at a time |
 | GEO / AI citation optimised | Atomic sections, comparison tables, concrete stats, llms.txt | No | No |
-| AI context management | 7 file types with Signal Gate, init/update/promote lifecycle, drift audit | No | No |
 | Quality scoring and verification | 0–100 score, broken links, freshness, heading hierarchy, badges | No | No |
 | Cross-tool compatibility | 9 AI coding tools with documented setup | CLI only | Tool-specific |
 
@@ -149,19 +141,17 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 | `/pitchdocs:features` | Extract features and user benefits from code — output as inventory, table, bullets, or bold-outcome benefits (auto-scan or conversational) | Never miss a feature worth documenting |
 | `/pitchdocs:changelog` | Generate CHANGELOG.md from git history with user-benefit language | Users see what changed for *them*, not your commit log |
 | `/pitchdocs:roadmap` | Generate ROADMAP.md from GitHub milestones and issues | Show contributors where the project is heading |
-| `/pitchdocs:docs-audit` | Audit docs completeness, quality, GitHub metadata, visual assets, AI context files, Diataxis coverage, and npm/PyPI registry config | Catch gaps in files, metadata, images, and package registry fields before you ship |
+| `/pitchdocs:docs-audit` | Audit docs completeness, quality, GitHub metadata, visual assets, Diataxis coverage, and npm/PyPI registry config | Catch gaps in files, metadata, images, and package registry fields before you ship |
 | `/pitchdocs:llms-txt` | Generate llms.txt and llms-full.txt for AI discoverability | AI coding assistants and search engines find and understand your docs |
 | `/pitchdocs:user-guide` | Generate task-oriented user guides in `docs/guides/` with Diataxis classification | Readers find answers without reading your source code |
-| `/pitchdocs:ai-context` | Generate lean AI context files using Signal Gate — `init` bootstraps, `update` patches drift, `promote` moves MEMORY.md patterns to CLAUDE.md | AI coding assistants understand your project's conventions from day one |
-| `/pitchdocs:docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, badge URLs, and AI context health | Catch documentation decay before it reaches users |
+| `/pitchdocs:ai-context` | **Stub** — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for AI context file management | Install ContextDocs separately for AI context generation |
+| `/pitchdocs:docs-verify` | Verify links, freshness, llms.txt sync, heading hierarchy, and badge URLs | Catch documentation decay before it reaches users |
 | `/pitchdocs:launch` | Generate Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome list submissions | Transform docs into platform-specific launch content |
-| `/pitchdocs:doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, AI context, llms.txt | Never ship a release with stale documentation |
+| `/pitchdocs:doc-refresh` | Refresh all docs after version bumps — CHANGELOG, README features, user guides, llms.txt | Never ship a release with stale documentation |
 | `/pitchdocs:platform` | Detect hosting platform (GitHub, GitLab, Bitbucket) and report feature support | Know which PitchDocs features work on your platform before you start |
 | `/pitchdocs:visual-standards` | Load visual formatting reference — emoji headings, screenshot specs, captions, image optimisation | Consistent, polished visual elements across your docs |
 | `/pitchdocs:geo` | Load GEO optimisation patterns — citation capsules, statistics, comparison tables | AI systems cite your project accurately |
-| `/pitchdocs:context-guard` | Install, uninstall, or check status of Context Guard hooks with tiered enforcement for AI context file freshness and content filter protection | Catch stale context files before they reach your repo |
-
-**Note:** `/pitchdocs:context-guard` is **Claude Code only**. All other commands work across all supported AI tools.
+| `/pitchdocs:context-guard` | **Stub** — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for Context Guard hooks | Install ContextDocs separately for context drift enforcement |
 
 ### Quick Examples
 
@@ -171,8 +161,6 @@ Every generated doc is GEO and SEO optimised, npm and PyPI registry compatible, 
 /pitchdocs:features benefits        # Extract user benefits (auto-scan or "talk it out")
 /pitchdocs:docs-audit fix           # Audit and auto-generate missing docs
 /pitchdocs:changelog full           # Generate full changelog from all tags
-/pitchdocs:ai-context init           # Bootstrap AI context for a new project
-/pitchdocs:ai-context update         # Patch only what drifted
 /pitchdocs:docs-verify              # Check for broken links and stale content
 /pitchdocs:doc-refresh              # Refresh all docs for an upcoming release
 /pitchdocs:visual-standards         # Load screenshot and emoji heading specs

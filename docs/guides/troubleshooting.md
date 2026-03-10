@@ -147,17 +147,17 @@ Not all PitchDocs features work outside Claude Code:
 
 | Feature | Claude Code | OpenCode | Codex CLI | Cursor / Others |
 |---------|------------|----------|-----------|-----------------|
-| Skills (18 SKILL.md files) | Native | Native | Copy to `.agents/skills/` | Reference on demand |
+| Skills (16 SKILL.md files) | Native | Native | Copy to `.agents/skills/` | Reference on demand |
 | Slash commands (15) | Native | Native | Copy to prompts | Not supported |
 | Quality rules (auto-loaded) | Yes | No | No | Cursor: `.cursor/rules/` |
-| Context Guard hooks | Yes (opt-in) | No | No | No |
+| Content filter hook | Yes (opt-in) | No | No | No |
 | AGENTS.md context | Loaded | Primary context | Primary context | Not used |
 
 If you're using a non-Claude tool and a command or workflow doesn't behave as expected, check the [Other AI Tools guide](other-ai-tools.md) for tool-specific setup instructions.
 
-### Why doesn't the Context Guard session-end nudge fire in Untether sessions?
+### Where did Context Guard and AI context commands go?
 
-By design. The `UNTETHER_SESSION` env var triggers an early exit in the Stop hook. See the [Untether integration guide](untether-integration.md) for the full explanation.
+They moved to [ContextDocs](https://github.com/littlebearapps/contextdocs) in PitchDocs v2.0.0. Install it separately with `/plugin install contextdocs@lba-plugins`.
 
 ---
 

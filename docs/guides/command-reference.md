@@ -35,13 +35,13 @@ Each command maps to a skill file in `.claude/skills/`. The mapping:
 | `/pitchdocs:roadmap` | `.claude/skills/roadmap/SKILL.md` |
 | `/pitchdocs:user-guide` | `.claude/skills/user-guides/SKILL.md` |
 | `/pitchdocs:llms-txt` | `.claude/skills/llms-txt/SKILL.md` |
-| `/pitchdocs:ai-context` | `.claude/skills/ai-context/SKILL.md` |
+| `/pitchdocs:ai-context` | Stub — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) |
 | `/pitchdocs:doc-refresh` | `.claude/skills/doc-refresh/SKILL.md` |
 | `/pitchdocs:launch` | `.claude/skills/launch-artifacts/SKILL.md` |
 | `/pitchdocs:platform` | `.claude/skills/platform-profiles/SKILL.md` |
 | `/pitchdocs:visual-standards` | `.claude/skills/visual-standards/SKILL.md` |
 | `/pitchdocs:geo` | `.claude/skills/geo-optimisation/SKILL.md` |
-| `/pitchdocs:context-guard` | `.claude/skills/context-guard/SKILL.md` (Claude Code only) |
+| `/pitchdocs:context-guard` | Stub — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) (Claude Code only) |
 
 See the [Other AI Tools guide](other-ai-tools.md) for full per-tool setup instructions.
 
@@ -219,23 +219,11 @@ Follows the [llmstxt.org](https://llmstxt.org/) specification.
 
 ## `/pitchdocs:ai-context`
 
-Generate lean AI IDE context files using the Signal Gate principle — only what agents cannot discover on their own.
+**Stub** — this command redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for AI context file management. Install ContextDocs separately:
 
-| Detail | Value |
-|--------|-------|
-| Arguments | **Generate:** `claude`, `agents`, `cursor`, `copilot`, `windsurf`, `cline`, `gemini`, `all` — **Lifecycle:** `init`, `update`, `promote`, `audit` |
-| Generates | Up to 7 files (AGENTS.md, CLAUDE.md, .cursorrules, copilot-instructions.md, .windsurfrules, .clinerules, GEMINI.md) |
-| Cross-tool | Yes |
-
-**Examples:**
 ```
-/pitchdocs:ai-context              # Generate all 7 context files
-/pitchdocs:ai-context agents       # AGENTS.md only
-/pitchdocs:ai-context cursor       # .cursorrules only
-/pitchdocs:ai-context init         # Bootstrap: generate missing files, offer hooks, run audit
-/pitchdocs:ai-context update       # Patch only what drifted (preserves human edits)
-/pitchdocs:ai-context promote      # Scan MEMORY.md for patterns to promote to CLAUDE.md
-/pitchdocs:ai-context audit        # Check for drift, stale paths, and Context Guard status
+/plugin install contextdocs@lba-plugins
+/contextdocs:ai-context init
 ```
 
 ---
@@ -347,24 +335,12 @@ Load GEO optimisation patterns for AI citation.
 
 ## `/pitchdocs:context-guard`
 
-Install, uninstall, or check Context Guard hooks. **Claude Code only.**
+**Stub** — this command redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for Context Guard hooks. Install ContextDocs separately:
 
-| Detail | Value |
-|--------|-------|
-| Arguments | `install`, `uninstall`, `status` |
-| Generates | `.claude/hooks/*.sh`, entries in `.claude/settings.json` |
-| Cross-tool | **No — Claude Code only** |
-
-**Examples:**
 ```
-/pitchdocs:context-guard install   # Install 5 hooks into the current project
-/pitchdocs:context-guard status    # Check installation state and run drift check
-/pitchdocs:context-guard uninstall # Remove hooks (preserves other hooks)
+/plugin install contextdocs@lba-plugins
+/contextdocs:context-guard install
 ```
-
-Installs 5 hooks: drift detection (warns after commits), structural change reminders (nudges on config changes), content filter guard (prevents HTTP 400 on high-risk files), session-end context nudge (Tier 1), and pre-commit context enforcement (Tier 2).
-
-**Untether compatibility:** The session-end nudge defers automatically. See the [Untether integration guide](untether-integration.md) for the full hook behaviour table.
 
 ---
 

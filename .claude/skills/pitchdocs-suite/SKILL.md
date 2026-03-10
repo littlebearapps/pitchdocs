@@ -32,10 +32,10 @@ A well-documented public repository should have these files:
 | `SUPPORT.md` | Where to get help — issues, discussions, external channels | This skill |
 | `.github/release.yml` | Auto-generated release note categories | This skill |
 | `llms.txt` | LLM-friendly content index for AI tools (Cursor, Windsurf, Claude Code) | `llms-txt` skill |
-| `AGENTS.md` | Cross-tool AI agent context — conventions, architecture, key commands | `ai-context` skill |
-| `.github/copilot-instructions.md` | GitHub Copilot repository-level instructions | `ai-context` skill |
-| `.windsurfrules` | Windsurf (Cascade AI) project-level context | `ai-context` skill |
-| `.clinerules` | Cline VS Code extension project-level context | `ai-context` skill |
+| `AGENTS.md` | Cross-tool AI agent context — conventions, architecture, key commands | [ContextDocs](https://github.com/littlebearapps/contextdocs) plugin (install separately) |
+| `.github/copilot-instructions.md` | GitHub Copilot repository-level instructions | [ContextDocs](https://github.com/littlebearapps/contextdocs) plugin (install separately) |
+| `.windsurfrules` | Windsurf (Cascade AI) project-level context | [ContextDocs](https://github.com/littlebearapps/contextdocs) plugin (install separately) |
+| `.clinerules` | Cline VS Code extension project-level context | [ContextDocs](https://github.com/littlebearapps/contextdocs) plugin (install separately) |
 | `CODE_OF_CONDUCT.md` | Community behaviour standards | This skill |
 | `SECURITY.md` | Vulnerability reporting process | This skill |
 | `.github/ISSUE_TEMPLATE/config.yml` | Issue template chooser config | This skill |
@@ -48,9 +48,9 @@ A well-documented public repository should have these files:
 | File | Purpose | Generator |
 |------|---------|-----------|
 | `ROADMAP.md` | Public development roadmap | `roadmap` skill |
-| `CLAUDE.md` | Project-specific Claude Code context — coding standards, architecture, key paths | `ai-context` skill |
-| `.cursorrules` | Cursor-specific rules derived from codebase conventions | `ai-context` skill |
-| `GEMINI.md` | Gemini CLI project context (or `.gemini/GEMINI.md`) | `ai-context` skill |
+| `CLAUDE.md` | Project-specific Claude Code context — coding standards, architecture, key paths | [ContextDocs](https://github.com/littlebearapps/contextdocs) plugin (install separately) |
+| `.cursorrules` | Cursor-specific rules derived from codebase conventions | [ContextDocs](https://github.com/littlebearapps/contextdocs) plugin (install separately) |
+| `GEMINI.md` | Gemini CLI project context (or `.gemini/GEMINI.md`) | [ContextDocs](https://github.com/littlebearapps/contextdocs) plugin (install separately) |
 | `docs/guides/configuration.md` | All config options explained | `user-guides` skill |
 | `docs/guides/deployment.md` | Production deployment guide | `user-guides` skill |
 | `docs/guides/troubleshooting.md` | Common issues and solutions | `user-guides` skill |
