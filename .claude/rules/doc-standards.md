@@ -40,16 +40,7 @@ The README is the **lobby** of the repository — it gives visitors enough to de
 
 ## Time to Hello World
 
-The primary DevEx metric for documentation. Every quick start section should target a measurable Time to Hello World (TTHW) based on project type:
-
-| TTHW Target | Project Type | Example |
-|-------------|-------------|---------|
-| Under 60 seconds | CLI tool, plugin | `npx create-thing && thing run` |
-| Under 2 minutes | Library, SDK | `npm install` + 5-line code example |
-| Under 5 minutes | Framework, platform | Clone + config + first request |
-| Under 15 minutes | Infrastructure, self-hosted | Docker compose + verify health |
-
-State the TTHW target explicitly in the quick start section where evidence supports it (e.g. "Get your first README in under 60 seconds"). Apply cognitive load principles: concrete before abstract, one concept per step, protect flow state (all prereqs upfront, all commands copy-paste-ready).
+Target a measurable Time to Hello World (TTHW) in every quick start section. State it explicitly where evidence supports it (e.g. "Get your first README in under 60 seconds"). Concrete before abstract, one concept per step, all commands copy-paste-ready. Load `public-readme` or `feature-benefits` for TTHW target tables by project type.
 
 ## Tone & Language
 
@@ -67,7 +58,7 @@ Pattern: `[Technical feature] so you can [user outcome] — [evidence]`. Every f
 
 ## Marketing Principles for Technical Docs
 
-Hero section: logo + bold one-liner + explanatory sentence + badges. Use separate `<p align="center">` blocks for spacing. Every doc ends with a clear next step. Load the `public-readme` skill for the full hero structure, badge categories, and dark mode guidance. Load `platform-profiles` for platform-specific badge URLs.
+Hero section: logo + one-liner + badges. Every doc ends with a clear next step. Load `public-readme` for hero structure and badge guidance; `platform-profiles` for platform-specific URLs.
 
 ## File Naming
 
@@ -80,8 +71,6 @@ Hero section: logo + bold one-liner + explanatory sentence + badges. Use separat
 - `.github/ISSUE_TEMPLATE/` — GitHub convention
 - `.github/PULL_REQUEST_TEMPLATE.md` — GitHub convention
 
-## Extended References (loaded on-demand)
+## Extended References
 
-- **Visual formatting** (emoji headings, screenshots, image specs): Load the `visual-standards` skill
-- **GEO optimisation** (AI citation, capsules, statistics): Load the `geo-optimisation` skill
-- **Skill authoring** (token budgets, metadata guidance): Load the `skill-authoring` skill
+Load on-demand: `visual-standards` (emoji, screenshots), `geo-optimisation` (AI citation), `skill-authoring` (token budgets).
