@@ -25,84 +25,12 @@ All documentation should be classified into one of four quadrants from the [Diat
 
 **Rules:**
 - Classify every document into exactly one quadrant before writing — don't mix tutorial prose with reference tables
-- Tutorials walk through a complete learning journey; guides solve a specific task. A tutorial says "let's build a blog"; a guide says "how to add pagination"
-- Reference docs are dry, accurate, and complete — every parameter, every option, every return type. No narrative.
-- Explanation docs cover architecture decisions, design philosophy, and "why it works this way" — they complement reference without duplicating it
-- Not every project needs all four quadrants. At minimum, provide **How-to Guides** (this skill's primary output) and link to any existing reference docs.
+- Tutorials walk through a complete learning journey; guides solve a specific task
+- Reference docs are dry, accurate, and complete. Explanation docs cover architecture decisions and "why".
+- At minimum, provide **How-to Guides** (this skill's primary output) and link to any existing reference docs
+- During guide discovery (Step 1), classify each existing doc into a quadrant. Flag any quadrant with zero documents.
 
-### Classifying Existing Docs
-
-During the guide discovery workflow (Step 1), classify each existing and needed document:
-
-```
-Tutorials:     docs/tutorials/build-your-first-app.md
-How-to Guides: docs/guides/getting-started.md, docs/guides/configuration.md
-Reference:     docs/reference/api.md, docs/reference/cli.md
-Explanation:   docs/explanation/architecture.md, docs/explanation/security-model.md
-```
-
-Flag any quadrant with zero documents — this indicates a documentation gap worth addressing.
-
-## Guide Frontmatter
-
-Every documentation file in `docs/` should include YAML frontmatter for metadata, navigation, and cross-referencing. This enables hub page generation, related article linking, and docs-verify validation.
-
-### Required Fields
-
-```yaml
----
-title: "Getting Started with PitchDocs"
-description: "Install PitchDocs, generate your first README, and explore all 15 commands."
-type: how-to          # tutorial | how-to | reference | explanation
----
-```
-
-### Optional Fields
-
-```yaml
----
-difficulty: beginner   # beginner | intermediate | advanced
-time_to_complete: "5 minutes"
-last_verified: "1.11.0"  # Product version this guide was last verified against
-related:
-  - guides/workflows.md
-  - guides/command-reference.md
-order: 1               # Sort position within its type for hub page listings
----
-```
-
-**Field descriptions:**
-- `title` — matches the H1 heading; used in hub page tables and llms.txt
-- `description` — one-sentence summary; used in hub page and search
-- `type` — Diataxis quadrant classification (determines structural expectations)
-- `difficulty` — reader skill level; displayed in hub page if present
-- `time_to_complete` — estimated reading or completion time
-- `last_verified` — the product version against which this guide was last tested
-- `related` — paths to related documents (relative to `docs/`); used for "What's Next?" sections and cross-referencing
-- `order` — numeric sort position within its type grouping on the hub page
-
-**Rules:**
-- All three required fields (`title`, `description`, `type`) must be present
-- `type` must be exactly one of: `tutorial`, `how-to`, `reference`, `explanation`
-- `related` paths must point to files that exist on disk
-- `last_verified` should be updated when a guide is re-tested against a new version
-
-## Title Conventions
-
-Use consistent title patterns per document type:
-
-| Doc Type | Pattern | Example |
-|----------|---------|---------|
-| Tutorial | "Build Your First [Thing]" | "Build Your First API" |
-| How-to | "[Task] Guide" or "How to [Task]" | "Deployment Guide" |
-| Reference | "[Subject] Reference" | "CLI Reference" |
-| Explanation | "How [Project] [Concept]" or "Why [Decision]" | "How PitchDocs Thinks" |
-
-**Rules:**
-- The H1 heading must match the `title` frontmatter field exactly
-- Keep titles under 60 characters for readability in navigation
-- Use the project name in the title when the guide is project-specific ("Getting Started with PitchDocs"), omit it for generic tasks ("Deployment Guide")
-- Task-oriented titles for how-to guides; concept-oriented titles for explanations
+See SKILL-reference.md for frontmatter field tables and title conventions.
 
 ## Guide Structure
 
@@ -127,38 +55,7 @@ docs/
 
 ### docs/README.md (Hub Page)
 
-```markdown
-# [Project Name] Documentation
-
-## Getting Started
-
-New to [Project Name]? Start here:
-
-- [Getting Started Guide](guides/getting-started.md) — Installation, setup, and your first [thing]
-- [Configuration Guide](guides/configuration.md) — All configuration options explained
-
-## Guides
-
-Step-by-step instructions for common tasks:
-
-| Guide | What You'll Learn |
-|-------|-------------------|
-| [Getting Started](guides/getting-started.md) | Install, configure, and run your first [thing] |
-| [Configuration](guides/configuration.md) | Customise behaviour with environment variables and config files |
-| [Deployment](guides/deployment.md) | Deploy to production with CI/CD |
-| [Migration](guides/migration.md) | Upgrade from v1.x to v2.x |
-| [Troubleshooting](guides/troubleshooting.md) | Common issues and how to fix them |
-
-## API Reference
-
-- [API Documentation](api/README.md)
-
-## Need Help?
-
-- [FAQ](guides/troubleshooting.md#faq)
-- [Open a Discussion](link)
-- [File an Issue](link)
-```
+See SKILL-templates.md for the hub page template.
 
 ### Individual Guide Format
 
@@ -269,89 +166,7 @@ For each guide:
 
 ### Step 4: Link Into README
 
-Add a documentation section to README.md:
-
-```markdown
-## Documentation
-
-| Guide | Description |
-|-------|-------------|
-| [Getting Started](docs/guides/getting-started.md) | Installation and first steps |
-| [Configuration](docs/guides/configuration.md) | All config options |
-| [Deployment](docs/guides/deployment.md) | Production deployment guide |
-| [Troubleshooting](docs/guides/troubleshooting.md) | Common issues and solutions |
-
-Full documentation: [docs/](docs/README.md)
-```
-
-## Troubleshooting Guide Template
-
-```markdown
-# Troubleshooting
-
-Common issues and how to resolve them.
-
-## Installation Issues
-
-### Error: `MODULE_NOT_FOUND`
-
-**Cause**: Dependencies not installed or wrong Node.js version.
-
-**Fix**:
-\`\`\`bash
-rm -rf node_modules
-npm install
-\`\`\`
-
-If the issue persists, check your Node.js version:
-\`\`\`bash
-node --version  # Must be 20+
-\`\`\`
-
----
-
-### Error: `EACCES permission denied`
-
-**Cause**: npm global packages installed without proper permissions.
-
-**Fix**:
-\`\`\`bash
-# Option 1: Use npx instead of global install
-npx package-name
-
-# Option 2: Fix npm permissions
-# See: https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
-\`\`\`
-
----
-
-## Runtime Issues
-
-### [Symptom description]
-
-**Cause**: [Why this happens]
-
-**Fix**:
-\`\`\`bash
-[solution]
-\`\`\`
-
----
-
-## FAQ
-
-### Q: [Common question]?
-
-**A**: [Clear answer with example if applicable]
-
----
-
-## Still Stuck?
-
-- Search [existing issues](link)
-- [Open a new issue](link) with the `help wanted` label
-- [Ask in discussions](link)
-```
+Add a `## Documentation` section to README.md with a table linking each guide (title + one-line description) and a "Full documentation: [docs/](docs/README.md)" footer. See SKILL-templates.md for the hub page template.
 
 ## Writing Style
 
@@ -364,98 +179,9 @@ npx package-name
 - **Consistent spelling**: follow the project's existing language conventions
 - **Copy-paste-ready code**: Every code block must be runnable as-is — no `...` placeholders, no incomplete snippets, no "replace with your value" without showing the exact replacement
 
-### Copy-Paste-Ready Code Examples
+See SKILL-reference.md for video/screencast placeholder guidance.
 
-Every code block in a guide must be directly executable:
-
-```markdown
-### 2. Configure the database
-
-Create a `wrangler.toml` configuration file:
-
-\`\`\`toml
-name = "my-api"
-compatibility_date = "2024-01-01"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "my-database"
-database_id = "your-database-id"
-\`\`\`
-
-**Note:** Replace `your-database-id` with the ID from step 1. You can find it by running `wrangler d1 list`.
-```
-
-**Rules:**
-- Include import statements — don't assume readers know the package name
-- Show expected output after every command
-- Use realistic values (not `foo`, `bar`, `test123`) — readers copy-paste and expect real patterns
-- If a value must be customised, call it out explicitly after the code block
-
-### Error Recovery Patterns
-
-After each major step, include a collapsible troubleshooting section for common failures:
-
-```markdown
-### 3. Start the development server
-
-\`\`\`bash
-npm run dev
-\`\`\`
-
-You should see:
-\`\`\`
-Server running at http://localhost:3000
-\`\`\`
-
-<details>
-<summary><strong>Troubleshooting: Port already in use</strong></summary>
-
-If you see `Error: listen EADDRINUSE :::3000`:
-
-\`\`\`bash
-# Find and kill the process using port 3000
-lsof -ti:3000 | xargs kill -9
-npm run dev
-\`\`\`
-
-</details>
-```
-
-Use `<details>` for error recovery so it doesn't clutter the happy path. For GitHub-only guides, this collapses neatly; for cross-renderer guides, use a bold inline callout instead.
-
-### Video and Screencast Placeholders
-
-When a guide involves CLI interaction or multi-step UI workflows, suggest terminal recording placement:
-
-```markdown
-### Demo
-
-<!-- Terminal recording: Run `asciinema rec` before starting, `asciinema upload` when done -->
-<!-- Suggested recording: Steps 1-3 (install, configure, verify) in a single session -->
-<!-- Alternative: Record a 30-second GIF with `terminalizer` or `vhs` -->
-
-Watch the [terminal recording](link) to see the full setup flow.
-```
-
-**When to suggest recordings:**
-- Getting started guides (always)
-- Guides with 5+ CLI steps
-- Guides involving interactive prompts or TUI interfaces
-- Migration guides where the before/after is instructive
-
-### Diataxis Cross-Links
-
-Each guide must link to related documents in other Diataxis quadrants:
-
-```markdown
-## What's Next?
-
-- **Tutorial**: [Build Your First App](../tutorials/build-first-app.md) — hands-on lesson that builds on this setup
-- **Reference**: [CLI Reference](../reference/cli.md) — all flags and options for commands used in this guide
-- **Explanation**: [Architecture Overview](../explanation/architecture.md) — understand why the project is structured this way
-- [Back to Docs Hub](../README.md)
-```
+See SKILL-templates.md for copy-paste-ready code examples, troubleshooting template, error recovery patterns, and Diataxis cross-links.
 
 ## Anti-Patterns
 
@@ -469,6 +195,7 @@ Each guide must link to related documents in other Diataxis quadrants:
 - **Don't bury prerequisites in prose** — use a structured prerequisites block (see `doc-standards` GEO section)
 - **Don't skip frontmatter** — every guide needs at minimum `title`, `description`, and `type` fields
 
-## Companion File
+## Companion Files
 
-Extended templates for the remaining three Diataxis types (tutorial, reference, explanation) are in `SKILL-templates.md`. Ask Claude to load it when generating documents in those quadrants.
+- `SKILL-templates.md` — Hub page, how-to code examples, tutorial/reference/explanation templates, troubleshooting, error recovery, Diataxis cross-links
+- `SKILL-reference.md` — Frontmatter field tables, title conventions, video/screencast guidance

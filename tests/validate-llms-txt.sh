@@ -13,7 +13,7 @@ echo "=== Validating llms.txt file references ==="
 grep -oP '(?<=\]\(\./)[^)]+' llms.txt | while read -r path; do
   # Skip external URLs (shouldn't match but safety check)
   case "$path" in http*|mailto*) continue ;; esac
-  if [ ! -f "$path" ]; then
+  if [ ! -f "$path" ] && [ ! -d "$path" ]; then
     echo "ERROR: llms.txt references '$path' but file does not exist"
     # Write to temp file since we're in a subshell
     echo "1" >> /tmp/llms-errors.$$

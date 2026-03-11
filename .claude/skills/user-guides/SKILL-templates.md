@@ -1,6 +1,6 @@
 # Diátaxis Document Templates
 
-Companion file for the `user-guides` skill. Contains structural templates for the three Diátaxis types not covered in the main skill: **tutorial**, **reference**, and **explanation**. The main skill covers **how-to guides**.
+Companion file for the `user-guides` skill. Contains structural templates for Diátaxis document types, the docs hub page, copy-paste-ready code examples, troubleshooting guides, error recovery patterns, and Diataxis cross-links. The main skill covers how-to guide structure and the discovery workflow.
 
 Load this file when generating documents in these quadrants.
 
@@ -260,3 +260,186 @@ What did this approach cost? Every design choice has downsides:
 - Don't list every parameter — that's a reference
 - Don't be defensive about trade-offs — honest analysis builds trust
 - Don't write an explanation for every minor implementation detail — only for decisions that users will wonder about
+
+---
+
+## Hub Page Template (docs/README.md)
+
+```markdown
+# [Project Name] Documentation
+
+## Getting Started
+
+New to [Project Name]? Start here:
+
+- [Getting Started Guide](guides/getting-started.md) — Installation, setup, and your first [thing]
+- [Configuration Guide](guides/configuration.md) — All configuration options explained
+
+## Guides
+
+Step-by-step instructions for common tasks:
+
+| Guide | What You'll Learn |
+|-------|-------------------|
+| [Getting Started](guides/getting-started.md) | Install, configure, and run your first [thing] |
+| [Configuration](guides/configuration.md) | Customise behaviour with environment variables and config files |
+| [Deployment](guides/deployment.md) | Deploy to production with CI/CD |
+| [Migration](guides/migration.md) | Upgrade from v1.x to v2.x |
+| [Troubleshooting](guides/troubleshooting.md) | Common issues and how to fix them |
+
+## API Reference
+
+- [API Documentation](api/README.md)
+
+## Need Help?
+
+- [FAQ](guides/troubleshooting.md#faq)
+- [Open a Discussion](link)
+- [File an Issue](link)
+```
+
+---
+
+## Copy-Paste-Ready Code Examples
+
+Every code block in a guide must be directly executable:
+
+```markdown
+### 2. Configure the database
+
+Create a `wrangler.toml` configuration file:
+
+\`\`\`toml
+name = "my-api"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "my-database"
+database_id = "your-database-id"
+\`\`\`
+
+**Note:** Replace `your-database-id` with the ID from step 1. You can find it by running `wrangler d1 list`.
+```
+
+**Rules:**
+- Include import statements — don't assume readers know the package name
+- Show expected output after every command
+- Use realistic values (not `foo`, `bar`, `test123`) — readers copy-paste and expect real patterns
+- If a value must be customised, call it out explicitly after the code block
+
+---
+
+## Troubleshooting Guide Template
+
+```markdown
+# Troubleshooting
+
+Common issues and how to resolve them.
+
+## Installation Issues
+
+### Error: `MODULE_NOT_FOUND`
+
+**Cause**: Dependencies not installed or wrong Node.js version.
+
+**Fix**:
+\`\`\`bash
+rm -rf node_modules
+npm install
+\`\`\`
+
+If the issue persists, check your Node.js version:
+\`\`\`bash
+node --version  # Must be 20+
+\`\`\`
+
+---
+
+### Error: `EACCES permission denied`
+
+**Cause**: npm global packages installed without proper permissions.
+
+**Fix**:
+\`\`\`bash
+# Option 1: Use npx instead of global install
+npx package-name
+
+# Option 2: Fix npm permissions
+# See: https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
+\`\`\`
+
+---
+
+## Runtime Issues
+
+### [Symptom description]
+
+**Cause**: [Why this happens]
+
+**Fix**:
+\`\`\`bash
+[solution]
+\`\`\`
+
+---
+
+## FAQ
+
+### Q: [Common question]?
+
+**A**: [Clear answer with example if applicable]
+
+---
+
+## Still Stuck?
+
+- Search [existing issues](link)
+- [Open a new issue](link) with the `help wanted` label
+- [Ask in discussions](link)
+```
+
+## Error Recovery Patterns
+
+After each major step, include a collapsible troubleshooting section for common failures:
+
+```markdown
+### 3. Start the development server
+
+\`\`\`bash
+npm run dev
+\`\`\`
+
+You should see:
+\`\`\`
+Server running at http://localhost:3000
+\`\`\`
+
+<details>
+<summary><strong>Troubleshooting: Port already in use</strong></summary>
+
+If you see `Error: listen EADDRINUSE :::3000`:
+
+\`\`\`bash
+# Find and kill the process using port 3000
+lsof -ti:3000 | xargs kill -9
+npm run dev
+\`\`\`
+
+</details>
+```
+
+Use `<details>` for error recovery so it doesn't clutter the happy path. For GitHub-only guides, this collapses neatly; for cross-renderer guides, use a bold inline callout instead.
+
+## Diataxis Cross-Links
+
+Each guide must link to related documents in other Diataxis quadrants:
+
+```markdown
+## What's Next?
+
+- **Tutorial**: [Build Your First App](../tutorials/build-first-app.md) — hands-on lesson that builds on this setup
+- **Reference**: [CLI Reference](../reference/cli.md) — all flags and options for commands used in this guide
+- **Explanation**: [Architecture Overview](../explanation/architecture.md) — understand why the project is structured this way
+- [Back to Docs Hub](../README.md)
+```
