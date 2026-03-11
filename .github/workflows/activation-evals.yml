@@ -48,6 +48,29 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
+      - name: Register PitchDocs plugin
+        run: |
+          mkdir -p ~/.claude/plugins
+          jq -n \
+            --arg path "$GITHUB_WORKSPACE" \
+            --arg sha "${{ github.sha }}" \
+            --arg now "$(date -u +%Y-%m-%dT%H:%M:%S.000Z)" \
+            '{
+              version: 2,
+              plugins: {
+                "pitchdocs@lba-plugins": [{
+                  scope: "user",
+                  installPath: $path,
+                  version: "ci-eval",
+                  installedAt: $now,
+                  lastUpdated: $now,
+                  gitCommitSha: $sha
+                }]
+              }
+            }' > ~/.claude/plugins/installed_plugins.json
+          echo "Registered plugin at: $GITHUB_WORKSPACE"
+          cat ~/.claude/plugins/installed_plugins.json
+
       - name: Run activation evals
         id: evals
         env:

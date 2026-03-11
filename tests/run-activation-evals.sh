@@ -65,7 +65,6 @@ PREFLIGHT=$(cd "$PROJECT_DIR" && claude -p "Say OK" \
   --model "$MODEL" \
   --permission-mode default \
   --no-session-persistence \
-  --plugin-dir "$(dirname "$PROJECT_DIR")" \
   2>"$PREFLIGHT_STDERR") || true
 if [ -z "$PREFLIGHT" ]; then
   echo "Error: claude -p produces no stdout."
@@ -147,7 +146,6 @@ for run in $(seq 1 "$RUNS"); do
       --permission-mode default \
       --max-budget-usd 0.50 \
       --no-session-persistence \
-      --plugin-dir "$(dirname "$PROJECT_DIR")" \
       2>"$STDERR_LOG") || true
 
     # Show diagnostics when output is empty
