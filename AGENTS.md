@@ -38,6 +38,7 @@ PitchDocs uses an adaptive agent pipeline for documentation generation:
 | `docs-researcher` | `.claude/agents/docs-researcher.md` | Codebase discovery, platform detection, feature extraction (7-step workflow across 10 signal categories), security signal scanning, lobby split planning. Produces a structured research packet. **Only spawned for projects with 20+ files** — smaller projects use lightweight inline research. |
 | `docs-writer` | `.claude/agents/docs-writer.md` | Orchestrator — chooses lightweight (inline) or full (sub-agent) research based on project size, writes documentation using the Daytona "4000 Stars" marketing framework with citation capsules and banned phrase avoidance, conditionally spawns reviewer. |
 | `docs-reviewer` | `.claude/agents/docs-reviewer.md` | Post-generation quality validation — full checklist, banned phrases scan, citation capsule completeness, GEO readiness, 6-dimension quality scoring (100-point rubric). **Skipped for new README generation** — runs for updates, docs suites, or when explicitly requested (`--review`). |
+| `docs-freshness` | `agents/docs-freshness.md` | Read-only freshness checker — version alignment, changelog coverage, doc staleness, structural coverage. Installed per-project by `/pitchdocs:activate`. Suggests specific `/pitchdocs:*` commands to fix each finding. |
 
 ## Workflow Commands
 
@@ -59,14 +60,16 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 | `platform` | Detect hosting platform (GitHub/GitLab/Bitbucket) and report feature support |
 | `visual-standards` | Load visual formatting standards for screenshots, emoji headings, and image specs |
 | `geo` | Load GEO optimisation patterns for AI citation |
+| `activate` | Install/uninstall per-project rules, agent, and hook — `install`, `install strict`, `uninstall`, `status` |
 | `context-guard` | **Stub** — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for Context Guard hooks |
 
-## Rules and Hooks (Claude Code Only)
+## Per-Project Activation (Claude Code Only)
 
-PitchDocs includes features that are specific to Claude Code and do not work in OpenCode, Codex CLI, or other tools:
+PitchDocs commands work globally. Advisory features (quality standards, documentation nudges, freshness checking) are opt-in per-project via `/pitchdocs:activate`:
 
-- **Rules** (3): `.claude/rules/doc-standards.md` (core quality standards — 4-question framework, benefits writing, badges; extended references in `visual-standards`, `geo-optimisation`, `skill-authoring` skills, auto-loaded), `.claude/rules/content-filter.md` (content filter quick reference, auto-loaded), and `.claude/rules/docs-awareness.md` (documentation trigger map — suggests PitchDocs commands when documentation-relevant work is detected, auto-loaded)
-- **Hooks** (1): `hooks/content-filter-guard.sh` (Write guard for high-risk OSS files) — opt-in via `/pitchdocs:context-guard install` redirects to ContextDocs for context-specific hooks
+- **Auto-loaded** (globally): `.claude/rules/content-filter.md` (content filter quick reference — prevents HTTP 400 errors)
+- **Installed per-project** by `/pitchdocs:activate install`: `rules/doc-standards.md` (quality standards), `rules/docs-awareness.md` (documentation trigger map), `agents/docs-freshness.md` (freshness checker agent)
+- **Installed per-project** by `/pitchdocs:activate install strict`: also adds `hooks/content-filter-guard.sh` (Write guard for high-risk OSS files)
 
 ## AI Context Files
 

@@ -1,6 +1,6 @@
 ---
 title: "Command Reference"
-description: "All 15 PitchDocs commands with arguments, generated files, and examples."
+description: "All 16 PitchDocs commands with arguments, generated files, and examples."
 type: reference
 last_verified: "2.0.0"
 related:
@@ -11,7 +11,7 @@ order: 3
 
 # Command Reference
 
-> **Summary**: All 15 PitchDocs commands with arguments, generated files, and examples.
+> **Summary**: All 16 PitchDocs commands with arguments, generated files, and examples.
 
 **Note:** When installed as a plugin, all commands use the `pitchdocs:` prefix (e.g., `/pitchdocs:readme`). The short form `/readme` only works inside the pitchdocs source directory.
 
@@ -41,6 +41,7 @@ Each command maps to a skill file in `.claude/skills/`. The mapping:
 | `/pitchdocs:platform` | `.claude/skills/platform-profiles/SKILL.md` |
 | `/pitchdocs:visual-standards` | `.claude/skills/visual-standards/SKILL.md` |
 | `/pitchdocs:geo` | `.claude/skills/geo-optimisation/SKILL.md` |
+| `/pitchdocs:activate` | No skill — copies rules, agent, and hook into the project |
 | `/pitchdocs:context-guard` | Stub — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) (Claude Code only) |
 
 See the [Other AI Tools guide](other-ai-tools.md) for full per-tool setup instructions.
@@ -330,6 +331,28 @@ Load GEO optimisation patterns for AI citation.
 /pitchdocs:geo capsules            # Focus on citation capsules
 /pitchdocs:geo comparison          # Focus on comparison tables for "X vs Y" queries
 ```
+
+---
+
+## `/pitchdocs:activate`
+
+Install, uninstall, or check status of per-project PitchDocs features.
+
+| Detail | Value |
+|--------|-------|
+| Arguments | `install`, `install strict`, `uninstall`, `status` |
+| Generates | Copies rules, agent, and optionally hook into `.claude/` |
+| Cross-tool | Claude Code only |
+
+**Examples:**
+```
+/pitchdocs:activate install          # Standard: 2 rules + 1 agent
+/pitchdocs:activate install strict   # Standard + content-filter-guard hook
+/pitchdocs:activate uninstall        # Remove all per-project PitchDocs features
+/pitchdocs:activate status           # Check which tier is active
+```
+
+PitchDocs commands work globally without activation. The activate command installs advisory features (quality standards, documentation nudges, freshness checking) into the current project. See the [Getting Started guide](getting-started.md) for more.
 
 ---
 

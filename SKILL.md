@@ -18,7 +18,7 @@ tags:
 
 PitchDocs is a pure Markdown Claude Code plugin that scans any codebase and generates professional, marketing-ready repository documentation. Every feature claim traces to an actual file path — no hallucinated marketing copy.
 
-16 skills, 15 slash commands (13 active + 2 stubs), 3 agents (researcher → writer → reviewer pipeline), 3 quality rules, 1 opt-in hook. 100% Markdown, zero runtime dependencies, MIT licensed.
+16 skills, 16 slash commands (14 active + 2 stubs), 4 agents (3 pipeline + 1 per-project freshness checker), 1 auto-loaded rule + 2 installable rules, 1 opt-in hook. 100% Markdown, zero runtime dependencies, MIT licensed.
 
 ## When to Use
 
@@ -53,6 +53,7 @@ PitchDocs is a pure Markdown Claude Code plugin that scans any codebase and gene
    - `/pitchdocs:platform` — Detect hosting platform feature support
    - `/pitchdocs:visual-standards` — Visual formatting standards for docs
    - `/pitchdocs:geo` — GEO optimisation for AI citation readiness
+   - `/pitchdocs:activate` — Install per-project rules, agent, and hook
    - `/pitchdocs:context-guard` — Stub: redirects to ContextDocs
 
 ## Output Format

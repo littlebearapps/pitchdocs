@@ -1,6 +1,6 @@
 # PitchDocs
 
-Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 16 skills, 3 agents (adaptive researcher → writer → reviewer pipeline), 3 quality rules, 14 slash commands (+2 stubs redirecting to ContextDocs), 1 opt-in hook, and 20 evaluation test cases.
+Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 16 skills, 4 agents (3 pipeline + 1 per-project freshness checker), 1 auto-loaded rule, 2 installable rules, 16 slash commands (14 active + 2 stubs redirecting to ContextDocs), 1 opt-in hook, and 20 evaluation test cases.
 
 ## Project Architecture
 
@@ -12,11 +12,12 @@ This is a **100% Markdown-based plugin** — no JavaScript, no Python, no build 
 .claude/agents/docs-writer.md   → Orchestration agent (coordinates researcher → write → reviewer pipeline)
 .claude/agents/docs-researcher.md → Codebase discovery and feature extraction agent
 .claude/agents/docs-reviewer.md → Post-generation quality validation agent
-.claude/rules/doc-standards.md  → Quality standards (auto-loaded every session)
 .claude/rules/content-filter.md → Content filter quick reference (auto-loaded; Claude Code only)
-.claude/rules/docs-awareness.md → Documentation trigger map (auto-loaded; Claude Code only)
-commands/*.md                   → 14 slash command definitions (+2 stubs redirecting to ContextDocs)
-hooks/*.sh                      → 1 opt-in hook script (Claude Code only)
+rules/doc-standards.md          → Quality standards (installed per-project by /pitchdocs:activate)
+rules/docs-awareness.md         → Documentation trigger map (installed per-project by /pitchdocs:activate)
+agents/docs-freshness.md        → Freshness checker agent (installed per-project by /pitchdocs:activate)
+commands/*.md                   → 16 slash command definitions (14 active + 2 stubs redirecting to ContextDocs)
+hooks/*.sh                      → 1 opt-in hook script (Claude Code only, installed by /pitchdocs:activate install strict)
 ```
 
 ## Conventions
@@ -30,13 +31,14 @@ hooks/*.sh                      → 1 opt-in hook script (Claude Code only)
 | File | Purpose |
 |------|---------|
 | `plugin.json` | Version, description, keywords — update on every release |
-| `doc-standards.md` | Quality rule auto-loaded in every session — core standards for tone, benefits, badges. Extended references in `visual-standards`, `geo-optimisation`, and `skill-authoring` skills |
-| `content-filter.md` | Content filter quick reference rule — risk levels, fetch commands, chunked writing guidance (auto-loaded; Claude Code only) |
-| `docs-awareness.md` | Documentation trigger map rule — suggests PitchDocs commands when documentation-relevant work is detected (auto-loaded; Claude Code only) |
+| `content-filter.md` | Content filter quick reference rule — risk levels, fetch commands, chunked writing guidance (auto-loaded globally; Claude Code only) |
+| `rules/doc-standards.md` | Quality standards template — installed per-project by `/pitchdocs:activate`. Core standards for tone, benefits, badges |
+| `rules/docs-awareness.md` | Documentation trigger map template — installed per-project by `/pitchdocs:activate`. Suggests PitchDocs commands at documentation moments |
+| `agents/docs-freshness.md` | Freshness checker agent template — installed per-project by `/pitchdocs:activate`. Read-only checks with command suggestions |
 | `docs-writer.md` | Orchestrator agent — lightweight inline research for small projects (< 20 files), full sub-agent research for larger projects, conditional reviewer (skipped for new READMEs), content filter mitigations |
 | `docs-researcher.md` | Codebase discovery agent — platform detection, feature extraction, security signals, lobby split planning. Only spawned for projects with 20+ files. |
 | `docs-reviewer.md` | Quality validation agent — checklist, banned phrases scan, GEO scoring, 6-dimension quality rubric. Skipped for new READMEs; runs for updates or with `--review`. |
-| `hooks/*.sh` | Content filter write guard (Claude Code only, opt-in) |
+| `hooks/*.sh` | Content filter write guard (Claude Code only, installed by `/pitchdocs:activate install strict`) |
 | `upstream-versions.json` | Tracks 7 pinned spec versions — checked monthly by GitHub Action |
 | `llms.txt` | AI-readable content index — must be updated when files are added/removed |
 | `AGENTS.md` | Cross-tool AI context (Codex CLI format) — must stay in sync with skills/commands |
@@ -46,7 +48,7 @@ hooks/*.sh                      → 1 opt-in hook script (Claude Code only)
 
 1. **Adding a skill**: Create `.claude/skills/<name>/SKILL.md`, add a corresponding command in `commands/<name>.md`, update the features list in `README.md`, skills table in `AGENTS.md`, and `llms.txt`
 2. **Adding a command**: Create `commands/<name>.md` with YAML frontmatter, update commands tables in `README.md`, `AGENTS.md`, and `llms.txt`
-3. **Changing quality standards**: Edit `.claude/rules/doc-standards.md` — this propagates to all generated docs automatically
+3. **Changing quality standards**: Edit `rules/doc-standards.md` — this propagates to all projects that have activated PitchDocs
 4. **Updating upstream specs**: Edit `upstream-versions.json` and the corresponding skill content
 5. **Adding platform support**: Update the `platform-profiles` skill for new platform equivalents. Existing skills reference it via cross-link.
 6. **Bumping version**: Handled automatically by release-please from conventional commit messages
@@ -65,6 +67,18 @@ PitchDocs includes static validation in CI and supports runtime skill evaluation
 | Skill quality benchmarks | Output quality with/without plugin | skill-creator A/B comparison |
 
 Install skill-creator: `/plugin marketplace add anthropics/claude-plugins-official` then `/plugin install skill-creator`
+
+## Per-Project Activation
+
+PitchDocs commands work globally, but advisory features (quality standards, documentation nudges, freshness checking) are opt-in per-project via `/pitchdocs:activate`. This prevents noise in private repos that don't need marketing-grade docs.
+
+| Tier | Command | What's Installed |
+|------|---------|-----------------|
+| None (default) | Plugin only | Commands available, `content-filter.md` rule auto-loaded |
+| Standard | `/pitchdocs:activate install` | + `doc-standards.md` rule, `docs-awareness.md` rule, `docs-freshness.md` agent |
+| Strict | `/pitchdocs:activate install strict` | + `content-filter-guard.sh` hook (blocks risky file writes) |
+
+Source templates live in `rules/`, `agents/`, and `hooks/` at the plugin root. The activate command copies them into the project's `.claude/` directory.
 
 ## Relationship to ContextDocs
 

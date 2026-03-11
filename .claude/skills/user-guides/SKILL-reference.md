@@ -13,7 +13,7 @@ Every documentation file in `docs/` should include YAML frontmatter for metadata
 ```yaml
 ---
 title: "Getting Started with PitchDocs"
-description: "Install PitchDocs, generate your first README, and explore all 15 commands."
+description: "Install PitchDocs, generate your first README, and explore all 16 commands."
 type: how-to          # tutorial | how-to | reference | explanation
 ---
 ```

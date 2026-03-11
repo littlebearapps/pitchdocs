@@ -50,7 +50,7 @@ Run all checks against the generated documentation files. For each check, report
 
 ### Banned Phrases Scan
 
-Scan all generated docs for banned phrases listed in `.claude/rules/doc-standards.md` (Tone & Language section). Use `grep -rniE` with patterns from that file against README.md, CONTRIBUTING.md, CHANGELOG.md, and docs/. Flag each occurrence with file:line and suggest a replacement.
+Scan all generated docs for banned phrases listed in `rules/doc-standards.md` (Tone & Language section). Use `grep -rniE` with patterns from that file against README.md, CONTRIBUTING.md, CHANGELOG.md, and docs/. Flag each occurrence with file:line and suggest a replacement.
 
 ### Technical Accuracy
 

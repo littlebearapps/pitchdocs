@@ -35,7 +35,7 @@ Regardless of which AI tool you use, the workflow is the same:
 3. **Copy the quality standards** into your tool's context file (`.cursorrules`, `.windsurfrules`, `.clinerules`, `GEMINI.md`, `.goosehints`, etc.):
 
    ```bash
-   cp /path/to/pitchdocs/.claude/rules/doc-standards.md <your-tool-context-file>
+   cp /path/to/pitchdocs/rules/doc-standards.md <your-tool-context-file>
    ```
 
 Every skill file is self-contained Markdown with YAML frontmatter. Your AI tool reads the file, follows the instructions, and produces documentation. The per-tool sections below show the optimal setup for each tool.
@@ -50,10 +50,11 @@ The source of truth lives in `.claude/`. Here's what each piece does:
 |-----------|----------|---------|-------------|
 | `.claude/skills/*/SKILL.md` | 16 skill files | Reference knowledge for all doc types | Yes — Claude Code, OpenCode, Codex CLI |
 | `.claude/agents/docs-writer.md` | 1 agent file | Orchestration workflow: codebase scanning → feature extraction → doc writing → validation | Partial — Claude Code, OpenCode (may vary) |
-| `.claude/rules/doc-standards.md` | 1 rule file | Core quality standards: 4-question framework, progressive disclosure, benefit-driven language, badges. Extended references in `visual-standards`, `geo-optimisation`, `skill-authoring` skills | Auto-loaded in Claude Code; copy manually for other tools |
+| `rules/doc-standards.md` | 1 rule file | Core quality standards: 4-question framework, progressive disclosure, benefit-driven language, badges. Extended references in `visual-standards`, `geo-optimisation`, `skill-authoring` skills | Installed per-project in Claude Code (`/pitchdocs:activate`); copy manually for other tools |
 | `.claude/rules/content-filter.md` | 1 rule file | Content filter quick reference: risk levels, fetch commands, chunked writing for high-risk OSS files | Auto-loaded in Claude Code; copy manually for other tools |
-| `.claude/rules/docs-awareness.md` | 1 rule file | Documentation trigger map: suggests PitchDocs commands when documentation-relevant work is detected | Auto-loaded in Claude Code; copy manually for other tools |
-| `commands/*.md` | 15 command files | Slash command definitions for all PitchDocs commands | Yes — Claude Code, OpenCode |
+| `rules/docs-awareness.md` | 1 rule file | Documentation trigger map: suggests PitchDocs commands when documentation-relevant work is detected | Installed per-project in Claude Code (`/pitchdocs:activate`); not applicable for other tools |
+| `agents/docs-freshness.md` | 1 agent file | Read-only freshness checker with command suggestions | Installed per-project in Claude Code (`/pitchdocs:activate`); not applicable for other tools |
+| `commands/*.md` | 16 command files | Slash command definitions for all PitchDocs commands | Yes — Claude Code, OpenCode |
 | `hooks/*.sh` | 1 hook script | Content filter write guard for high-risk OSS files | **Claude Code only** |
 
 ## Tool Compatibility Summary
@@ -63,12 +64,13 @@ Not all PitchDocs features work in every tool. Here's what's portable and what's
 | Feature | Claude Code | OpenCode | Codex CLI | Cursor / Windsurf / Cline / Gemini CLI |
 |---------|------------|----------|-----------|----------------------------------------|
 | Skills (16 SKILL.md files) | Native | Native (`.claude/skills/` fallback) | Copy to `.agents/skills/` | Reference on demand |
-| Slash commands (15) | Native | Native (`.claude/commands/` fallback) | Copy to prompts | Not supported |
+| Slash commands (16) | Native | Native (`.claude/commands/` fallback) | Copy to prompts | Not supported |
 | Docs-writer agent | Native | Likely supported | Reference manually | Cursor: `.cursor/agents/` |
-| Doc-standards rule | Auto-loaded | Copy to context | Copy to context | Cursor: `.cursor/rules/`; others: copy to context file |
+| Doc-standards rule | Per-project (`/pitchdocs:activate`) | Copy to context | Copy to context | Cursor: `.cursor/rules/`; others: copy to context file |
 | Content-filter rule | Auto-loaded | Copy to context | Copy to context | Copy to tool-specific context file |
-| Docs-awareness rule | Auto-loaded | Not applicable | Not applicable | Not applicable |
-| Content filter hook | Native (opt-in) | Not supported | Not supported | Not supported |
+| Docs-awareness rule | Per-project (`/pitchdocs:activate`) | Not applicable | Not applicable | Not applicable |
+| Docs-freshness agent | Per-project (`/pitchdocs:activate`) | Not supported | Not supported | Not supported |
+| Content filter hook | Per-project (`/pitchdocs:activate install strict`) | Not supported | Not supported | Not supported |
 | AGENTS.md | Loaded | Primary context file | Primary context file | Not used |
 | CLAUDE.md | Loaded | Fallback (if no AGENTS.md) | Not used | Not used |
 
@@ -133,7 +135,7 @@ Create `.cursor/rules/doc-standards.mdc` in your project:
 description: PitchDocs documentation quality standards — 4-question framework, benefit-driven language, progressive disclosure, marketing-friendly structure
 ---
 
-(Paste the contents of .claude/rules/doc-standards.md here, without its YAML frontmatter)
+(Paste the contents of rules/doc-standards.md here, without its YAML frontmatter)
 ```
 
 Because this rule has a `description` but no `globs` or `alwaysApply`, Cursor treats it as an **agent-selected rule** — it gets included automatically when the AI determines it's relevant to your request.
@@ -173,7 +175,7 @@ Create `.windsurfrules` in your project root:
 
 ```bash
 # Copy the doc-standards rule as Windsurf context
-cp /path/to/pitchdocs/.claude/rules/doc-standards.md .windsurfrules
+cp /path/to/pitchdocs/rules/doc-standards.md .windsurfrules
 ```
 
 Or install [ContextDocs](https://github.com/littlebearapps/contextdocs) and use `/contextdocs:ai-context windsurf` to generate a tailored `.windsurfrules` from your codebase analysis.
@@ -198,7 +200,7 @@ Create `.clinerules` in your project root:
 
 ```bash
 # Copy the doc-standards rule as Cline context
-cp /path/to/pitchdocs/.claude/rules/doc-standards.md .clinerules
+cp /path/to/pitchdocs/rules/doc-standards.md .clinerules
 ```
 
 Or install [ContextDocs](https://github.com/littlebearapps/contextdocs) and use `/contextdocs:ai-context cline` to generate a tailored `.clinerules` from your codebase analysis.
@@ -226,7 +228,7 @@ Copy the documentation standards into your project's Gemini context:
 mkdir -p .gemini
 
 # Use the doc-standards rule as your base context
-cp /path/to/pitchdocs/.claude/rules/doc-standards.md .gemini/GEMINI.md
+cp /path/to/pitchdocs/rules/doc-standards.md .gemini/GEMINI.md
 ```
 
 Then ask Gemini to read specific skill files when needed:
@@ -262,7 +264,7 @@ This gives you a `/readme` command in Gemini CLI.
 
 ```yaml
 read:
-  - /path/to/pitchdocs/.claude/rules/doc-standards.md
+  - /path/to/pitchdocs/rules/doc-standards.md
 ```
 
 This loads the documentation quality standards into every Aider session. For specific tasks, load skill files directly in chat:
@@ -282,7 +284,7 @@ Generate a README for this project following the skill instructions.
 
 ```bash
 # Append the doc-standards rule to your project hints
-cat /path/to/pitchdocs/.claude/rules/doc-standards.md >> .goosehints
+cat /path/to/pitchdocs/rules/doc-standards.md >> .goosehints
 ```
 
 For specific documentation tasks, reference skill files in your Goose session. If you have the GitHub MCP server configured, Goose can access repository metadata just as Claude Code does.

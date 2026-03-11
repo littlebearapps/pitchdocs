@@ -148,9 +148,9 @@ Not all PitchDocs features work outside Claude Code:
 | Feature | Claude Code | OpenCode | Codex CLI | Cursor / Others |
 |---------|------------|----------|-----------|-----------------|
 | Skills (16 SKILL.md files) | Native | Native | Copy to `.agents/skills/` | Reference on demand |
-| Slash commands (15) | Native | Native | Copy to prompts | Not supported |
-| Quality rules (auto-loaded) | Yes | No | No | Cursor: `.cursor/rules/` |
-| Content filter hook | Yes (opt-in) | No | No | No |
+| Slash commands (16) | Native | Native | Copy to prompts | Not supported |
+| Quality rules (per-project) | `/pitchdocs:activate` | No | No | Cursor: `.cursor/rules/` |
+| Content filter hook | `/pitchdocs:activate install strict` | No | No | No |
 | AGENTS.md context | Loaded | Primary context | Primary context | Not used |
 
 If you're using a non-Claude tool and a command or workflow doesn't behave as expected, check the [Other AI Tools guide](other-ai-tools.md) for tool-specific setup instructions.

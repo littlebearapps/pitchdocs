@@ -9,7 +9,7 @@ Welcome to PitchDocs documentation. Learn PitchDocs through tutorials, guides, r
 ### 🚀 **New to PitchDocs?** → Start here
 
 1. **[Build Your First Documentation Suite](tutorials/build-your-first-docs-suite.md)** — Learn PitchDocs by building a complete docs suite from scratch (20 minutes)
-2. **[Getting Started Guide](guides/getting-started.md)** — Install PitchDocs, generate your first README, and explore all 15 commands (5 minutes)
+2. **[Getting Started Guide](guides/getting-started.md)** — Install PitchDocs, generate your first README, and explore all 16 commands (5 minutes)
 3. **[Workflow Recipes](guides/workflows.md)** — Copy-paste-ready workflows for public-ready repos, releases, launches, and maintenance
 
 ### 💡 **Want to understand PitchDocs better?** → Read these
@@ -46,7 +46,7 @@ Step-by-step instructions for common tasks — short, direct, action-focused:
 
 | Guide | What You'll Do | Time |
 |-------|---------------|------|
-| [**Getting Started**](guides/getting-started.md) | Install PitchDocs, generate your first README, explore all 15 commands | 5 min |
+| [**Getting Started**](guides/getting-started.md) | Install PitchDocs, generate your first README, explore all 16 commands | 5 min |
 | [**Workflow Recipes**](guides/workflows.md) | Copy-paste workflows: public-ready repos, releases, launches, docs maintenance | varies |
 | [**Customising Output**](guides/customising-output.md) | Steer PitchDocs: prompt patterns, tone control, monorepo support, iteration | 10 min |
 | [**Troubleshooting & FAQ**](guides/troubleshooting.md) | Fix content filter errors, interpret scores, resolve badge issues, cross-tool limitations | 5 min |
@@ -59,7 +59,7 @@ Complete, accurate lookup docs — find what you need quickly:
 
 | Reference | What It Contains |
 |-----------|------------------|
-| [**Command Reference**](guides/command-reference.md) | All 15 commands with arguments, generated files, examples, cross-tool support |
+| [**Command Reference**](guides/command-reference.md) | All 16 commands with arguments, generated files, examples, cross-tool support |
 
 ### 💭 Explanation (Understanding-Oriented)
 
@@ -97,7 +97,7 @@ See **[Available Skills](../AGENTS.md#available-skills)** in AGENTS.md for the c
 |--------------|---------|
 | Learn PitchDocs from scratch | [Build Your First Docs Suite](tutorials/build-your-first-docs-suite.md) |
 | Generate a README for my project | [Getting Started](guides/getting-started.md) → `/pitchdocs:readme` |
-| See all 15 commands and what they do | [Command Reference](guides/command-reference.md) |
+| See all 16 commands and what they do | [Command Reference](guides/command-reference.md) |
 | Understand how PitchDocs extracts features | [How PitchDocs Thinks](guides/concepts.md) |
 | Fix a content filter error | [Troubleshooting](guides/troubleshooting.md) |
 | Set up PitchDocs with Cursor, Windsurf, or Cline | [Other AI Tools](guides/other-ai-tools.md) |

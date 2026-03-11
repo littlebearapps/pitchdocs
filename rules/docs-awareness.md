@@ -16,6 +16,8 @@ When working on a project with PitchDocs installed, recognise documentation-rele
 | User asks "why should someone use this?" or discusses positioning | `/pitchdocs:features benefits` | Surface the two-path user benefits extraction (auto-scan or conversational) |
 | README section growing beyond 2 paragraphs or 8-row table | Suggest delegating to `docs/guides/` | Lobby Principle — keep README scannable |
 | User mentions "talk it out" or wants to explain their project's value | `/pitchdocs:features benefits` (conversational path) | The 4-question interview produces the most authentic user benefits |
+| User asks "are my docs up to date?" or similar | Launch the `docs-freshness` agent | Quick triage with specific command suggestions |
+| Session start in a project with PitchDocs activated | Launch the `docs-freshness` agent | Quick freshness check before diving into work |
 
 ## When NOT to Suggest
 

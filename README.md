@@ -86,6 +86,18 @@ Get your first generated README in under 60 seconds.
 
 **Note:** When installed as a plugin, all commands use the `pitchdocs:` prefix (e.g., `/pitchdocs:readme`). The short form `/readme` only works inside the pitchdocs source directory.
 
+**Optional — Enable per-project advisory features:**
+
+PitchDocs commands work everywhere, but quality standards, smart documentation suggestions, and freshness checking are opt-in per-project:
+
+```bash
+# Enable doc standards + awareness nudges + freshness agent
+/pitchdocs:activate install
+
+# Also add content-filter-guard hook (Claude Code only)
+/pitchdocs:activate install strict
+```
+
 **Optional — AI context file management:**
 
 For AI context files (AGENTS.md, CLAUDE.md, .cursorrules, etc.), install [ContextDocs](https://github.com/littlebearapps/contextdocs) separately. It includes Context Guard hooks, Signal Gate generation, and drift auditing.
@@ -104,7 +116,7 @@ Learn PitchDocs through tutorials, guides, and reference docs. Pick your path:
 |-----------|----------|
 | **Learn by doing** | [Build Your First Docs Suite](docs/tutorials/build-your-first-docs-suite.md) — 20-minute hands-on tutorial |
 | **Understand how it works** | [How PitchDocs Thinks](docs/guides/concepts.md) — Design rationale, frameworks, and philosophy |
-| **See all commands** | [Command Reference](docs/guides/command-reference.md) — All 15 commands with arguments and examples |
+| **See all commands** | [Command Reference](docs/guides/command-reference.md) — All 16 commands with arguments and examples |
 | **Solve a problem** | [Troubleshooting & FAQ](docs/guides/troubleshooting.md) — Common issues and solutions |
 | **Find a workflow** | [Workflow Cookbook](docs/guides/workflows.md) — Recipes for public-ready repos, releases, and launches |
 | **Explore everything** | [Full Documentation Hub](docs/README.md) — All guides organised by learning type (tutorial, how-to, reference, explanation) |
@@ -167,6 +179,7 @@ For AI context file management (AGENTS.md, CLAUDE.md, .cursorrules, and more), s
 | `/pitchdocs:platform` | Detect hosting platform (GitHub, GitLab, Bitbucket) and report feature support | Know which PitchDocs features work on your platform before you start |
 | `/pitchdocs:visual-standards` | Load visual formatting reference — emoji headings, screenshot specs, captions, image optimisation | Consistent, polished visual elements across your docs |
 | `/pitchdocs:geo` | Load GEO optimisation patterns — citation capsules, statistics, comparison tables | AI systems cite your project accurately |
+| `/pitchdocs:activate` | Install/uninstall per-project rules, agent, and hook | Control which projects get doc standards, awareness nudges, and freshness checking |
 | `/pitchdocs:context-guard` | **Stub** — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for Context Guard hooks | Install ContextDocs separately for context drift enforcement |
 
 ### Quick Examples
@@ -201,7 +214,7 @@ Then explore:
 
 - [Getting Started Guide](docs/guides/getting-started.md) — Installation, first README generation, full command walkthrough (5 min)
 - [Workflows](docs/guides/workflows.md) — Recipes for public-ready repos, releases, launches, ongoing maintenance
-- [Command Reference](docs/guides/command-reference.md) — All 15 commands with arguments and examples
+- [Command Reference](docs/guides/command-reference.md) — All 16 commands with arguments and examples
 - [Troubleshooting](docs/guides/troubleshooting.md) — Content filter errors, quality scores, badge issues, and FAQ
 - [Other AI Tools](docs/guides/other-ai-tools.md) — Setup for Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, and Goose
 - **[Full Documentation Hub](docs/README.md)** — All tutorials, guides, reference docs, and explanations

@@ -5,12 +5,13 @@ PitchDocs is a Claude Code plugin that generates marketing-quality repository do
 ## Project Structure
 
 - `.claude/skills/*/SKILL.md` — 16 reference knowledge modules (README, features, changelog, roadmap, docs suite, llms.txt, package registry, user guides, docs verify, launch artifacts, API reference, doc refresh, visual standards, GEO optimisation, skill authoring, platform profiles)
-- `.claude/agents/*.md` — 3 agents (docs-writer orchestrator, docs-researcher, docs-reviewer)
-- `.claude/rules/doc-standards.md` — quality standards rule (auto-loaded, Claude Code only)
-- `.claude/rules/content-filter.md` — content filter quick reference rule (auto-loaded, Claude Code only)
-- `.claude/rules/docs-awareness.md` — documentation trigger map (auto-loaded, Claude Code only)
-- `commands/*.md` — 15 command definitions (13 active + 2 stubs redirecting to ContextDocs)
-- `hooks/content-filter-guard.sh` — content filter write guard (Claude Code only, opt-in)
+- `.claude/agents/*.md` — 3 pipeline agents (docs-writer orchestrator, docs-researcher, docs-reviewer)
+- `.claude/rules/content-filter.md` — 1 auto-loaded rule (content filter quick reference, Claude Code only)
+- `rules/doc-standards.md` — quality standards (installed per-project by `/pitchdocs:activate`)
+- `rules/docs-awareness.md` — documentation trigger map (installed per-project by `/pitchdocs:activate`)
+- `agents/docs-freshness.md` — freshness checker agent (installed per-project by `/pitchdocs:activate`)
+- `commands/*.md` — 16 command definitions (14 active + 2 stubs redirecting to ContextDocs)
+- `hooks/content-filter-guard.sh` — 1 opt-in hook (installed per-project by `/pitchdocs:activate install strict`, Claude Code only)
 - `.claude-plugin/plugin.json` — plugin manifest
 
 ## Conventions

@@ -73,6 +73,7 @@
 - [/pitchdocs:platform](./commands/platform.md): Detect hosting platform (GitHub/GitLab/Bitbucket) and report feature support
 - [/pitchdocs:visual-standards](./commands/visual-standards.md): Load visual formatting standards for screenshots, emoji headings, image specs
 - [/pitchdocs:geo](./commands/geo.md): Load GEO optimisation patterns for AI citation — capsules, definitions, atomic sections
+- [/pitchdocs:activate](./commands/activate.md): Install, uninstall, or check status of per-project PitchDocs features — rules, agent, and hook
 - [/pitchdocs:ai-context](./commands/ai-context.md): Stub — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for AI context file management
 - [/pitchdocs:context-guard](./commands/context-guard.md): Stub — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for Context Guard hooks
 
@@ -93,10 +94,12 @@
 - [Contributing Guide](./CONTRIBUTING.md): Development setup, how to improve templates, add skills/commands, submit PRs with conventional commits
 - [License](./LICENSE): MIT licence terms
 - [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, author info
-- [Doc Standards](./.claude/rules/doc-standards.md): Auto-loaded quality rule — 4-question framework, Lobby Principle, progressive disclosure, benefit-driven language, file naming
 - [Content Filter Reference](./.claude/rules/content-filter.md): Auto-loaded quick reference for handling API filter when generating CODE_OF_CONDUCT, LICENSE, SECURITY (Claude Code only)
-- [Documentation Awareness](./.claude/rules/docs-awareness.md): Auto-loaded trigger map — suggests PitchDocs commands when documentation-relevant work is detected (Claude Code only)
-- [Content Filter Hook](./hooks/content-filter-guard.sh): PreToolUse hook blocking writes to high-risk OSS files and advising chunked strategies (Claude Code only)
+- [Doc Standards Template](./rules/doc-standards.md): Quality standards — installed per-project by /pitchdocs:activate. 4-question framework, Lobby Principle, benefit-driven language, file naming
+- [Documentation Awareness Template](./rules/docs-awareness.md): Documentation trigger map — installed per-project by /pitchdocs:activate. Suggests PitchDocs commands at documentation moments (Claude Code only)
+- [Docs Freshness Agent Template](./agents/docs-freshness.md): Read-only freshness checker agent — installed per-project by /pitchdocs:activate. Checks version alignment, changelog coverage, doc staleness, suggests commands
+- [Content Filter Hook](./hooks/content-filter-guard.sh): PreToolUse hook blocking writes to high-risk OSS files — installed per-project by /pitchdocs:activate install strict (Claude Code only)
+- [Activate Command](./commands/activate.md): Install, uninstall, or check status of per-project PitchDocs features — rules, agent, and hook
 - [Upstream Versions](./upstream-versions.json): Pinned versions of 7 referenced specifications (Keep a Changelog, Contributor Covenant, Conventional Commits, Semantic Versioning, GitHub Issue Forms, npm/PyPI Trusted Publishing)
 - [Test Evaluations](./tests/evaluations.json): 20 test scenarios for command routing verification — maps commands to expected skills with negative cases
 - [Test Results](./tests/RESULTS.md): Documentation and status of all validation tests
