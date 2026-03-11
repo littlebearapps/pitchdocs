@@ -48,28 +48,28 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
-      - name: Register PitchDocs plugin
+      - name: Install PitchDocs plugin
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          mkdir -p ~/.claude/plugins
-          jq -n \
-            --arg path "$GITHUB_WORKSPACE" \
-            --arg sha "${{ github.sha }}" \
-            --arg now "$(date -u +%Y-%m-%dT%H:%M:%S.000Z)" \
-            '{
-              version: 2,
-              plugins: {
-                "pitchdocs@lba-plugins": [{
-                  scope: "user",
-                  installPath: $path,
-                  version: "ci-eval",
-                  installedAt: $now,
-                  lastUpdated: $now,
-                  gitCommitSha: $sha
-                }]
-              }
-            }' > ~/.claude/plugins/installed_plugins.json
-          echo "Registered plugin at: $GITHUB_WORKSPACE"
-          cat ~/.claude/plugins/installed_plugins.json
+          # Add the LBA marketplace and install pitchdocs
+          claude plugin marketplace add littlebearapps/lba-plugins
+          claude plugin install pitchdocs@lba-plugins
+
+          # Overwrite installed cache with current checkout (test HEAD, not published version)
+          INSTALL_PATH=$(jq -r '.plugins["pitchdocs@lba-plugins"][0].installPath' ~/.claude/plugins/installed_plugins.json)
+          echo "Installed at: $INSTALL_PATH"
+          if [ -d "$INSTALL_PATH" ]; then
+            rm -rf "$INSTALL_PATH"
+            cp -a "$GITHUB_WORKSPACE" "$INSTALL_PATH"
+            echo "Replaced install cache with checkout"
+          fi
+
+          # Verify plugin is registered
+          claude plugin list
+          echo ""
+          echo "Plugin manifest:"
+          cat "$INSTALL_PATH/.claude-plugin/plugin.json" 2>/dev/null || echo "No plugin.json found"
 
       - name: Run activation evals
         id: evals
@@ -82,7 +82,7 @@ jobs:
           bash tests/run-activation-evals.sh \
             --model "$MODEL" \
             --runs "$RUNS" \
-            --save-raw \
+            --debug \
             || true
 
           # Find most recent results file
@@ -163,7 +163,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: activation-eval-results-${{ github.run_number }}
-          path: tests/activation-results/run-*.json
+          path: tests/activation-results/
           retention-days: 90
 
       - name: Check threshold
