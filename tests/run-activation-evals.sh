@@ -82,13 +82,17 @@ if [ -z "$PREFLIGHT" ]; then
 fi
 rm -f "$PREFLIGHT_STDERR"
 
-# Check for authentication errors in pre-flight output
-if echo "$PREFLIGHT" | grep -q '"authentication_failed"\|"Invalid API key"'; then
-  echo "Error: API key authentication failed."
-  echo "The ANTHROPIC_API_KEY secret may be expired or invalid."
+# Check for API errors in pre-flight output (auth failures, billing, rate limits)
+if echo "$PREFLIGHT" | grep -q '"is_error":true\|"authentication_failed"\|"billing_error"\|"Invalid API key"\|"Credit balance"'; then
+  ERROR_MSG=$(echo "$PREFLIGHT" | grep -o '"result":"[^"]*"' | head -1 | sed 's/"result":"//;s/"$//')
+  ERROR_TYPE=$(echo "$PREFLIGHT" | grep -o '"error":"[^"]*"' | head -1 | sed 's/"error":"//;s/"$//')
+  echo "Error: API call failed during pre-flight check."
+  echo "  Type: ${ERROR_TYPE:-unknown}"
+  echo "  Message: ${ERROR_MSG:-no details}"
   echo ""
-  echo "Pre-flight response:"
-  echo "$PREFLIGHT" | grep '"error"' | head -1
+  echo "Common causes:"
+  echo "  - authentication_failed: API key expired or invalid"
+  echo "  - billing_error: Credit balance too low (top up at console.anthropic.com)"
   exit 1
 fi
 
