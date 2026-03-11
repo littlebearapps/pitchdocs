@@ -1,3 +1,5 @@
+# Result files are generated per-run and uploaded as CI artifacts
+run-*.json
 # Raw stream-json diagnostic output (large, per-run)
 raw-*/
 # Transient stderr log
