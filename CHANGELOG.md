@@ -20,6 +20,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * add skill activation eval runner for claude -p testing ([2be7a4d](https://github.com/littlebearapps/pitchdocs/commit/2be7a4d125ac768cdcaa12b1b8a2be976fb20061))
 * split AI context management into ContextDocs plugin ([6320b98](https://github.com/littlebearapps/pitchdocs/commit/6320b9801d6ea9323ec904bc8a4a171f937f31fb))
 
+### Known Issues
+
+* **Headless mode skill activation** — skills may not auto-trigger via `claude -p` (non-interactive mode). This is a [Claude Code platform limitation](https://github.com/anthropics/claude-code/issues/32184) affecting project-local plugins, not a PitchDocs bug. Interactive mode works correctly.
 
 ### Fixed
 

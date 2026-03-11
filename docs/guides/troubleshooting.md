@@ -155,6 +155,20 @@ Not all PitchDocs features work outside Claude Code:
 
 If you're using a non-Claude tool and a command or workflow doesn't behave as expected, check the [Other AI Tools guide](other-ai-tools.md) for tool-specific setup instructions.
 
+### Headless mode (`claude -p`) limitation
+
+PitchDocs skills may not auto-trigger when invoked via `claude -p` (headless/non-interactive mode). This is a [known Claude Code platform issue](https://github.com/anthropics/claude-code/issues/32184) affecting all project-local plugins — not a PitchDocs bug.
+
+**What works normally:**
+- Interactive Claude Code sessions (terminal, IDE extensions, Untether)
+- Hooks, rules, and agents — these don't rely on skill routing
+- Explicit slash commands typed in an interactive session
+
+**What's affected:**
+- Shell scripts calling `claude -p "generate a readme"` expecting skill auto-activation
+- CI pipelines invoking PitchDocs skills via `claude -p`
+- Automated activation eval testing (results may show artificially low pass rates)
+
 ### Where did Context Guard and AI context commands go?
 
 They moved to [ContextDocs](https://github.com/littlebearapps/contextdocs) in PitchDocs v2.0.0. Install it separately with `/plugin install contextdocs@lba-plugins`.
