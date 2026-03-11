@@ -92,6 +92,13 @@
     "description": "Platform detection routes to platform-profiles skill"
   },
   {
+    "id": "cmd-activate",
+    "input": "/pitchdocs:activate status",
+    "expected_skill": "activate",
+    "should_respond": true,
+    "description": "Activate command routes to activate command for per-project feature management"
+  },
+  {
     "id": "nl-readme",
     "input": "generate a readme for this project",
     "expected_skill": "readme",
