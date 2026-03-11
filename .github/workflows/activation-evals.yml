@@ -82,7 +82,7 @@ jobs:
           bash tests/run-activation-evals.sh \
             --model "$MODEL" \
             --runs "$RUNS" \
-            --debug \
+            --save-raw \
             || true
 
           # Find most recent results file

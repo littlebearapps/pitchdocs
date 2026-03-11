@@ -80,9 +80,20 @@ if [ -z "$PREFLIGHT" ]; then
   echo "  - stream-json output may go to stderr (try: claude -p 'Say OK' --output-format stream-json 2>&1 | head -5)"
   exit 1
 fi
+rm -f "$PREFLIGHT_STDERR"
+
+# Check for authentication errors in pre-flight output
+if echo "$PREFLIGHT" | grep -q '"authentication_failed"\|"Invalid API key"'; then
+  echo "Error: API key authentication failed."
+  echo "The ANTHROPIC_API_KEY secret may be expired or invalid."
+  echo ""
+  echo "Pre-flight response:"
+  echo "$PREFLIGHT" | grep '"error"' | head -1
+  exit 1
+fi
+
 PREFLIGHT_LINES=$(echo "$PREFLIGHT" | wc -l)
 echo "Pre-flight OK: $PREFLIGHT_LINES lines of stream-json output"
-rm -f "$PREFLIGHT_STDERR"
 echo ""
 
 # Load test cases
