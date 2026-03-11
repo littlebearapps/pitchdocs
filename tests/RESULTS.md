@@ -160,7 +160,7 @@ New manual-trigger GitHub Actions workflow for running skill activation evals in
 |-------|---------|---------|
 | `model` | haiku | Claude model (haiku/sonnet/opus) |
 | `runs` | 1 | Repetitions per test case |
-| `threshold` | 75 | Minimum pass rate (%) |
+| `threshold` | 80 | Minimum pass rate (%) |
 
 **Features**:
 - Installs Claude Code CLI, runs `run-activation-evals.sh`

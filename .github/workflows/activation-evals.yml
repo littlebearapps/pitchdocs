@@ -20,7 +20,7 @@ on:
       threshold:
         description: 'Minimum pass rate (%) to succeed'
         required: false
-        default: '75'
+        default: '80'
         type: string
   # Uncomment for monthly scheduled runs (~$6.50/run):
   # schedule:
