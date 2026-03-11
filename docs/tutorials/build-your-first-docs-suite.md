@@ -234,7 +234,7 @@ PitchDocs accepts natural language guidance:
 # Regenerate with a different tone
 /pitchdocs:readme for a more technical audience
 
-# Emphasize a particular feature
+# Emphasise a particular feature
 /pitchdocs:readme highlight the CSV transformation feature
 ```
 
@@ -420,7 +420,7 @@ When you add new features or prepare a release:
 
 This updates README features, CHANGELOG, user guides, and quality scores in one command.
 
-### Customize Output
+### Customise Output
 
 Steer PitchDocs to match your project's voice:
 

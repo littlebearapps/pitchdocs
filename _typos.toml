@@ -64,6 +64,14 @@ LobeChat = "LobeChat"
 PostHog = "PostHog"
 lychee = "lychee"
 Untether = "Untether"
+Canva = "Canva"
+canva = "canva"
+Figma = "Figma"
+
+[default.extend-identifiers]
+# HTML attribute value — cannot be changed to "centre"
+center = "center"
+Center = "Center"
 
 [files]
 extend-exclude = [
@@ -72,5 +80,6 @@ extend-exclude = [
     "LICENSE",
     "*.svg",
     "*.json",
+    "*.sh",
     "llms-full.txt",
 ]
