@@ -161,7 +161,7 @@ Found a way to make generated docs even better? Contributions welcome. Check out
 
 - [Good First Issues](https://github.com/littlebearapps/pitchdocs/labels/good%20first%20issue)
 - [Contributing Guide](https://github.com/littlebearapps/pitchdocs/blob/main/CONTRIBUTING.md)
-- [Discussions](https://github.com/littlebearapps/pitchdocs/discussions)
+- [Issues](https://github.com/littlebearapps/pitchdocs/issues)
 
 ---
 
