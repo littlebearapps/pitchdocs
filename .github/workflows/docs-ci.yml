@@ -105,7 +105,7 @@ jobs:
               errors=$((errors + 1))
             fi
           done
-          echo "Checked $(ls hooks/*.sh | wc -l) hook scripts"
+          echo "Checked $(find hooks -name '*.sh' | wc -l) hook scripts"
           [ "$errors" -eq 0 ] && echo "All hooks valid" || exit 1
 
       - name: Run hook unit tests

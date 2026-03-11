@@ -63,7 +63,7 @@ jobs:
             || true
 
           # Find most recent results file
-          RESULT_FILE=$(ls -t tests/activation-results/run-*.json 2>/dev/null | head -1)
+          RESULT_FILE=$(find tests/activation-results -name 'run-*.json' -printf '%T@ %p\n' 2>/dev/null | sort -rn | head -1 | cut -d' ' -f2)
 
           if [ -z "$RESULT_FILE" ]; then
             echo "::error::No results file generated"
@@ -84,10 +84,12 @@ jobs:
 
           RATE=$(echo "scale=1; $PASS * 100 / $TOTAL" | bc)
 
-          echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
-          echo "pass=$PASS" >> "$GITHUB_OUTPUT"
-          echo "fail=$FAIL" >> "$GITHUB_OUTPUT"
-          echo "rate=$RATE" >> "$GITHUB_OUTPUT"
+          {
+            echo "total=$TOTAL"
+            echo "pass=$PASS"
+            echo "fail=$FAIL"
+            echo "rate=$RATE"
+          } >> "$GITHUB_OUTPUT"
 
           echo "Activation rate: $PASS/$TOTAL ($RATE%)"
 
