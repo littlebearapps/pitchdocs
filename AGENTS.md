@@ -31,13 +31,14 @@ Skills are loaded on-demand to provide deep reference knowledge. Each lives at `
 
 ## Agent Pipeline
 
-PitchDocs uses an adaptive agent pipeline for documentation generation:
+PitchDocs uses an adaptive agent pipeline for documentation generation, plus utility agents:
 
 | Agent | File | Role |
 |-------|------|------|
 | `docs-researcher` | `.claude/agents/docs-researcher.md` | Codebase discovery, platform detection, feature extraction (7-step workflow across 10 signal categories), security signal scanning, lobby split planning. Produces a structured research packet. **Only spawned for projects with 20+ files** — smaller projects use lightweight inline research. |
 | `docs-writer` | `.claude/agents/docs-writer.md` | Orchestrator — chooses lightweight (inline) or full (sub-agent) research based on project size, writes documentation using the Daytona "4000 Stars" marketing framework with citation capsules and banned phrase avoidance, conditionally spawns reviewer. |
 | `docs-reviewer` | `.claude/agents/docs-reviewer.md` | Post-generation quality validation — full checklist, banned phrases scan, citation capsule completeness, GEO readiness, 6-dimension quality scoring (100-point rubric). **Skipped for new README generation** — runs for updates, docs suites, or when explicitly requested (`--review`). |
+| `context-updater` | `.claude/agents/context-updater.md` | Patches AI context files (AGENTS.md, CLAUDE.md, llms.txt, etc.) after structural project changes — updates counts, tables, and path references surgically. |
 | `docs-freshness` | `agents/docs-freshness.md` | Read-only freshness checker — version alignment, changelog coverage, doc staleness, structural coverage. Installed per-project by `/pitchdocs:activate`. Suggests specific `/pitchdocs:*` commands to fix each finding. |
 
 ## Workflow Commands
@@ -67,7 +68,7 @@ These commands are defined in `commands/*.md` and can be invoked as slash comman
 
 PitchDocs commands work globally. Advisory features (quality standards, documentation nudges, freshness checking) are opt-in per-project via `/pitchdocs:activate`:
 
-- **Auto-loaded** (globally): `.claude/rules/content-filter.md` (content filter quick reference — prevents HTTP 400 errors)
+- **Auto-loaded** (globally): `.claude/rules/content-filter.md` (content filter quick reference — prevents HTTP 400 errors), `.claude/rules/context-quality.md` (AI context file quality standards)
 - **Installed per-project** by `/pitchdocs:activate install`: `rules/doc-standards.md` (quality standards), `rules/docs-awareness.md` (documentation trigger map), `agents/docs-freshness.md` (freshness checker agent)
 - **Installed per-project** by `/pitchdocs:activate install strict`: also adds `hooks/content-filter-guard.sh` (Write guard for high-risk OSS files)
 

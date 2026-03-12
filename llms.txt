@@ -57,6 +57,7 @@
 - [Docs Writer Agent](./.claude/agents/docs-writer.md): Orchestration agent — adaptive research (inline for small projects, sub-agent for large), Daytona framework, conditional reviewer, content filter mitigation
 - [Docs Researcher Agent](./.claude/agents/docs-researcher.md): Codebase discovery — platform detection, 7-step feature extraction across 10 signals, security scanning, lobby split planning, structured research packets
 - [Docs Reviewer Agent](./.claude/agents/docs-reviewer.md): Quality validation — banned phrases, citation capsule completeness, GEO readiness, 6-dimension quality scoring (0–100 rubric)
+- [Context Updater Agent](./.claude/agents/context-updater.md): Patches AI context files after structural changes — updates counts, tables, and path references surgically
 
 ## Slash Commands
 
@@ -95,15 +96,16 @@
 - [License](./LICENSE): MIT licence terms
 - [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, author info
 - [Content Filter Reference](./.claude/rules/content-filter.md): Auto-loaded quick reference for handling API filter when generating CODE_OF_CONDUCT, LICENSE, SECURITY (Claude Code only)
+- [Context Quality Standards](./.claude/rules/context-quality.md): Auto-loaded quality standards for AI context files — cross-file consistency, path verification, version accuracy, sync points (Claude Code only)
 - [Doc Standards Template](./rules/doc-standards.md): Quality standards — installed per-project by /pitchdocs:activate. 4-question framework, Lobby Principle, benefit-driven language, file naming
 - [Documentation Awareness Template](./rules/docs-awareness.md): Documentation trigger map — installed per-project by /pitchdocs:activate. Suggests PitchDocs commands at documentation moments (Claude Code only)
 - [Docs Freshness Agent Template](./agents/docs-freshness.md): Read-only freshness checker agent — installed per-project by /pitchdocs:activate. Checks version alignment, changelog coverage, doc staleness, suggests commands
 - [Content Filter Hook](./hooks/content-filter-guard.sh): PreToolUse hook blocking writes to high-risk OSS files — installed per-project by /pitchdocs:activate install strict (Claude Code only)
 - [Activate Command](./commands/activate.md): Install, uninstall, or check status of per-project PitchDocs features — rules, agent, and hook
 - [Upstream Versions](./upstream-versions.json): Pinned versions of 7 referenced specifications (Keep a Changelog, Contributor Covenant, Conventional Commits, Semantic Versioning, GitHub Issue Forms, npm/PyPI Trusted Publishing)
-- [Test Evaluations](./tests/evaluations.json): 20 test scenarios for command routing verification — maps commands to expected skills with negative cases
+- [Test Evaluations](./tests/evaluations.json): 21 test scenarios for command routing verification — maps commands to expected skills with negative cases
 - [Test Results](./tests/RESULTS.md): Documentation and status of all validation tests
-- [Activation Eval Runner](./tests/run-activation-evals.sh): Measure skill activation accuracy via Claude's prompt caching mode (-p flag) — runs 20 test scenarios
+- [Activation Eval Runner](./tests/run-activation-evals.sh): Measure skill activation accuracy via Claude's prompt caching mode (-p flag) — runs 21 test scenarios
 - [Frontmatter Validator](./tests/validate-frontmatter.py): Validate YAML metadata in skills, commands, and agents
 - [Token Budget Checker](./tests/check-token-budgets.sh): Enforce size limits on skills, rules, and agents
 - [Banned Phrase Checker](./tests/check-banned-phrases.sh): Scan docs for AI-speak and forbidden phrases
