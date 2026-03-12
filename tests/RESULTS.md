@@ -250,6 +250,7 @@ Old `docs-verify/SKILL-extended.md` removed (replaced by SKILL-reference.md).
 | 8-9 | 2026-03-11 | Haiku | 0% (pre-flight exit) | Billing error caught by improved pre-flight |
 | 10 | 2026-03-11 | Haiku | **85.7% (18/21)** | After credit top-up + all test fixes |
 | 11 | 2026-03-12 | **Sonnet** | **76.1% (16/21)** | Comparison run — see below |
+| 12 | 2026-03-12 | Haiku | **95.2% (20/21)** | After reclassifying cmd-activate + cmd-docs-audit |
 
 ### Haiku vs Sonnet Comparison (2026-03-12)
 
@@ -287,7 +288,7 @@ Old `docs-verify/SKILL-extended.md` removed (replaced by SKILL-reference.md).
 
 ## Phase 3.7: Failure Investigation and Test Fixes (2026-03-12)
 
-**Status**: Complete — 2 test expectations fixed, 5 accepted as model variance.
+**Status**: Complete — 2 test expectations fixed, 5 accepted as model variance. Verified at 95.2% (20/21) on CI run 12.
 
 ### Investigation Summary
 
@@ -320,10 +321,10 @@ All 7 distinct failures across Haiku (85.7%) and Sonnet (76.1%) were investigate
 | Positive (should activate) | 16 | 14 |
 | Negative (should NOT activate) | 5 | 7 |
 
-### Expected Results After Fixes
+### Verified Results After Fixes
 
-- Haiku: ~90%+ (was 85.7%, gains 2 from reclassification)
-- Sonnet: ~86%+ (was 76.1%, gains 2 from reclassification)
+- **Haiku: 95.2% (20/21)** — up from 85.7%, gained 2 from reclassification. Only `cmd-docs-audit` remains non-deterministic (this run it activated `pitchdocs-suite`, failing the `should_respond: false` expectation)
+- Sonnet: estimated ~86%+ (not re-run after fixes)
 
 ---
 

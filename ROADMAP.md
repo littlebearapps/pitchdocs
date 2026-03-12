@@ -2,7 +2,7 @@
 
 **Mission:** Turn any codebase into professional, marketing-ready repository documentation — powered by AI coding assistants.
 
-PitchDocs is a pure Markdown plugin with 16 skills, 3 adaptive agents, 3 auto-loaded quality rules, 14+ commands, and 20 evaluation test cases. This roadmap outlines completed work, current priorities, and future directions.
+PitchDocs is a pure Markdown plugin with 16 skills, 4 agents (3 pipeline + 1 per-project freshness checker), 1 auto-loaded rule + 2 installable rules, 16 commands (14 active + 2 stubs), and 21 evaluation test cases. This roadmap outlines completed work, current priorities, and future directions.
 
 ---
 
@@ -12,8 +12,8 @@ PitchDocs is a pure Markdown plugin with 16 skills, 3 adaptive agents, 3 auto-lo
 
 We're reducing context overhead to improve performance for all users — especially those running PitchDocs alongside other plugins.
 
-- **Auto-loaded rules overspend** ([#36](https://github.com/littlebearapps/pitchdocs/issues/36)) — 3 rules total ~2,613 tokens vs ~1,500 target. Plan: split `doc-standards.md` into auto-loaded summary + on-demand skill to bring overhead down to ~1,554 tokens
-- **Skills exceed individual budgets** ([#37](https://github.com/littlebearapps/pitchdocs/issues/37)) — 6 skills exceed ~2,000-token limit: `user-guides` (~3,969), `docs-verify` (~3,850), `pitchdocs-suite` (~3,227), `package-registry` (~2,968), `doc-refresh` (~2,453), `launch-artifacts` (~2,286). Plan: delegate reference content to companion files, trim redundant examples, or split into core + extended modules
+- **Auto-loaded rules overspend** ([#36](https://github.com/littlebearapps/pitchdocs/issues/36)) — ✅ Resolved in v2.0.0: moved `doc-standards.md` and `docs-awareness.md` to per-project installable rules via `/pitchdocs:activate`. Only `content-filter.md` remains auto-loaded (~500 tokens)
+- **Skills exceed individual budgets** ([#37](https://github.com/littlebearapps/pitchdocs/issues/37)) — ✅ Partially resolved: 4 of 6 skills split into companion reference files (`docs-verify`, `package-registry`, `pitchdocs-suite`, `user-guides`). Remaining 2 (`doc-refresh` ~2,453, `launch-artifacts` ~2,286) accepted as near-budget
 
 ### Upstream Specification Drift
 
@@ -22,6 +22,14 @@ We're reducing context overhead to improve performance for all users — especia
 ---
 
 ## ✅ Recently Completed
+
+### v2.0.0 (2026-03-11)
+- **Breaking**: Split AI context management into [ContextDocs](https://github.com/littlebearapps/contextdocs) — stub redirects remain for `/pitchdocs:ai-context` and `/pitchdocs:context-guard`
+- Added 6 automated CI checks (spell check, frontmatter validation, llms.txt consistency, banned phrases, orphan detection, token budgets)
+- Added skill activation eval framework with 21 test cases — 95.2% accuracy on Haiku
+- Added per-project activation (`/pitchdocs:activate`) for advisory features (rules, freshness agent, content filter hook)
+- Split 4 over-budget skills into companion reference files for token budget compliance
+- Added comprehensive documentation: getting-started tutorial, workflow guides, launch artifacts, ROADMAP
 
 ### v1.19.3 (2026-03-09)
 - Integrated website notification into release-please workflow
@@ -82,7 +90,7 @@ We're reducing context overhead to improve performance for all users — especia
 
 ### Testing & Validation
 
-- [ ] Expand skill evaluation test suite (currently 20 scenarios)
+- [ ] Expand skill evaluation test suite (currently 21 scenarios, 95.2% on Haiku)
 - [ ] Add integration tests for multi-tool compatibility (Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose)
 - [ ] Benchmark quality improvements from v1.18 context reduction on larger codebases
 
@@ -114,8 +122,8 @@ Interested in deeper involvement? See [CONTRIBUTING.md](CONTRIBUTING.md) for the
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| Auto-loaded context | ~2,613 tokens | ~1,500 tokens |
-| Skills exceeding 2k token limit | 6 | 0 |
+| Auto-loaded context | ~500 tokens | ~1,500 tokens |
+| Skills exceeding 2k token limit | 2 | 0 |
 | Supported platforms | 3 (GitHub, GitLab, Bitbucket) | 6+ |
 | AI tool compatibility | 9 | 12+ |
 | Generated doc types | 20+ | 25+ |
@@ -128,4 +136,4 @@ Interested in deeper involvement? See [CONTRIBUTING.md](CONTRIBUTING.md) for the
 - **Troubleshooting:** See [Troubleshooting Guide](docs/guides/troubleshooting.md)
 - **Support:** See [SUPPORT.md](SUPPORT.md)
 
-Last updated: 2026-03-10
+Last updated: 2026-03-12
