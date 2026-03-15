@@ -56,7 +56,6 @@
 - [Docs Writer Agent](./.claude/agents/docs-writer.md): Orchestration agent — adaptive research (inline for small projects, sub-agent for large), Daytona framework, conditional reviewer, content filter mitigation
 - [Docs Researcher Agent](./.claude/agents/docs-researcher.md): Codebase discovery — platform detection, 7-step feature extraction across 10 signals, security scanning, lobby split planning, structured research packets
 - [Docs Reviewer Agent](./.claude/agents/docs-reviewer.md): Quality validation — banned phrases, citation capsule completeness, GEO readiness, 6-dimension quality scoring (0–100 rubric)
-- [Context Updater Agent](./.claude/agents/context-updater.md): Patches AI context files after structural changes — updates counts, tables, and path references surgically
 - [Docs Freshness Agent (Installed)](./.claude/agents/docs-freshness.md): Installed copy of freshness checker — auto-loaded locally in this repo (source: agents/docs-freshness.md)
 
 ## Slash Commands
@@ -106,7 +105,6 @@
 - [License](./LICENSE): MIT licence terms
 - [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, author info
 - [Content Filter Reference](./.claude/rules/content-filter.md): Auto-loaded quick reference for handling API filter when generating CODE_OF_CONDUCT, LICENSE, SECURITY (Claude Code only)
-- [Context Quality Standards](./.claude/rules/context-quality.md): Auto-loaded quality standards for AI context files — cross-file consistency, path verification, version accuracy, sync points (Claude Code only)
 - [Doc Standards (Installed)](./.claude/rules/doc-standards.md): Installed copy of quality standards — auto-loaded locally in this repo (source: rules/doc-standards.md)
 - [Documentation Awareness (Installed)](./.claude/rules/docs-awareness.md): Installed copy of documentation trigger map — auto-loaded locally in this repo (source: rules/docs-awareness.md)
 - [Doc Standards Template](./rules/doc-standards.md): Quality standards — installed per-project by /pitchdocs:activate. 4-question framework, Lobby Principle, benefit-driven language, file naming

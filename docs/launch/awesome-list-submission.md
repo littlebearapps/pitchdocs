@@ -8,9 +8,9 @@ Based on PitchDocs' scope, these awesome lists are likely matches:
 2. **awesome-devtools** — Documentation automation tools
 3. **awesome-cli-apps** — If highlighting command-line usage
 4. **awesome-open-source** — General OSS discovery
-5. **awesome-readme** — README generation and optimization
+5. **awesome-readme** — README generation and optimisation
 
-## Template PR Body (Customize per List)
+## Template PR Body (Customise per List)
 
 Replace values in `[brackets]` with the actual list's requirements.
 

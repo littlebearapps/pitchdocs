@@ -87,7 +87,7 @@ Target: Q1 2026
 
 ### v3.0 — Expansion (Q3 2026)
 
-- [ ] Multi-language README support — generate localized docs for i18n projects
+- [ ] Multi-language README support — generate localised docs for i18n projects
 - [ ] Interactive README builder — REPL-style step-by-step Q&A for custom documentation
 - [ ] Blog post generator — auto-extract Dev.to, Medium, Hashnode-ready content from README
 - [ ] Jira / Linear integration — pull roadmap data from issue tracking platforms

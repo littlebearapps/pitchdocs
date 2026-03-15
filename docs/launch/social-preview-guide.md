@@ -18,7 +18,7 @@ When PitchDocs links are shared on Twitter/X, Slack, Discord, or LinkedIn, GitHu
 
 1. **Project Name (Large, Bold)**
    - Font size: 72–96pt
-   - Position: Upper half, centered or left-aligned
+   - Position: Upper half, centred or left-aligned
    - Ensure legibility at thumbnail size (~300×150px on mobile)
 
 2. **One-Line Value Proposition**
@@ -72,12 +72,12 @@ When PitchDocs links are shared on Twitter/X, Slack, Discord, or LinkedIn, GitHu
 ### Canva (Easiest for Non-Designers)
 1. Go to [canva.com](https://canva.com/)
 2. Search template: "GitHub social preview" or "1280x640"
-3. Customize with project name, value prop, colours, logo
+3. Customise with project name, value prop, colours, logo
 4. Download as PNG
 5. Upload to GitHub Settings > Social preview
 
 **Pros:** Drag-and-drop, templates, no design experience needed
-**Cons:** Watermark on free tier, limited customization
+**Cons:** Watermark on free tier, limited customisation
 
 ### Figma (Most Flexible)
 1. Create new 1280×640 canvas

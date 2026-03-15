@@ -8,7 +8,7 @@ Generated 2026-03-15 — ready for review before posting.
 - **devto-article.md** (2.2 KB) — Dev.to blog post with frontmatter
   - Title: "PitchDocs: Ship Production-Grade Docs With One Command"
   - Audience: Developer blog readers
-  - Status: Ready to customize tags before publishing
+  - Status: Ready to customise tags before publishing
 
 ### 💬 Social Media
 - **hackernews-post.md** (2.8 KB) — Hacker News title + first comment
@@ -30,7 +30,7 @@ Generated 2026-03-15 — ready for review before posting.
 ### 🎁 Submissions & Partnerships
 - **awesome-list-submission.md** (3.2 KB) — Awesome list PR templates
   - 5 relevant awesome lists identified
-  - Customizable PR body template
+  - Customisable PR body template
   - Per-list entry format examples
   - Submission checklist
 
@@ -48,7 +48,7 @@ Generated 2026-03-15 — ready for review before posting.
 
 | Artifact | Audience | Platform | Status |
 |----------|----------|----------|--------|
-| Dev.to article | Developers | Blog | ✅ Ready (customize tags) |
+| Dev.to article | Developers | Blog | ✅ Ready (customise tags) |
 | HN post | Tech enthusiasts | Forum | ✅ Ready to submit |
 | Reddit posts (3) | Targeted communities | Social | ✅ Ready (space by 24h) |
 | Twitter thread | General audience | Social | ✅ Ready (add screenshot) |
@@ -97,8 +97,8 @@ After posting, track engagement:
 ## Additional Resources
 
 - [README.md](../README.md) — Main project documentation
-- [CHANGELOG.md](../CHANGELOG.md) — v2.1.0 release notes
-- [Contribution Guidelines](../CONTRIBUTING.md) — How to contribute
+- [CHANGELOG.md](../../CHANGELOG.md) — v2.1.0 release notes
+- [Contribution Guidelines](../../CONTRIBUTING.md) — How to contribute
 
 ---
 

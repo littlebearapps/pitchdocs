@@ -16,7 +16,7 @@ Technical highlights:
 - Codebase analysis: 10 signal categories, intelligent feature extraction, persona inference
 - Evidence mapping: every feature claim includes file path + line context
 - Professional standards: 4-question test, lobby principle, Time to Hello World metrics, banned phrase detection
-- GEO-optimized: atomic sections, comparison tables, llms.txt for AI citation accuracy
+- GEO-optimised: atomic sections, comparison tables, llms.txt for AI citation accuracy
 - Quality framework: 0–100 scoring (completeness, structure, freshness, evidence), 6 GitHub Actions checks
 
 Built entirely with plain Markdown (100% framework/language agnostic). Works with Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose.
@@ -76,7 +76,7 @@ Launched PitchDocs (v2.1.0) — a Claude Code plugin for generating professional
 
 **Tech:** 100% Markdown (no build, no runtime), compatible with 9 AI tools (Claude Code, OpenCode, Cursor, Codex, Gemini CLI, Windsurf, Cline, Aider, Goose).
 
-**What's coming:** Multi-language documentation, enhanced feature extraction, platform-specific threat modeling.
+**What's coming:** Multi-language documentation, enhanced feature extraction, platform-specific threat modelling.
 
 **Contribute:** Good first issues include improving feature extraction heuristics, adding new doc templates, and cross-platform testing.
 
