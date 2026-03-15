@@ -1,6 +1,6 @@
 ---
 name: feature-benefits
-description: Systematic codebase scanning for features and evidence-based feature-to-benefit translation. Extracts what a project does from its code and translates it into what users gain. Use when generating README features tables, auditing feature coverage, or building benefit-driven documentation.
+description: Systematic codebase scanning for features and evidence-based feature-to-benefit translation. Extracts what a project does from its code and translates it into what users gain — generates features and benefits sections, "Why [Project]?" content, and feature audit reports. Use when writing a features table for a README, extracting features from code, auditing feature coverage, or answering "why should someone use this project?".
 version: "1.0.0"
 ---
 
