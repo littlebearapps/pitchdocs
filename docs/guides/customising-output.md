@@ -3,7 +3,7 @@ title: "Customising PitchDocs Output"
 description: "Steer PitchDocs output with prompt patterns, tone control, monorepo support, and iterative refinement."
 type: how-to
 difficulty: intermediate
-last_verified: "2.0.0"
+last_verified: "2.1.0"
 related:
   - guides/concepts.md
   - guides/command-reference.md

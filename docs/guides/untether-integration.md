@@ -3,7 +3,7 @@ title: "PitchDocs with Untether"
 description: "Context Guard hooks have moved to ContextDocs. This page redirects to the new location."
 type: explanation
 difficulty: beginner
-last_verified: "2.0.0"
+last_verified: "2.1.0"
 related:
   - guides/getting-started.md
   - guides/workflows.md
