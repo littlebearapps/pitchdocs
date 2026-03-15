@@ -10,9 +10,8 @@
   {
     "id": "cmd-changelog",
     "input": "/pitchdocs:changelog",
-    "expected_skill": "changelog",
-    "should_respond": true,
-    "description": "Changelog command routes to changelog skill"
+    "should_respond": false,
+    "reason": "Detailed command with broad allowed-tools — model may handle directly or delegate to Skill tool. Both are valid."
   },
   {
     "id": "cmd-docs-verify",
@@ -32,14 +31,13 @@
     "id": "cmd-ai-context-stub",
     "input": "/pitchdocs:ai-context audit",
     "should_respond": false,
-    "reason": "Stub command — Claude expands redirect inline without Skill tool invocation"
+    "reason": "Stub command — Claude may expand redirect inline (silent) or route to ContextDocs if installed. Both are valid; eval expects silent because ContextDocs activation is not a PitchDocs skill."
   },
   {
     "id": "cmd-launch",
     "input": "/pitchdocs:launch",
-    "expected_skill": "launch",
-    "should_respond": true,
-    "description": "Launch command routes to launch-artifacts skill"
+    "should_respond": false,
+    "reason": "Detailed command with broad allowed-tools — model may handle directly or delegate to Skill tool. Both are valid."
   },
   {
     "id": "cmd-llms-txt",

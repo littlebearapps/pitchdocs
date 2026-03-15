@@ -4,7 +4,7 @@ description: "Learn PitchDocs by building a complete documentation suite from sc
 type: tutorial
 difficulty: beginner
 time_to_complete: "20 minutes"
-last_verified: "2.0.0"
+last_verified: "2.1.0"
 related:
   - guides/getting-started.md
   - guides/workflows.md

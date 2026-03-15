@@ -1,161 +1,92 @@
-# Reddit Post Templates
+# Reddit Launch Templates
 
-## r/programming (Primary)
+## r/programming
 
-**Post type:** Link post (preferred on r/programming)
+**Title:** PitchDocs: Generate production-grade docs from any codebase
 
-**Title:**
-```
-PitchDocs: Generate professional documentation from your codebase with AI
-```
+**URL:** https://github.com/littlebearapps/pitchdocs
 
-**URL:** `https://github.com/littlebearapps/pitchdocs`
+**First Comment (author context):**
 
-**First comment (reply to your post immediately after submission):**
+Author here. I built PitchDocs because shipping code without documentation was killing productivity. Every project meant rewriting the same README sections, CHANGELOG entries, guides — and half would be stale by release time.
 
-```
-Author here. I built this because most open source projects ship with thin,
-generic documentation that doesn't sell the project or help users get started.
-
-PitchDocs scans your codebase (10 signal categories — exports, CLI commands,
-API endpoints, config, integrations, etc.) and generates professional docs
-automatically. One command generates a marketing-ready README. Another generates
-all supporting docs — CHANGELOG, ROADMAP, CONTRIBUTING, user guides, security
-policies.
+The key insight: instead of guessing what your codebase does, *scan the actual code*. Extract features from exports, CLI commands, API routes, npm scripts, config options, schema definitions — then map every feature back to file paths. Evidence-based.
 
 Technical highlights:
+- Codebase analysis: 10 signal categories, intelligent feature extraction, persona inference
+- Evidence mapping: every feature claim includes file path + line context
+- Professional standards: 4-question test, lobby principle, Time to Hello World metrics, banned phrase detection
+- GEO-optimised: atomic sections, comparison tables, llms.txt for AI citation accuracy
+- Quality framework: 0–100 scoring (completeness, structure, freshness, evidence), 6 GitHub Actions checks
 
-- Evidence-based feature extraction (every claim traces to code)
-- GEO optimised for LLM citation (ChatGPT, Perplexity will cite your project)
-- Quality scoring (0–100) to verify doc completeness and freshness
-- Works with 9 AI tools (Claude Code, OpenCode, Cursor, Codex, Windsurf, etc.)
-- Pure Markdown plugin — zero runtime dependencies, 100% portable
+Built entirely with plain Markdown (100% framework/language agnostic). Works with Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose.
 
-Built as a Claude Code plugin. Feedback on the extraction patterns or quality
-scoring welcome!
-
-Repo: https://github.com/littlebearapps/pitchdocs
-```
+Interested in feedback on the evidence-mapping approach and cross-platform compatibility. Very open to contributions on the feature extraction heuristics and quality scoring model.
 
 ---
 
-## r/webdev (Secondary)
+## r/webdev
 
-**Post type:** Self-post (optional, can be text or link)
-
-**Title:**
-```
-I built PitchDocs: AI-powered documentation generation for open source (and your projects)
-```
+**Title:** I built PitchDocs to stop rewriting the same docs for every project — open source
 
 **Body:**
 
-```
-TL;DR: PitchDocs is a Claude Code/OpenCode plugin that generates professional
-README, CHANGELOG, contributing guides, and more by scanning your codebase.
+Every web project I shipped came with the same doc problem: README, CHANGELOG, CONTRIBUTING, ROADMAP, SECURITY, user guides — all needing to be written from scratch, all going stale the moment you ship the next feature.
 
-The problem: Writing good documentation is *hard*. Most projects ship with thin,
-generic docs. Great code dies from poor documentation.
+I built **PitchDocs** to fix this. It's a Claude Code plugin that scans your codebase and auto-generates a complete documentation suite.
 
-The solution: PitchDocs uses an AI coding assistant (Claude, now integrated into
-Claude Code and OpenCode) to scan your codebase and extract what's valuable. Then
-it generates professional, marketing-friendly documentation that actually sells
-your project.
+**What makes it different:**
+- Reads actual code (not just package.json or file counts) — extracts features from exports, CLI commands, routes, npm scripts, config options
+- Evidence-based — every feature claim includes the exact file path
+- Professional quality — all docs follow the 4-question test, lobby principle, and measurable Time to Hello World
+- One command generates the full suite: README (with quickstart + comparison table), CHANGELOG (from git history), ROADMAP (from GitHub milestones), guides, contributing, security policy, llms.txt
+- GEO-optimised — ChatGPT and Perplexity cite your project accurately
+- Quality scoring (0–100) — grades completeness, structure, freshness, and evidence quality
 
-Key features:
+**The practical bit:** You get your first generated README in under 60 seconds. Then choose which other docs to auto-generate. Works with Claude Code, OpenCode, and 7 other AI tools.
 
-✅ Evidence-based feature extraction (10 signal categories)
-✅ Professional doc standards built in (4-question test, lobby principle, Time to Hello World)
-✅ GEO optimised for AI citation (ChatGPT will cite your project correctly)
-✅ Quality scoring (0–100) to verify completeness and freshness
-✅ Works with any AI tool (Claude Code, OpenCode, Cursor, Codex CLI, Windsurf, etc.)
-✅ Pure Markdown plugin — portable, no runtime dependencies
+Used it on a dozen projects now — saves *hours* on every release cycle.
 
-One command generates a marketing-ready README:
-```
-/pitchdocs:readme
-```
+[GitHub](https://github.com/littlebearapps/pitchdocs) | [Docs](https://github.com/littlebearapps/pitchdocs/tree/main/docs) | [Quick start](https://github.com/littlebearapps/pitchdocs?tab=readme-ov-file#-get-started)
 
-One command generates all docs:
-```
-/pitchdocs:docs-audit fix
-```
-
-Check out the repo to see examples of PitchDocs-generated docs on Untether,
-Outlook Assistant, and PitchDocs itself:
-
-https://github.com/littlebearapps/pitchdocs
-
-Feedback welcome! Especially curious about the quality scoring system and
-extraction patterns.
-```
+Feedback welcome, especially from folks who've struggled with keeping docs in sync with code.
 
 ---
 
-## r/opensource (Tertiary)
+## r/opensource
 
-**Post type:** Self-post (focus on contribution opportunities and community)
-
-**Title:**
-```
-PitchDocs: Help us build the ultimate AI-powered documentation plugin for open source
-```
+**Title:** PitchDocs – AI-powered docs generator for any codebase [open source, MIT]
 
 **Body:**
 
-```
-Hi r/opensource,
+Launched PitchDocs (v2.1.0) — a Claude Code plugin for generating professional repository documentation from code.
 
-I'm building PitchDocs, a Claude Code and OpenCode plugin that helps open source
-teams write professional documentation automatically.
+**What it does:**
+- Scans your codebase for features (10 signal categories)
+- Extracts user benefits with evidence (every claim backed by file path)
+- Generates: README, CHANGELOG, ROADMAP, CONTRIBUTING, SECURITY, user guides, issue templates, llms.txt
+- All docs follow professional standards (4-question test, lobby principle, Time to Hello World)
+- Quality scored (0–100) with CI integration
 
-The idea: Most maintainers are great at building software but dread writing docs.
-PitchDocs changes that by letting an AI assistant scan your codebase, extract
-what's valuable, and generate professional README, CHANGELOG, user guides, and
-more in minutes instead of days.
+**Why it matters for open source:**
+- Documentation is often the barrier to adoption — this lowers that friction significantly
+- Quality scoring helps you catch undocumented features before merge
+- GEO-optimised output means AI systems cite your project accurately
+- Works across GitHub, GitLab, Bitbucket
 
-Current features:
+**Tech:** 100% Markdown (no build, no runtime), compatible with 9 AI tools (Claude Code, OpenCode, Cursor, Codex, Gemini CLI, Windsurf, Cline, Aider, Goose).
 
-- Evidence-based feature extraction from 10 code signal categories
-- README generation with the Banesullivan 4-question framework
-- CHANGELOG generation from git history (user benefit language)
-- ROADMAP generation from GitHub milestones and issues
-- User guide generation with Diataxis classification
-- Quality scoring (0–100) across completeness, freshness, and link health
-- Platform support for GitHub, GitLab, and Bitbucket
+**What's coming:** Multi-language documentation, enhanced feature extraction, platform-specific threat modelling.
 
-We're looking for:
+**Contribute:** Good first issues include improving feature extraction heuristics, adding new doc templates, and cross-platform testing.
 
-👥 Contributors to improve extraction patterns and doc templates
-🔍 Feedback on the quality scoring system
-📝 Ideas for new documentation types we should support
-🧪 Testing on diverse project types (libraries, CLIs, web apps, APIs, plugins)
-
-If you're interested in helping open source documentation get better, we'd love
-to collaborate:
-
-Repo: https://github.com/littlebearapps/pitchdocs
-Good First Issues: https://github.com/littlebearapps/pitchdocs/labels/good%20first%20issue
-Contributing Guide: https://github.com/littlebearapps/pitchdocs/blob/main/CONTRIBUTING.md
-
-Thanks!
-```
+[GitHub](https://github.com/littlebearapps/pitchdocs) | [Milestones](https://github.com/littlebearapps/pitchdocs/milestones) | [Contributing](https://github.com/littlebearapps/pitchdocs/blob/main/CONTRIBUTING.md)
 
 ---
 
-## Reddit Posting Rules
-
-- **Don't post simultaneously** — space posts 24+ hours apart
-- **Read each subreddit's rules** — some ban self-promotion or require specific formats
-- **Engage genuinely in comments** — reply to every comment within the first 2–4 hours
-- **Max 2–3 subreddits** — more than that looks like spam
-- **No deleted accounts** — account should have history and be in good standing
-- **Post during peak hours** — evening (5–9 PM) for US-based subreddits
-
-## Timing Recommendation
-
-1. **Post to r/programming first** (Monday–Wednesday, 7–9 PM ET)
-2. **Wait 24–36 hours**
-3. **Post to r/webdev** (next day, similar time)
-4. **Wait 24 hours**
-5. **Post to r/opensource** (if interested in attracting contributors)
+**Reddit posting strategy:**
+- Post to r/programming first (Tuesday–Thursday, 2–4 PM EST)
+- Space r/webdev post by 24+ hours
+- Space r/opensource post by another 24+ hours
+- Engage genuinely in comment threads — this is not a hit-and-run announcement
+- Check each subreddit's rules before posting (some have self-promotion policies)

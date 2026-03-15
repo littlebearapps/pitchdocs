@@ -3,7 +3,7 @@ title: "Use PitchDocs with Other AI Tools"
 description: "Set up PitchDocs with Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, and Goose."
 type: how-to
 difficulty: intermediate
-last_verified: "2.0.0"
+last_verified: "2.1.0"
 related:
   - guides/getting-started.md
   - guides/troubleshooting.md

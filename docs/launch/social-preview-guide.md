@@ -1,293 +1,156 @@
-# Social Preview Image Specification & Creation Guide
+# Social Preview Image Guide
 
-When you share your GitHub repo link on Twitter/X, Slack, Discord, or LinkedIn, GitHub automatically displays your social preview image. This guide covers specifications, design recommendations, and tools.
+## Overview
 
----
+When PitchDocs links are shared on Twitter/X, Slack, Discord, or LinkedIn, GitHub displays a social preview image. This image is the first visual impression — it drives clicks and shares.
 
 ## Technical Specifications
 
-| Spec | Value |
-|------|-------|
-| **Dimensions** | 1280 × 640 pixels (2:1 aspect ratio) |
-| **File format** | PNG or JPEG |
-| **File size** | Under 1 MB (ideally <300 KB) |
-| **Recommended compression** | JPEG at 85% quality, or PNG with level 9 compression |
-| **Set via** | Repository Settings > Social preview (manual upload) |
-
----
+- **Dimensions:** 1280 × 640 pixels (2:1 aspect ratio)
+- **File format:** PNG or JPEG (PNG recommended for crisp text)
+- **File size:** Under 1MB, ideally <300KB (smaller = faster load)
+- **Upload location:** GitHub repository settings > Social preview
+- **Supported platforms:** Twitter/X, Slack, Discord, LinkedIn, Reddit, Mastodon
 
 ## Design Recommendations
 
+### Essential Elements
+
+1. **Project Name (Large, Bold)**
+   - Font size: 72–96pt
+   - Position: Upper half, centred or left-aligned
+   - Ensure legibility at thumbnail size (~300×150px on mobile)
+
+2. **One-Line Value Proposition**
+   - Font size: 32–48pt
+   - Subtitle below the project name
+   - Example: "Generate production-grade docs from any codebase"
+   - Keep to 60 characters max for clarity
+
+3. **Visual Element (Logo or Icon)**
+   - PitchDocs logo (80×80px to 160×160px)
+   - Position: Corner or behind text as watermark
+   - Ensure contrast with background
+
+4. **Color Scheme**
+   - Use PitchDocs brand colours (check docs/assets/)
+   - High contrast between text and background
+   - Test on both dark and light backgrounds (some platforms invert)
+
 ### Layout Principles
 
-- **Project name in large text** — survives thumbnail cropping at small sizes
-- **Value proposition below the name** — one-liner that answers "why should I care?"
-- **Key visual element** — logo, icon, or illustrative graphic
-- **Keep critical content centred** — different platforms crop differently (Twitter crops more aggressively than Discord)
-- **Brand colours for recognition** — use your project's primary colours
-- **Whitespace** — don't overcrowd. 20% empty space looks professional.
+- **Centre critical content** — platforms crop differently; keep the message in the center 60% of the image
+- **Minimal text** — max 3 lines (project name + value prop + optional tagline)
+- **Asymmetric balance** — position logo in corner, text in opposite quadrant
+- **Readable at 300×150px** — simulate thumbnail view while designing
 
-### Text Guidelines
+### Anti-Patterns
 
-**Project name:**
-- Font: Bold, sans-serif (Helvetica, Arial, or system sans-serif)
-- Size: 72–96px (large enough to read at thumbnail size)
-- Placement: Top 1/3 of image, centred
+- ❌ Dense text or long sentences
+- ❌ Tiny font (unreadable at thumbnail size)
+- ❌ Dark text on dark background (no contrast)
+- ❌ Blurry or low-res graphics
+- ❌ Content in outer edges (will be cropped)
 
-**Tagline/Value proposition:**
-- Font: Regular or semi-bold, sans-serif
-- Size: 36–48px
-- Colour: Slightly lighter than project name, but still readable
-- Placement: Below project name, centred
-- Example: "Turn code into documentation with AI"
-
-**Optional secondary text:**
-- Font: Small, 18–24px
-- Examples: version number, "⭐ Open Source", "MIT License"
-- Placement: Bottom of image, left or right
-
-### Visual Elements
-
-**Logo placement:**
-- Right side of image (leaves room for project name on left)
-- Size: 200–300px square
-- Ensure high contrast against background
-
-**Background:**
-- Solid colour: Choose your brand primary colour (or complementary)
-- Gradient: Subtle gradient (left to right) for depth
-- Avoid: Busy textures or patterns (reduces readability at small sizes)
-
-**Icon/graphic options:**
-- Symbol representing your tool (e.g., 📚 for documentation, 🔧 for developer tools)
-- Simplified version of your logo
-- Abstract illustration reflecting your project's purpose
-- Screenshot or demo (if design is very clean and uncluttered)
-
----
-
-## Example Layouts
-
-### Layout A: Logo Right (Recommended for Text-Heavy Projects)
+## Example Layout
 
 ```
-┌─────────────────────────────────────────┐
-│                                         │
-│   PitchDocs                        [📚] │
-│   Turn code into docs with AI           │
-│                                         │
-│                                         │
-│                          MIT • Open Source
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                                                      📦         │
+│                                                                 │
+│            PitchDocs                                            │
+│                                                                 │
+│   Generate production-grade docs from any codebase             │
+│                                                                 │
+│   Works with 9 AI tools • Evidence-based • Professional        │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
-
-### Layout B: Centred Logo (Recommended for Visual Projects)
-
-```
-┌─────────────────────────────────────────┐
-│                                         │
-│                  [Logo]                 │
-│                                         │
-│           PitchDocs                     │
-│      Turn code into docs with AI        │
-│                                         │
-│           ⭐ GitHub                    │
-└─────────────────────────────────────────┘
-```
-
-### Layout C: Split Design (Recommended for Contrast)
-
-```
-┌─────────────────────┬───────────────────┐
-│ Dark background     │ Light background  │
-│ PitchDocs           │        [Logo]     │
-│ Turn code into      │                   │
-│ docs with AI        │                   │
-│                     │                   │
-│ ⭐ OpenSource      │    MIT License    │
-└─────────────────────┴───────────────────┘
-```
-
----
-
-## Colour Palette
-
-Choose your brand primary colour for the background, with high-contrast text.
-
-**Recommended high-contrast combinations:**
-
-| Background | Text | Works? |
-|-----------|------|--------|
-| Dark blue (#0066CC) | White | ✅ Excellent |
-| Deep purple (#4B0082) | White | ✅ Excellent |
-| Dark grey (#333333) | White | ✅ Excellent |
-| Bright orange (#FF6600) | Black | ✅ Good |
-| Teal (#008B8B) | White | ✅ Good |
-| Light grey (#F0F0F0) | Dark blue | ✅ Good (light mode) |
-
-**Avoid:**
-- Light text on light background (unreadable)
-- Red/green combinations (accessibility issue for colourblind users)
-- Pastels (poor contrast, blurry at thumbnails)
-
----
 
 ## Tools for Creation
 
 ### Canva (Easiest for Non-Designers)
+1. Go to [canva.com](https://canva.com/)
+2. Search template: "GitHub social preview" or "1280x640"
+3. Customise with project name, value prop, colours, logo
+4. Download as PNG
+5. Upload to GitHub Settings > Social preview
 
-1. Visit [canva.com](https://canva.com/)
-2. Search for "GitHub social preview" or "1280x640"
-3. Choose a template
-4. Customise with your project name, logo, colours
-5. Download as PNG (Canva auto-optimises)
-
-**Pros:** Fast, templates, auto-sizing
+**Pros:** Drag-and-drop, templates, no design experience needed
 **Cons:** Watermark on free tier, limited customisation
 
-### Figma (Best for Control)
+### Figma (Most Flexible)
+1. Create new 1280×640 canvas
+2. Design using brand colours, typography, logo
+3. Export as PNG (right-click layer > Export)
+4. Upload to GitHub
 
-1. Visit [figma.com](https://figma.com/) (free account)
-2. Create a new file
-3. Set canvas size to 1280 × 640
-4. Import your logo, add text, shapes
-5. Export as PNG at 2x scale (then resize to 1280×640)
+**Pros:** Precise control, reusable components, shareable with team
+**Cons:** Steeper learning curve
 
-**Pros:** Precise, portable, vector-based
-**Cons:** Learning curve, more time-consuming
+### Command-Line Generators
+For programmatic generation (Node.js/Python):
+- [vercel/og-image](https://github.com/vercel/og-image) — Open Graph image generation
+- [GitHub's social preview API](https://docs.github.com/en/rest/repos/repos#update-repository) — Programmatically set preview
 
-### Command Line (For Developers)
+## How to Upload to GitHub
 
-Use **ImageMagick** or **ffmpeg** to generate images programmatically:
+1. **Create the image** (1280×640 PNG, <1MB)
+2. Navigate to: **Settings > General > Social preview**
+3. Click **Upload an image**
+4. Select the PNG file
+5. **Save changes**
 
-```bash
-# Create a 1280x640 image with background colour and text
-convert -size 1280x640 xc:"#0066CC" \
-  -pointsize 72 -fill white \
-  -gravity Center -annotate +0+50 "PitchDocs" \
-  -pointsize 36 -annotate +0-30 "Turn code into docs with AI" \
-  social-preview.png
+The preview will now appear on all GitHub shares (Twitter/X, Slack, Discord, LinkedIn, etc.).
 
-# Compress
-imagemin social-preview.png --out-dir=. --plugin=optipng
-```
+## Testing & Validation
 
-**Pros:** Automated, scriptable, no UI
-**Cons:** Requires command line, less visual feedback
+Before uploading, test your design:
 
-### og-image Generators
+1. **Thumbnail test:** Resize to 300×150px in your design tool — is it still legible?
+2. **Contrast test:** Convert to grayscale — is the hierarchy clear without colour?
+3. **Mobile test:** View on phone screen — are text and logo readable?
+4. **Platform preview:** Use Twitter Card Validator (cards-dev.twitter.com/validator) to see how it renders
 
-Use **[og-image.vercel.app](https://og-image.vercel.app/)** (by Vercel) for dynamic generation:
+## Content-Specific Recommendations for PitchDocs
 
-1. Visit https://og-image.vercel.app/
-2. Test your design in the URL: `?title=YourProjectName&description=Your%20tagline`
-3. Export as PNG
-4. Or deploy your own instance for automatic generation
+**Design brief for social preview:**
+- **Primary text:** "PitchDocs" (bold, 80pt+)
+- **Secondary text:** "Ship production-grade docs" (subtitle, 40pt)
+- **Visual:** Logo in top-right corner (80×80px) or as faint watermark
+- **Colour:** Use project brand colours (deep blue + white for contrast)
+- **Tagline (optional):** "Works with 9 AI tools" (20pt, smaller)
 
-**Pros:** Fast, parametric, no design skills needed
-**Cons:** Limited customisation, hosted only
-
----
-
-## How to Set on GitHub
-
-1. **Push your image to a public location** (GitHub repo, or web host)
-   ```bash
-   git add docs/social-preview.png
-   git commit -m "Add social preview image"
-   git push
-   ```
-
-2. **Go to Repository Settings** → **General** → **Social preview**
-
-3. **Upload the image:**
-   - File size: 1–1000 KB
-   - Format: PNG or JPEG
-   - Dimensions: 1280 × 640
-
-4. **Save**
-
-5. **Verify:** Share your repo link on Twitter/Slack and check the preview
+**Example tagline variants:**
+- "Generate docs from code"
+- "Evidence-based documentation"
+- "AI-powered doc generation"
+- "For Claude Code, OpenCode, Cursor..."
 
 ---
 
-## Examples from Similar Projects
+## Quick Checklist
 
-- **Untether:** Dark background with project name + lightning bolt icon
-- **Outlook Assistant:** Microsoft Outlook branding with project name
-- **PitchDocs (recommended):** Dark blue background, centred "PitchDocs" text, documentation emoji, "Turn code into docs with AI"
-
----
-
-## Testing Your Preview
-
-After uploading, test on each platform:
-
-### Twitter/X
-- Paste your GitHub URL into a tweet draft
-- Use Twitter's Card validator: [cards-dev.twitter.com](https://cards-dev.twitter.com/validator)
-
-### Slack
-- Paste your GitHub URL in a Slack message
-- Slack shows preview within 2–5 seconds
-
-### Discord
-- Paste your GitHub URL in a Discord message
-- Preview appears immediately
-
-### LinkedIn
-- Paste your GitHub URL into a LinkedIn post
-- Preview appears after a few seconds
-
-### Facebook
-- Use Facebook's Share Debugger: [developers.facebook.com/tools/debug/sharing](https://developers.facebook.com/tools/debug/sharing)
+- [ ] Image is exactly 1280×640 pixels (2:1 ratio)
+- [ ] File is PNG or JPEG, under 1MB
+- [ ] Text is legible at 300×150px thumbnail size
+- [ ] Project name is prominent and readable
+- [ ] Value proposition is clear and concise
+- [ ] Logo/icon is visible but not overwhelming
+- [ ] Background and text have good contrast
+- [ ] Critical content is centred (60% of image)
+- [ ] Tested on Twitter Card Validator
+- [ ] Uploaded to GitHub Settings > Social preview
 
 ---
 
-## Dark Mode Considerations
+## Post-Launch: Monitor Performance
 
-GitHub supports dark mode. Test that your image works in both:
+After uploading, monitor how your social preview performs:
 
-- **Light mode preview:** On white/light backgrounds
-- **Dark mode preview:** On dark backgrounds
+- **Twitter/X:** Check tweet impressions with preview vs without
+- **Slack:** Share link in workspace and note engagement
+- **LinkedIn:** Post with GitHub link, track click-through rate
+- **Reddit:** Share in relevant subreddits, observe upvotes
 
-**If your image has a light background:** It might blend into GitHub's light UI. Consider adding a subtle border.
-
-**If your image has a dark background:** It will stand out on both light and dark GitHub UIs. Preferred.
-
----
-
-## Optimisation Checklist
-
-- [ ] Image is exactly 1280 × 640 pixels
-- [ ] File size is under 1 MB (ideally <300 KB)
-- [ ] Project name is readable at 200px wide (phone thumbnail size)
-- [ ] Text has high contrast against background
-- [ ] Logo/icon is centred and visible
-- [ ] No text is cut off at edges (safe area: 50px margin)
-- [ ] Tested on Twitter, Slack, Discord, LinkedIn
-- [ ] Works in both light and dark mode
-- [ ] No spelling errors
-
----
-
-## Timeline
-
-1. **Design:** 15–30 minutes (Canva) or 30–60 minutes (Figma)
-2. **Upload to GitHub:** 2 minutes
-3. **Verify across platforms:** 5–10 minutes
-4. **Total time:** 30–80 minutes
-
----
-
-## Iteration
-
-After launch, monitor:
-- How your image looks across platforms
-- Feedback from the community
-- Whether people are clicking through from previews
-
-If needed, iterate:
-- Simplify text if it's unreadable at small sizes
-- Increase colour contrast if it's washing out
-- Add/remove visual elements based on feedback
+If engagement is low, iterate on the design (maybe the value proposition isn't clear, or the image is too dense).

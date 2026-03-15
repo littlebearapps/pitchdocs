@@ -27,8 +27,7 @@
 
 - [Public README Skill](./.claude/skills/public-readme/SKILL.md): Three-part hero template, value proposition, features with evidence-based benefits, Time to Hello World targets, and Daytona/Banesullivan marketing framework
 - [Public README Reference](./.claude/skills/public-readme/SKILL-reference.md): Extended reference — logo guidelines, registry-specific badges, credibility rows, bold-outcome bullets, use-case framing, visual elements (loaded on demand)
-- [Feature Benefits Skill](./.claude/skills/feature-benefits/SKILL.md): 7-step codebase scanning with feature-to-benefit translation across 5 categories — time saved, confidence gained, pain avoided, capability unlocked, cost reduced
-- [Feature Benefits Skill](./.claude/skills/feature-benefits/SKILL.md): 7-step codebase scanning with feature-to-benefit translation across 5 categories — time saved, confidence gained, pain avoided, capability unlocked, cost reduced
+- [Feature Benefits Skill](./.claude/skills/feature-benefits/SKILL.md): 7-step codebase scanning — extracts concrete features from code, translates to benefit-driven language across 5 categories (time saved, confidence gained, pain avoided, capability unlocked, cost reduced). Generates features/benefits sections, "Why [Project]?" content, and feature audit reports
 - [Feature Benefits Signals](./.claude/skills/feature-benefits/SKILL-signals.md): Extended reference — 10 signal categories, JTBD mapping, persona inference, conversational path prompts, per-ecosystem patterns (loaded on demand)
 - [Changelog Skill](./.claude/skills/changelog/SKILL.md): Keep a Changelog format with language rules that rewrite commits into user-facing benefit language
 - [Roadmap Skill](./.claude/skills/roadmap/SKILL.md): ROADMAP.md structure from GitHub milestones with emoji indicators and community involvement
@@ -57,7 +56,6 @@
 - [Docs Writer Agent](./.claude/agents/docs-writer.md): Orchestration agent — adaptive research (inline for small projects, sub-agent for large), Daytona framework, conditional reviewer, content filter mitigation
 - [Docs Researcher Agent](./.claude/agents/docs-researcher.md): Codebase discovery — platform detection, 7-step feature extraction across 10 signals, security scanning, lobby split planning, structured research packets
 - [Docs Reviewer Agent](./.claude/agents/docs-reviewer.md): Quality validation — banned phrases, citation capsule completeness, GEO readiness, 6-dimension quality scoring (0–100 rubric)
-- [Context Updater Agent](./.claude/agents/context-updater.md): Patches AI context files after structural changes — updates counts, tables, and path references surgically
 - [Docs Freshness Agent (Installed)](./.claude/agents/docs-freshness.md): Installed copy of freshness checker — auto-loaded locally in this repo (source: agents/docs-freshness.md)
 
 ## Slash Commands
@@ -79,6 +77,16 @@
 - [/pitchdocs:ai-context](./commands/ai-context.md): Stub — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for AI context file management
 - [/pitchdocs:context-guard](./commands/context-guard.md): Stub — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for Context Guard hooks
 
+## Launch Artifacts
+
+- [Launch Coordination Hub](./docs/launch/README.md): Complete checklist for planning, timing, messaging, and tracking multi-platform launch — review all artifacts, set timeline, track success metrics
+- [Dev.to Article](./docs/launch/devto-article.md): 2.2 KB narrative article with problem-solution framing — post to Dev.to for long-form discovery and SEO
+- [Hacker News Post](./docs/launch/hackernews-post.md): "Show HN" title and technical-depth first comment — post Tue–Thu 9–11 AM US Eastern for maximum visibility
+- [Reddit Post Templates](./docs/launch/reddit-post.md): Three subreddit variants (r/programming, r/webdev, r/opensource) with author context and community angles — space posts 24+ hours apart
+- [Twitter Thread](./docs/launch/twitter-thread.md): 5-tweet narrative (hook → problem → features → proof → CTA) — all under 280 chars per tweet with visual guidance
+- [Awesome List Submission](./docs/launch/awesome-list-submission.md): Curated awesome list submission with PR template and strategy — stagger submissions every 2–3 days
+- [Social Preview Guide](./docs/launch/social-preview-guide.md): 1280×640 image specs, design guidance, and testing checklist for GitHub social preview card
+
 ## Project Context
 
 - [CLAUDE.md](./CLAUDE.md): Project architecture — plugin structure, conventions, key files, modification guide, testing and validation procedures
@@ -97,7 +105,6 @@
 - [License](./LICENSE): MIT licence terms
 - [Plugin Manifest](./.claude-plugin/plugin.json): Plugin metadata, version, keywords, author info
 - [Content Filter Reference](./.claude/rules/content-filter.md): Auto-loaded quick reference for handling API filter when generating CODE_OF_CONDUCT, LICENSE, SECURITY (Claude Code only)
-- [Context Quality Standards](./.claude/rules/context-quality.md): Auto-loaded quality standards for AI context files — cross-file consistency, path verification, version accuracy, sync points (Claude Code only)
 - [Doc Standards (Installed)](./.claude/rules/doc-standards.md): Installed copy of quality standards — auto-loaded locally in this repo (source: rules/doc-standards.md)
 - [Documentation Awareness (Installed)](./.claude/rules/docs-awareness.md): Installed copy of documentation trigger map — auto-loaded locally in this repo (source: rules/docs-awareness.md)
 - [Doc Standards Template](./rules/doc-standards.md): Quality standards — installed per-project by /pitchdocs:activate. 4-question framework, Lobby Principle, benefit-driven language, file naming

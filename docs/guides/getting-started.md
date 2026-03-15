@@ -4,7 +4,7 @@ description: "Install PitchDocs, generate your first README, and explore all 16 
 type: how-to
 difficulty: beginner
 time_to_complete: "5 minutes"
-last_verified: "2.0.0"
+last_verified: "2.1.0"
 related:
   - guides/workflows.md
   - guides/command-reference.md
