@@ -1,84 +1,61 @@
-# Twitter/X Thread
-
-**Posted as a 5-tweet thread.** Reply to your own first tweet with each subsequent tweet to build the thread.
-
----
+# Twitter/X Thread – 5 Tweets
 
 ## Tweet 1 (Hook)
-
 ```
 🚀 Introducing PitchDocs
 
-Your code is ready for the world.
-Your documentation isn't.
+Turn any codebase into professional, marketing-ready documentation in one command.
 
-We built PitchDocs to change that.
+No manual README writing. No stale CHANGELOG. No guessing what features matter.
 
 Thread 👇
 ```
-
-**Character count:** 91 / 280
-
----
-
-## Tweet 2 (Problem)
-
-```
-The problem: Great open source projects die from poor documentation, not poor code.
-
-Writing good docs is hard:
-• README needs to hook readers, explain the project, AND sell it
-• CHANGELOG needs user benefit language, not commit messages
-• You need guides, policies, templates... all matching your brand
-
-Most projects ship thin docs, then get tired of updating them.
-```
-
-**Character count:** 268 / 280
+**Length:** 179 chars ✓
 
 ---
 
-## Tweet 3 (What It Does)
-
+## Tweet 2 (The Problem)
 ```
-What PitchDocs does:
+The problem: every project ships without docs. By the time you've written README, 
+CHANGELOG, CONTRIBUTING, and guides, you could've shipped 3 features.
 
-One command generates your entire docs suite:
-
-✅ Marketing-friendly README (Banesullivan 4-question framework)
-✅ CHANGELOG from git history (user benefit language)
-✅ ROADMAP from GitHub milestones
-✅ User guides, contributing guidelines, security policies
-✅ Issue templates, PR templates, llms.txt
-
-All backed by evidence from your actual code.
+And half the docs are already out of date.
 ```
-
-**Character count:** 267 / 280
+**Length:** 185 chars ✓
 
 ---
 
-## Tweet 4 (Secret Sauce + Proof)
-
+## Tweet 3 (Features - with code example)
 ```
-The secret: Evidence-based feature extraction.
+PitchDocs scans your actual code — not just package.json.
 
-We scan 10 signal categories:
-→ CLI commands, API endpoints, configuration
-→ Integrations, authentication, security features
-→ Performance, error types, accessibility
+Extracts features from exports, CLI commands, routes, npm scripts, config options.
 
-Every feature claim is backed by a file path. Every doc passes quality scoring (0–100).
+Maps every feature to the exact file path.
 
-Works with Claude Code, OpenCode, Cursor, Codex, Windsurf, and more.
+Evidence-based. Professional. Automatic.
 ```
+**Length:** 213 chars ✓
 
-**Character count:** 276 / 280
+**Visual:** Include screenshot of generated README with feature extraction highlighted
+
+---
+
+## Tweet 4 (Impact & Proof)
+```
+What you get:
+✓ README (hero + quickstart + comparison table) — 60 seconds
+✓ CHANGELOG (from git history, user-focused language)
+✓ ROADMAP (from GitHub milestones)
+✓ CONTRIBUTING, SECURITY, guides, llms.txt
+
+One command: /pitchdocs:docs-audit fix
+```
+**Length:** 217 chars ✓
 
 ---
 
 ## Tweet 5 (Call to Action)
-
 ```
 Try it now:
 
@@ -86,65 +63,20 @@ Try it now:
 /plugin install pitchdocs@lba-plugins
 /pitchdocs:readme
 
-Get your first professional README in under 60 seconds.
+Works with Claude Code, OpenCode, Cursor, Windsurf, Cline, and more.
 
 GitHub: https://github.com/littlebearapps/pitchdocs
-Docs: https://github.com/littlebearapps/pitchdocs#-documentation
-
-⭐ Star if you find it useful — helps others discover it
 ```
-
-**Character count:** 269 / 280
+**Length:** 232 chars ✓
 
 ---
 
-## Thread Guidelines
+## Thread Notes
 
-### Hashtag Strategy
+- **Best time to post:** Tuesday–Thursday, 9–11 AM US Eastern (higher engagement)
+- **Add visual in Tweet 3 or 4:** Screenshot of generated README or comparison table
+- **Hashtags (optional, add to Tweet 5):** #OpenSource #DevTools #Documentation #ClaudeCode
+- **Follow-up engagement:** Respond to quote-tweets and replies within 24 hours
+- **Thread interactivity:** Pin the first tweet, monitor replies for common questions
 
-Add relevant hashtags to Tweet 5 (CTA):
-- `#OpenSource` — essential
-- `#Documentation` — core topic
-- `#DevTools` — audience
-- `#AI` — technical angle
-
-**Don't overload:** 2–4 hashtags maximum. Too many look spammy.
-
-### Timing
-
-- **Best days:** Tuesday–Thursday
-- **Best times:** 7–9 AM ET (mid-morning tech scrolling) or 5–7 PM ET (evening wind-down)
-- **Avoid:** Weekends, major tech events, US holidays
-
-### Engagement
-
-- **Reply to retweets:** Engage within the first hour
-- **Like supportive replies:** Boosts algorithm visibility
-- **Retweet useful comments:** Signals engagement
-- **Avoid:** Blocking, arguing with detractors (mutes are better)
-
-### Media Suggestions
-
-**For Tweet 3:** Consider adding a screenshot of the README generation in action (before/after comparison)
-
-**For Tweet 4:** Code snippet showing evidence-based extraction (10 signal categories as list)
-
-### Alternative Thread Format (If Promoting a Release)
-
-If you're announcing a specific version (e.g., v1.20.0), you can adjust Tweet 2 to focus on "What's New":
-
-```
-🎉 v1.20.0 is live
-
-New in this release:
-
-✨ Context Guard false positive fixes
-✨ Untether session detection
-✨ Website accuracy audits
-✨ 56% reduction in auto-loaded context
-
-Upgrade now:
-/plugin install pitchdocs@lba-plugins
-```
-
-Then continue with Tweets 3–5 as-is.
+All tweets stay under 280 characters. Each tweet makes sense standalone, but the thread as a whole tells a compelling story: problem → solution → features → CTA.

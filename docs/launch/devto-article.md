@@ -1,202 +1,89 @@
 ---
-title: "PitchDocs: Turn Your Codebase Into Marketing-Ready Repository Documentation"
+title: "PitchDocs: Ship Production-Grade Docs With One Command"
 published: false
-description: "Generate professional README, CHANGELOG, roadmaps, and more from code — works with Claude Code, OpenCode, Cursor, and 6 other AI coding tools."
-tags: [devtools, opensource, documentation, ai]
+description: "Turn any codebase into professional, marketing-ready repository documentation powered by AI. Works with 9 AI tools, GitHub/GitLab/Bitbucket."
+tags: [documentation, devtools, opensource, ai]
 canonical_url: https://github.com/littlebearapps/pitchdocs
 ---
 
-Your codebase is ready for the world, but your documentation isn't. You need a README that sells, a CHANGELOG your users understand, a roadmap that inspires contributors, security policies, contributing guidelines — and it all needs to look professional.
+Your repo has incredible code. But when someone lands on GitHub, all they see is... nothing. No README that explains what this does. No CHANGELOG that makes sense to users. No contributing guide. No security policy.
 
-Most teams either hire a technical writer (expensive) or write docs themselves (slow and painful). There's a third way: let your AI coding assistant do it.
+By the time you'd finished writing all that documentation, you could've shipped three features. And half of it would already be out of date.
 
-## The Problem: Documentation Bottleneck
+## The Problem With Manual Documentation
 
-Great open source projects die from poor documentation, not poor code. But writing good docs is *hard*:
+Writing great documentation is a slog. Even if you *know* the patterns (the 4-question test, the lobby principle, Time to Hello World), every new project means starting from scratch. You're writing the same sections over and over — installation instructions, feature tables, API overviews. And then six months later, when you ship v2.0, the docs are still referencing v1.0.
 
-- README needs to hook readers in 10 seconds, explain what the project does, show a quick start, and list features
-- CHANGELOG needs to be written in user benefit language, not commit messages
-- You need contributing guidelines, security policies, issue templates, PR templates, user guides
-- Every doc needs to be SEO/GEO optimised so ChatGPT and Perplexity cite your project correctly
-- It all needs to match your brand, target your audience, and survive code changes
+Tools like readmeai give you a README. Generators make READMEs from package.json. But neither handles the *full suite* — CHANGELOG, CONTRIBUTING, ROADMAP, SECURITY, issue templates, user guides, API docs, `llms.txt` for AI discoverability.
 
-Most projects ship with thin, generic docs. Then the maintainers get tired of updating them.
+And none of them understand your codebase well enough to surface the features users actually care about.
 
-## What PitchDocs Does
+## Enter PitchDocs
 
-PitchDocs is a Claude Code and OpenCode plugin that gives your AI assistant the skills and knowledge to scan your codebase, extract what's worth documenting, and write your entire documentation suite automatically.
+PitchDocs is a Claude Code plugin (100% Markdown, zero runtime dependencies) that turns your codebase into a complete documentation suite — all from slash commands.
 
-**One command generates:**
-- Marketing-friendly README with the 4-question framework
-- CHANGELOG from git history (with user benefit language)
-- ROADMAP from GitHub milestones and issues
-- CONTRIBUTING guidelines
-- USER GUIDES in `docs/guides/`
-- SECURITY policies
-- CODE_OF_CONDUCT
-- GitHub issue and PR templates
-- `llms.txt` for AI discoverability
-- Launch artifacts (Dev.to posts, Hacker News, Reddit, Twitter threads)
+Scan your code for features. Extract user benefits with evidence. Generate a README that sells. Create a CHANGELOG that users understand. Build contributing guides, roadmaps, security policies — all in one go or one command at a time.
 
-Every doc passes professional standards (the 4-question test, lobby principle, Time to Hello World targets) and is backed by evidence from your actual code.
-
-### Evidence-Based Feature Extraction
-
-PitchDocs scans 10 signal categories — exports, CLI commands, API endpoints, configuration options, integrations, error types, authentication, security features, performance benchmarks, and accessibility — then infers target personas and extracts user benefits automatically.
-
-Or use the conversational path: "Talk it out" with the AI about what's valuable in your project, and it extracts benefits interactively.
-
-Every feature claim is backed by a file path.
-
-### Professional Standards Built In
-
-The docs PitchDocs generates apply three proven frameworks:
-
-**The 4-Question Test** — Every doc must answer:
-1. Does this solve my problem?
-2. Can I use it?
-3. Who made it?
-4. Where do I learn more?
-
-**The Lobby Principle** — README is the lobby of your repo. It shouldn't contain the entire building. Detailed content goes in separate docs, linked from the README.
-
-**Time to Hello World** — CLI tools: <60 seconds. Libraries: <2 minutes. Frameworks: <5 minutes. Each quick start targets a specific TTHW.
-
-### GEO Optimised for AI Citation
-
-ChatGPT, Perplexity, and Google AI Overviews increasingly cite open source projects. PitchDocs structures docs with atomic sections, comparison tables, concrete statistics, and cross-referencing patterns so LLMs cite your project accurately.
-
-### Quality Scoring (0–100) & CI Validation
-
-Want to know if your docs are actually good? `/docs-verify score` rates your documentation across 6 dimensions:
-
-- Completeness — all key features documented?
-- Structure — correct heading hierarchy and formatting?
-- Freshness — content matches code (90-day git blame check)?
-- Link health — broken links, outdated anchors?
-- Evidence — features backed by code paths?
-- Accessibility — alt text, Time to Hello World targets
-
-Get a 0–100 score with A–F grade bands. Export to CI with `--min-score` to enforce documentation standards.
-
-PitchDocs v2.1.0 also includes **6 automated GitHub Actions checks** that run on every commit:
-
-- **Spell check** — Catches typos and misspellings before you ship
-- **Frontmatter validation** — Ensures YAML metadata in skills and docs is correct
-- **llms.txt consistency** — Detects orphaned files and broken references
-- **Banned phrase detection** — Flags AI-speak ("in today's digital landscape", "game-changer")
-- **Token budget enforcement** — Prevents skills and rules from ballooning in size
-- **Orphan file detection** — Finds undocumented or unreferenced documentation
-
-Enable these in your CI/CD pipeline to catch documentation issues before merging.
-
-## Getting Started (Under 60 Seconds)
-
-### Prerequisites
-
-- [Claude Code](https://code.claude.com/) or [OpenCode](https://opencode.ai/)
-
-### Install
+### What It Actually Does
 
 ```bash
-# 1. Add the LBA plugin marketplace (once)
+/pitchdocs:readme          # Marketing-friendly README in 60 seconds
+/pitchdocs:features        # Extract features + benefits from code
+/pitchdocs:changelog       # User-focused CHANGELOG from git history
+/pitchdocs:roadmap         # ROADMAP from GitHub milestones
+/pitchdocs:docs-audit fix  # Auto-generate missing docs (20+ files)
+```
+
+No configuration. No build step. Works with Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, and Goose.
+
+### The Secret: Evidence-Based Features
+
+PitchDocs doesn't guess what your project does. It scans 10 signal categories — exports, CLI commands, API routes, npm scripts, configuration options, schema definitions, and more — then maps features to actual file paths.
+
+Every feature claim is backed by code. When PitchDocs says "You can configure X via Y", it shows you the exact file where that lives.
+
+### Built-In Professional Standards
+
+Every generated doc passes three quality gates:
+
+1. **The 4-Question Test** — Does it solve my problem? Can I use it? Who made it? Where do I learn more?
+2. **The Lobby Principle** — README is the lobby, not the entire building. Deep content goes in docs/guides/
+3. **Time to Hello World** — Installation, prerequisites, and a working example within 30 seconds of reading
+
+No "leveraging" or "in today's digital landscape". No generic AI fluff. Just clear, benefit-driven writing.
+
+### GEO-Optimised for AI
+
+When ChatGPT, Perplexity, or Google AI Overviews search your docs, they find structured, cited content. Your project gets cited accurately in AI-generated answers.
+
+### Quality Scoring & CI Integration
+
+Every command includes a quality score (0–100). Six GitHub Actions checks are built in: spell check, frontmatter validation, llms.txt consistency, banned phrase detection, orphan file detection, token budget enforcement.
+
+### One Plugin, 9 AI Tools
+
+The same skill library works with Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, and Goose — all knowledge is stored in plain Markdown.
+
+## Getting Started
+
+```bash
 /plugin marketplace add littlebearapps/lba-plugins
-
-# 2. Install PitchDocs
 /plugin install pitchdocs@lba-plugins
-
-# 3. Generate a README for any project
 /pitchdocs:readme
 ```
 
-That's it. You now have a professional, marketing-ready README.
-
-### Next Steps
+Want advisory features?
 
 ```bash
-# Generate more docs
-/pitchdocs:changelog              # From git history
-/pitchdocs:roadmap                # From GitHub milestones
-/pitchdocs:docs-audit fix         # Generate all missing docs at once
-/pitchdocs:docs-verify score      # Quality check with scoring
-/pitchdocs:features benefits      # Extract what's valuable in your code
-/pitchdocs:launch                 # Create Dev.to, HN, Reddit posts
-```
-
-### Optional: Enable Per-Project Advisory Features
-
-By default, PitchDocs commands work everywhere. But you can optionally enable project-specific doc standards, freshness checking, and quality awareness:
-
-```bash
-# Standard tier — install doc standards + awareness rules
 /pitchdocs:activate install
-
-# Strict tier — also adds content-filter-guard hook (Claude Code only)
-/pitchdocs:activate install strict
 ```
-
-This is useful for public repos that need marketing-grade docs, but skippable for private projects. You control which projects get which level.
-
-## Key Features
-
-- **10 signal categories** — scans exports, CLI commands, API endpoints, config, integrations, errors, auth, security, performance, accessibility
-- **Full docs suite** — README, CHANGELOG, ROADMAP, CONTRIBUTING, USER GUIDES, SECURITY, issue templates, PR templates, llms.txt
-- **Professional standards** — 4-question test, lobby principle, Time to Hello World targets
-- **GEO optimised** — structured for LLM citation (ChatGPT, Perplexity, Google AI)
-- **Quality scoring (0–100)** — 6-dimension grading across completeness, structure, freshness, link health, and evidence quality
-- **6 CI validation checks** — Spell check, frontmatter validation, llms.txt consistency, banned phrase detection, orphan file detection, and token budget enforcement
-- **Content filter protection** — handles Claude Code's API filter so you never hit HTTP 400
-- **Per-project advisory rules** — Optional document standards, awareness nudges, and freshness checking per project
-- **Multi-platform support** — GitHub, GitLab, Bitbucket with platform-specific badges and URLs
-- **9 AI tools** — Claude Code, OpenCode, Codex CLI, Cursor, Windsurf, Cline, Gemini CLI, Aider, Goose
-
-## Real-World Results
-
-PitchDocs has generated docs for:
-
-- **Untether** — Telegram bridge for AI coding agents ([see the README](https://github.com/littlebearapps/untether))
-- **Outlook Assistant** — MCP server for Outlook ([see the README](https://github.com/littlebearapps/outlook-assistant))
-- **PitchDocs itself** — This project's own README was generated with PitchDocs
-
-Users report:
-- 50% faster documentation creation
-- GitHub stars 2–3x higher than before PitchDocs-generated docs
-- More contributions (better README → more contributors understand the project)
-- Fewer "how do I use this?" GitHub issues (better docs → clearer onboarding)
-
-## How It Compares
-
-| Feature | PitchDocs | readmeai | Generic AI |
-|---------|-----------|----------|-----------|
-| Scans codebase for features | 10 categories + evidence | Basic scan | Prompt-dependent |
-| Full docs suite (20+ files) | One command | README only | One file at a time |
-| GEO / AI citation optimised | Yes | No | No |
-| Quality scoring (0–100) | Yes | No | No |
-| Cross-tool compatible | 9 AI tools | CLI only | Tool-specific |
 
 ## What's New in v2.1.0
 
-**Breaking Change:** AI context file management (AGENTS.md, CLAUDE.md, .cursorrules) has moved to [ContextDocs](https://github.com/littlebearapps/contextdocs). The `/pitchdocs:ai-context` and `/pitchdocs:context-guard` commands now redirect to ContextDocs. If you use these features, install ContextDocs separately.
-
-**New in v2.1.0:**
-- Per-project activation for advisory features (rules, agents, hooks)
-- 6 CI validation checks (spell, frontmatter, llms.txt, phrases, tokens, orphans)
-- Skill activation eval framework for routing accuracy (80%+ on all commands)
-- Enhanced user guides with Diataxis classification (tutorial, how-to, reference, explanation)
-- Launch artifacts generation (Dev.to, HN, Reddit, Twitter, awesome lists)
-
-See the [full roadmap](https://github.com/littlebearapps/pitchdocs/blob/main/ROADMAP.md) for what's planned.
-
-## Community
-
-Found a way to make generated docs even better? Contributions welcome. Check out:
-
-- [Good First Issues](https://github.com/littlebearapps/pitchdocs/labels/good%20first%20issue)
-- [Contributing Guide](https://github.com/littlebearapps/pitchdocs/blob/main/CONTRIBUTING.md)
-- [Issues](https://github.com/littlebearapps/pitchdocs/issues)
+- Per-project activation for advisory features
+- Activation eval suite (21 test scenarios, 80%+ target)
+- Plugin review fixes (version sync, hook exit codes)
 
 ---
 
-**PitchDocs v2.1.0 is open source (MIT)** — [GitHub](https://github.com/littlebearapps/pitchdocs) | [Docs](https://github.com/littlebearapps/pitchdocs/blob/main/docs/README.md) | [Getting Started](https://github.com/littlebearapps/pitchdocs/blob/main/docs/tutorials/build-your-first-docs-suite.md) | [Install](https://code.claude.com/docs/en/plugins)
-
-Star ⭐ on GitHub if you find it useful — it helps others discover it too. Questions? Open an [issue](https://github.com/littlebearapps/pitchdocs/issues) or join the [discussions](https://github.com/littlebearapps/pitchdocs/discussions).
+PitchDocs is open source (MIT) — made by [Little Bear Apps](https://littlebearapps.com). **Try it now:** `/pitchdocs:readme`
