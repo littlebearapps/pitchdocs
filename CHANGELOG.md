@@ -5,6 +5,21 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0](https://github.com/littlebearapps/pitchdocs/compare/v2.1.0...v2.2.0) (2026-03-15)
+
+
+### Added
+
+* full plugin review fixes — version sync, hook exit codes, stale references, eval coverage ([48dc592](https://github.com/littlebearapps/pitchdocs/commit/48dc592bef6d0ae5c3282a105e3da90937021405))
+* remove out-of-scope skill-authoring skill ([44ab591](https://github.com/littlebearapps/pitchdocs/commit/44ab5914f81b90cd78c7ff435b2f548b1880f926)), closes [#40](https://github.com/littlebearapps/pitchdocs/issues/40)
+
+
+### Documentation
+
+* refresh launch artifacts and bump guide versions for v2.1.0 ([#42](https://github.com/littlebearapps/pitchdocs/issues/42)) ([eed52d4](https://github.com/littlebearapps/pitchdocs/commit/eed52d47e754c67d29ba5f53a20e419e92db0675))
+* sync AI context files with context-updater agent and context-quality rule ([27b5fc8](https://github.com/littlebearapps/pitchdocs/commit/27b5fc887536d72453be13c21b06d7a134ea5ec9))
+* sync bridge files with corrected agent and rule counts ([525c470](https://github.com/littlebearapps/pitchdocs/commit/525c470bd34e77de4b1c6a094560429205a1f8e2))
+
 ## [Unreleased]
 
 ### Fixed
