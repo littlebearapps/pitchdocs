@@ -114,7 +114,7 @@ After fetching, use Edit tool to replace these placeholders:
 - `[INSERT CONTACT METHOD]` — project contact email or reporting URL
 - Verify the "Enforcement" section matches the project's governance structure
 
-**Why v3.0:** Clearer language, less US-centric phrasing, "Addressing and Repairing Harm" section aligned with restorative justice principles. Always use v3.0 for new projects.
+**Why v3.0:** Clearer language, less US-centric phrasing, "Addressing and Repairing Harm" section aligned with restorative justice principles. Always use v3.0 for new projects. **High-profile validation:** Django completed migration to v3.0 on 2026-04-15 — a strong credibility signal for the v3.0 default.
 
 **Fallback:** If the URL is unreachable, direct the user to https://www.contributor-covenant.org/version/3/0/code_of_conduct/ and ask them to download manually.
 
@@ -153,6 +153,8 @@ After fetching or creating the starter file, use Edit tool to customise in small
 - Security Updates (reference to CHANGELOG.md)
 
 ## .github/ISSUE_TEMPLATE/bug_report.yml
+
+> **GitHub Issue Forms updates (2026):** As of 2026-03-05, Issue Forms support an `attachments` field for required logs/screenshots/crash reports, and template files are sorted alphabetically in the picker — name files with leading numbers (`01-bug_report.yml`, `02-feature_request.yml`) if you need a specific order. Required fields now also work in **private repos**. Separately, the new "Issue Fields" structured-metadata feature entered public preview on 2026-03-12 — preview only; do not recommend yet for canonical templates.
 
 ```yaml
 name: Bug Report
@@ -215,6 +217,13 @@ body:
       label: Relevant logs
       description: Paste any relevant error messages or logs.
       render: shell
+  - type: attachments
+    id: artefacts
+    attributes:
+      label: Logs, screenshots, or crash reports
+      description: Drag and drop files (logs, screenshots, video) so we have everything needed to reproduce.
+    validations:
+      required: false
 ```
 
 ## .github/ISSUE_TEMPLATE/feature_request.yml
@@ -306,8 +315,17 @@ Closes #
 github: [username]
 # ko_fi: username
 # open_collective: project-name
+# patreon: project-name
+# polar: org-or-user        # developer-focused funding (added to GitHub's allowlist)
+# liberapay: project-name
+# tidelift: npm/package-name # npm:foo, pypi:foo, etc.
+# buy_me_a_coffee: username
+# thanks_dev: u/username     # GitHub Sponsors alternative
+# issuehunt: org/repo
 # custom: ["https://example.com/donate"]
 ```
+
+GitHub displays funding links from this file as a "Sponsor" button on the repository page. See [GitHub's customizing-your-repository docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository) for the full list of supported keys.
 
 ## SUPPORT.md
 

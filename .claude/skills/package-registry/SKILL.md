@@ -79,17 +79,20 @@ This section covers documentation-relevant aspects. The plugin does NOT create p
 
 - **OIDC trusted publishing went GA July 2025** — replaces long-lived tokens entirely
 - Classic tokens permanently revoked December 2025; granular tokens max 90 days
+- **Minimum versions (as of 2026):** npm CLI ≥ 11.5.1 and Node ≥ 22.14.0 — flag projects on older toolchains
 - Publishing with `--provenance` flag adds a **Sigstore badge** on npmjs.com linking to the exact source commit and build workflow
+- Provenance auto-generates from **GitHub Actions** and **GitLab CI**; **CircleCI is not supported**, and **private repositories cannot generate provenance**
 - Requires `id-token: write` permission in GitHub Actions
 - `repository.url` in package.json must exactly match the GitHub repo URL (case-sensitive)
 
 ### PyPI Trusted Publishing
 
 - **Trusted Publisher since April 2023** — first major registry to support OIDC
-- **Digital attestations (PEP 740) since November 2024** — Sigstore signing for package files
+- **PEP 740 digital attestations now default** — `pypa/gh-action-pypi-publish` auto-generates them on every publish via Trusted Publishing with no extra configuration. ~20k packages currently covered (see [are-we-pep740-yet](https://trailofbits.github.io/are-we-pep740-yet/))
 - "Verified details" sidebar badge appears automatically when trusted publisher is configured
 - Repository URL in `[project.urls]` must match the GitHub repo for verification
 - `pypa/gh-action-pypi-publish` handles publishing when configured as a trusted publisher
+- See [PEP 740](https://peps.python.org/pep-0740/) and [PyPI attestations docs](https://docs.pypi.org/attestations/) for the attestation manifest format
 
 ### What to Audit (Not Configure)
 

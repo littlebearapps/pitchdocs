@@ -20,12 +20,12 @@ No build, test, or deploy commands — this is a pure Markdown plugin. Lint with
 
 ## Key Paths
 
-- `.claude/skills/*/SKILL.md`: 16 reference knowledge modules
+- `.claude/skills/*/SKILL.md`: 15 reference knowledge modules. Follows the [Agent Skills](https://agentskills.io) open standard. 6 skills are also user-invocable as slash commands per Claude Code's skill/command merge.
 - `.claude/agents/*.md`: 3 pipeline agents (docs-writer, docs-researcher, docs-reviewer)
 - `.claude/rules/content-filter.md`: 1 globally auto-loaded rule; `.claude/rules/doc-standards.md`, `.claude/rules/docs-awareness.md`: 2 installed auto-loaded rules
 - `rules/*.md`: 2 installable rules (doc-standards, docs-awareness — installed per-project by `/pitchdocs:activate`)
 - `agents/docs-freshness.md`: 1 installable agent (freshness checker — installed per-project by `/pitchdocs:activate`)
-- `commands/*.md`: 16 command definitions (14 active + 2 stubs)
+- `commands/*.md`: 10 command definitions (8 active + 2 stubs); 14 user-invocable slash commands in total (8 from `commands/` + 6 from skills).
 - `hooks/content-filter-guard.sh`: content filter write guard (Claude Code only, installed by `/pitchdocs:activate install strict`)
 - `.claude-plugin/plugin.json`: plugin manifest
 - `upstream-versions.json`: pinned upstream spec versions

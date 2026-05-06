@@ -1,10 +1,25 @@
 ---
 name: llms-txt
 description: Generates llms.txt and llms-full.txt files following the llmstxt.org specification. Provides LLM-friendly content curation for AI coding assistants (Cursor, Windsurf, Claude Code) and AI search engines. Use when generating or updating llms.txt for a repository.
+argument-hint: "[path or 'full' to include llms-full.txt]"
+allowed-tools: Read Glob Grep Bash Write Edit
 version: "1.0.0"
 ---
 
 # llms.txt Generator
+
+## Invocation
+
+Generate `llms.txt` (and optionally `llms-full.txt`) following the [llmstxt.org](https://llmstxt.org/) specification. Provides AI coding assistants and search engines with a structured index of project documentation.
+
+1. Load the `doc-standards` rule for description quality
+2. Read the project manifest (`package.json`, `pyproject.toml`, etc.) for name and description
+3. Scan the repository for documentation files: README, `docs/`, API reference, guides, examples, supporting (CONTRIBUTING, CHANGELOG, SECURITY, CODE_OF_CONDUCT, ROADMAP, LICENSE)
+4. Write benefit-focused descriptions for each file (not just file names)
+5. Assemble `llms.txt`: H1 from project name, blockquote summary, H2 sections by category, `## Optional` for supporting files
+6. If `full` argument: concatenate all referenced files into `llms-full.txt`
+
+**Arguments:** No arguments → `llms.txt` only. `full` → both `llms.txt` and `llms-full.txt`. Path argument → generate for a specific project directory.
 
 Generate structured, LLM-friendly content indexes following the [llmstxt.org](https://llmstxt.org/) specification.
 

@@ -444,7 +444,7 @@ This creates Dev.to articles, Hacker News posts, Reddit posts, and Twitter threa
 
 Learn more about what PitchDocs can do:
 
-- [Command Reference](../guides/command-reference.md) — All 16 commands with arguments and examples
+- [Command Reference](../guides/command-reference.md) — All 14 user-invocable slash commands with arguments and examples
 - [Workflows](../guides/workflows.md) — Recipes for releases, launches, and maintenance
 - [Customising Output](../guides/customising-output.md) — How to steer documentation toward your vision
 - [How PitchDocs Thinks](../guides/concepts.md) — Design frameworks and philosophies

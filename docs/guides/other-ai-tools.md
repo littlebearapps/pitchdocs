@@ -84,18 +84,18 @@ The source of truth lives in `.claude/`. Here's what each piece does:
 
 Not all PitchDocs features work in every tool. Here's what's portable and what's Claude Code-specific:
 
-| Feature | Claude Code | OpenCode | Codex CLI | Cursor / Windsurf / Cline / Gemini CLI |
+| Feature | Claude Code | OpenCode | Codex CLI | Cursor 2.6+ / Windsurf / Cline / Gemini CLI / Antigravity 1.20+ |
 |---------|------------|----------|-----------|----------------------------------------|
-| Skills (16 SKILL.md files) | Native | Native (`.claude/skills/` fallback) | Copy to `.agents/skills/` | Reference on demand |
-| Slash commands (16) | Native | Native (`.claude/commands/` fallback) | Copy to prompts | Not supported |
+| Skills (15 SKILL.md files) | Native | Native (`.claude/skills/` fallback) | Native (`.agents/skills/`) | Gemini CLI v0.25+: native (`skills/` in extension); others: reference on demand |
+| Slash commands (14 user-invocable: 8 + 6 from skills) | Native | Native (`.claude/commands/` fallback) | Copy to prompts | Not supported |
 | Docs-writer agent | Native | Likely supported | Reference manually | Cursor: `.cursor/agents/` |
 | Doc-standards rule | Per-project (`/pitchdocs:activate`) | Copy to context | Copy to context | Cursor: `.cursor/rules/`; others: copy to context file |
 | Content-filter rule | Auto-loaded | Copy to context | Copy to context | Copy to tool-specific context file |
 | Docs-awareness rule | Per-project (`/pitchdocs:activate`) | Not applicable | Not applicable | Not applicable |
 | Docs-freshness agent | Per-project (`/pitchdocs:activate`) | Not supported | Not supported | Not supported |
 | Content filter hook | Per-project (`/pitchdocs:activate install strict`) | Not supported | Not supported | Not supported |
-| AGENTS.md | Loaded | Primary context file | Primary context file | Not used |
-| CLAUDE.md | Loaded | Fallback (if no AGENTS.md) | Not used | Not used |
+| AGENTS.md (cross-tool standard) | Loaded via `@AGENTS.md` import in CLAUDE.md | Primary context file | Primary context file | Cursor 2.6+: primary; Antigravity 1.20+: primary; Gemini CLI / Cline / Windsurf: bridge file |
+| CLAUDE.md | Auto-loaded | Fallback (if no AGENTS.md) | Not used | Not used |
 
 ---
 

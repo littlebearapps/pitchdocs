@@ -1,6 +1,6 @@
 # PitchDocs
 
-Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) with 15 skills, 4 agents (3 pipeline + 1 per-project), 3 auto-loaded rules (1 global + 2 installed), 2 installable rule templates, 16 slash commands (14 active + 2 stubs), 1 opt-in hook, and 24 eval test cases. This repo also has ContextDocs installed, which adds the `context-updater` agent and `context-quality.md` rule.
+Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs is a Claude Code plugin (pure Markdown, zero runtime dependencies) following the [Agent Skills](https://agentskills.io) open standard, with 15 skills, 4 agents (3 pipeline + 1 per-project), 3 auto-loaded rules (1 global + 2 installed), 2 installable rule templates, 10 slash commands (8 active + 2 stubs — plus 6 of the 15 skills are also user-invocable as `/changelog`, `/roadmap`, `/visual-standards`, `/docs-verify`, `/doc-refresh`, `/llms-txt`), 1 opt-in hook, and 24 eval test cases. This repo also has ContextDocs installed, which adds the `context-updater` agent and `context-quality.md` rule.
 
 ## Project Architecture
 
@@ -8,7 +8,7 @@ This is a **100% Markdown-based plugin** — no JavaScript, no Python, no build 
 
 ```
 .claude-plugin/plugin.json      → Plugin manifest (name, version, keywords)
-.claude/skills/*/SKILL.md       → 16 reference knowledge modules (loaded on-demand)
+.claude/skills/*/SKILL.md       → 15 reference knowledge modules (loaded on-demand; 6 also work as user-invoked slash commands)
 .claude/agents/docs-writer.md   → Orchestration agent (coordinates researcher → write → reviewer pipeline)
 .claude/agents/docs-researcher.md → Codebase discovery and feature extraction agent
 .claude/agents/docs-reviewer.md → Post-generation quality validation agent
@@ -22,7 +22,7 @@ rules/doc-standards.md          → Quality standards (installed per-project by 
 rules/docs-awareness.md         → Documentation trigger map (installed per-project by /pitchdocs:activate)
 agents/docs-freshness.md        → Freshness checker agent (installed per-project by /pitchdocs:activate)
 agents/docs-writer-flat.md      → Portable docs-writer agent (single-file pipeline for non-Claude Code tools)
-commands/*.md                   → 16 slash command definitions (14 active + 2 stubs redirecting to ContextDocs)
+commands/*.md                   → 10 slash command definitions (8 active + 2 stubs redirecting to ContextDocs); 6 additional slash commands resolve from `.claude/skills/` per Claude Code skill/command merge
 hooks/*.sh                      → 1 opt-in hook script (Claude Code only, installed by /pitchdocs:activate install strict)
 pitchdocs.json                  → Platform-neutral manifest (machine-readable skill/command/agent index)
 scripts/build-dist.sh           → Generates dist/ packages for 8 platforms from canonical .claude/ sources

@@ -2,7 +2,7 @@
 
 **Mission:** Turn any codebase into professional, marketing-ready repository documentation — powered by AI coding assistants.
 
-PitchDocs is a pure Markdown plugin with 15 skills, 4 agents (3 pipeline + 1 per-project freshness checker), 1 auto-loaded rule + 2 installable rules, 16 commands (14 active + 2 stubs), and 21 evaluation test cases. This roadmap outlines completed work, current priorities, and future directions.
+PitchDocs is a pure Markdown plugin with 15 skills, 4 agents (3 pipeline + 1 per-project freshness checker), 1 auto-loaded rule + 2 installable rules, 10 commands (8 active + 2 stubs — plus 6 skills user-invocable as commands), and 24 evaluation test cases. Follows the [Agent Skills](https://agentskills.io) open standard. This roadmap outlines completed work, current priorities, and future directions.
 
 ---
 

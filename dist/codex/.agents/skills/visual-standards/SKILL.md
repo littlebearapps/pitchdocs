@@ -1,10 +1,22 @@
 ---
 name: visual-standards
 description: Visual formatting standards for repository documentation — emoji heading prefixes, horizontal rules, TOC anchors, callouts, screenshots (device dimensions, HTML patterns, captions, shadows), and image optimisation. Load when generating READMEs with visual elements or working with screenshots.
+argument-hint: "[topic: 'screenshots', 'emoji', 'captions', or general]"
+allowed-tools: Read Glob Grep
 version: "1.0.0"
 ---
 
 # Visual Standards
+
+## Invocation
+
+Load visual formatting reference for emoji heading prefixes, horizontal rules, TOC anchors, callouts, screenshot dimensions, HTML patterns, captions, shadows, and image optimisation.
+
+**Use when:**
+- Adding screenshots or demo GIFs to a README
+- Setting up emoji heading prefixes for a long README
+- Checking device-specific capture dimensions
+- Working with captions, shadows, or image annotations
 
 ## Emoji Heading Prefixes
 
@@ -71,3 +83,20 @@ Reserve GitHub callout syntax for GitHub-only documents (issue templates, PR tem
 ## Screenshots & Device Images
 
 For device-specific capture dimensions, HTML display patterns, retina handling, annotation conventions, captions, shadows/borders, browser chrome, file naming, and optimisation guidance, load `SKILL-reference.md` from this skill directory.
+
+## Diagrams (Mermaid)
+
+Mermaid renders natively on GitHub and GitLab; npm and PyPI strip it. For multi-renderer READMEs, **pre-render to SVG/PNG and reference the static asset** — the Mermaid source can live alongside in `docs/diagrams/` for editability.
+
+| Diagram type | When to use |
+|--------------|-------------|
+| `flowchart` | Decision trees, control flow, data pipelines |
+| `sequenceDiagram` | API call traces, request/response timing |
+| `classDiagram` | Type relationships, ORM mappings |
+| `stateDiagram-v2` | State machines, lifecycle docs |
+| `gitGraph` | Branch strategy / release flow visualisation |
+| `wardleyMap` | Strategy diagrams — capability evolution from genesis → custom → product → commodity (Mermaid 11+) |
+
+**Styling:** Mermaid 2026's "neo look" refresh applies cleaner defaults to flowchart, class, sequence, state, and gitGraph diagrams. To opt into the new defaults explicitly, set `%%{init: {"look": "neo"}}%%` at the top of the diagram block. To keep the classic look across versions, use `"look": "classic"`.
+
+**GitHub theme handling:** GitHub auto-syncs the Mermaid theme to dark mode **only when no `%%{init}%%` theme is set**. If you pin a theme, light/dark mode users see the same colours — verify both in preview before merging.

@@ -29,6 +29,7 @@
     "hooks",
     "gitlab",
     "bitbucket",
-    "multi-platform"
+    "multi-platform",
+    "agent-skills"
   ]
 }

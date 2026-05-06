@@ -1,10 +1,28 @@
 ---
 name: docs-verify
 description: Validates documentation quality and freshness — checks for broken links, stale content, llms.txt sync, image issues, heading hierarchy, and badge URLs. Runs locally or in CI. Use to catch documentation decay before it reaches users.
+argument-hint: "[links|freshness|ci|score] or --min-score N"
+allowed-tools: Read Glob Grep Bash
 version: "1.5.0"
 ---
 
 # Documentation Verifier
+
+## Invocation
+
+Validate that documentation remains accurate, linked, and fresh over time. Catches broken links, stale content, and llms.txt drift before they reach users.
+
+1. Scan all Markdown files in the repository
+2. Run the requested checks (or all checks if no arguments)
+3. Report findings with severity levels and a numeric quality score (0–100)
+
+**Arguments:**
+- No arguments → run all checks
+- `links` → link validation only
+- `freshness` → staleness check only (git blame-based)
+- `ci` → all checks, CI-friendly format (exit code 1 on errors, file:line)
+- `score` → run all checks, output the quality score only
+- `--min-score N` → fail if quality score falls below N (CI gate)
 
 ## Philosophy
 

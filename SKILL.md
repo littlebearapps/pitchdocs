@@ -18,7 +18,7 @@ tags:
 
 PitchDocs is a pure Markdown Claude Code plugin that scans any codebase and generates professional, marketing-ready repository documentation. Every feature claim traces to an actual file path — no hallucinated marketing copy.
 
-15 skills, 16 slash commands (14 active + 2 stubs), 4 agents (3 pipeline + 1 per-project freshness checker), 1 auto-loaded rule + 2 installable rules, 1 opt-in hook. 100% Markdown, zero runtime dependencies, MIT licensed.
+15 skills (6 of which also work as user-invoked slash commands), 10 slash commands (8 active + 2 stubs), 4 agents (3 pipeline + 1 per-project freshness checker), 1 auto-loaded rule + 2 installable rules, 1 opt-in hook. Follows the [Agent Skills](https://agentskills.io) open standard. 100% Markdown, zero runtime dependencies, MIT licensed.
 
 ## When to Use
 

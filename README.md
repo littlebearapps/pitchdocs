@@ -20,6 +20,7 @@
   <a href="https://code.claude.com/docs/en/plugins"><img src="https://img.shields.io/badge/Claude_Code-Plugin-D97757?logo=claude&logoColor=white" alt="Claude Code Plugin" /></a>
   <a href="https://opencode.ai/"><img src="https://img.shields.io/badge/OpenCode-Compatible-22c55e" alt="OpenCode Compatible" /></a>
   <a href="https://www.npmjs.com/"><img src="https://img.shields.io/badge/npm_%26_PyPI-Ready-cb3837" alt="npm & PyPI Ready" /></a>
+  <a href="https://agentskills.io"><img src="https://img.shields.io/badge/Agent_Skills-Compliant-7c3aed" alt="Agent Skills Compliant" /></a>
   <a href="https://github.com/littlebearapps/pitchdocs/stargazers"><img src="https://img.shields.io/github/stars/littlebearapps/pitchdocs?style=flat&color=yellow" alt="GitHub Stars" /></a>
   <a href="https://github.com/littlebearapps/pitchdocs/graphs/contributors"><img src="https://img.shields.io/github/contributors/littlebearapps/pitchdocs?color=blue" alt="Contributors" /></a>
 </p>
@@ -116,7 +117,7 @@ Learn PitchDocs through tutorials, guides, and reference docs. Pick your path:
 |-----------|----------|
 | **Learn by doing** | [Build Your First Docs Suite](docs/tutorials/build-your-first-docs-suite.md) — 20-minute hands-on tutorial |
 | **Understand how it works** | [How PitchDocs Thinks](docs/guides/concepts.md) — Design rationale, frameworks, and philosophy |
-| **See all commands** | [Command Reference](docs/guides/command-reference.md) — All 16 commands with arguments and examples |
+| **See all commands** | [Command Reference](docs/guides/command-reference.md) — All 14 user-invocable slash commands with arguments and examples |
 | **Solve a problem** | [Troubleshooting & FAQ](docs/guides/troubleshooting.md) — Common issues and solutions |
 | **Find a workflow** | [Workflow Cookbook](docs/guides/workflows.md) — Recipes for public-ready repos, releases, and launches |
 | **Explore everything** | [Full Documentation Hub](docs/README.md) — All guides organised by learning type (tutorial, how-to, reference, explanation) |

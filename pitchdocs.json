@@ -107,34 +107,14 @@
       "description": "Extract features and benefits from a codebase"
     },
     {
-      "name": "changelog",
-      "path": "commands/changelog.md",
-      "description": "Generate or update CHANGELOG.md from git history"
-    },
-    {
-      "name": "roadmap",
-      "path": "commands/roadmap.md",
-      "description": "Generate or update ROADMAP.md from milestones and issues"
-    },
-    {
       "name": "docs-audit",
       "path": "commands/docs-audit.md",
       "description": "Audit repository documentation completeness and quality"
     },
     {
-      "name": "docs-verify",
-      "path": "commands/docs-verify.md",
-      "description": "Verify documentation quality, links, freshness, and consistency"
-    },
-    {
       "name": "launch",
       "path": "commands/launch.md",
       "description": "Generate platform-specific launch and promotion artifacts"
-    },
-    {
-      "name": "llms-txt",
-      "path": "commands/llms-txt.md",
-      "description": "Generate llms.txt and llms-full.txt for LLM-friendly content curation"
     },
     {
       "name": "user-guide",
@@ -147,19 +127,9 @@
       "description": "Detect hosting platform and report PitchDocs feature support"
     },
     {
-      "name": "doc-refresh",
-      "path": "commands/doc-refresh.md",
-      "description": "Refresh documentation after version bumps or periodic maintenance"
-    },
-    {
       "name": "geo",
       "path": "commands/geo.md",
       "description": "Load GEO optimisation patterns for AI citation"
-    },
-    {
-      "name": "visual-standards",
-      "path": "commands/visual-standards.md",
-      "description": "Load visual formatting standards for screenshots and emoji headings"
     },
     {
       "name": "activate",

@@ -6,10 +6,10 @@ PitchDocs is a Claude Code plugin that generates marketing-quality repository do
 
 ## Architecture
 
-- Skills (16): `.claude/skills/*/SKILL.md` — reference knowledge loaded on-demand
+- Skills (15): `.claude/skills/*/SKILL.md` — reference knowledge loaded on-demand. Follows [Agent Skills](https://agentskills.io). 6 are also user-invocable as slash commands.
 - Agents (4): `.claude/agents/*.md` — docs-writer, docs-researcher, docs-reviewer; `agents/docs-freshness.md` (installed per-project by `/pitchdocs:activate`)
 - Rules (3 auto-loaded + 2 installable): `.claude/rules/content-filter.md` (global); `.claude/rules/doc-standards.md`, `.claude/rules/docs-awareness.md` (installed auto-loaded); `rules/doc-standards.md`, `rules/docs-awareness.md` (installed per-project by `/pitchdocs:activate`)
-- Commands (16): `commands/*.md` — 14 active + 2 stubs redirecting to [ContextDocs](https://github.com/littlebearapps/contextdocs)
+- Commands (10): `commands/*.md` — 8 active + 2 stubs redirecting to [ContextDocs](https://github.com/littlebearapps/contextdocs). 14 user-invocable slash commands in total (8 from `commands/` + 6 from skills).
 - Hooks (1 opt-in): `hooks/content-filter-guard.sh` — installed per-project by `/pitchdocs:activate install strict` (Claude Code only)
 
 ## Coding Standards

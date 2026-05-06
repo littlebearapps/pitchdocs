@@ -1,11 +1,26 @@
 ---
 name: changelog
 description: Generates user-friendly changelogs from git history using conventional commits. Writes entries in benefit language ("You can now..." not "Refactored internal..."). Follows Keep a Changelog format. Use when creating or updating CHANGELOG.md.
+argument-hint: "[version or 'full' for complete history]"
+allowed-tools: Read Glob Grep Bash Write Edit mcp__github__list_releases mcp__github__list_commits mcp__github__list_tags mcp__github__list_pull_requests
 version: "1.0.0"
 upstream: "keep-a-changelog@1.1.1"
 ---
 
 # Changelog Generator
+
+## Invocation
+
+Generate or update CHANGELOG.md using conventional commits and user-benefit language.
+
+1. Load the `doc-standards` rule for tone
+2. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather equivalent data via `glab` CLI, REST API, or git history. Load `platform-profiles` for compare URL patterns.
+3. Analyse git history — parse conventional commits, identify tagged releases, map to issues/PRs
+4. Classify changes into Keep a Changelog categories
+5. Rewrite commit messages in user-benefit language
+6. Write to `CHANGELOG.md`, preserving existing entries when updating
+
+**Arguments:** No arguments → updates `[Unreleased]` only. Version (e.g. `1.3.0`) → entry for that tag. `full` → regenerate the entire changelog from all tags.
 
 ## Format: Keep a Changelog
 

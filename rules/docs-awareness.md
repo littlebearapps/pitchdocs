@@ -1,6 +1,14 @@
+---
+name: docs-awareness
+description: Documentation trigger map — surface PitchDocs commands at the right documentation moments (file edits, version bumps, release prep). Advisory; never blocks work.
+paths: README.md, CHANGELOG.md, ROADMAP.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, SUPPORT.md, docs/**, llms.txt, llms-full.txt, .github/ISSUE_TEMPLATE/**, .github/PULL_REQUEST_TEMPLATE.md, FUNDING.yml
+---
+
 # Documentation Awareness
 
 When working on a project with PitchDocs installed, recognise documentation-relevant moments and suggest the appropriate command. This is advisory — never block work, just surface the right tool at the right time.
+
+> **Path scoping:** This rule's `paths:` frontmatter scopes auto-activation to documentation files. On Claude Code versions that honour the field, the trigger map only fires when one of those files is edited; conceptual triggers (version bumps, release prep, "release-please discussion") still apply when Claude is reasoning over the broader workspace context. On older Claude Code versions, the rule loads globally as before.
 
 ## Documentation Trigger Map
 

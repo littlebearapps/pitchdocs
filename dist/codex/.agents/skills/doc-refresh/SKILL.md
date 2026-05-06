@@ -1,10 +1,35 @@
 ---
 name: doc-refresh
 description: Orchestrates documentation updates after version bumps, feature additions, or periodic maintenance. Analyses git history since the last release, identifies which docs are affected, and delegates to existing skills (changelog, feature-benefits, docs-verify, llms-txt, user-guides) for selective refresh. Delegates AI context updates to ContextDocs if installed. Use when releasing a new version or refreshing stale docs.
+argument-hint: "[version, range (v1.5.0..v1.7.0), plan, changelog, readme, guides, context, release-notes, full]"
+allowed-tools: Read Glob Grep Bash Write Edit WebFetch mcp__github__list_releases mcp__github__list_commits mcp__github__list_tags mcp__github__list_pull_requests mcp__github__list_issues mcp__github__get_file_contents
 version: "1.0.0"
 ---
 
 # Doc Refresh
+
+## Invocation
+
+Refresh existing documentation to reflect the current state of the codebase. Analyses git history since the last release, identifies what changed, and surgically updates only the affected docs.
+
+1. Load the `doc-standards` rule for tone and quality
+2. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather data via `glab` CLI, REST API, or git history. Load `platform-profiles` for CI/CD equivalents.
+3. Detect the change boundary (latest tag, provided version, or range)
+4. Parse conventional commits and classify changes by type and doc impact
+5. Detect file-level changes to identify which areas changed
+6. Build a refresh plan mapping changes to doc updates
+7. Execute the plan, loading affiliated skills as needed: `changelog`, `feature-benefits`, `user-guides`, ContextDocs (if installed) for AI context drift, `llms-txt`, `package-registry`, `docs-verify`
+8. Report what was updated and the quality score
+
+**Arguments:**
+- No arguments → detect latest tag, refresh all affected docs
+- Version (e.g. `1.7.0`) → refresh docs for a specific release
+- Range (e.g. `v1.5.0..v1.7.0`) → refresh for a range
+- `plan` → dry run; report what needs refreshing
+- `changelog`, `readme`, `guides`, `context`, `release-notes` → scoped refresh
+- `full` → refresh everything regardless of detected changes
+
+**Release-Please integration:** run `/doc-refresh` before merging a release-please PR to enhance CHANGELOG entries with benefit language and refresh README features and metrics. release-please owns version strings; `/doc-refresh` owns prose, features, metrics, user guides, and llms.txt.
 
 ## Philosophy
 

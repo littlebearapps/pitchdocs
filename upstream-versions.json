@@ -6,7 +6,7 @@
       "url": "https://keepachangelog.com/en/1.1.1/",
       "repo": "olivierlacan/keep-a-changelog",
       "check_url": "https://raw.githubusercontent.com/olivierlacan/keep-a-changelog/main/CHANGELOG.md",
-      "last_verified": "2026-02-25",
+      "last_verified": "2026-05-06",
       "stability": "frozen"
     },
     "contributor-covenant": {
@@ -14,15 +14,16 @@
       "url": "https://www.contributor-covenant.org/version/3/0/code_of_conduct/",
       "repo": "EthicalSource/contributor_covenant",
       "check_url": "https://api.github.com/repos/EthicalSource/contributor_covenant/releases/latest",
-      "last_verified": "2026-02-25",
-      "stability": "slow — every 3-4 years"
+      "last_verified": "2026-05-06",
+      "stability": "slow — every 3-4 years",
+      "notes": "Django adopted v3.0 on 2026-04-15 — high-profile credibility signal for default selection."
     },
     "conventional-commits": {
       "version": "1.0.0",
       "url": "https://www.conventionalcommits.org/en/v1.0.0/",
       "repo": "conventional-commits/conventionalcommits.org",
       "check_url": "https://api.github.com/repos/conventional-commits/conventionalcommits.org/releases/latest",
-      "last_verified": "2026-02-25",
+      "last_verified": "2026-05-06",
       "stability": "frozen"
     },
     "semantic-versioning": {
@@ -30,7 +31,7 @@
       "url": "https://semver.org/",
       "repo": "semver/semver",
       "check_url": "https://api.github.com/repos/semver/semver/releases/latest",
-      "last_verified": "2026-02-25",
+      "last_verified": "2026-05-06",
       "stability": "frozen"
     },
     "github-issue-forms": {
@@ -38,24 +39,36 @@
       "url": "https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema",
       "repo": null,
       "check_url": null,
-      "last_verified": "2026-02-25",
-      "stability": "evolving — still in public preview"
+      "last_verified": "2026-05-06",
+      "stability": "evolving — still in public preview",
+      "notes": "Issue Forms gained `attachments` field and alphabetical template ordering on 2026-03-05. 'Issue Fields' (structured metadata) entered public preview on 2026-03-12."
     },
     "npm-trusted-publishing": {
       "version": "2025-07",
       "url": "https://docs.npmjs.com/generating-provenance-statements",
       "repo": null,
       "check_url": null,
-      "last_verified": "2026-02-25",
-      "stability": "evolving — GA July 2025"
+      "last_verified": "2026-05-06",
+      "stability": "evolving — GA July 2025",
+      "notes": "Now requires npm CLI ≥ 11.5.1 and Node ≥ 22.14.0. Provenance auto-generates from GitHub Actions and GitLab CI. CircleCI and private repos NOT supported."
     },
     "pypi-trusted-publishers": {
       "version": "2023-04",
       "url": "https://docs.pypi.org/trusted-publishers/",
       "repo": null,
       "check_url": null,
-      "last_verified": "2026-02-25",
-      "stability": "evolving — feature additions expected"
+      "last_verified": "2026-05-06",
+      "stability": "evolving — feature additions expected",
+      "notes": "Trusted Publishing + the canonical pypa/gh-action-pypi-publish action now auto-generates PEP 740 attestations with no extra config; ~20k packages currently covered. See https://peps.python.org/pep-0740/ and https://docs.pypi.org/attestations/."
+    },
+    "agent-skills": {
+      "version": "1.0",
+      "url": "https://agentskills.io/specification",
+      "repo": "agentskills/agentskills",
+      "check_url": "https://api.github.com/repos/agentskills/agentskills/releases/latest",
+      "last_verified": "2026-05-06",
+      "stability": "evolving — newly ratified",
+      "notes": "Cross-tool skill spec (name, description, license, compatibility, metadata, allowed-tools). Adopted by Claude Code, Codex CLI (.agents/skills/), Gemini CLI, Cursor, and others."
     }
   }
 }

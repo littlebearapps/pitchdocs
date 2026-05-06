@@ -16,7 +16,7 @@
 - [Tutorial: Build Your First Documentation Suite](./docs/tutorials/build-your-first-docs-suite.md): Hands-on 20-minute journey — walk through generating README, changelog, guides, and verification on a real project
 - [Getting Started Guide](./docs/guides/getting-started.md): Step-by-step installation, first README generation, and full command walkthrough (5 minutes)
 - [Workflow Recipes](./docs/guides/workflows.md): Copy-paste-ready workflows for public-ready repos, releases, launches, and docs maintenance
-- [Command Reference](./docs/guides/command-reference.md): All 16 commands with arguments, generated files, cross-tool support, and examples
+- [Command Reference](./docs/guides/command-reference.md): All 14 user-invocable slash commands (8 from `commands/` + 6 from `.claude/skills/`) with arguments, generated files, cross-tool support, and examples
 - [Customising Output Guide](./docs/guides/customising-output.md): Steer PitchDocs — prompt patterns, tone control, monorepo support, iterative refinement
 - [Concepts Guide](./docs/guides/concepts.md): How PitchDocs thinks — evidence-based features, GEO, 4-question test, Diataxis, Lobby Principle, Time to Hello World
 - [Troubleshooting & FAQ](./docs/guides/troubleshooting.md): Content filter errors, quality score interpretation, feature extraction issues, badge failures, cross-tool limitations
@@ -61,22 +61,29 @@
 
 ## Slash Commands
 
+PitchDocs has 14 user-invocable slash commands: 8 from `commands/` plus 6 from `.claude/skills/` (skill names resolve as commands per Claude Code's skill/command merge — see [Skills docs](https://code.claude.com/docs/en/skills)).
+
+### From `commands/` (8 active + 2 stubs)
+
 - [/pitchdocs:readme](./commands/readme.md): Generate or update a marketing-friendly README.md — supports --review (force review) and --no-review (skip review) flags
 - [/pitchdocs:features](./commands/features.md): Extract features from code and translate to user benefits — auto-scan or conversational path
-- [/pitchdocs:changelog](./commands/changelog.md): Generate CHANGELOG.md from git history with benefit-driven language
-- [/pitchdocs:roadmap](./commands/roadmap.md): Generate ROADMAP.md from GitHub milestones with emoji indicators
 - [/pitchdocs:docs-audit](./commands/docs-audit.md): Audit docs completeness against 20+ file checklist with Diataxis coverage
-- [/pitchdocs:llms-txt](./commands/llms-txt.md): Generate llms.txt and llms-full.txt for AI discoverability
 - [/pitchdocs:user-guide](./commands/user-guide.md): Generate task-oriented user guides with Diataxis classification in docs/guides/
-- [/pitchdocs:docs-verify](./commands/docs-verify.md): Verify documentation links, freshness, llms.txt sync, badge URLs, quality score, and security
 - [/pitchdocs:launch](./commands/launch.md): Generate platform-specific launch artifacts — Dev.to articles, HN posts, Reddit posts, Twitter threads, awesome lists
-- [/pitchdocs:doc-refresh](./commands/doc-refresh.md): Refresh all docs after version bumps — CHANGELOG, README features, user guides, llms.txt
 - [/pitchdocs:platform](./commands/platform.md): Detect hosting platform (GitHub/GitLab/Bitbucket) and report feature support
-- [/pitchdocs:visual-standards](./commands/visual-standards.md): Load visual formatting standards for screenshots, emoji headings, image specs
 - [/pitchdocs:geo](./commands/geo.md): Load GEO optimisation patterns for AI citation — capsules, definitions, atomic sections
 - [/pitchdocs:activate](./commands/activate.md): Install, uninstall, or check status of per-project PitchDocs features — rules, agent, and hook
 - [/pitchdocs:ai-context](./commands/ai-context.md): Stub — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for AI context file management
 - [/pitchdocs:context-guard](./commands/context-guard.md): Stub — redirects to [ContextDocs](https://github.com/littlebearapps/contextdocs) for Context Guard hooks
+
+### From `.claude/skills/` (6 user-invocable skills)
+
+- [/pitchdocs:changelog](./.claude/skills/changelog/SKILL.md): Generate CHANGELOG.md from git history with benefit-driven language
+- [/pitchdocs:roadmap](./.claude/skills/roadmap/SKILL.md): Generate ROADMAP.md from GitHub milestones with emoji indicators
+- [/pitchdocs:llms-txt](./.claude/skills/llms-txt/SKILL.md): Generate llms.txt and llms-full.txt for AI discoverability
+- [/pitchdocs:docs-verify](./.claude/skills/docs-verify/SKILL.md): Verify documentation links, freshness, llms.txt sync, badge URLs, quality score, and security
+- [/pitchdocs:doc-refresh](./.claude/skills/doc-refresh/SKILL.md): Refresh all docs after version bumps — CHANGELOG, README features, user guides, llms.txt
+- [/pitchdocs:visual-standards](./.claude/skills/visual-standards/SKILL.md): Load visual formatting standards for screenshots, emoji headings, image specs
 
 ## Launch Artifacts
 

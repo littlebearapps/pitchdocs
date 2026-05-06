@@ -1,10 +1,25 @@
 ---
 name: roadmap
 description: Generates ROADMAP.md from project milestones, issues, and boards (GitHub, GitLab, or Bitbucket). Structures content with mission statement, current milestone progress, upcoming milestones, and community involvement section. Use when creating or updating a project roadmap.
+argument-hint: "[milestone name or 'full' for complete roadmap]"
+allowed-tools: Read Glob Grep Bash Write Edit mcp__github__list_issues mcp__github__list_pull_requests mcp__github__list_releases mcp__github__list_tags mcp__github__search_issues
 version: "1.0.0"
 ---
 
 # Roadmap Generator
+
+## Invocation
+
+Generate or update ROADMAP.md from milestones, issues, and project boards.
+
+1. Load the `doc-standards` rule for tone
+2. If GitHub MCP tools are unavailable (GitLab/Bitbucket), gather data via `glab` CLI, REST API, or git history. Load `platform-profiles` for CLI equivalents.
+3. Gather data: milestones and their issues, issues labelled `enhancement`/`feature`, recent releases/tags, README/manifest for mission statement
+4. Structure into current, upcoming, and completed milestones
+5. Add mission statement and "How to get involved" section
+6. Write to `ROADMAP.md`
+
+**Arguments:** No arguments → full roadmap. Milestone name → focuses on a specific milestone. `full` → regenerates from scratch.
 
 ## ROADMAP.md Structure
 

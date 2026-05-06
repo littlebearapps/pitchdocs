@@ -1,6 +1,6 @@
 # PitchDocs
 
-Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs creates READMEs that sell, changelogs that communicate value, roadmaps from GitHub milestones, and audits your docs completeness — with GEO-optimised structure for AI citation and launch artifacts for promotion. For AI context file management, see [ContextDocs](https://github.com/littlebearapps/contextdocs).
+Generate high-quality public-facing repository documentation with a marketing edge. PitchDocs follows the [Agent Skills](https://agentskills.io) open standard and creates READMEs that sell, changelogs that communicate value, roadmaps from GitHub milestones, and audits your docs completeness — with GEO-optimised structure for AI citation and launch artifacts for promotion. For AI context file management, see [ContextDocs](https://github.com/littlebearapps/contextdocs).
 
 ## Documentation Standards
 
