@@ -24,6 +24,7 @@ Welcome to PitchDocs documentation. Learn PitchDocs through tutorials, guides, r
 
 ### 🆘 **Stuck?** → Find answers
 
+- **[Frequently Asked Questions](faq/index.md)** — Quick answers on installation, AI tool support, data privacy, monorepos, updates, and uninstall
 - **[Troubleshooting & FAQ](guides/troubleshooting.md)** — Content filter errors, quality scores, badge issues, cross-tool limitations
 
 ---
@@ -99,6 +100,7 @@ See **[Available Skills](../AGENTS.md#available-skills)** in AGENTS.md for the c
 | Generate a README for my project | [Getting Started](guides/getting-started.md) → `/pitchdocs:readme` |
 | See all 16 commands and what they do | [Command Reference](guides/command-reference.md) |
 | Understand how PitchDocs extracts features | [How PitchDocs Thinks](guides/concepts.md) |
+| Get a quick answer to a common question | [FAQ](faq/index.md) |
 | Fix a content filter error | [Troubleshooting](guides/troubleshooting.md) |
 | Set up PitchDocs with Cursor, Windsurf, or Cline | [Other AI Tools](guides/other-ai-tools.md) |
 | Create a public-ready repo with all docs | [Workflows](guides/workflows.md) — "Make a Repo Public-Ready" |
