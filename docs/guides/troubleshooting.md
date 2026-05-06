@@ -177,6 +177,10 @@ They moved to [ContextDocs](https://github.com/littlebearapps/contextdocs) in Pi
 
 ## Common Questions
 
+> Looking for the headline questions? See the standalone
+> **[FAQ](../faq/index.md)** — installation, AI tool support, data privacy,
+> monorepos, updates, and uninstall.
+
 ### Can I run PitchDocs on a private repo?
 
 Yes. PitchDocs works entirely locally — it reads your codebase via file system access. GitHub MCP integration (for milestones, releases, issues) requires `gh` CLI authentication but never exposes your code to external services.
